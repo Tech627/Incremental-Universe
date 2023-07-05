@@ -1,0 +1,99 @@
+body {
+    background-color: black;
+}
+
+#Matter {
+    font-size: 50px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 400px;
+}
+
+#MatterPerSec {
+    font-size: 25px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 400px;
+}
+
+#Souls {
+    font-size: 50px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 900px;
+    position: fixed;
+    top: 0;
+    margin-top: 10px;
+}
+
+#Souls-boost {
+    font-size: 25px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 900px;
+    position: fixed;
+    top: 0;
+    margin-top: 70px;
+}
+
+header {
+    background-color: white;
+    width: 1520px;
+    height: 100px;
+    border: 2px solid white;
+}
+
+#MatterButton {
+    background-color: white;
+    width: 200px;
+    height: 80px;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    align-items: center;
+    margin-left: 660px;
+    cursor: pointer;
+}
+
+#ClickUpgrade1 {
+    background-color: white;
+    width: 250px;
+    height: 130px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 250px;
+    margin-top: 100px;
+    cursor: pointer;
+}
+
+#ProductionUnit1 {
+    background-color: white;
+    width: 250px;
+    height: 130px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 250px;
+    margin-top: 290px;
+}
+
+#SacrificePrestige {
+    width: 250px;
+    height: 90px;
+    font-size: 23px;
+    color: black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    margin-left: 650px;
+    margin-bottom: 70px;
+}

@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Incremental Universe</title>
+</head>
+<body>
+    <header>
+        <div id="Matter">Matter: 0</div>
+        <div id="MatterPerSec">0 Matter/sec</div>
+        <div id="Souls">Souls: 0</div>
+        <div id="Souls-boost">1.00x boost</div>
+    </header>
+    <button id="MatterButton" onclick="btnClick()"> Get 1 Matter </button>
+    <div class="Upgrades-container">
+        <div id="ClickUpgrade1" onclick="ClickUpgrade1()"> Click Upgrade 1 
+            <p>Cost: 50</p>
+            <p>Power: +1 Matter</p>
+            <p>Level: 0</p>
+        </div>
+        <div id="ProductionUnit1" onclick="ProductionUnit1()"> Production Unit 1
+            <p>Cost: 250</p>
+            <p>Power: +1 Matter/sec</p>
+            <p>Level: 0</p>
+        </div>
+    </div>
+    <button id="SacrificePrestige" onclick="SacrificePrestige()">Sacrifice for 0 Souls</button>
+</body>
+<script src="main.js"></script>
+</html>
