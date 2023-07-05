@@ -43,6 +43,97 @@ header {
     border: 2px solid white;
 }
 
+#Achievements-button {
+    background-color: white;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    margin-left: 960px;
+    position: absolute;
+    margin-top: 120px;
+    top: 0;
+    cursor: pointer;
+}
+
+.Achievements {
+    background-color: white;
+    border-radius: 6px;
+    width: 1200px;
+    height: 400px;
+    font-size: 20px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: -830;
+    margin-top: 160px;
+    visibility: hidden;
+}
+
+.open-Achievements {
+    visibility: visible;
+}
+
+#Achievement1 {
+    background-color: grey;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border: 2px solid black;
+    width: 70px;
+    height: 70px;
+}
+
+.complete-Achievement1 {
+    background-color: rgb(0, 255, 0);
+}
+
+#achievement-req {
+    color: black;
+    font-size: 11px;
+    text-align: center;
+    position: absolute;
+}
+
+#Main-button {
+    background-color: white;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    margin-left: 360px;
+    position: absolute;
+    margin-top: 120px;
+    top: 0;
+    cursor: pointer;
+}
+
+.Main {
+    visibility: hidden;
+}
+
+.open-Main {
+    visibility: visible;
+}
+
 #MatterButton {
     background-color: white;
     width: 200px;
@@ -51,8 +142,32 @@ header {
     color: black;
     text-align: center;
     align-items: center;
-    margin-left: 660px;
+    margin-left: 300px;
+    margin-top: 60px;
     cursor: pointer;
+}
+
+#Upgrades-button {
+    background-color: white;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    margin-left: 660px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.Upgrades-container {
+    visibility: hidden;
+}
+
+.open-Upgrades-container {
+    visibility: visible;
 }
 
 #ClickUpgrade1 {
@@ -64,7 +179,7 @@ header {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 250px;
-    margin-top: 100px;
+    margin-top: 50px;
     cursor: pointer;
 }
 
@@ -95,7 +210,7 @@ header {
     top: 0;
     right: 0;
     margin-right: 250px;
-    margin-top: 290px;
+    margin-top: 240px;
 }
 
 #ProductionUnit2 {
@@ -110,7 +225,7 @@ header {
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 490px;
+    margin-top: 440px;
     margin-right: 250px;
 }
 

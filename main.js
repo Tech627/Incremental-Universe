@@ -3,7 +3,12 @@ var MatterPerSec = 0;
 var Souls = 0;
 var SoulsToGet = 0;
 var Soulsboost = 0;
+let Upgrades_container = document.getElementById("Upgrades-container");
+let Main = document.getElementById("Main");
+let Achievements = document.getElementById("Achievements");
+let Achievement_1 = document.getElementById("Achievement1");
 // Upgrades
+
     var ClickUpgrade_1 = {
         cost: 50,
         power: 1,
@@ -29,6 +34,12 @@ var Soulsboost = 0;
     }
 // End of Upgrades
 
+//Achievements 
+
+    var Achievement1 = {
+        requirment: 100,
+    }
+
 function format(amount) {
     let power = Math.floor(Math.log10(amount))
     let mantissa = amount / Math.pow(10, power)
@@ -41,6 +52,9 @@ function btnClick() {
     setInterval(function() {
         document.getElementById("Matter").textContent = "Matter: " + format(Matter);    
     }, 250);
+    if(Matter >= Achievement1.requirment ) {
+        Achievement_1.classList.add("complete-Achievement1");
+    }
 }
 
 // Normal Upgrades
@@ -99,6 +113,26 @@ function ProductionUnit2() {
     }
 }
 
+// Tabs
+
+function OpenUpgrades() {
+    Upgrades_container.classList.add("open-Upgrades-container");
+    Main.classList.remove("open-Main");
+    Achievements.classList.remove("open-Achievements");
+}
+
+function OpenMain() {
+    Main.classList.add("open-Main");
+    Upgrades_container.classList.remove("open-Upgrades-container");
+    Achievements.classList.remove("open-Achievements");
+}
+
+function OpenAchievements() {
+    Achievements.classList.add("open-Achievements")
+    Upgrades_container.classList.remove("open-Upgrades-container");
+    Main.classList.remove("open-Main");
+}
+
 //Sacrifice Prestige
 
 function SacrificePrestige() {
@@ -114,8 +148,10 @@ function SacrificePrestige() {
         ProductionUnit_1.power = 0;
         ProductionUnit_1.level = 0;
         MatterPerSec = 0;
-        document.getElementById("Souls").textContent = "Souls: " + format(Souls);
-        document.getElementById("Souls-boost").textContent = format(Soulsboost) + "x boost";    
+        setInterval(function () {
+            document.getElementById("Souls").textContent = "Souls: " + format(Souls);
+            document.getElementById("Souls-boost").textContent = format(Soulsboost) + "x boost";       
+        }, 250);    
         document.getElementById("SacrificePrestige").textContent = "Sacrifice for " + format(SoulsToGet) + " Souls";    
         if( Soulsboost >= 0.1 ) {
             ClickUpgrade_1.power *= Math.sqrt(Soulsboost / 1.5);
@@ -134,5 +170,3 @@ function SacrificePrestige() {
 }
 
 //End of Prestige
-
-setInterval();

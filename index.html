@@ -12,8 +12,21 @@
         <div id="Souls">Souls: 0</div>
         <div id="Souls-boost">1.00x boost</div>
     </header>
-    <button id="MatterButton" onclick="btnClick()"> Get 1 Matter </button>
-    <div class="Upgrades-container">
+    <div id="Achievements-button" onclick="OpenAchievements()"> Achievements 
+        <div class="Achievements" id="Achievements">
+            <div id="Achievement1"> Achievement 1
+            <p id="Achievement1-text"> Getting Start </p>  
+            <p id="achievement-req"> Get 100 Matter </p>  
+            </div>
+        </div>
+    </div>
+    <div id="Upgrades-button" onclick="OpenUpgrades()"> Upgrades </div>
+    <div id="Main-button" onclick="OpenMain()"> Main 
+    <div class="Main" id="Main">
+        <button id="MatterButton" onclick="btnClick()"> Get 1 Matter </button>
+    </div>
+    </div>
+    <div class="Upgrades-container" id="Upgrades-container">
         <div id="ClickUpgrade1" onclick="ClickUpgrade1()"> Click Upgrade 1 
             <p>Cost: 50</p>
             <p>Power: +1 Matter</p>
