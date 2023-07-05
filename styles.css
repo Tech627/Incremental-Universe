@@ -68,6 +68,20 @@ header {
     cursor: pointer;
 }
 
+#ClickUpgrade2 {
+    background-color: white;
+    width: 250px;
+    height: 130px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 250px;
+    position: absolute;
+    cursor: pointer;
+    margin-top: 70px;
+}
+
 #ProductionUnit1 {
     background-color: white;
     width: 250px;
@@ -82,6 +96,22 @@ header {
     right: 0;
     margin-right: 250px;
     margin-top: 290px;
+}
+
+#ProductionUnit2 {
+    background-color: white;
+    width: 250px;
+    height: 130px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 490px;
+    margin-right: 250px;
 }
 
 #SacrificePrestige {
