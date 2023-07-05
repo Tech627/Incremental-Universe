@@ -37,7 +37,7 @@ function ClickUpgrade1() {
         ClickUpgrade_1.cost *= 1.07;
         ClickUpgrade_1.power++;
         ClickUpgrade_1.level++;
-        document.getElementById("ClickUpgrade1").textContent = "Click Upgrade 1\n" + "\nCost: " + format(ClickUpgrade_1.cost) + "\n\nPower: +" + format(ClickUpgrade_1.power) + " Matter\n\nLevel: " + ClickUpgrade_1.level;
+        document.getElementById("ClickUpgrade1").innerHTML = "Click Upgrade 1<br>" + "<br>Cost: " + format(ClickUpgrade_1.cost) + "<br><br>Power: +" + format(ClickUpgrade_1.power) + " Matter<br><br>Level: " + ClickUpgrade_1.level;
         document.getElementById("MatterButton").textContent = "Get " + format(ClickUpgrade_1.power) + " Matter";
     }
 }
@@ -49,7 +49,7 @@ function ProductionUnit1() {
         ProductionUnit_1.power++;
         ProductionUnit_1.level++;
         MatterPerSec = ProductionUnit_1.power;
-        document.getElementById("ProductionUnit1").textContent = "Production Unit 1\n" + "\nCost: " + format(ProductionUnit_1.cost) + "\n\nPower: +" + format(ProductionUnit_1.power) + " Matter/sec\n\nLevel " + ProductionUnit_1.level;
+        document.getElementById("ProductionUnit1").innerHTML = "Production Unit 1<br>" + "<br>Cost: " + format(ProductionUnit_1.cost) + "<br><br>Power: +" + format(ProductionUnit_1.power) + " Matter/sec<br><br>Level " + ProductionUnit_1.level;
         document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";  
         setInterval(function() {
            Matter += 1;
