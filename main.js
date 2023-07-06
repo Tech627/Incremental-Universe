@@ -6,7 +6,10 @@ var Soulsboost = 0;
 let Upgrades_container = document.getElementById("Upgrades-container");
 let Main = document.getElementById("Main");
 let Achievements = document.getElementById("Achievements");
+let Challanges = document.getElementById("Challanges");
+let Challange_1 = document.getElementById("Challange1");
 let Achievement_1 = document.getElementById("Achievement1");
+let Achievement_2 = document.getElementById("Achievement2");
 // Upgrades
 
     var ClickUpgrade_1 = {
@@ -40,6 +43,10 @@ let Achievement_1 = document.getElementById("Achievement1");
         requirment: 100,
     }
 
+    var Achievement2 = {
+        requirment: 1,
+    }
+
 function format(amount) {
     let power = Math.floor(Math.log10(amount))
     let mantissa = amount / Math.pow(10, power)
@@ -52,8 +59,11 @@ function btnClick() {
     setInterval(function() {
         document.getElementById("Matter").textContent = "Matter: " + format(Matter);    
     }, 250);
-    if(Matter >= Achievement1.requirment ) {
-        Achievement_1.classList.add("complete-Achievement1");
+    if(Matter >= 100 ) {
+        Achievement_1.classList.add("complete-Achievement");
+    };
+    if(Matter >= 1000) {
+        Challange_1.classList.add("show-Finnish-button");
     }
 }
 
@@ -67,6 +77,9 @@ function ClickUpgrade1() {
         document.getElementById("ClickUpgrade1").innerHTML = "Click Upgrade 1<br>" + "<br>Cost: " + format(ClickUpgrade_1.cost) + "<br><br>Power: +" + format(ClickUpgrade_1.power) + " Matter<br><br>Level: " + ClickUpgrade_1.level;
         document.getElementById("MatterButton").textContent = "Get " + format(ClickUpgrade_1.power) + " Matter";
     }
+    if(ClickUpgrade_1.level >= 1 ) {
+        Achievement_2.classList.add("complete-Achievement");
+    }; 
 }
 
 function ClickUpgrade2() {
@@ -119,18 +132,28 @@ function OpenUpgrades() {
     Upgrades_container.classList.add("open-Upgrades-container");
     Main.classList.remove("open-Main");
     Achievements.classList.remove("open-Achievements");
+    Challanges.classList.remove("open-Challanges");
 }
 
 function OpenMain() {
     Main.classList.add("open-Main");
     Upgrades_container.classList.remove("open-Upgrades-container");
     Achievements.classList.remove("open-Achievements");
+    Challanges.classList.remove("open-Challanges");
 }
 
 function OpenAchievements() {
     Achievements.classList.add("open-Achievements")
     Upgrades_container.classList.remove("open-Upgrades-container");
     Main.classList.remove("open-Main");
+    Challanges.classList.remove("open-Challanges");
+}
+
+function OpenChallanges() {
+    Challanges.classList.add("open-Challanges");
+    Main.classList.remove("open-Main");
+    Achievements.classList.remove("open-Achievements");
+    Upgrades_container.classList.remove("open-Upgrades-container");
 }
 
 //Sacrifice Prestige
@@ -139,7 +162,7 @@ function SacrificePrestige() {
     if( Matter >= 10000 ) {
         Souls += Math.sqrt(Matter / 10000);
         SoulsToGet += Math.sqrt(Matter / 10000)
-        Soulsboost += Math.sqrt(Souls / 5);
+        Soulsboost += Math.sqrt(Souls / 5) + 1;
         Matter -= Matter;
         ClickUpgrade_1.cost = 50;
         ClickUpgrade_1.power = 1;
@@ -169,4 +192,35 @@ function SacrificePrestige() {
     }
 }
 
-//End of Prestige
+//Challanges
+
+function Challange1() {
+    Matter = 0;
+    MatterPerSec = 0;
+    ClickUpgrade_1.cost = 50;
+    ClickUpgrade_1.power = 1;
+    ClickUpgrade_1.level = 0;
+    ProductionUnit_1.cost = 250;
+    ProductionUnit_1.power = 0;
+    ProductionUnit_1.level = 0;
+    ClickUpgrade1() = false;
+    ProductionUnit1() = false;
+    ClickUpgrade2() = false;
+    ProductionUnit2() = false;
+}
+
+function BackBtn() {
+    Challange1() = false;
+    ClickUpgrade1() = true;
+    ProductionUnit1() = true;
+    ClickUpgrade2() = true;
+    ProductionUnit2() = true;
+}
+
+function FinnishBtn() {
+    Challange1() = false;
+    ClickUpgrade1() = true;
+    ProductionUnit1() = true;
+    ClickUpgrade2() = true;
+    ProductionUnit2() = true;
+}
