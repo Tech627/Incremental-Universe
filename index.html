@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>Incremental Universe</title>
 </head>
-<body>
+<body onload="Get()">
     <header>
         <div id="Matter">Matter: 0</div>
         <div id="MatterPerSec">0 Matter/sec</div>
@@ -20,8 +20,8 @@
                 <p>Goal: 1000 Matter</p>
                 <p>Reward: Slightly better Upgrades</p>
                 <button id="Back-button" onclick="BackBtn()"> Back </button>
-                <button class="Finnish-button" onclick="FinnishBtn()"> Finnish </button>
             </div>
+            <div class="Finnish-button" id="Finnish-button" onclick="FinnishBtn()"> Finnish </div>
         </div>
     </div>
     <div id="Achievements-button" onclick="OpenAchievements()"> Achievements 
@@ -65,6 +65,7 @@
         </div>
     </div>
     <button id="SacrificePrestige" onclick="SacrificePrestige()">Sacrifice for 0 Souls</button>
+    <button id="Save-btn" onclick="Save()"> Save </button>
 </body>
 <script src="main.js"></script>
 </html>

@@ -10,6 +10,7 @@ let Challanges = document.getElementById("Challanges");
 let Challange_1 = document.getElementById("Challange1");
 let Achievement_1 = document.getElementById("Achievement1");
 let Achievement_2 = document.getElementById("Achievement2");
+let Finnish_button = document.getElementById("Finnish-button");
 // Upgrades
 
     var ClickUpgrade_1 = {
@@ -62,9 +63,6 @@ function btnClick() {
     if(Matter >= 100 ) {
         Achievement_1.classList.add("complete-Achievement");
     };
-    if(Matter >= 1000) {
-        Challange_1.classList.add("show-Finnish-button");
-    }
 }
 
 // Normal Upgrades
@@ -194,7 +192,7 @@ function SacrificePrestige() {
 
 //Challanges
 
-function Challange1() {
+function Challenge1() {
     Matter = 0;
     MatterPerSec = 0;
     ClickUpgrade_1.cost = 50;
@@ -203,24 +201,104 @@ function Challange1() {
     ProductionUnit_1.cost = 250;
     ProductionUnit_1.power = 0;
     ProductionUnit_1.level = 0;
-    ClickUpgrade1() = false;
-    ProductionUnit1() = false;
-    ClickUpgrade2() = false;
-    ProductionUnit2() = false;
+    document.getElementById("ClickUpgrade1").ariaDisabled = true;
+    document.getElementById("ClickUpgrade2").ariaDisabled = true;
+    document.getElementById("ProductionUnit1").ariaDisabled = true;
+    document.getElementById("ProductionUnit2").ariaDisabled = true;
 }
 
 function BackBtn() {
-    Challange1() = false;
-    ClickUpgrade1() = true;
-    ProductionUnit1() = true;
-    ClickUpgrade2() = true;
-    ProductionUnit2() = true;
+    Matter = 0;
+    MatterPerSec = 0;
+    ClickUpgrade_1.cost = 50;
+    ClickUpgrade_1.power = 1;
+    ClickUpgrade_1.level = 0;
+    ProductionUnit_1.cost = 250;
+    ProductionUnit_1.power = 0;
+    ProductionUnit_1.level = 0;
+    document.getElementById("ClickUpgrade1").ariaDisabled = false;
+    document.getElementById("ClickUpgrade2").ariaDisabled = false;
+    document.getElementById("ProductionUnit1").ariaDisabled = false;
+    document.getElementById("ProductionUnit2").ariaDisabled = false;
 }
 
 function FinnishBtn() {
-    Challange1() = false;
-    ClickUpgrade1() = true;
-    ProductionUnit1() = true;
-    ClickUpgrade2() = true;
-    ProductionUnit2() = true;
+    Matter = 0;
+    MatterPerSec = 0;
+    ClickUpgrade_1.cost = 50;
+    ClickUpgrade_1.power = 1;
+    ClickUpgrade_1.level = 0;
+    ProductionUnit_1.cost = 250;
+    ProductionUnit_1.power = 0;
+    ProductionUnit_1.level = 0;
+    document.getElementById("ClickUpgrade1").ariaDisabled = false;
+    document.getElementById("ClickUpgrade2").ariaDisabled = false;
+    document.getElementById("ProductionUnit1").ariaDisabled = false;
+    document.getElementById("ProductionUnit2").ariaDisabled = false;
+    Finnish_button.classList.remove("show-Finnish-button")
+}
+
+function Save() {
+    if(localStorage) {
+        localStorage.setItem("Matter", JSON.stringify(Matter));
+        localStorage.setItem("MatterPerSec", JSON.stringify(MatterPerSec));
+        localStorage.setItem("ClickUpgrade1", JSON.stringify(ClickUpgrade_1));
+        localStorage.setItem("ClickUpgrade2", JSON.stringify(ClickUpgrade_2));
+        localStorage.setItem("ProductionUnit1", JSON.stringify(ProductionUnit_1));
+        localStorage.setItem("ProductionUnit2", JSON.stringify(ProductionUnit_2));
+        localStorage.setItem("Achievement1", JSON.stringify(Achievement_1));
+        localStorage.setItem("Achievement2", JSON.stringify(Achievement_2));
+        localStorage.setItem("Challange1", JSON.stringify(Challange_1));
+        localStorage.setItem("Souls", JSON.stringify(Souls));
+        localStorage.setItem("Souls-boost", JSON.stringify(Soulsboost));
+    }
+}
+
+function Get() {
+    if (localStorage) {
+        const SavedMatter = localStorage.getItem("Matter");
+        const SavedMatterPerSec = localStorage.getItem("MatterPerSec");
+        const SavedClickUpgrade_1 = localStorage.getItem("ClickUpgrade1");
+        const SavedClickUpgrade_2 = localStorage.getItem("ClickUpgrade2");
+        const SavedProductionUnit_1 = localStorage.getItem("ProductionUnit1");
+        const SavedProductionUnit_2 = localStorage.getItem("ProductionUnit2");
+        const SavedAchievement_1 = localStorage.getItem("Achievement1");
+        const SavedAchievement_2 = localStorage.getItem("Achievement2");
+        const SavedChallange_1 = localStorage.getItem("Challange1");
+        const SavedSouls = localStorage.getItem("Souls");
+        const SavedSoulsboost = localStorage.getItem("Souls-boost");
+        if(SavedMatter) {
+            Matter = JSON.parse(SavedMatter);
+        } 
+        if(SavedMatterPerSec) {
+            MatterPerSec = JSON.parse(SavedMatterPerSec);
+        }
+        if(SavedClickUpgrade_1) {
+            ClickUpgrade_1 = JSON.parse(SavedClickUpgrade_1);
+        }
+        if(SavedClickUpgrade_2) {
+            ClickUpgrade_2 = JSON.parse(SavedClickUpgrade_2);
+        }
+        if(SavedProductionUnit_1) {
+            ProductionUnit_1 = JSON.parse(SavedProductionUnit_1);
+        }
+        if(SavedProductionUnit_2) {
+            ProductionUnit_2 = JSON.parse(SavedProductionUnit_2);
+        }
+        if(SavedAchievement_1) {
+            Achievement_1 = JSON.parse(SavedAchievement_1);
+        }
+        if(SavedAchievement_2) {
+            Achievement_2 = JSON.parse(SavedAchievement_2);
+        }
+        if(SavedChallange_1) {
+            Challange_1 = JSON.parse(SavedChallange_1);
+        }
+        if(SavedSouls) {
+            Souls = JSON.parse(SavedSouls);
+        }
+        if(SavedSoulsboost) {
+            Soulsboost = JSON.parse(SavedSoulsboost);
+        }
+    } 
 }
