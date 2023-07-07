@@ -4,68 +4,92 @@ body {
     background-size: cover;
 }
 
+#nav-right {
+    border-left: 2px solid rgb(88, 72, 72);
+    background-color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 750px;
+}
+
 #Matter {
-    font-size: 50px;
-    color: black;
+    font-size: 18px;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 400px;
+    position: absolute;
+    padding-top: 8px;
+    padding-right: 8px;
+    top: 0;
+    right: 0;
 }
 
 #MatterPerSec {
-    font-size: 25px;
-    color: black;
+    font-size: 15px;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 400px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 30px;
+    padding-right: 8px;
 }
 
 #Souls {
-    font-size: 50px;
-    color: black;
+    font-size: 18px;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 900px;
-    position: fixed;
+    position: absolute;
     top: 0;
-    margin-top: 10px;
+    right: 0;
+    margin-top: 60px;
+    padding-right: 8px;
 }
 
 #Souls-boost {
-    font-size: 25px;
-    color: black;
+    font-size: 15px;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 900px;
-    position: fixed;
+    position: absolute;
     top: 0;
-    margin-top: 70px;
+    right: 0;
+    margin-top: 85px;
+    padding-right: 8px;
 }
 
-header {
-    background-color: white;
-    width: 1460px;
-    height: 100px;
-    border: 2px solid white;
+#Dark-matter-currency {
+    font-size: 18px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 110px;
+    padding-right: 8px;
 }
 
 #Achievements-button {
-    background-color: white;
-    border-radius: 10px;
+    border: solid rgb(110, 104, 104);
+    background-color: black;
     width: 200px;
     height: 50px;
-    font-size: 20px;
-    color: black;
+    font-size: 30px;
+    color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 20px;
-    margin-left: 800px;
     position: absolute;
-    margin-top: 120px;
+    margin-top: 140px;
     top: 0;
+    left: 0;
     cursor: pointer;
 }
 
 .Achievements {
     background-color: white;
     border-radius: 6px;
-    width: 1200px;
+    width: 900px;
     height: 400px;
     font-size: 20px;
     color: black;
@@ -73,8 +97,8 @@ header {
     position: absolute;
     top: 0;
     right: 0;
-    left: -830;
-    margin-left: 180px;
+    left: 0;
+    margin-left: 300px;
     margin-top: 160px;
     visibility: hidden;
 }
@@ -139,19 +163,18 @@ header {
 }
 
 #Main-button {
-    background-color: white;
-    border-radius: 10px;
+    border: 2px solid rgb(110, 104, 104);
+    background-color: black;
     width: 200px;
     height: 50px;
-    font-size: 20px;
-    color: black;
+    font-size: 30px;
+    padding-top: 20px;
+    color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    padding-top: 20px;
-    margin-left: 200px;
     position: absolute;
-    margin-top: 120px;
     top: 0;
+    left: 0;
     cursor: pointer;
 }
 
@@ -171,40 +194,43 @@ header {
     color: black;
     text-align: center;
     align-items: center;
-    margin-left: 450px;
+    margin-left: 680px;
+    border-radius: 10px;
     margin-top: 60px;
     cursor: pointer;
 }
 
 #Upgrades-button {
-    background-color: white;
-    border-radius: 10px;
+    border: 2px solid rgb(110, 104, 104);
+    background-color: black;
     width: 200px;
     height: 50px;
-    font-size: 20px;
-    color: black;
+    font-size: 30px;
+    color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 20px;
-    margin-left: 500px;
     position: absolute;
     top: 0;
-    margin-top: 120px;
+    left: 0;
+    margin-top: 70px;
     cursor: pointer;
 }
 
 #Challanges-button {
-    background-color: white;
-    border-radius: 10px;
+    border: 2px solid rgb(110, 104, 104);
+    background-color: black;
     width: 200px;
     height: 50px;
-    font-size: 20px;
-    color: black;
+    font-size: 30px;
+    color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 20px;
-    margin-left: 1100px;
-    margin-top: 9px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 210px;
     cursor: pointer;
 }
 
@@ -215,7 +241,7 @@ header {
     height: 300px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 100px;
+    margin-left: 250px;
     margin-top: 250px;
     margin-right: 100px;
     position: absolute;
@@ -274,8 +300,10 @@ header {
     color: black;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 0;
     margin-left: 250px;
-    margin-top: 50px;
+    margin-top: 155px;
     cursor: pointer;
 }
 
@@ -289,8 +317,9 @@ header {
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 250px;
     position: absolute;
+    top: 0;
     cursor: pointer;
-    margin-top: 70px;
+    margin-top: 360px;
 }
 
 #ProductionUnit1 {
@@ -306,7 +335,7 @@ header {
     top: 0;
     right: 0;
     margin-right: 250px;
-    margin-top: 240px;
+    margin-top: 155px;
 }
 
 #ProductionUnit2 {
@@ -321,11 +350,11 @@ header {
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 440px;
+    margin-top: 360px;
     margin-right: 250px;
 }
 
-#SacrificePrestige {
+.SacrificePrestige {
     width: 250px;
     height: 90px;
     font-size: 23px;
@@ -337,6 +366,11 @@ header {
     bottom: 0;
     margin-left: 650px;
     margin-bottom: 70px;
+    visibility: visible;
+}
+
+.show-SacrificePrestige {
+    visibility: visible;
 }
 
 #Save-btn {
@@ -351,4 +385,55 @@ header {
     position: absolute;
     bottom: 0;
     right: 0;
+}
+
+#Dark-matter-button {
+    background-image: url(images/Dark\ Matter\ button.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid rgb(110, 104, 104);
+    width: 200px;
+    height: 50px;
+    color: yellow;
+    font-size: 30px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 280px;
+    padding-top: 20px;
+}
+
+.Dark-matter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 1076px;
+    height: 750px;
+    position: absolute;
+    top: 0;
+    margin-left: 204px;
+    background-color: black;
+    visibility: hidden;
+}
+
+.open-Dark-matter {
+    visibility: visible;
+}
+
+#Rebirth {
+    width: 250px;
+    height: 70px;
+    font-size: 15px;
+    background-image: url(images/Rebirth.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 450px;
+    margin-top: 280px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
 }

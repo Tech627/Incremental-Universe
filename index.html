@@ -6,13 +6,14 @@
     <title>Incremental Universe</title>
 </head>
 <body onload="Get()">
-    <header>
+    <nav id="nav-right">
         <div id="Matter">Matter: 0</div>
         <div id="MatterPerSec">0 Matter/sec</div>
         <div id="Souls">Souls: 0</div>
         <div id="Souls-boost">1.00x boost</div>
-    </header>
-    <div id="Challanges-button" onclick="OpenChallanges()"> Challanges 
+        <div id="Dark-matter-currency">Dark Matter: 0</div>
+    </nav>
+    <div id="Challanges-button" onclick="OpenChallanges()"> Challanges </div>
         <div class="Challanges" id="Challanges">
             <div class="Challange1" id="Challange1" onclick="Challenge1()"> Challange 1
                 <p>When Enter the Challange</p>
@@ -23,8 +24,7 @@
             </div>
             <div class="Finnish-button" id="Finnish-button" onclick="FinnishBtn()"> Finnish </div>
         </div>
-    </div>
-    <div id="Achievements-button" onclick="OpenAchievements()"> Achievements 
+    <div id="Achievements-button" onclick="OpenAchievements()"> Achievements </div>
         <div class="Achievements" id="Achievements">
             <div class="Achievement1" id="Achievement1"> Achievement 1
             <p id="Achievement1-text"> Getting Start </p>  
@@ -35,12 +35,10 @@
             <p id="achievement-req2"> Buy Click Upgrade 1 </p>
             </div>
         </div>
-    </div>
     <div id="Upgrades-button" onclick="OpenUpgrades()"> Upgrades </div>
-    <div id="Main-button" onclick="OpenMain()"> Main 
+    <div id="Main-button" onclick="OpenMain()"> Main </div>
     <div class="Main" id="Main">
         <button id="MatterButton" onclick="btnClick()"> Get 1 Matter </button>
-    </div>
     </div>
     <div class="Upgrades-container" id="Upgrades-container">
         <div id="ClickUpgrade1" onclick="ClickUpgrade1()"> Click Upgrade 1 
@@ -64,7 +62,11 @@
             <p>Level: 0</p>
         </div>
     </div>
-    <button id="SacrificePrestige" onclick="SacrificePrestige()">Sacrifice for 0 Souls</button>
+    <div id="Dark-matter-button" onclick="OpenDarkMatter()"> Dark Matter </div>
+    <div class="Dark-matter" id="Dark-matter">
+        <button id="Rebirth"> Reset the galaxy for 0 Dark matter </button>
+    </div>
+    <button class="SacrificePrestige" id="SacrificePrestige" onclick="SacrificePrestige()">Sacrifice for 0 Souls</button>
     <button id="Save-btn" onclick="Save()"> Save </button>
 </body>
 <script src="main.js"></script>

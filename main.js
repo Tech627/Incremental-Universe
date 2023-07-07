@@ -3,14 +3,18 @@ var MatterPerSec = 0;
 var Souls = 0;
 var SoulsToGet = 0;
 var Soulsboost = 0;
+var Dark_Matter_currency = 0;
+var Dark_MatterToGet = 0;
 let Upgrades_container = document.getElementById("Upgrades-container");
 let Main = document.getElementById("Main");
 let Achievements = document.getElementById("Achievements");
 let Challanges = document.getElementById("Challanges");
+let Dark_Matter = document.getElementById("Dark-matter");
 let Challange_1 = document.getElementById("Challange1");
 let Achievement_1 = document.getElementById("Achievement1");
 let Achievement_2 = document.getElementById("Achievement2");
 let Finnish_button = document.getElementById("Finnish-button");
+let Sacrifice_Prestige = document.getElementById("SacrificePrestige");
 // Upgrades
 
     var ClickUpgrade_1 = {
@@ -63,6 +67,9 @@ function btnClick() {
     if(Matter >= 100 ) {
         Achievement_1.classList.add("complete-Achievement");
     };
+    if(Matter >= 10000 ) {
+        Sacrifice_Prestige.classList.add("show-SacrificePrestige");
+    }
 }
 
 // Normal Upgrades
@@ -131,6 +138,7 @@ function OpenUpgrades() {
     Main.classList.remove("open-Main");
     Achievements.classList.remove("open-Achievements");
     Challanges.classList.remove("open-Challanges");
+    Dark_Matter.classList.remove("open-Dark-matter");
 }
 
 function OpenMain() {
@@ -138,6 +146,7 @@ function OpenMain() {
     Upgrades_container.classList.remove("open-Upgrades-container");
     Achievements.classList.remove("open-Achievements");
     Challanges.classList.remove("open-Challanges");
+    Dark_Matter.classList.remove("open-Dark-matter");
 }
 
 function OpenAchievements() {
@@ -145,6 +154,7 @@ function OpenAchievements() {
     Upgrades_container.classList.remove("open-Upgrades-container");
     Main.classList.remove("open-Main");
     Challanges.classList.remove("open-Challanges");
+    Dark_Matter.classList.remove("open-Dark-matter");
 }
 
 function OpenChallanges() {
@@ -152,6 +162,15 @@ function OpenChallanges() {
     Main.classList.remove("open-Main");
     Achievements.classList.remove("open-Achievements");
     Upgrades_container.classList.remove("open-Upgrades-container");
+    Dark_Matter.classList.remove("open-Dark-matter");
+}
+
+function OpenDarkMatter() {
+    Dark_Matter.classList.add("open-Dark-matter");
+    Main.classList.remove("open-Main");
+    Achievements.classList.remove("open-Achievements");
+    Upgrades_container.classList.remove("open-Upgrades-container");
+    Challanges.classList.remove("open-Challanges");
 }
 
 //Sacrifice Prestige
@@ -178,15 +197,27 @@ function SacrificePrestige() {
             ClickUpgrade_1.power *= Math.sqrt(Soulsboost / 1.5);
             ProductionUnit_1.power *= Math.sqrt(Soulsboost / 1.5);
         }
-        if (SacrificePrestige >= 1) {
-            SoulsToGet = 0;
-            ClickUpgrade_1.cost = 50;
-            ClickUpgrade_1.power = 1;
-            ClickUpgrade_1.level = 0;
-            ProductionUnit_1.cost = 250;
-            ProductionUnit_1.power = 0;
-            ProductionUnit_1.level = 0;
-        }
+    }
+}
+
+// Dark matter Prestige
+
+function DarkMatterPrestige() {
+    if( Souls >= 1000 ) {
+        Dark_Matter_currency += Math.sqrt(Souls / 1000);
+        Dark_MatterToGet += Math.sqrt(Souls / 1000);
+        Matter -= Matter;
+        Souls -= Souls;
+        MatterPerSec -= MatterPerSec;
+        ClickUpgrade_1.cost = 50;
+        ClickUpgrade_1.power = 1;
+        ClickUpgrade_1.level = 0;
+        ProductionUnit_1.cost = 250;
+        ProductionUnit_1.power = 0;
+        ProductionUnit_1.level = 0;
+        setInterval(function() {
+            document.getElementById("Dark-matter-currency").textContent = "Dark Matter: " + format(Dark_Matter_currency);
+        })
     }
 }
 
@@ -238,6 +269,8 @@ function FinnishBtn() {
     Finnish_button.classList.remove("show-Finnish-button")
 }
 
+//Save & Load
+
 function Save() {
     if(localStorage) {
         localStorage.setItem("Matter", JSON.stringify(Matter));
@@ -251,7 +284,9 @@ function Save() {
         localStorage.setItem("Challange1", JSON.stringify(Challange_1));
         localStorage.setItem("Souls", JSON.stringify(Souls));
         localStorage.setItem("Souls-boost", JSON.stringify(Soulsboost));
+        localStorage.setItem("Dark-matter-currency", JSON.stringify(Dark_Matter_currency));
     }
+    alert("When Page is reloaded or refreshed It will say you have 0 everything, but you will have to click on something to show It's value!!")
 }
 
 function Get() {
@@ -267,6 +302,7 @@ function Get() {
         const SavedChallange_1 = localStorage.getItem("Challange1");
         const SavedSouls = localStorage.getItem("Souls");
         const SavedSoulsboost = localStorage.getItem("Souls-boost");
+        const SavedDark_Matter_currency = localStorage.getItem("Dark-matter-currency");
         if(SavedMatter) {
             Matter = JSON.parse(SavedMatter);
         } 
@@ -299,6 +335,9 @@ function Get() {
         }
         if(SavedSoulsboost) {
             Soulsboost = JSON.parse(SavedSoulsboost);
+        }
+        if(SavedDark_Matter_currency) {
+            Dark_Matter_currency = JSON.parse(SavedDark_Matter_currency);
         }
     } 
 }
