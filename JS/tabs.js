@@ -3,6 +3,7 @@ let Main = document.getElementById("Main");
 let Achievements = document.getElementById("Achievements");
 let Challanges = document.getElementById("Challanges");
 let Dark_Matter = document.getElementById("Dark-matter");
+let Options = document.getElementById("Options")
 let Skill_tree = document.getElementById("Skills");
 let Reset = document.getElementById("Rebirth");
 
@@ -64,4 +65,8 @@ function OpenDarkMatter() {
     Challanges.classList.remove("open-Challanges");
     Skill_tree.classList.remove("open-Skills");
     Reset.classList.remove("open-Rebirth");
+}
+
+function OpenOptions() {
+    Options.classList.add("open-Options");
 }
