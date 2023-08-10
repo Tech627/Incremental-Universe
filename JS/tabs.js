@@ -25,6 +25,7 @@ function OpenUpgrades() {
     Dark_Matter.classList.remove("open-Dark-matter");
     Skill_tree.classList.remove("open-Skills");
     Reset.classList.remove("open-Rebirth");
+    Options.classList.remove("open-Options");
 }
 
 function OpenMain() {
@@ -35,6 +36,7 @@ function OpenMain() {
     Dark_Matter.classList.remove("open-Dark-matter");
     Skill_tree.classList.remove("open-Skills");
     Reset.classList.remove("open-Rebirth");
+    Options.classList.remove("open-Options");
 }
 
 function OpenAchievements() {
@@ -45,6 +47,7 @@ function OpenAchievements() {
     Dark_Matter.classList.remove("open-Dark-matter");
     Skill_tree.classList.remove("open-Skills");
     Reset.classList.remove("open-Rebirth");
+    Options.classList.remove("open-Options");
 }
 
 function OpenChallanges() {
@@ -55,6 +58,7 @@ function OpenChallanges() {
     Dark_Matter.classList.remove("open-Dark-matter");
     Skill_tree.classList.remove("open-Skills");
     Reset.classList.remove("open-Rebirth");
+    Options.classList.remove("open-Options");
 }
 
 function OpenDarkMatter() {
@@ -65,8 +69,15 @@ function OpenDarkMatter() {
     Challanges.classList.remove("open-Challanges");
     Skill_tree.classList.remove("open-Skills");
     Reset.classList.remove("open-Rebirth");
+    Options.classList.remove("open-Options");
 }
 
 function OpenOptions() {
     Options.classList.add("open-Options");
+    Main.classList.remove("open-Main");
+    Achievements.classList.remove("open-Achievements");
+    Upgrades_container.classList.remove("open-Upgrades-container");
+    Challanges.classList.remove("open-Challanges");
+    Skill_tree.classList.remove("open-Skills");
+    Reset.classList.remove("open-Rebirth");
 }
