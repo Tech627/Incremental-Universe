@@ -1,7 +1,6 @@
 body {
-    background-image: url(images/galaxy\ img.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: black;
+    overflow: hidden;
 }
 
 #nav-right {
@@ -15,7 +14,7 @@ body {
 }
 
 #Matter {
-    font-size: 18px;
+    font-size: 15px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
@@ -26,7 +25,7 @@ body {
 }
 
 #MatterPerSec {
-    font-size: 15px;
+    font-size: 12px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
@@ -37,29 +36,29 @@ body {
 }
 
 #Souls {
-    font-size: 18px;
+    font-size: 14px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
     top: 0;
     right: 0;
     margin-top: 60px;
-    padding-right: 8px;
+    padding-right: 50px;
 }
 
-#Souls-boost {
-    font-size: 15px;
+#Souls-Gain {
+    font-size: 12px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 85px;
-    padding-right: 8px;
+    margin-top: 80px;
+    padding-right: 50px;
 }
 
 #Dark-matter-currency {
-    font-size: 18px;
+    font-size: 14px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
@@ -69,21 +68,25 @@ body {
     padding-right: 8px;
 }
 
-#Achievements-button {
+#Achievements-button[role="tab"] {
     border: solid rgb(110, 104, 104);
     background-color: black;
     width: 200px;
-    height: 50px;
-    font-size: 30px;
+    height: 35px;
+    font-size: 17px;
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 20px;
     position: absolute;
-    margin-top: 140px;
+    margin-top: 110px;
     top: 0;
     left: 0;
     cursor: pointer;
+}
+
+#Achievements-button:hover {
+    background-color: rgba(60, 57, 57, 0.652);
 }
 
 .Achievements {
@@ -162,12 +165,12 @@ body {
     position: absolute;
 }
 
-#Main-button {
+#Main-button[role="tab"] {
     border: 2px solid rgb(110, 104, 104);
     background-color: black;
     width: 200px;
-    height: 50px;
-    font-size: 30px;
+    height: 35px;
+    font-size: 17px;
     padding-top: 20px;
     color: white;
     text-align: center;
@@ -176,6 +179,10 @@ body {
     top: 0;
     left: 0;
     cursor: pointer;
+}
+
+#Main-button:hover {
+    background-color: rgba(60, 57, 57, 0.652);
 }
 
 .Main {
@@ -186,26 +193,128 @@ body {
     visibility: visible;
 }
 
-#MatterButton {
-    background-color: white;
-    width: 200px;
-    height: 80px;
-    font-size: 20px;
-    color: black;
+#Matter-button {
+    border: 2px solid rgb(110, 104, 104);
+    background-color: black;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
     text-align: center;
-    align-items: center;
-    margin-left: 680px;
-    border-radius: 10px;
-    margin-top: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    margin-top: 50px;
+    margin-left: 250px;
     cursor: pointer;
 }
 
-#Upgrades-button {
+#Matter-generator {
+    border: 2px solid white;
+    background-color: black;
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    margin-top: 200px;
+    margin-left: 250px;
+}
+
+#Matter-generator-cost {
+    border: 2px solid white;
+    background-color: black;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    margin-top: 200px;
+    margin-left: 600px;
+    cursor: pointer;
+}
+
+#Matter-boost {
+    border: 2px solid white;
+    background-color: black;
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    margin-top: 300px;
+    margin-left: 250px;
+}
+
+#Matter-boost-cost {
+    border: 2px solid white;
+    background-color: black;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    margin-top: 300px;
+    margin-left: 600px;
+    cursor: pointer;
+}
+
+#Matter-extent {
+    border: 2px solid white;
+    background-color: black;
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    margin-top: 400px;
+    margin-left: 250px;   
+}
+
+#Matter-extent-cost {
+    border: 2px solid white;
+    background-color: black;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    margin-top: 400px;
+    margin-left: 600px;
+    cursor: pointer;
+}
+
+#Upgrades-button[role="tab"] {
     border: 2px solid rgb(110, 104, 104);
     background-color: black;
     width: 200px;
-    height: 50px;
-    font-size: 30px;
+    height: 35px;
+    font-size: 17px;
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -213,16 +322,74 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: 70px;
+    margin-top: 55px;
     cursor: pointer;
 }
 
-#Challanges-button {
+#Upgrades-button:hover {
+    background-color: rgba(60, 57, 57, 0.652);
+}
+
+#Souls-Upgrade1 {
+    border: 2px solid rgb(52, 16, 16);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 300px;
+    margin-left: 325px;
+    cursor: pointer;
+}
+
+#Souls-Upgrade1-text {
+    position: absolute;
+    top: -260;
+    left: 0;
+    margin-left: 200px;
+    cursor: default;
+    width: 400px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 10px;
+    font-size: 15px;
+    visibility: hidden;
+}
+
+#Souls-Upgrade1-text2 {
+    position: absolute;
+    top: -230;
+    left: 0;
+    margin-left: 200px;
+    cursor: default;
+    width: 400px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding-top: 5px;
+    visibility: hidden;
+}
+
+#Souls-Upgrade1:hover #Souls-Upgrade1-text {
+    visibility: visible;
+}
+
+#Souls-Upgrade1:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+}
+
+#Challanges-button[role="tab"] {
     border: 2px solid rgb(110, 104, 104);
     background-color: black;
     width: 200px;
-    height: 50px;
-    font-size: 30px;
+    height: 35px;
+    font-size: 17px;
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -230,8 +397,12 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: 210px;
+    margin-top: 165px;
     cursor: pointer;
+}
+
+#Challanges-button:hover {
+    background-color: rgba(60, 57, 57, 0.652);
 }
 
 .Challanges {
@@ -292,85 +463,30 @@ body {
     visibility: visible;
 }
 
-#ClickUpgrade1 {
-    background-color: white;
-    width: 250px;
-    height: 130px;
-    font-size: 15px;
-    color: black;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    position: absolute;
-    top: 0;
-    margin-left: 250px;
-    margin-top: 155px;
-    cursor: pointer;
-}
-
-#ClickUpgrade2 {
-    background-color: white;
-    width: 250px;
-    height: 130px;
-    font-size: 15px;
-    color: black;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 250px;
-    position: absolute;
-    top: 0;
-    cursor: pointer;
-    margin-top: 360px;
-}
-
-#ProductionUnit1 {
-    background-color: white;
-    width: 250px;
-    height: 130px;
-    font-size: 15px;
-    color: black;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 250px;
-    margin-top: 155px;
-}
-
-#ProductionUnit2 {
-    background-color: white;
-    width: 250px;
-    height: 130px;
-    font-size: 15px;
-    color: black;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 360px;
-    margin-right: 250px;
-}
-
 .SacrificePrestige {
-    width: 250px;
-    height: 90px;
+    border: 3px solid white;
+    background-color: rgb(236, 47, 4);
+    width: 40px;
+    height: 40px;
     font-size: 23px;
     color: black;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     position: absolute;
-    bottom: 0;
-    margin-left: 650px;
-    margin-bottom: 70px;
-    visibility: visible;
+    top: 0;
+    right: 0;
+    margin-top: 58px;
 }
 
-.show-SacrificePrestige {
-    visibility: visible;
+#Souls-img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 3px;
+    margin-top: 2px;
 }
 
 #Save-btn {
@@ -387,23 +503,25 @@ body {
     right: 0;
 }
 
-#Dark-matter-button {
-    background-image: url(images/Dark\ Matter\ button.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 2px solid rgb(110, 104, 104);
+#Dark-matter-button[role="tab"] {
+    background-color: black;
+    border: 2px solid rgb(255, 218, 11);
     width: 200px;
-    height: 50px;
+    height: 35px;
     color: yellow;
-    font-size: 30px;
+    font-size: 17px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     position: absolute;
     left: 0;
     top: 0;
-    margin-top: 280px;
+    margin-top: 220px;
     padding-top: 20px;
+}
+
+#Dark-matter-button:hover {
+    background-color: rgba(110, 114, 3, 0.508);
 }
 
 .Dark-matter {
@@ -425,15 +543,131 @@ body {
     visibility: visible;
 }
 
-#Rebirth {
+.Rebirth {
     width: 250px;
     height: 70px;
     font-size: 15px;
-    background-image: url(images/Rebirth.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: grey;
     margin-left: 450px;
     margin-top: 280px;
     cursor: pointer;
     color: rgb(255, 255, 255);
+    visibility: hidden;
+    animation: Reset 3s ease-out 1s;
+}
+
+/*@keyframes Reset {
+    0% {
+        width: 0px;
+        height: 0px;
+    }
+    100% {
+        width: 250px;
+        height: 70px;
+    }
+}*/
+
+.open-Rebirth {
+    visibility: visible;
+}
+
+.Reset[role="tab"] {
+    width: 175px;
+    height: 35px;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 15px;
+    text-align: center;
+    background-color: grey;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 130px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.Skill-tree[role="tab"] {
+    width: 175px;
+    height: 35px;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 15px;
+    text-align: center;
+    background-color: grey;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 130px;
+    margin-left: 250px;
+    cursor: pointer;
+}
+
+.Skills {
+    width: 500px;
+    height: 700px;
+    margin-top: 100px;
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.open-Skills {
+    visibility: visible;
+}
+
+#Skill-1 {
+    width: 225px;
+    height: 40px;
+    padding-top: 20px;
+    background-color: grey;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 250px;
+    margin-left: 425px;
+    cursor: pointer;
+}
+
+#Quarks {
+    width: 175px;
+    height: 35px;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 15px;
+    text-align: center;
+    background-color: grey;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 130px;
+    margin-left: 450px;
+    cursor: pointer;
+}
+
+#Time-dilation {
+    width: 175px;
+    height: 35px;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 15px;
+    text-align: center;
+    background-color: grey;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 130px;
+    margin-left: 650px;
+    cursor: pointer;
 }
