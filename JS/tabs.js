@@ -80,4 +80,5 @@ function OpenOptions() {
     Challanges.classList.remove("open-Challanges");
     Skill_tree.classList.remove("open-Skills");
     Reset.classList.remove("open-Rebirth");
+    Dark_Matter.classList.remove("open-Dark-matter");
 }
