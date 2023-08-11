@@ -13,7 +13,9 @@
         <div id="Souls-Gain"> (+0) </div>
         <div id="Dark-matter-currency">Dark Matter: 0</div>
     </nav>
-    <div id="Challanges-button" role="tab" onclick="OpenChallanges()"> Challanges </div>
+    <div id="Challanges-button" role="tab" onclick="OpenChallanges()"> Challanges 
+        <div class="Challanges-styles" id="Challanges-styles"></div>
+    </div>
         <div class="Challanges" id="Challanges">
             <div class="Challange1" id="Challange1" onclick="Challenge1()"> Challange 1
                 <p>When Enter the Challange</p>
@@ -24,7 +26,9 @@
             </div>
             <div class="Finnish-button" id="Finnish-button" onclick="FinnishBtn()"> Finnish </div>
         </div>
-    <div id="Achievements-button" role="tab" onclick="OpenAchievements()"> Achievements </div>
+    <div id="Achievements-button" role="tab" onclick="OpenAchievements()"> Achievements 
+        <div class="Achievements-styles" id="Achievements-styles"></div>
+    </div>
         <div class="Achievements" id="Achievements">
             <div class="Achievement1" id="Achievement1"> Achievement 1
             <p id="Achievement1-text"> Getting Start </p>  
@@ -35,8 +39,12 @@
             <p id="achievement-req2"> Buy Click Upgrade 1 </p>
             </div>
         </div>
-    <div id="Upgrades-button" role="tab" onclick="OpenUpgrades()"> Upgrades </div>
-    <div id="Main-button" role="tab" onclick="OpenMain()"> Main </div>
+    <div id="Upgrades-button" role="tab" onclick="OpenUpgrades()"> Upgrades 
+        <div class="Upgrades-styles" id="Upgrades-styles"></div>
+    </div>
+    <div id="Main-button" role="tab" onclick="OpenMain()"> Main 
+    <div class="Main-styles" id="Main-styles" onclick="MainStyles()"></div>
+    </div>
     <div class="Main" id="Main">
         <div id="Matter-button"> Matter </div>
             <div id="Matter-generator"> Matter Generator [0] </div>
@@ -52,7 +60,9 @@
             <p id="Souls-Upgrade1-text2"> Cost: 1 Soul </p>
         </div>
     </div>
-    <div id="Dark-matter-button" role="tab" onclick="OpenDarkMatter()"> Dark Matter </div>
+    <div id="Dark-matter-button" role="tab" onclick="OpenDarkMatter()"> Dark Matter 
+        <div class="Dark-styles" id="Dark-styles"></div>
+    </div>
     <div class="Dark-matter" id="Dark-matter">
         <div class="Reset" id="Reset" role="tab" onclick="OpenReset()"> Reset </div>
             <button class="Rebirth" id="Rebirth" onclick="DarkMatterPrestige()"> Reset the galaxy for 0 Dark matter </button>
@@ -67,12 +77,13 @@
 
         </div>
     </div>
-    <div id="Options-button" role="tab" onclick="OpenOptions()"> Options </div>
+    <div id="Options-button" role="tab" onclick="OpenOptions()"> Options 
+        <div class="Options-styles" id="Options-styles"></div>
+    </div>
     <div class="Options" id="Options">
-       <div id="Options-text">Incremental Universe - v0.2.1.2
+       <div id="Options-text">Incremental Universe - v0.2.1.3
        <br>What's new:
-       <br>- added new background
-       <br>- added border for buttons
+       <br>- added new animation for buttons
        <br>
        <br>Inspired by - Incremental Mass
        <br>New Update coming on 11.08.2023

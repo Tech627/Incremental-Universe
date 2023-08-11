@@ -83,6 +83,34 @@ body {
     cursor: pointer;
 }
 
+.Achievements-styles {
+    width: 8px;
+    height: 58px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+}
+
+@keyframes fade-Achievements {
+    0% {
+        width: 0;
+        height: 58px;
+    }
+
+    100% {
+        width: 8px;
+        height: 58px;
+    }
+}
+
+.show-Achievements-styles {
+    animation: fade-Achievements 0.1s;
+    visibility: visible;
+    animation-timing-function: linear;
+}
+
 #Achievements-button:hover {
     background-color: rgba(60, 57, 57, 0.652);
 }
@@ -176,6 +204,34 @@ body {
     top: 0;
     left: 0;
     cursor: pointer;
+}
+
+.Main-styles {
+    width: 8px;
+    height: 58px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+}
+
+.show-Main-styles {
+    visibility: visible;
+    animation: fade-in 0.1s;
+    animation-timing-function: linear;
+}
+
+@keyframes fade-in {
+    0% {
+        width: 0;
+        height: 58px;
+    }
+
+    100% {
+        width: 8px;
+        height: 58px;
+    }
 }
 
 #Main-button:hover {
@@ -322,6 +378,34 @@ body {
     cursor: pointer;
 }
 
+.Upgrades-styles {
+    width: 8px;
+    height: 58px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+}
+
+@keyframes fade-Upgrades {
+    0% {
+        width: 0;
+        height: 58px;
+    }
+
+    100% {
+        width: 8px;
+        height: 58px;
+    }
+}
+
+.show-Upgrades-styles {
+    visibility: visible;
+    animation: fade-Upgrades 0.1s;
+    animation-timing-function: linear;
+}
+
 #Upgrades-button:hover {
     background-color: rgba(60, 57, 57, 0.652);
 }
@@ -394,6 +478,34 @@ body {
     left: 0;
     margin-top: 177px;
     cursor: pointer;
+}
+
+.Challanges-styles {
+    width: 8px;
+    height: 58px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+}
+
+.show-Challanges-styles {
+    visibility: visible;
+    animation: fade-in 0.1s;
+    animation-timing-function: linear;
+}
+
+@keyframes fade-in {
+    0% {
+        width: 0;
+        height: 58px;
+    }
+
+    100% {
+        width: 8px;
+        height: 58px;
+    }
 }
 
 #Challanges-button:hover {
@@ -512,6 +624,34 @@ body {
     top: 0;
     margin-top: 236.5px;
     padding-top: 20px;
+}
+
+.Dark-styles {
+    width: 8px;
+    height: 58px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: yellow;
+    visibility: hidden;
+}
+
+.show-Dark-styles {
+    visibility: visible;
+    animation: fade-in 0.1s;
+    animation-timing-function: linear;
+}
+
+@keyframes fade-in {
+    0% {
+        width: 0;
+        height: 58px;
+    }
+
+    100% {
+        width: 8px;
+        height: 58px;
+    }
 }
 
 #Dark-matter-button:hover {
@@ -679,6 +819,34 @@ body {
     margin-top: 294px;
     padding-top: 20px;
     cursor: pointer;
+}
+
+.Options-styles {
+    width: 8px;
+    height: 58px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+}
+
+.show-Options-styles {
+    visibility: visible;
+    animation: fade-in 0.1s;
+    animation-timing-function: linear;
+}
+
+@keyframes fade-in {
+    0% {
+        width: 0;
+        height: 58px;
+    }
+
+    100% {
+        width: 8px;
+        height: 58px;
+    }
 }
 
 .Options {
