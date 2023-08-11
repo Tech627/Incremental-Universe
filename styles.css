@@ -362,6 +362,49 @@ body {
     cursor: pointer;
 }
 
+.Tickspeed {
+    border: 2px solid white;
+    background-color: black;
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    margin-top: 500px;
+    margin-left: 250px; 
+    visibility: hidden;  
+}
+
+.show-Tickspeed {
+    visibility: visible;
+}
+
+.Tickspeed-cost {
+    border: 2px solid white;
+    background-color: black;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    margin-top: 500px;
+    margin-left: 600px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.show-Tickspeed-cost {
+    visibility: visible;
+}
+
 #Upgrades-button[role="tab"] {
     border: 3.5px solid  white;
     width: 200px;
@@ -410,6 +453,17 @@ body {
     background-color: rgba(60, 57, 57, 0.652);
 }
 
+#Souls-text {
+    position: absolute;
+    top: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 250px;
+    margin-left: 370px;
+    color: white;
+    font-weight: bold;
+}
+
 #Souls-Upgrade1 {
     border: 2px solid rgb(52, 16, 16);
     background-color: black;
@@ -420,6 +474,32 @@ body {
     left: 0;
     margin-top: 300px;
     margin-left: 325px;
+    cursor: pointer;
+}
+
+#Souls-Upgrade2 {
+    border: 2px solid rgb(52, 16, 16);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 300px;
+    margin-left: 370px;
+    cursor: pointer;
+}
+
+#Souls-Upgrade3 {
+    border: 2px solid rgb(52, 16, 16);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 300px;
+    margin-left: 415px;
     cursor: pointer;
 }
 
@@ -462,6 +542,26 @@ body {
 
 #Souls-Upgrade1:hover #Souls-Upgrade1-text2 {
     visibility: visible;
+}
+
+#Souls-Upgrade2:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: 160px;
+}
+
+#Souls-Upgrade2:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: 160px;
+}
+
+#Souls-Upgrade3:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: 120px;
+}
+
+#Souls-Upgrade3:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: 120px;
 }
 
 #Challanges-button[role="tab"] {
@@ -610,7 +710,7 @@ body {
     right: 0;
 }
 
-#Dark-matter-button[role="tab"] {
+.Dark-matter-button[role="tab"] {
     border: 2px solid rgb(255, 218, 11);
     width: 202px;
     height: 35px;
@@ -739,10 +839,6 @@ body {
 }
 
 .Skills {
-    width: 500px;
-    height: 700px;
-    margin-top: 100px;
-    background-color: black;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;

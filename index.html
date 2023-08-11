@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/Matter icon.jpg">
     <title>Incremental Universe</title>
 </head>
 <body onload="Get()">
@@ -53,23 +54,34 @@
             <div id="Matter-boost-cost" onclick="MatterBoost()"> Cost: 100 </div> 
             <div id="Matter-extent"> Matter Extent [0] </div>   
             <div id="Matter-extent-cost" onclick="MatterExtent()"> Cost 1e3 </div>
+            <div class="Tickspeed" id="Tickspeed"> Tickspeed [0] </div>
+            <div class="Tickspeed-cost" id="Tickspeed-cost" onclick="Tickspeed()"> cost: 1 Souls </div>
     </div>
     <div class="Upgrades-container" id="Upgrades-container">
+        <div id="Souls-text"> Soul Upgrades </div>
         <div id="Souls-Upgrade1" onclick="SoulsUpgrade1()">
-            <p id="Souls-Upgrade1-text"> Matter Boost's give free Matter Generators </p>
+            <p id="Souls-Upgrade1-text"> Gain 0.5 more Matter for every Matter Generator </p>
             <p id="Souls-Upgrade1-text2"> Cost: 1 Soul </p>
         </div>
+        <div id="Souls-Upgrade2" onclick="SoulsUpgrade2()"> 
+           <p id="Souls-Upgrade1-text"> Gain 3x more Souls </p>
+           <p id="Souls-Upgrade1-text2"> Cost: 10 Souls </p>
+        </div>
+        <div id="Souls-Upgrade3" onclick="SoulsUpgrade3()">
+            <p id="Souls-Upgrade1-text"> Unlock Tickspeed </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 20 Souls </p>
+        </div>
     </div>
-    <div id="Dark-matter-button" role="tab" onclick="OpenDarkMatter()"> Dark Matter 
+    <div class="Dark-matter-button" id="Dark-matter-button" role="tab" onclick="OpenDarkMatter()"> Dark Matter 
         <div class="Dark-styles" id="Dark-styles"></div>
     </div>
     <div class="Dark-matter" id="Dark-matter">
         <div class="Reset" id="Reset" role="tab" onclick="OpenReset()"> Reset </div>
             <button class="Rebirth" id="Rebirth" onclick="DarkMatterPrestige()"> Reset the galaxy for 0 Dark matter </button>
         <div class="Skill-tree" id="Skill-tree" role="tab" onclick="OpenSkills()"> Skill tree </div>
-           <div class="Skills" id="Skills">
+        <div class="Skills" id="Skills" role="tab">           
             <div id="Skill-1"> Matter Gain is raised to ^1.10 </div>
-           </div>
+        </div>
         <div class="Quarks" id="Quarks"> Quarks 
 
         </div>
@@ -81,11 +93,12 @@
         <div class="Options-styles" id="Options-styles"></div>
     </div>
     <div class="Options" id="Options">
-       <div id="Options-text">Incremental Universe - v0.2.1.3
+       <div id="Options-text">Incremental Universe - v0.2.1.4
        <br>What's new:
-       <br>- added new animation for buttons
+       <br>- Added 3 new Souls Upgrades 
+       <br>- Added Tickspeed for better progress 
        <br>
-       <br>Inspired by - Incremental Mass
+       <br>Inspired by - Incremental Mass rewritten
        <br>New Update coming on 11.08.2023
        </div>
     </div>

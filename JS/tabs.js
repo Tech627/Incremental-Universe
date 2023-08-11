@@ -38,6 +38,8 @@ function OpenUpgrades() {
     Achievements_styles.classList.remove("show-Achievements-styles");
     Challanges_styles.classList.remove("show-Challanges-styles");
     Dark_styles.classList.remove("show-Dark-styles");
+    Tickspeed2.classList.remove("show-Tickspeed");
+    Tickspeed_cost.classList.remove("show-Tickspeed-cost");
 }
 
 function OpenMain() {
@@ -55,6 +57,10 @@ function OpenMain() {
     Achievements_styles.classList.remove("show-Achievements-styles");
     Challanges_styles.classList.remove("show-Challanges-styles");
     Dark_styles.classList.remove("show-Dark-styles");
+    if(SoulsUpgrade_3.bought == true) {
+        Tickspeed2.classList.add("show-Tickspeed");
+        Tickspeed_cost.classList.add("show-Tickspeed-cost");
+    }
 }
 
 function OpenAchievements() {
@@ -72,6 +78,8 @@ function OpenAchievements() {
     Upgrades_styles.classList.remove("show-Upgrades-styles");
     Challanges_styles.classList.remove("show-Challanges-styles");
     Dark_styles.classList.remove("show-Dark-styles");
+    Tickspeed2.classList.remove("show-Tickspeed");
+    Tickspeed_cost.classList.remove("show-Tickspeed-cost");
 }
 
 function OpenChallanges() {
@@ -89,6 +97,8 @@ function OpenChallanges() {
     Upgrades_styles.classList.remove("show-Upgrades-styles");
     Achievements_styles.classList.remove("show-Achievements-styles");
     Dark_styles.classList.remove("show-Dark-styles");
+    Tickspeed2.classList.remove("show-Tickspeed");
+    Tickspeed_cost.classList.remove("show-Tickspeed-cost");
 }
 
 function OpenDarkMatter() {
@@ -106,6 +116,8 @@ function OpenDarkMatter() {
     Upgrades_styles.classList.remove("show-Upgrades-styles");
     Achievements_styles.classList.remove("show-Achievements-styles");
     Challanges_styles.classList.remove("show-Challanges-styles");
+    Tickspeed2.classList.remove("show-Tickspeed");
+    Tickspeed_cost.classList.remove("show-Tickspeed-cost");
 }
 
 function OpenOptions() {
@@ -123,4 +135,6 @@ function OpenOptions() {
     Achievements_styles.classList.remove("show-Achievements-styles");
     Challanges_styles.classList.remove("show-Challanges-styles");
     Dark_styles.classList.remove("show-Dark-styles");
+    Tickspeed2.classList.remove("show-Tickspeed");
+    Tickspeed_cost.classList.remove("show-Tickspeed-cost");
 }
