@@ -47,15 +47,23 @@
     <div class="Main-styles" id="Main-styles" onclick="MainStyles()"></div>
     </div>
     <div class="Main" id="Main">
-        <div id="Matter-button"> Matter </div>
-            <div id="Matter-generator"> Matter Generator [0] </div>
-            <div id="Matter-generator-cost" onclick="MatterGenerator()"> Cost: 10 </div>
-            <div id="Matter-boost"> Matter Boost [0] </div>
-            <div id="Matter-boost-cost" onclick="MatterBoost()"> Cost: 100 </div> 
-            <div id="Matter-extent"> Matter Extent [0] </div>   
-            <div id="Matter-extent-cost" onclick="MatterExtent()"> Cost 1e3 </div>
-            <div class="Tickspeed" id="Tickspeed"> Tickspeed [0] </div>
-            <div class="Tickspeed-cost" id="Tickspeed-cost" onclick="Tickspeed()"> cost: 1 Souls </div>
+        <div id="Matter-button" onclick="OpenMC()"> Matter 
+            <div class="Matter-content" id="Matter-content">
+                <div id="Matter-generator"> Matter Generator [0] </div>
+                <div id="Matter-generator-cost" onclick="MatterGenerator()"> Cost: 10 </div>
+                <div id="Matter-boost"> Matter Boost [0] </div>
+                <div id="Matter-boost-cost" onclick="MatterBoost()"> Cost: 100 </div> 
+                <div id="Matter-extent"> Matter Extent [0] </div>   
+                <div id="Matter-extent-cost" onclick="MatterExtent()"> Cost 1e3 </div>
+                <div class="Tickspeed" id="Tickspeed"> Tickspeed [0] </div>
+                <div class="Tickspeed-cost" id="Tickspeed-cost" onclick="Tickspeed()"> cost: 1 Souls </div>
+            </div>
+        </div>
+        <div class="BH-tab" id="BH-tab" onclick="OpenBH()"> Black Hole
+            <div class="BH-content" id="BH-content">
+                <div id="BH-extractor"> Black hole Extractor </div>    
+            </div>
+        </div>
     </div>
     <div class="Upgrades-container" id="Upgrades-container">
         <div id="Souls-text"> Soul Upgrades </div>
@@ -71,18 +79,38 @@
             <p id="Souls-Upgrade1-text"> Unlock Tickspeed </p>
             <p id="Souls-Upgrade1-text2"> Cost: 20 Souls </p>
         </div>
+        <div id="Souls-Upgrade4" onclick="SoulsUpgrade4()">
+            <p id="Souls-Upgrade1-text"> Boost Matter based on Souls </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 250 Souls</p>
+        </div>
+        <div id="Souls-Upgrade5" onclick="SoulsUpgrade5()">
+            <p id="Souls-Upgrade1-text"> Matter boosts Matter extent at a Extremely reduced rate </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 1e3 Souls </p>
+        </div>
+        <div id="Souls-Upgrade6" onclick="SoulsUpgrade6()">
+            <p id="Souls-Upgrade1-text"> Matter Extent power is increased by 1 </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 5e3 Souls </p>
+        </div>
+        <div id="Souls-Upgrade7" onclick="SoulsUpgrade7()">
+            <p id="Souls-Upgrade1-text"> Souls Boost Tickspeed power at a reduced rate </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 1e5 Souls </p>
+        </div>
     </div>
     <div class="Dark-matter-button" id="Dark-matter-button" role="tab" onclick="OpenDarkMatter()"> Dark Matter 
         <div class="Dark-styles" id="Dark-styles"></div>
     </div>
     <div class="Dark-matter" id="Dark-matter">
-        <div class="Reset" id="Reset" role="tab" onclick="OpenReset()"> Reset </div>
-            <button class="Rebirth" id="Rebirth" onclick="DarkMatterPrestige()"> Reset the galaxy for 0 Dark matter </button>
+        <div class="Reset" id="Reset" role="tab" onclick="OpenReset()">  </div>
         <div class="Skill-tree" id="Skill-tree" role="tab" onclick="OpenSkills()"> Skill tree </div>
         <div class="Skills" id="Skills" role="tab">           
-            <div id="Skill-1"> Matter Gain is raised to ^1.10 </div>
+            <div id="Skill-1" onclick="Skill1()"> Matter Gain is raised to ^1.10
+            <br> Cost: 1 Dark Matter    
+            </div>
+            <div id="Skill-2" onclick="Skill2()"> Unlock new tab in Main 
+            <br> Cost: 5 Dark Matter
+            </div>
         </div>
-        <div class="Quarks" id="Quarks"> Quarks 
+        <div class="Quarks" id="Quarks"> Atoms
 
         </div>
         <div class="Time-dilation" id="Time-dilation"> Time Dilation 
@@ -93,16 +121,22 @@
         <div class="Options-styles" id="Options-styles"></div>
     </div>
     <div class="Options" id="Options">
-       <div id="Options-text">Incremental Universe - v0.2.1.4
+       <div id="Options-text">Incremental Universe - v0.2.2.0
        <br>What's new:
-       <br>- Added 3 new Souls Upgrades 
-       <br>- Added Tickspeed for better progress 
+       <br>- Added 4 new Souls Upgrades 
+       <br>- Removed the previous way of gaining Dark Matter 
+       <br>- Added a new way of gaining the Dark Matter
+       <br>- Added 2 Skill Upgrades  
+       <br>- Removed Reset tab from Dark Matter layer
+       <br>- Re-named Quarks tab to Atoms tab in Dark Matter layer  
+       <br>- Re-arranged button in the Matter tab
        <br>
        <br>Inspired by - Incremental Mass rewritten
-       <br>New Update coming on 11.08.2023
+       <br>New Update coming soon
        </div>
     </div>
     <button class="SacrificePrestige" id="SacrificePrestige" onclick="SacrificePrestige()"><img src="images/Souls.webp" id="Souls-img"></button>
+    <button class="Rebirth" id="Rebirth" onclick="DarkMatterPrestige()"><img src="images/Black-hole img.jpg" id="BH-img"></button>
     <button id="Save-btn" onclick="Save()"> Save </button>
 </body>
 <script src="JS/main.js"></script>

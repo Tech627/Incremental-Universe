@@ -1,7 +1,5 @@
-let Matter = [
-    "Matter", 0
-]
-var MatterPerSec = 0;
+var Matter = 10;
+var MatterPerSec = 1;
 var MatterGenerator_1 = 0;
 var Souls = 0;
 var SoulsToGet = 0;
@@ -16,6 +14,7 @@ let Sacrifice_Prestige = document.getElementById("SacrificePrestige");
 let Dark_Matter_button = document.getElementById("Dark-matter-button");
 let Tickspeed2 = document.getElementById("Tickspeed")
 let Tickspeed_cost = document.getElementById("Tickspeed-cost");
+let BH_tab = document.getElementById("BH-tab");
 
 // Matter tab
 
@@ -60,6 +59,26 @@ let Tickspeed_cost = document.getElementById("Tickspeed-cost");
     bought: false,
    }
 
+   var SoulsUpgrade_4 = {
+    cost: 250,
+    bought: false,
+   }
+
+   var SoulsUpgrade_5 = {
+    cost: 1e3,
+    bought: false,
+   }
+
+   var SoulsUpgrade_6 = {
+    cost: 5e3,
+    bought: false,
+   }
+
+   var SoulsUpgrade_7 = {
+    cost: 1e5,
+    bought: false,
+   }
+
 //Achievements 
 
     var Achievement1 = {
@@ -88,16 +107,21 @@ function MatterGenerator() {
         MatterGenerator_1.amount++;
         document.getElementById("Matter-generator").textContent = "Matter Generator [ " + MatterGenerator_1.amount + " ]";
         document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
-        document.getElementById("Matter").innerText = "Matter: " + format(Matter);
         document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";
     }
-    if(SoulsUpgrade_1.bought = true) {
-        MatterGenerator_1.power += 0.5;
-    }
-    setInterval(function () {
+    setInterval(function() {
         Matter += MatterPerSec;
         document.getElementById("Matter").textContent = "Matter: " + format(Matter);
     }, 1000);
+    if(SoulsUpgrade_1.bought == true) {
+        MatterGenerator_1.power += 0.5;
+    }
+    if(SoulsUpgrade_4.bought == true) {
+      MatterPerSec *= Souls / 100;
+    }
+    if(Skill_up1.bought == true) {
+        MatterPerSec ** 1.1;
+    }
 }
 
 function MatterBoost() {
@@ -111,16 +135,15 @@ function MatterBoost() {
         document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
         document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";
     }
-    setInterval(function () {
-        Matter += MatterPerSec;
-        document.getElementById("Matter").textContent = "Matter: " + format(Matter);
-    }, 1000);
+    if(SoulsUpgrade_4.bought == true) {
+        MatterPerSec *= Souls / 2000;
+      }
 }
 
 function MatterExtent() {
     if(Matter >= MatterExtent_1.cost) {
         Matter -= MatterExtent_1.cost;
-        MatterPerSec += MatterExtent_1.power; 
+        MatterPerSec += MatterExtent_1.power + MatterExtent_1.amount; 
         MatterExtent_1.cost *= 9;
         MatterExtent_1.power++;
         MatterExtent_1.amount++;
@@ -128,10 +151,15 @@ function MatterExtent() {
         document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
         document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";
     }
-    setInterval(function () {
-        Matter += MatterPerSec;
-        document.getElementById("Matter").textContent = "Matter: " + format(Matter);
-    }, 1000);
+    if(SoulsUpgrade_4.bought == true) {
+        MatterPerSec *= Souls / 1e7;
+    }
+    if(SoulsUpgrade_5.bought == true) {
+       MatterExtent_1.power *= Matter / 1e10;
+    }
+    if(SoulsUpgrade_6.bought == true) {
+        MatterExtent_1.power += 1;
+    }
 }
 
 function Tickspeed() {
@@ -144,6 +172,9 @@ function Tickspeed() {
         document.getElementById("Tickspeed").textContent = "Tickspeed [" + Tickspeed1.amount + "]";
         document.getElementById("Tickspeed-cost").textContent = "Cost: " + format(Tickspeed1.cost) + " Souls";
         document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";
+    }
+    if(SoulsUpgrade_7.bought == true) {
+        Tickspeed1.power *= Souls / 1e6;
     }
 }
 
@@ -196,6 +227,70 @@ function SoulsUpgrade3() {
         MatterExtent_1.amount = 0;  
         Tickspeed2.classList.add("show-Tickspeed");
         Tickspeed_cost.classList.add("show-Tickspeed-cost");
+    }
+}
+
+function SoulsUpgrade4() {
+    if(Souls >= SoulsUpgrade_4.cost) {
+        Souls -= SoulsUpgrade_4.cost;
+        SoulsUpgrade_4.bought = true;
+        MatterGenerator_1.cost = 10;
+        MatterGenerator_1.power = 1;
+        MatterGenerator_1.amount = 0;
+        MatterBoost_1.cost = 100;
+        MatterBoost_1.power = 1;
+        MatterBoost_1.amount = 0;
+        MatterExtent_1.cost = 1e3;
+        MatterExtent_1.power = 1;
+        MatterExtent_1.amount = 0;  
+    }
+}
+
+function SoulsUpgrade5() {
+    if(Souls >= SoulsUpgrade_5.cost) {
+        Souls -= SoulsUpgrade_5.cost;
+        SoulsUpgrade_5.bought = true;
+        MatterGenerator_1.cost = 10;
+        MatterGenerator_1.power = 1;
+        MatterGenerator_1.amount = 0;
+        MatterBoost_1.cost = 100;
+        MatterBoost_1.power = 1;
+        MatterBoost_1.amount = 0;
+        MatterExtent_1.cost = 1e3;
+        MatterExtent_1.power = 1;
+        MatterExtent_1.amount = 0;  
+    }
+}
+
+function SoulsUpgrade6() {
+    if(Souls >= SoulsUpgrade_6.cost) {
+        Souls -= SoulsUpgrade_6.cost;
+        SoulsUpgrade_6.bought = true;
+        MatterGenerator_1.cost = 10;
+        MatterGenerator_1.power = 1;
+        MatterGenerator_1.amount = 0;
+        MatterBoost_1.cost = 100;
+        MatterBoost_1.power = 1;
+        MatterBoost_1.amount = 0;
+        MatterExtent_1.cost = 1e3;
+        MatterExtent_1.power = 1;
+        MatterExtent_1.amount = 0;  
+    }
+}
+
+function SoulsUpgrade7() {
+    if(Souls >= SoulsUpgrade_7.cost) {
+        Souls -= SoulsUpgrade_7.cost;
+        SoulsUpgrade_7.bought = true;
+        MatterGenerator_1.cost = 10;
+        MatterGenerator_1.power = 1;
+        MatterGenerator_1.amount = 0;
+        MatterBoost_1.cost = 100;
+        MatterBoost_1.power = 1;
+        MatterBoost_1.amount = 0;
+        MatterExtent_1.cost = 1e3;
+        MatterExtent_1.power = 1;
+        MatterExtent_1.amount = 0;  
     }
 }
 //Sacrifice Prestige
@@ -252,18 +347,28 @@ function DarkMatterPrestige() {
 
 // Skill-upgrades
 
- let Skill_up1 = {
-    bought: false
- }
+let Skill_up1 = {
+    cost: 1,
+    bought: false,
+}
+
+let Skill_up2 = {
+    cost: 5,
+    bought: false,
+}
 
 function Skill1() {
-    if ( DarkMatter >= 10) {
-        Dark_Matter_currency -= 10;
-        MatterPerSec ** 1.1;
-        bought = true;
-        if (bought == true) {
-            MatterPerSec = MatterPerSec;
-        }
+    if ( Dark_Matter_currency >= 1) {
+        Dark_Matter_currency -= Skill_up1.cost;
+        Skill_up1.bought = true;
+    }
+}
+
+function Skill2() {
+    if ( Dark_Matter_currency >= 5) {
+        Dark_Matter_currency -= Skill_up2.cost;
+        Skill_up2.bought = true;
+        BH_tab.classList.add("show-BH-tab");
     }
 }
 
@@ -333,6 +438,8 @@ function Save() {
         localStorage.setItem("Soul-Upgrade1", JSON.stringify(SoulsUpgrade_1));
         localStorage.setItem("Soul-Upgrade2", JSON.stringify(SoulsUpgrade_2));
         localStorage.setItem("Soul-Upgrade3", JSON.stringify(SoulsUpgrade_3));
+        localStorage.setItem("Skill-1", JSON.stringify(Skill_up1));
+        localStorage.setItem("Skill-2", JSON.stringify(Skill_up2));
     }
     alert("When Page is reloaded or refreshed It will say you have 0 everything, but you will have to click on something to show It's value!!")
 }
@@ -354,6 +461,8 @@ function Get() {
         const SavedSoulUpgrade1 = localStorage.getItem("Soul-Upgrade1");
         const SavedSoulUpgrade2 = localStorage.getItem("Soul-Upgrade2");
         const SavedSoulUpgrade3 = localStorage.getItem("Soul-Upgrade3");
+        const SavedSkill_up1 = localStorage.getItem("Skill-1");
+        const SavedSkill_up2 = localStorage.getItem("Skill-2");
         if(SavedMatter) {
             Matter = JSON.parse(SavedMatter);
         } 
@@ -398,6 +507,12 @@ function Get() {
         }
         if(SavedSoulUpgrade3) {
             SoulsUpgrade_3 = JSON.parse(SavedSoulUpgrade3);
+        }
+        if(SavedSkill_up1) {
+            Skill_up1 = JSON.parse(SavedSkill_up1);
+        }
+        if(SavedSkill_up2) {
+            Skill_up2 = JSON.parse(SavedSkill_up2);
         }
     } 
 }

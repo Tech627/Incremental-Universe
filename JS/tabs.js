@@ -1,6 +1,8 @@
 let Upgrades_container = document.getElementById("Upgrades-container");
 let Upgrades_styles = document.getElementById("Upgrades-styles")
 let Main = document.getElementById("Main");
+let BH_content = document.getElementById("BH-content");
+let Matter_content = document.getElementById("Matter-content");
 let Main_styles = document.getElementById("Main-styles");
 let Achievements = document.getElementById("Achievements");
 let Achievements_styles = document.getElementById("Achievements-styles");
@@ -12,6 +14,20 @@ let Options = document.getElementById("Options")
 let Options_styles = document.getElementById("Options-styles");
 let Skill_tree = document.getElementById("Skills");
 let Reset = document.getElementById("Rebirth");
+
+function OpenBH() {
+    BH_content.classList.add("show-BH-content");
+    Matter_content.classList.remove("show-Matter-content");
+    Tickspeed2.classList.remove("show-Tickspeed");
+    Tickspeed_cost.classList.remove("show-Tickspeed-cost");
+}
+
+function OpenMC() {
+    Matter_content.classList.add("show-Matter-content");
+    BH_content.classList.remove("show-BH-content");
+    Tickspeed2.classList.add("show-Tickspeed");
+    Tickspeed_cost.classList.add("show-Tickspeed-cost");
+}
 
 function OpenReset() {
     Reset.classList.add("open-Rebirth");
@@ -40,6 +56,8 @@ function OpenUpgrades() {
     Dark_styles.classList.remove("show-Dark-styles");
     Tickspeed2.classList.remove("show-Tickspeed");
     Tickspeed_cost.classList.remove("show-Tickspeed-cost");
+    Matter_content.classList.remove("show-Matter-content");
+    BH_tab.classList.remove("show-BH-tab");
 }
 
 function OpenMain() {
@@ -61,6 +79,9 @@ function OpenMain() {
         Tickspeed2.classList.add("show-Tickspeed");
         Tickspeed_cost.classList.add("show-Tickspeed-cost");
     }
+    if(Skill_up2.bought == true) {
+        BH_tab.classList.add("show-BH-tab");
+    }
 }
 
 function OpenAchievements() {
@@ -80,6 +101,8 @@ function OpenAchievements() {
     Dark_styles.classList.remove("show-Dark-styles");
     Tickspeed2.classList.remove("show-Tickspeed");
     Tickspeed_cost.classList.remove("show-Tickspeed-cost");
+    Matter_content.classList.remove("show-Matter-content");
+    BH_tab.classList.remove("show-BH-tab");
 }
 
 function OpenChallanges() {
@@ -99,6 +122,8 @@ function OpenChallanges() {
     Dark_styles.classList.remove("show-Dark-styles");
     Tickspeed2.classList.remove("show-Tickspeed");
     Tickspeed_cost.classList.remove("show-Tickspeed-cost");
+    Matter_content.classList.remove("show-Matter-content");
+    BH_tab.classList.remove("show-BH-tab");
 }
 
 function OpenDarkMatter() {
@@ -118,6 +143,8 @@ function OpenDarkMatter() {
     Challanges_styles.classList.remove("show-Challanges-styles");
     Tickspeed2.classList.remove("show-Tickspeed");
     Tickspeed_cost.classList.remove("show-Tickspeed-cost");
+    Matter_content.classList.remove("show-Matter-content");
+    BH_tab.classList.remove("show-BH-tab");
 }
 
 function OpenOptions() {
@@ -137,4 +164,6 @@ function OpenOptions() {
     Dark_styles.classList.remove("show-Dark-styles");
     Tickspeed2.classList.remove("show-Tickspeed");
     Tickspeed_cost.classList.remove("show-Tickspeed-cost");
+    Matter_content.classList.remove("show-Matter-content");
+    BH_tab.classList.remove("show-BH-tab");
 }
