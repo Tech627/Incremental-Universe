@@ -108,11 +108,11 @@ function MatterGenerator() {
         document.getElementById("Matter-generator").textContent = "Matter Generator [ " + MatterGenerator_1.amount + " ]";
         document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
         document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";
+        setInterval(function() {
+            Matter += MatterPerSec;
+            document.getElementById("Matter").textContent = "Matter: " + format(Matter);
+        }, 1000);
     }
-    setInterval(function() {
-        Matter += MatterPerSec;
-        document.getElementById("Matter").textContent = "Matter: " + format(Matter);
-    }, 1000);
     if(SoulsUpgrade_1.bought == true) {
         MatterGenerator_1.power += 0.5;
     }
@@ -323,7 +323,7 @@ function SacrificePrestige() {
 // Dark matter Prestige
 
 function DarkMatterPrestige() {
-    if( Souls >= 1 ) {
+    if( Souls >= 1e15 ) {
         Dark_Matter_currency += Math.sqrt(Souls / 0.1);
         Dark_MatterToGet += Math.sqrt(Souls / 0.1);
         Matter -= Matter;
