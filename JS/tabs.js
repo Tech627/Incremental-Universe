@@ -58,6 +58,7 @@ function OpenUpgrades() {
     Tickspeed_cost.classList.remove("show-Tickspeed-cost");
     Matter_content.classList.remove("show-Matter-content");
     BH_tab.classList.remove("show-BH-tab");
+    BH_content.classList.remove("show-BH-content");
 }
 
 function OpenMain() {
@@ -103,6 +104,7 @@ function OpenAchievements() {
     Tickspeed_cost.classList.remove("show-Tickspeed-cost");
     Matter_content.classList.remove("show-Matter-content");
     BH_tab.classList.remove("show-BH-tab");
+    BH_content.classList.remove("show-BH-content");
 }
 
 function OpenChallanges() {
@@ -124,6 +126,7 @@ function OpenChallanges() {
     Tickspeed_cost.classList.remove("show-Tickspeed-cost");
     Matter_content.classList.remove("show-Matter-content");
     BH_tab.classList.remove("show-BH-tab");
+    BH_content.classList.remove("show-BH-content");
 }
 
 function OpenDarkMatter() {
@@ -145,6 +148,7 @@ function OpenDarkMatter() {
     Tickspeed_cost.classList.remove("show-Tickspeed-cost");
     Matter_content.classList.remove("show-Matter-content");
     BH_tab.classList.remove("show-BH-tab");
+    BH_content.classList.remove("show-BH-content");
 }
 
 function OpenOptions() {
@@ -166,4 +170,5 @@ function OpenOptions() {
     Tickspeed_cost.classList.remove("show-Tickspeed-cost");
     Matter_content.classList.remove("show-Matter-content");
     BH_tab.classList.remove("show-BH-tab");
+    BH_content.classList.remove("show-BH-content");
 }

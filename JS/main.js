@@ -6,6 +6,9 @@ var SoulsToGet = 0;
 var SoulsGain = 0;
 var Dark_Matter_currency = 0;
 var Dark_MatterToGet = 0;
+var Black_Hole = 0;
+var Black_HolePerSec = 0;
+var Black_HoleExtractor = 0;
 let Challange_1 = document.getElementById("Challange1");
 let Achievement_1 = document.getElementById("Achievement1");
 let Achievement_2 = document.getElementById("Achievement2");
@@ -39,6 +42,14 @@ let BH_tab = document.getElementById("BH-tab");
    var Tickspeed1 = {
     cost: 1,
     power: 1,
+    amount: 0,
+   }
+
+// BH-tab
+
+   var Black_HoleMachine = {
+    cost: 1,
+    power: 0,
     amount: 0,
    }
 
@@ -79,6 +90,18 @@ let BH_tab = document.getElementById("BH-tab");
     bought: false,
    }
 
+// Black Hole Upgrades
+
+   var BlackHoleUpgrade_1 = {
+    cost: 10,
+    bought: false,
+   }
+
+   var BlackHoleUpgrade_2 = {
+    cost: 100,
+    bought: false,
+   }
+
 //Achievements 
 
     var Achievement1 = {
@@ -100,7 +123,12 @@ function format(amount) {
 
 function MatterGenerator() {
     if(Matter >= MatterGenerator_1.cost) {
-        Matter -= MatterGenerator_1.cost;
+        if(BlackHoleUpgrade_1.bought = false) {
+            Matter -= MatterGenerator_1.cost;
+        }
+        if(BlackHoleUpgrade_1.bought = true) {
+            Matter -= 0;
+        }
         MatterPerSec = MatterGenerator_1.power;
         MatterGenerator_1.cost *= 1.5;
         MatterGenerator_1.power++;
@@ -126,7 +154,12 @@ function MatterGenerator() {
 
 function MatterBoost() {
     if(Matter >= MatterBoost_1.cost) {
-        Matter -= MatterBoost_1.cost;
+        if(BlackHoleUpgrade_1.bought = false) {
+            Matter -= MatterBoost_1.cost;
+        }
+        if(BlackHoleUpgrade_1.bought = true) {
+            Matter -= 0;
+        }
         MatterPerSec += MatterBoost_1.power + MatterBoost_1.amount;
         MatterBoost_1.cost *= 4;
         MatterBoost_1.power++;
@@ -142,7 +175,12 @@ function MatterBoost() {
 
 function MatterExtent() {
     if(Matter >= MatterExtent_1.cost) {
-        Matter -= MatterExtent_1.cost;
+        if(BlackHoleUpgrade_1.bought = false) {
+            Matter -= MatterExtent_1.cost;
+        }
+        if(BlackHoleUpgrade_1.bought = true) {
+            Matter -= 0;
+        }
         MatterPerSec += MatterExtent_1.power + MatterExtent_1.amount; 
         MatterExtent_1.cost *= 9;
         MatterExtent_1.power++;
@@ -175,6 +213,28 @@ function Tickspeed() {
     }
     if(SoulsUpgrade_7.bought == true) {
         Tickspeed1.power *= Souls / 1e6;
+    }
+}
+
+// BH-tab 
+
+function BlackHoleExtractor() {
+    if (Dark_Matter_currency >= Black_HoleMachine.cost) {
+        Dark_Matter_currency -= Black_HoleMachine.cost;
+        Black_HoleMachine.cost *= 2;
+        Black_HoleMachine.power++;
+        Black_HoleMachine.amount++;
+        Black_HoleExtractor++;
+        Black_HolePerSec += Black_HoleMachine.power;
+        document.getElementById("Black-Hole-gain").textContent = "(" + format(Black_HolePerSec) + " Black Holes formed/sec)";
+        document.getElementById("BH-extractor").textContent = "Black Hole Extractor [" + Black_HoleExtractor + "]";
+        setInterval(function () {
+            Black_Hole += Black_HolePerSec;
+            document.getElementById("Black-Hole").textContent = "You have formed " + format(Black_Hole) + " Black Holes";
+        }, 1000);
+        if(BlackHoleUpgrade_2.bought = true) {
+            Black_HolePerSec *= Matter
+        }
     }
 }
 
@@ -293,6 +353,23 @@ function SoulsUpgrade7() {
         MatterExtent_1.amount = 0;  
     }
 }
+
+// Black Hole Upgrades 
+
+function BlackHoleUpgrade1() {
+    if(Black_Hole >= BlackHoleUpgrade_1.cost) {
+        Black_Hole -= BlackHoleUpgrade_1.cost;
+        BlackHoleUpgrade_1.bought = true;
+    }
+}
+
+function BlackHoleUpgrade2() {
+    if(Black_Hole >= BlackHoleUpgrade_2.cost) {
+        Black_Hole -= BlackHoleUpgrade_2.cost;
+        BlackHoleUpgrade_2.bought = true;
+    }
+}
+
 //Sacrifice Prestige
 
 function SacrificePrestige() {
@@ -323,9 +400,9 @@ function SacrificePrestige() {
 // Dark matter Prestige
 
 function DarkMatterPrestige() {
-    if( Souls >= 1e15 ) {
-        Dark_Matter_currency += Math.sqrt(Souls / 0.1);
-        Dark_MatterToGet += Math.sqrt(Souls / 0.1);
+    if( Souls >= 1e4 ) {
+        Dark_Matter_currency += Math.sqrt(Souls / 10000);
+        Dark_MatterToGet += Math.sqrt(Souls / 10000);
         Matter -= Matter;
         Matter = 100;
         MatterGenerator_1.amount = 0;
@@ -440,6 +517,12 @@ function Save() {
         localStorage.setItem("Soul-Upgrade3", JSON.stringify(SoulsUpgrade_3));
         localStorage.setItem("Skill-1", JSON.stringify(Skill_up1));
         localStorage.setItem("Skill-2", JSON.stringify(Skill_up2));
+        localStorage.setItem("Black-Hole", JSON.stringify(Black_Hole));
+        localStorage.setItem("Black-Hole-gain", JSON.stringify(Black_HolePerSec));
+        localStorage.setItem("Black-Hole-machine", JSON.stringify(Black_HoleMachine));
+        localStorage.setItem("Black-Hole-extractor", JSON.stringify(Black_HoleExtractor));
+        localStorage.setItem("BlackHole-Upgrade1", JSON.stringify(BlackHoleUpgrade_1));
+        localStorage.setItem("BlackHole-Upgrade2", JSON.stringify(BlackHoleUpgrade_2));
     }
     alert("When Page is reloaded or refreshed It will say you have 0 everything, but you will have to click on something to show It's value!!")
 }
@@ -454,7 +537,7 @@ function Get() {
         const SavedSouls = localStorage.getItem("Souls");
         const SavedSoulsGain = localStorage.getItem("Souls-Gain");
         const SavedTickspeed = localStorage.getItem("Tickspeed");
-        /*const SavedDark_Matter_currency = localStorage.getItem("Dark-matter-currency");*/
+        const SavedDark_Matter_currency = localStorage.getItem("Dark-matter-currency");
         const SavedMatterGenerator = localStorage.getItem("Matter-generator");
         const SavedMatterBoost = localStorage.getItem("Matter-boost");
         const SavedMatterExtent = localStorage.getItem("Matter-extent");
@@ -463,6 +546,12 @@ function Get() {
         const SavedSoulUpgrade3 = localStorage.getItem("Soul-Upgrade3");
         const SavedSkill_up1 = localStorage.getItem("Skill-1");
         const SavedSkill_up2 = localStorage.getItem("Skill-2");
+        const SavedBlack_Hole = localStorage.getItem("Black-Hole");
+        const SavedBlack_Holegain = localStorage.getItem("Black-Hole-gain");
+        const SavedBlack_HoleMachine = localStorage.getItem("Black-Hole-machine");
+        const SavedBlack_HoleExtractor = localStorage.getItem("Black-Hole-extractor");
+        const SavedBlackHole_Upgrade1 = localStorage.getItem("BlackHole-Upgrade1");
+        const SavedBlackHole_Upgrade2 = localStorage.getItem("BlackHole-Upgrade2");
         if(SavedMatter) {
             Matter = JSON.parse(SavedMatter);
         } 
@@ -484,9 +573,9 @@ function Get() {
         if(SavedSoulsGain) {
             SoulsGain = JSON.parse(SavedSoulsGain);
         }
-        /*if(SavedDark_Matter_currency) {
+        if(SavedDark_Matter_currency) {
             Dark_Matter_currency = JSON.parse(SavedDark_Matter_currency);
-        }*/
+        }
         if(SavedMatterGenerator) {
             MatterGenerator_1 = JSON.parse(SavedMatterGenerator);
         }
@@ -513,6 +602,24 @@ function Get() {
         }
         if(SavedSkill_up2) {
             Skill_up2 = JSON.parse(SavedSkill_up2);
+        }
+        if(SavedBlack_Hole) {
+            Black_Hole = JSON.parse(SavedBlack_Hole);
+        }
+        if(SavedBlack_Holegain) {
+            Black_HolePerSec = JSON.parse(SavedBlack_Holegain);
+        }
+        if(SavedBlack_HoleMachine) {
+            Black_HoleMachine = JSON.parse(SavedBlack_HoleMachine);
+        }
+        if(SavedBlack_HoleExtractor) {
+            Black_HoleExtractor = JSON.parse(SavedBlack_HoleExtractor);
+        }
+        if(SavedBlackHole_Upgrade1) {
+            BlackHoleUpgrade_1 = JSON.parse(SavedBlackHole_Upgrade1);
+        }
+        if(SavedBlackHole_Upgrade2) {
+            BlackHoleUpgrade_2 = JSON.parse(SavedBlackHole_Upgrade2);
         }
     } 
 }

@@ -464,6 +464,17 @@ body {
     font-weight: bold;
 }
 
+#Black-Hole-text {
+    position: absolute;
+    top: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 250px;
+    margin-left: 620px;
+    color: white;
+    font-weight: bold;
+}
+
 #Souls-Upgrade1 {
     border: 2px solid rgb(52, 16, 16);
     background-color: black;
@@ -658,6 +669,51 @@ body {
     margin-top: -36px;
 }
 
+#BlackHole-Upgrade1:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: -70px;
+}
+
+#BlackHole-Upgrade1:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: -70px;
+}
+
+#BlackHole-Upgrade2:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: -130px;
+}
+
+#BlackHole-Upgrade2:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: -130px;
+}
+
+#BlackHole-Upgrade1 {
+    border: 2px solid rgb(255, 242, 0);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 300px;
+    margin-left: 580px;
+    cursor: pointer;   
+}
+
+#BlackHole-Upgrade2 {
+    border: 2px solid rgb(255, 242, 0);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 300px;
+    margin-left: 630px;
+    cursor: pointer;  
+}
 
 #Challanges-button[role="tab"] {
     border: 3.5px solid  white;
@@ -766,8 +822,7 @@ body {
 }
 
 .SacrificePrestige {
-    border: 3px solid white;
-    background-color: rgb(236, 47, 4);
+    background-color: hsl(0, 0%, 7%);
     width: 40px;
     height: 40px;
     font-size: 23px;
@@ -782,11 +837,11 @@ body {
 }
 
 #Souls-img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -4;
+    right: -4;
     margin-right: 3px;
     margin-top: 2px;
 }
@@ -1132,7 +1187,10 @@ body {
 }
 
 #BH-extractor {
-    margin-top: 250px;
+    margin-left: 250px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: yellow;
+    margin-top: 50px;
 }
 
 .Matter-content {
@@ -1141,4 +1199,32 @@ body {
 
 .show-Matter-content {
     visibility: visible;
+}
+
+#BH-machine {
+    width: 200px;
+    height: 30px;
+    margin-top: -25px;
+    margin-left: 435px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: yellow;
+    background-color: black;
+    text-align: center;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+#Black-Hole {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 130px;
+    margin-left: 575px;
+    color: yellow;
+    font-size: 22px;
+}
+
+#Black-Hole-gain {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 610px;
+    color: yellow;
+    font-size: 19px;
 }

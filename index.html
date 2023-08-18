@@ -59,11 +59,13 @@
                 <div class="Tickspeed-cost" id="Tickspeed-cost" onclick="Tickspeed()"> cost: 1 Souls </div>
             </div>
         </div>
-        <div class="BH-tab" id="BH-tab" onclick="OpenBH()"> Black Hole
+        <div class="BH-tab" id="BH-tab" onclick="OpenBH()"> Black Hole </div>
             <div class="BH-content" id="BH-content">
-                <div id="BH-extractor"> Black hole Extractor </div>    
+                <div id="Black-Hole"> You have formed 0 Black Holes </div>
+                <div id="Black-Hole-gain"> (0 Black Holes formed/sec) </div>
+                <div id="BH-extractor"> Black hole Extractor [0] </div>  
+                <div id="BH-machine" onclick="BlackHoleExtractor()"> Cost: 1 Dark Matter </div>  
             </div>
-        </div>
     </div>
     <div class="Upgrades-container" id="Upgrades-container">
         <div id="Souls-text"> Soul Upgrades </div>
@@ -95,6 +97,15 @@
             <p id="Souls-Upgrade1-text"> Souls Boost Tickspeed power at a reduced rate </p>
             <p id="Souls-Upgrade1-text2"> Cost: 1e5 Souls </p>
         </div>
+        <div id="Black-Hole-text"> Black Hole Upgrades </div>
+        <div id="BlackHole-Upgrade1">
+            <p id="Souls-Upgrade1-text"> Matter Upgrades no longer spend Matter </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 10 Black Holes Formed </p>
+        </div>
+        <div id="BlackHole-Upgrade2">
+            <p id="Souls-Upgrade1-text"> Matter boosts Black Holes Formed for every BH extractor bought </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 100 Black Holes Formed </p>
+        </div>
     </div>
     <div class="Dark-matter-button" id="Dark-matter-button" role="tab" onclick="OpenDarkMatter()"> Dark Matter 
         <div class="Dark-styles" id="Dark-styles"></div>
@@ -125,15 +136,17 @@
     </div>
     <div class="Options" id="Options">
        <button id="Save-btn" onclick="Save()"> Save </button>
-       <div id="Options-text">Incremental Universe - v0.2.2.1.1
+       <div id="Options-text">Incremental Universe - v0.2.2.2
        <br>What's new:
-       <br>- fixed 1 bug where when you click button it adds more to Matter/sec
+       <br>- added some content to Black hole tab 
+       <br>- added 2 Black Hole Upgrades
+       <br>- added a new icon for Souls (special thanks to MrSederShark17) 
        <br>
        <br>Inspired by - Incremental Mass rewritten
        <br>New Update coming soon
        </div>
     </div>
-    <button class="SacrificePrestige" id="SacrificePrestige" onclick="SacrificePrestige()"><img src="images/Souls.webp" id="Souls-img"></button>
+    <button class="SacrificePrestige" id="SacrificePrestige" onclick="SacrificePrestige()"><img src="images/Souls-img3.png" id="Souls-img"></button>
     <button class="Rebirth" id="Rebirth" onclick="DarkMatterPrestige()"><img src="images/Black-hole img.jpg" id="BH-img"></button>
 </body>
 <script src="JS/main.js"></script>
