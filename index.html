@@ -103,11 +103,14 @@
         <div class="Reset" id="Reset" role="tab" onclick="OpenReset()">  </div>
         <div class="Skill-tree" id="Skill-tree" role="tab" onclick="OpenSkills()"> Skill tree </div>
         <div class="Skills" id="Skills" role="tab">           
-            <div id="Skill-1" onclick="Skill1()"> Matter Gain is raised to ^1.10
+            <div id="Skill-1" onclick="Skill1()"> Matter Gain is raised to ^1.10 for every matter generator, boost, extent
             <br> Cost: 1 Dark Matter    
             </div>
             <div id="Skill-2" onclick="Skill2()"> Unlock new tab in Main 
             <br> Cost: 5 Dark Matter
+            </div>
+            <div id="Skill-3"> 
+
             </div>
         </div>
         <div class="Quarks" id="Quarks"> Atoms
@@ -121,15 +124,11 @@
         <div class="Options-styles" id="Options-styles"></div>
     </div>
     <div class="Options" id="Options">
-       <div id="Options-text">Incremental Universe - v0.2.2.0
+       <button id="Save-btn" onclick="Save()"> Save </button>
+       <div id="Options-text">Incremental Universe - v0.2.2.1
        <br>What's new:
-       <br>- Added 4 new Souls Upgrades 
-       <br>- Removed the previous way of gaining Dark Matter 
-       <br>- Added a new way of gaining the Dark Matter
-       <br>- Added 2 Skill Upgrades  
-       <br>- Removed Reset tab from Dark Matter layer
-       <br>- Re-named Quarks tab to Atoms tab in Dark Matter layer  
-       <br>- Re-arranged button in the Matter tab
+       <br>- moved save button from bottom right to Options
+       <br>- Changed Skill 1 description
        <br>
        <br>Inspired by - Incremental Mass rewritten
        <br>New Update coming soon
@@ -137,7 +136,6 @@
     </div>
     <button class="SacrificePrestige" id="SacrificePrestige" onclick="SacrificePrestige()"><img src="images/Souls.webp" id="Souls-img"></button>
     <button class="Rebirth" id="Rebirth" onclick="DarkMatterPrestige()"><img src="images/Black-hole img.jpg" id="BH-img"></button>
-    <button id="Save-btn" onclick="Save()"> Save </button>
 </body>
 <script src="JS/main.js"></script>
 <script src="JS/tabs.js"></script>

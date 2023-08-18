@@ -794,15 +794,17 @@ body {
 #Save-btn {
     background-image: linear-gradient(90deg, white, rgb(82, 80, 80));
     width: 125px;
-    height: 50px;
+    height: 40px;
     font-size: 15px;
     color: black;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    top: 0;
+    left: 0;
+    margin-left: 70px;
+    margin-top: 40px;
 }
 
 .Dark-matter-button[role="tab"] {
@@ -959,8 +961,8 @@ body {
 }
 
 #Skill-1 {
-    width: 225px;
-    height: 40px;
+    width: 300px;
+    height: 55px;
     padding-top: 5px;
     background-color: grey;
     color: white;
@@ -1087,7 +1089,7 @@ body {
 }
 
 #Options-text {
-    padding-top: 100px;
+    padding-top: 130px;
     padding-left: 50px;
 }
 
