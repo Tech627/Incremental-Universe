@@ -1,6 +1,7 @@
 body {
     background-color: hsl(0, 0%, 7%);
     overflow: hidden;
+    user-select: none;
 }
 
 #nav-right {
@@ -1109,6 +1110,171 @@ body {
     left: 0;
     margin-top: 130px;
     margin-left: 450px;
+    cursor: pointer;
+}
+
+.Quarks-tab {
+    width: 150px;
+    height: 30px;
+    padding-top: 10px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 200px;
+    color: white;
+    border: 2px solid white;
+    text-align: center;
+    margin-left: 270px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.Atoms-tab {
+    width: 150px;
+    height: 30px;
+    padding-top: 10px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -156px;
+    color: white;
+    border: 2px solid white;
+    text-align: center;
+    margin-left: 460px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.show-Quarks-tab {
+    visibility: visible;
+}
+
+.show-Atoms-tab {
+    visibility: visible;
+}
+
+.Quarks-content {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(8, 41, 223, 0.856);
+    visibility: hidden;
+}
+
+.Atoms-content {
+    font-family: Arial, Helvetica, sans-serif;
+    visibility: hidden;
+}
+
+.show-Atoms-content {
+    visibility: visible;
+}
+
+.show-Quarks-content {
+    visibility: visible;
+}
+
+#Quarks-currency {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 19px;
+}
+
+#Atoms-currency {
+    text-align: center;
+    color: white;
+    font-size: 19px;
+    margin-top: 10px;
+}
+
+#Atoms-gain {
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    width: 340px;
+    height: 50px;
+    padding-top: 10px;
+    border: 2px solid white;
+    margin-left: 360px;
+    cursor: pointer;
+}
+
+.Proton {
+    color: rgb(17, 255, 0);
+    font-size: 23px;
+    margin-left: 150px;
+    margin-top: 30px;
+    visibility: hidden;
+}
+
+.Proton-boost {
+    color: rgb(17, 255, 0);
+    font-size: 23px;
+    margin-left: 80px;
+    margin-top: 30px;
+    visibility: hidden;
+}
+
+.show-Proton {
+    visibility: visible;
+}
+
+.show-Proton-boost {
+    visibility: visible;
+}
+
+.Neutron {
+    color: red;
+    font-size: 23px;
+    margin-left: 480px;
+    margin-top: -80px;
+    visibility: hidden;
+}
+
+.Neutron-boost {
+    color: red;
+    font-size: 23px;
+    margin-left: 425px;
+    margin-top: 30px;
+    visibility: hidden;
+}
+
+.show-Neutron {
+    visibility: visible;
+}
+
+.show-Neutron-boost {
+    visibility: visible;
+}
+
+.Electron {
+    color: blue;
+    font-size: 23px;
+    margin-left: 850px;
+    margin-top: -80px;
+    visibility: hidden;
+}
+
+.Electron-boost {
+    color: blue;
+    font-size: 23px;
+    margin-left: 745px;
+    margin-top: 30px;
+    visibility: hidden;
+}
+
+.show-Electron {
+    visibility: visible;
+}
+
+.show-Electron-boost {
+    visibility: visible;
+}
+
+#Quarks-gain {
+    color: rgb(0, 255, 238);
+    text-align: center;
+    margin-left: 380px;
+    width: 300px;
+    height: 50px;
+    padding-top: 10px;
+    background-image: linear-gradient(90deg, rgb(15, 0, 150), rgb(198, 3, 0), rgba(4, 111, 0, 0.836));
     cursor: pointer;
 }
 

@@ -127,8 +127,26 @@
             <br> Cost: 1e3 Dark Matter 
             </div>
         </div>
-        <div class="Quarks" id="Quarks"> Atoms
-
+        <div class="Quarks" id="Quarks" role="tab" onclick="OpenQuarks()"> Quarks </div>
+        <div class="Quarks-tab" id="Quarks-tab" role="tab" onclick="OpenQuarksContent()"> Quarks </div>
+        <div class="Quarks-content" id="Quarks-content">
+            <div id="Quarks-currency"> You have developed 0 quarks </div>
+            <div id="Quarks-gain" onclick="QuarksGain()"> Turn formed Black Hole into Quarks 
+                <br> Req: 1e5 Formed Black Holes
+            </div>
+        </div>
+        <div class="Atoms-tab" id="Atoms-tab" role="tab" onclick="OpenAtomsContent()"> Atoms </div>
+        <div class="Atoms-content" id="Atoms-content">
+            <div id="Atoms-currency"> You have developed 0 Atoms </div>
+            <div id="Atoms-gain" onclick="AtomsGain()"> Turn all of your quarks into Atoms for boost 
+                <br>Cost: 100 Quark
+            </div>
+            <div class="Proton" id="Proton"> 0 Protons </div>
+            <div class="Proton-boost" id="Proton-boost"> 0x boost to Matter gain </div>
+            <div class="Neutron" id="Neutron"> 0 Neutrons </div>
+            <div class="Neutron-boost" id="Neutron-boost"> 0x boost to Souls gain </div>
+            <div class="Electron" id="Electron"> 0 Electrons </div>
+            <div class="Electron-boost" id="Electron-boost"> 0x boost to Formed Black Holes </div>
         </div>
         <div class="Time-dilation" id="Time-dilation"> Time Dilation 
 
@@ -139,11 +157,10 @@
     </div>
     <div class="Options" id="Options">
        <button id="Save-btn" onclick="Save()"> Save </button>
-       <div id="Options-text">Incremental Universe - v0.2.2.3
+       <div id="Options-text">Incremental Universe - v0.2.3 Part 1
        <br>What's new:
-       <br>- Formed Black Holes now boost matter
-       <br>- Added 3 new Skill tree Upgrades
-       <br>- Added a new tab in Dark Matter
+       <br>- Added 4 new Black Hole Upgrades
+       <br>- Added a bunch of content into Quarks
        <br>
        <br>Inspired by - Incremental Mass rewritten
        <br>New Update coming soon

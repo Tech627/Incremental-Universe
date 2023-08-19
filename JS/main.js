@@ -10,6 +10,10 @@ var Black_Hole = 0;
 var Black_HolePerSec = 0;
 var Black_Holeboost = 1;
 var Black_HoleExtractor = 0;
+var Quarks = 0;
+var QuarkToGet = 0;
+var Atoms = 0;
+var AtomsToGet = 0;
 let Challange_1 = document.getElementById("Challange1");
 let Achievement_1 = document.getElementById("Achievement1");
 let Achievement_2 = document.getElementById("Achievement2");
@@ -231,7 +235,6 @@ function BlackHoleExtractor() {
         Black_HoleExtractor++;
         Black_HolePerSec += Black_HoleMachine.power;
         Black_Holeboost += Black_Hole * Black_HoleMachine.power;
-        Black_HolePerSec *= Souls;
         document.getElementById("Black-Hole-gain").textContent = "(" + format(Black_HolePerSec) + " Black Holes formed/sec)";
         document.getElementById("BH-extractor").textContent = "Black Hole Extractor [" + Black_HoleExtractor + "]";
         document.getElementById("Black-Hole-boost").textContent = "Currently: " + format(Black_Holeboost) + " boost to Matter Gain";
@@ -384,7 +387,7 @@ function BlackHoleUpgrade2() {
 //Sacrifice Prestige
 
 function SacrificePrestige() {
-    if( Matter >= 1 ) {
+    if( Matter >= 1e4 ) {
         Souls += Math.sqrt(Matter / 10000);
         SoulsToGet += Math.sqrt(Matter / 10000)
         SoulsGain += Math.sqrt(Souls / 5) + 1;
@@ -411,7 +414,7 @@ function SacrificePrestige() {
 // Dark matter Prestige
 
 function DarkMatterPrestige() {
-    if( Souls >= 0.1 ) {
+    if( Souls >= 1e4 ) {
         Dark_Matter_currency += Math.sqrt(Souls / 0.01);
         Dark_MatterToGet += Math.sqrt(Souls / 0.01);
         Matter -= Matter;
@@ -496,6 +499,30 @@ function Skill5() {
     }
 }
 
+// Quarks-tab
+
+function QuarksGain() {
+    if(Black_Hole >= 5e6) {
+       Quarks += Math.sqrt(Black_Hole / 5e6);
+       document.getElementById("Quarks-currency").textContent = "You have developed " + format(Quarks) + " Quarks";
+    }
+}
+
+// Atoms-tab
+
+var AtomsBoost = {
+    amount: 0,
+    cost: 10,
+}
+
+function AtomsGain() {
+    if(Quarks >= 100) {
+        Atoms += Math.sqrt(Quarks / 100);
+        AtomsBoost.amount += 1;
+        document.getElementById("Atoms-currency").textContent = "You have developed " + format(Atoms) + " Atoms";
+     }
+}
+
 //Challanges
 
 function Challenge1() {
@@ -573,6 +600,8 @@ function Save() {
         localStorage.setItem("Black-Hole-boost", JSON.stringify(Black_Holeboost));
         localStorage.setItem("BlackHole-Upgrade1", JSON.stringify(BlackHoleUpgrade_1));
         localStorage.setItem("BlackHole-Upgrade2", JSON.stringify(BlackHoleUpgrade_2));
+        localStorage.setItem("Quarks", JSON.stringify(Quarks));
+        localStorage.setItem("Atoms", JSON.stringify(Atoms));
     }
     alert("When Page is reloaded or refreshed It will say you have 0 everything, but you will have to click on something to show It's value!!")
 }
@@ -605,6 +634,8 @@ function Get() {
         const SavedBlack_Holeboost = localStorage.getItem("Black-Hole-boost")
         const SavedBlackHole_Upgrade1 = localStorage.getItem("BlackHole-Upgrade1");
         const SavedBlackHole_Upgrade2 = localStorage.getItem("BlackHole-Upgrade2");
+        const SavedQuarks = localStorage.getItem("Quarks");
+        const SavedAtoms = localStorage.getItem("Atoms");
         if(SavedMatter) {
             Matter = JSON.parse(SavedMatter);
         } 
@@ -682,6 +713,12 @@ function Get() {
         }
         if(SavedBlackHole_Upgrade2) {
             BlackHoleUpgrade_2 = JSON.parse(SavedBlackHole_Upgrade2);
+        }
+        if(SavedQuarks) {
+            Quarks = JSON.parse(SavedQuarks);
+        }
+        if(SavedAtoms) {
+            Atoms = JSON.parse(SavedAtoms);
         }
     } 
 }
