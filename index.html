@@ -18,11 +18,7 @@
         <div class="Challanges-styles" id="Challanges-styles"></div>
     </div>
         <div class="Challanges" id="Challanges">
-            <div class="Challange1" id="Challange1" onclick="Challenge1()"> Challange 1
-                <p>When Enter the Challange</p>
-                <p>Upgrades will be disabled</p>
-                <p>Goal: 1000 Matter</p>
-                <p>Reward: Slightly better Upgrades</p>
+            <div class="Challange1" id="Challange1" onclick=""> Challange 1
                 <button id="Back-button" onclick="BackBtn()"> Back </button>
             </div>
             <div class="Finnish-button" id="Finnish-button" onclick="FinnishBtn()"> Finnish </div>
@@ -63,6 +59,7 @@
             <div class="BH-content" id="BH-content">
                 <div id="Black-Hole"> You have formed 0 Black Holes </div>
                 <div id="Black-Hole-gain"> (0 Black Holes formed/sec) </div>
+                <div id="Black-Hole-boost"> Currently: 0 boost to Matter Gain </div>
                 <div id="BH-extractor"> Black hole Extractor [0] </div>  
                 <div id="BH-machine" onclick="BlackHoleExtractor()"> Cost: 1 Dark Matter </div>  
             </div>
@@ -111,7 +108,7 @@
         <div class="Dark-styles" id="Dark-styles"></div>
     </div>
     <div class="Dark-matter" id="Dark-matter">
-        <div class="Reset" id="Reset" role="tab" onclick="OpenReset()">  </div>
+        <div class="Reset" id="Reset" role="tab" onclick="OpenReset()"> Radiation </div>
         <div class="Skill-tree" id="Skill-tree" role="tab" onclick="OpenSkills()"> Skill tree </div>
         <div class="Skills" id="Skills" role="tab">           
             <div id="Skill-1" onclick="Skill1()"> Matter Gain is raised to ^1.10 for every matter generator, boost, extent
@@ -120,8 +117,14 @@
             <div id="Skill-2" onclick="Skill2()"> Unlock new tab in Main 
             <br> Cost: 5 Dark Matter
             </div>
-            <div id="Skill-3"> 
-
+            <div id="Skill-3" onclick="Skill3()"> Souls Boost Black Hole formed
+            <br> Cost: 1e5 Black Holes formed
+            </div>
+            <div id="Skill-4" onclick="Skill4()"> For every Matter extent multiply BH extrator effect boost at a reduced rate
+            <br> Cost: 1e12 Black Hole formed                 
+            </div>
+            <div id="Skill-5"> Unlock the 1st challenge (to be added)
+            <br> Cost: 1e3 Dark Matter 
             </div>
         </div>
         <div class="Quarks" id="Quarks"> Atoms
@@ -136,11 +139,11 @@
     </div>
     <div class="Options" id="Options">
        <button id="Save-btn" onclick="Save()"> Save </button>
-       <div id="Options-text">Incremental Universe - v0.2.2.2
+       <div id="Options-text">Incremental Universe - v0.2.2.3
        <br>What's new:
-       <br>- added some content to Black hole tab 
-       <br>- added 2 Black Hole Upgrades
-       <br>- added a new icon for Souls (special thanks to MrSederShark17) 
+       <br>- Formed Black Holes now boost matter
+       <br>- Added 3 new Skill tree Upgrades
+       <br>- Added a new tab in Dark Matter
        <br>
        <br>Inspired by - Incremental Mass rewritten
        <br>New Update coming soon

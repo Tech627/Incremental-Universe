@@ -8,6 +8,7 @@ var Dark_Matter_currency = 0;
 var Dark_MatterToGet = 0;
 var Black_Hole = 0;
 var Black_HolePerSec = 0;
+var Black_Holeboost = 1;
 var Black_HoleExtractor = 0;
 let Challange_1 = document.getElementById("Challange1");
 let Achievement_1 = document.getElementById("Achievement1");
@@ -198,6 +199,9 @@ function MatterExtent() {
     if(SoulsUpgrade_6.bought == true) {
         MatterExtent_1.power += 1;
     }
+    if(Skill_up4.bought == true) {
+        Black_Holeboost *= MatterExtent_1.power / 15;
+    }
 }
 
 function Tickspeed() {
@@ -226,11 +230,17 @@ function BlackHoleExtractor() {
         Black_HoleMachine.amount++;
         Black_HoleExtractor++;
         Black_HolePerSec += Black_HoleMachine.power;
+        Black_Holeboost += Black_Hole * Black_HoleMachine.power;
+        Black_HolePerSec *= Souls;
         document.getElementById("Black-Hole-gain").textContent = "(" + format(Black_HolePerSec) + " Black Holes formed/sec)";
         document.getElementById("BH-extractor").textContent = "Black Hole Extractor [" + Black_HoleExtractor + "]";
+        document.getElementById("Black-Hole-boost").textContent = "Currently: " + format(Black_Holeboost) + " boost to Matter Gain";
         setInterval(function () {
             Black_Hole += Black_HolePerSec;
             document.getElementById("Black-Hole").textContent = "You have formed " + format(Black_Hole) + " Black Holes";
+        }, 1000);
+        setInterval(function() {
+            Matter += Black_Holeboost;
         }, 1000);
         if(BlackHoleUpgrade_2.bought = true) {
             Black_HolePerSec *= Matter
@@ -370,10 +380,11 @@ function BlackHoleUpgrade2() {
     }
 }
 
+
 //Sacrifice Prestige
 
 function SacrificePrestige() {
-    if( Matter >= 1e4 ) {
+    if( Matter >= 1 ) {
         Souls += Math.sqrt(Matter / 10000);
         SoulsToGet += Math.sqrt(Matter / 10000)
         SoulsGain += Math.sqrt(Souls / 5) + 1;
@@ -400,9 +411,9 @@ function SacrificePrestige() {
 // Dark matter Prestige
 
 function DarkMatterPrestige() {
-    if( Souls >= 1e4 ) {
-        Dark_Matter_currency += Math.sqrt(Souls / 10000);
-        Dark_MatterToGet += Math.sqrt(Souls / 10000);
+    if( Souls >= 0.1 ) {
+        Dark_Matter_currency += Math.sqrt(Souls / 0.01);
+        Dark_MatterToGet += Math.sqrt(Souls / 0.01);
         Matter -= Matter;
         Matter = 100;
         MatterGenerator_1.amount = 0;
@@ -434,6 +445,21 @@ let Skill_up2 = {
     bought: false,
 }
 
+let Skill_up3 = {
+    cost: 1e5,
+    bought: false,
+}
+
+let Skill_up4 = {
+    cost: 1e12,
+    bought: false,
+}
+
+let Skill_up5 = {
+    cost: 1e3,
+    bought: false,
+}
+
 function Skill1() {
     if ( Dark_Matter_currency >= 1) {
         Dark_Matter_currency -= Skill_up1.cost;
@@ -446,6 +472,27 @@ function Skill2() {
         Dark_Matter_currency -= Skill_up2.cost;
         Skill_up2.bought = true;
         BH_tab.classList.add("show-BH-tab");
+    }
+}
+
+function Skill3() {
+    if ( Black_Hole >= Skill_up3.cost ) {
+        Black_Hole -= Skill_up3.cost;
+        Skill_up3.bought = true;
+    }
+}
+
+function Skill4() {
+    if (Black_Hole >= Skill_up4.cost ) {
+        Black_Hole -= Skill_up4.cost;
+        Skill_up4.bought = true;
+    }
+}
+
+function Skill5() {
+    if (Dark_Matter_currency >= Skill_up5.cost ) {
+        Dark_Matter_currency -= Skill_up5.cost;
+        Skill_up5.bought = true;
     }
 }
 
@@ -517,10 +564,13 @@ function Save() {
         localStorage.setItem("Soul-Upgrade3", JSON.stringify(SoulsUpgrade_3));
         localStorage.setItem("Skill-1", JSON.stringify(Skill_up1));
         localStorage.setItem("Skill-2", JSON.stringify(Skill_up2));
+        localStorage.setItem("Skill-3", JSON.stringify(Skill_up3));
+        localStorage.setItem("Skill-4", JSON.stringify(Skill_up4));
         localStorage.setItem("Black-Hole", JSON.stringify(Black_Hole));
         localStorage.setItem("Black-Hole-gain", JSON.stringify(Black_HolePerSec));
         localStorage.setItem("Black-Hole-machine", JSON.stringify(Black_HoleMachine));
         localStorage.setItem("Black-Hole-extractor", JSON.stringify(Black_HoleExtractor));
+        localStorage.setItem("Black-Hole-boost", JSON.stringify(Black_Holeboost));
         localStorage.setItem("BlackHole-Upgrade1", JSON.stringify(BlackHoleUpgrade_1));
         localStorage.setItem("BlackHole-Upgrade2", JSON.stringify(BlackHoleUpgrade_2));
     }
@@ -546,10 +596,13 @@ function Get() {
         const SavedSoulUpgrade3 = localStorage.getItem("Soul-Upgrade3");
         const SavedSkill_up1 = localStorage.getItem("Skill-1");
         const SavedSkill_up2 = localStorage.getItem("Skill-2");
+        const SavedSkill_up3 = localStorage.getItem("Skill-3");
+        const SavedSkill_up4 = localStorage.getItem("Skill-4");
         const SavedBlack_Hole = localStorage.getItem("Black-Hole");
         const SavedBlack_Holegain = localStorage.getItem("Black-Hole-gain");
         const SavedBlack_HoleMachine = localStorage.getItem("Black-Hole-machine");
         const SavedBlack_HoleExtractor = localStorage.getItem("Black-Hole-extractor");
+        const SavedBlack_Holeboost = localStorage.getItem("Black-Hole-boost")
         const SavedBlackHole_Upgrade1 = localStorage.getItem("BlackHole-Upgrade1");
         const SavedBlackHole_Upgrade2 = localStorage.getItem("BlackHole-Upgrade2");
         if(SavedMatter) {
@@ -603,6 +656,12 @@ function Get() {
         if(SavedSkill_up2) {
             Skill_up2 = JSON.parse(SavedSkill_up2);
         }
+        if(SavedSkill_up3) {
+            Skill_up3 = JSON.parse(SavedSkill_up3);
+        }
+        if(SavedSkill_up4) {
+            Skill_up4 = JSON.parse(SavedSkill_up4);
+        }
         if(SavedBlack_Hole) {
             Black_Hole = JSON.parse(SavedBlack_Hole);
         }
@@ -614,6 +673,9 @@ function Get() {
         }
         if(SavedBlack_HoleExtractor) {
             Black_HoleExtractor = JSON.parse(SavedBlack_HoleExtractor);
+        }
+        if(SavedBlack_Holeboost) {
+            Black_Holeboost = JSON.parse(SavedBlack_Holeboost);
         }
         if(SavedBlackHole_Upgrade1) {
             BlackHoleUpgrade_1 = JSON.parse(SavedBlackHole_Upgrade1);
