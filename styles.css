@@ -575,12 +575,12 @@ body {
     cursor: default;
     width: 400px;
     height: 30px;
-    background-color: black;
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 10px;
-    font-size: 15px;
+    font-size: 13px;
+    background-color: hsl(0, 0%, 7%);
     visibility: hidden;
 }
 
@@ -591,11 +591,10 @@ body {
     margin-left: 200px;
     cursor: default;
     width: 400px;
-    background-color: black;
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     padding-top: 5px;
     visibility: hidden;
 }
@@ -690,6 +689,26 @@ body {
     margin-left: -130px;
 }
 
+#BlackHole-Upgrade3:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: -190px;
+}
+
+#BlackHole-Upgrade3:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: -190px;
+}
+
+#BlackHole-Upgrade4:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: -250px;
+}
+
+#BlackHole-Upgrade4:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: -250px;
+}
+
 #BlackHole-Upgrade1 {
     border: 2px solid rgb(255, 242, 0);
     background-color: black;
@@ -713,6 +732,32 @@ body {
     left: 0;
     margin-top: 300px;
     margin-left: 630px;
+    cursor: pointer;  
+}
+
+#BlackHole-Upgrade3 {
+    border: 2px solid rgb(255, 242, 0);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 300px;
+    margin-left: 680px;
+    cursor: pointer;  
+}
+
+#BlackHole-Upgrade4 {
+    border: 2px solid rgb(255, 242, 0);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 300px;
+    margin-left: 730px;
     cursor: pointer;  
 }
 
@@ -1199,15 +1244,31 @@ body {
     color: rgb(17, 255, 0);
     font-size: 23px;
     margin-left: 150px;
-    margin-top: 30px;
+    margin-top: 60px;
     visibility: hidden;
 }
 
 .Proton-boost {
     color: rgb(17, 255, 0);
-    font-size: 23px;
+    font-size: 20px;
+    margin-left: 70px;
+    margin-top: 20px;
+    visibility: hidden;
+}
+
+.Proton-boost1 {
+    color: rgb(17, 255, 0);
+    font-size: 20px;
     margin-left: 80px;
-    margin-top: 30px;
+    margin-top: 10px;
+    visibility: hidden;
+}
+
+.ProtonPerSec {
+    color: rgb(17, 255, 0);
+    font-size: 23px;
+    margin-left: 60px;
+    margin-top: 10px;
     visibility: hidden;
 }
 
@@ -1219,19 +1280,43 @@ body {
     visibility: visible;
 }
 
+.show-Proton-boost1 {
+    visibility: visible;
+}
+
+.show-ProtonPerSec {
+    visibility: visible;
+}
+
 .Neutron {
     color: red;
     font-size: 23px;
     margin-left: 480px;
-    margin-top: -80px;
+    margin-top: -134px;
     visibility: hidden;
 }
 
 .Neutron-boost {
     color: red;
-    font-size: 23px;
+    font-size: 20px;
     margin-left: 425px;
-    margin-top: 30px;
+    margin-top: 20px;
+    visibility: hidden;
+}
+
+.Neutron-boost1 {
+    color: red;
+    font-size: 20px;
+    margin-left: 435px;
+    margin-top: 10px;
+    visibility: hidden;
+}
+
+.NeutronPerSec {
+    color: red;
+    font-size: 23px;
+    margin-left: 405px;
+    margin-top: 10px;
     visibility: hidden;
 }
 
@@ -1243,19 +1328,43 @@ body {
     visibility: visible;
 }
 
+.show-Neutron-boost1 {
+    visibility: visible;
+}
+
+.show-NeutronPerSec {
+    visibility: visible;
+}
+
 .Electron {
     color: blue;
     font-size: 23px;
     margin-left: 850px;
-    margin-top: -80px;
+    margin-top: -135px;
     visibility: hidden;
 }
 
 .Electron-boost {
     color: blue;
+    font-size: 20px;
+    margin-left: 725px;
+    margin-top: 15px;
+    visibility: hidden;
+}
+
+.Electron-boost1 {
+    color: blue;
+    font-size: 20px;
+    margin-left: 795px;
+    margin-top: 10px;
+    visibility: hidden;
+}
+
+.ElectronPerSec {
+    color: blue;
     font-size: 23px;
     margin-left: 745px;
-    margin-top: 30px;
+    margin-top: 10px;
     visibility: hidden;
 }
 
@@ -1264,6 +1373,14 @@ body {
 }
 
 .show-Electron-boost {
+    visibility: visible;
+}
+
+.show-Electron-boost1 {
+    visibility: visible;
+}
+
+.show-ElectronPerSec {
     visibility: visible;
 }
 

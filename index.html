@@ -103,6 +103,14 @@
             <p id="Souls-Upgrade1-text"> Matter boosts Black Holes Formed for every BH extractor bought </p>
             <p id="Souls-Upgrade1-text2"> Cost: 100 Black Holes Formed </p>
         </div>
+        <div id="BlackHole-Upgrade3" onclick="BlackHoleUpgrade3()">
+            <p id="Souls-Upgrade1-text"> Quarks boost Protons and Neutrons at a reduced rate </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 1e5 Quarks </p>
+        </div>
+        <div id="BlackHole-Upgrade4" onclick="BlackHoleUpgrade4()">
+            <p id="Souls-Upgrade1-text"> Atoms boost Electrons at a reduced rate </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 1e5 Atoms </p>
+        </div>
     </div>
     <div class="Dark-matter-button" id="Dark-matter-button" role="tab" onclick="OpenDarkMatter()"> Dark Matter 
         <div class="Dark-styles" id="Dark-styles"></div>
@@ -142,11 +150,23 @@
                 <br>Cost: 100 Quark
             </div>
             <div class="Proton" id="Proton"> 0 Protons </div>
+            <div class="ProtonPerSec" id="ProtonPerSec"> (+0 Protons Per sec)
+            <br> Based on Matter    
+            </div>
             <div class="Proton-boost" id="Proton-boost"> 0x boost to Matter gain </div>
+            <div class="Proton-boost1" id="Proton-boost1"> 0x boost to Matter Extent </div>
             <div class="Neutron" id="Neutron"> 0 Neutrons </div>
+            <div class="NeutronPerSec" id="NeutronPerSec"> (+0 Neutrons Per sec)
+            <br> Based on Souls
+            </div>
             <div class="Neutron-boost" id="Neutron-boost"> 0x boost to Souls gain </div>
+            <div class="Neutron-boost1" id="Neutron-boost1"> 0x boost to Tickspeed </div>
             <div class="Electron" id="Electron"> 0 Electrons </div>
+            <div class="ElectronPerSec" id="ElectronPerSec"> (+0 Electrons Per sec) 
+            <br> Based on Formed Black Hole    
+            </div>
             <div class="Electron-boost" id="Electron-boost"> 0x boost to Formed Black Holes </div>
+            <div class="Electron-boost1" id="Electron-boost1"> 0x boost to Dark Matter </div>
         </div>
         <div class="Time-dilation" id="Time-dilation"> Time Dilation 
 
@@ -157,7 +177,7 @@
     </div>
     <div class="Options" id="Options">
        <button id="Save-btn" onclick="Save()"> Save </button>
-       <div id="Options-text">Incremental Universe - v0.2.3 Part 1
+       <div id="Options-text">Incremental Universe - v0.2.3 Part 2
        <br>What's new:
        <br>- Added 4 new Black Hole Upgrades
        <br>- Added a bunch of content into Quarks

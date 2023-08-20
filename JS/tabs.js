@@ -20,10 +20,16 @@ let Atoms_tab = document.getElementById("Atoms-tab");
 let Atoms_content = document.getElementById("Atoms-content");
 let Proton = document.getElementById("Proton");
 let Proton_boost = document.getElementById("Proton-boost");
+let Proton_boost1 = document.getElementById("Proton-boost1");
+let ProtonPerSec = document.getElementById("ProtonPerSec");
 let Neutron = document.getElementById("Neutron");
 let Neutron_boost = document.getElementById("Neutron-boost");
+let Neutron_boost1 = document.getElementById("Neutron-boost1");
+let NeutronPerSec = document.getElementById("NeutronPerSec");
 let Electron = document.getElementById("Electron");
 let Electron_boost = document.getElementById("Electron-boost");
+let Electron_boost1 = document.getElementById("Electron-boost1");
+let ElectronPerSec = document.getElementById("ElectronPerSec");
 
 function OpenBH() {
     BH_content.classList.add("show-BH-content");
@@ -59,6 +65,18 @@ function OpenQuarksContent() {
     Atoms_content.classList.remove("show-Atoms-content");
     Skill_tree.classList.remove("open-Skills");
     Reset.classList.remove("open-Rebirth");
+    Proton.classList.remove("show-Proton");
+    Proton_boost.classList.remove("show-Proton-boost");
+    Neutron.classList.remove("show-Neutron");
+    Neutron_boost.classList.remove("show-Neutron-boost");
+    Electron.classList.remove("show-Electron");
+    Electron_boost.classList.remove("show-Electron-boost");
+    ProtonPerSec.classList.remove("show-ProtonPerSec");
+    NeutronPerSec.classList.remove("show-NeutronPerSec");
+    ElectronPerSec.classList.remove("show-ElectronPerSec");
+    Proton_boost1.classList.remove("show-Proton-boost1");
+    Neutron_boost1.classList.remove("show-Neutron-boost1");
+    Electron_boost1.classList.remove("show-Electron-boost1");
 }
 
 function OpenAtomsContent() {
@@ -69,14 +87,26 @@ function OpenAtomsContent() {
     if(AtomsBoost.amount >= 1) {
         Proton.classList.add("show-Proton");
         Proton_boost.classList.add("show-Proton-boost");
+        ProtonPerSec.classList.add("show-ProtonPerSec");
     }
     if(AtomsBoost.amount >= 2) {
         Neutron.classList.add("show-Neutron");
         Neutron_boost.classList.add("show-Neutron-boost");
+        NeutronPerSec.classList.add("show-NeutronPerSec");
     }
     if(AtomsBoost.amount >= 3) {
         Electron.classList.add("show-Electron");
         Electron_boost.classList.add("show-Electron-boost");
+        ElectronPerSec.classList.add("show-ElectronPerSec")
+    }
+    if(AtomsBoost.amount >= 4) {
+        Proton_boost1.classList.add("show-Proton-boost1");
+    }
+    if(AtomsBoost.amount >= 5) {
+        Neutron_boost1.classList.add("show-Neutron-boost1");
+    }
+    if(AtomsBoost.amount >= 6) {
+        Electron_boost1.classList.add("show-Electron-boost1");
     }
 }
 
@@ -93,6 +123,12 @@ function OpenReset() {
     Neutron_boost.classList.remove("show-Neutron-boost");
     Electron.classList.remove("show-Electron");
     Electron_boost.classList.remove("show-Electron-boost");
+    ProtonPerSec.classList.remove("show-ProtonPerSec");
+    NeutronPerSec.classList.remove("show-NeutronPerSec");
+    ElectronPerSec.classList.remove("show-ElectronPerSec");
+    Proton_boost1.classList.remove("show-Proton-boost1");
+    Neutron_boost1.classList.remove("show-Neutron-boost1");
+    Electron_boost1.classList.remove("show-Electron-boost1");
 }
 
 function OpenSkills() {
@@ -108,6 +144,12 @@ function OpenSkills() {
     Neutron_boost.classList.remove("show-Neutron-boost");
     Electron.classList.remove("show-Electron");
     Electron_boost.classList.remove("show-Electron-boost");
+    ProtonPerSec.classList.remove("show-ProtonPerSec");
+    NeutronPerSec.classList.remove("show-NeutronPerSec");
+    ElectronPerSec.classList.remove("show-ElectronPerSec");
+    Proton_boost1.classList.remove("show-Proton-boost1");
+    Neutron_boost1.classList.remove("show-Neutron-boost1");
+    Electron_boost1.classList.remove("show-Electron-boost1");
 }
 
 function OpenUpgrades() {
@@ -131,7 +173,7 @@ function OpenUpgrades() {
     BH_tab.classList.remove("show-BH-tab");
     BH_content.classList.remove("show-BH-content");
     Quarks_tab.classList.remove("show-Quarks-tab");
-    Quarks_content.remove("show-Quarks-content");
+    Quarks_content.classList.remove("show-Quarks-content");
     Atoms_content.classList.remove("show-Atoms-content");
     Atoms_tab.classList.remove("show-Atoms-tab");
     Proton.classList.remove("show-Proton");
@@ -140,6 +182,12 @@ function OpenUpgrades() {
     Neutron_boost.classList.remove("show-Neutron-boost");
     Electron.classList.remove("show-Electron");
     Electron_boost.classList.remove("show-Electron-boost");
+    ProtonPerSec.classList.remove("show-ProtonPerSec");
+    NeutronPerSec.classList.remove("show-NeutronPerSec");
+    ElectronPerSec.classList.remove("show-ElectronPerSec");
+    Proton_boost1.classList.remove("show-Proton-boost1");
+    Neutron_boost1.classList.remove("show-Neutron-boost1");
+    Electron_boost1.classList.remove("show-Electron-boost1");
 }
 
 function OpenMain() {
@@ -174,6 +222,12 @@ function OpenMain() {
     Neutron_boost.classList.remove("show-Neutron-boost");
     Electron.classList.remove("show-Electron");
     Electron_boost.classList.remove("show-Electron-boost");
+    ProtonPerSec.classList.remove("show-ProtonPerSec");
+    NeutronPerSec.classList.remove("show-NeutronPerSec");
+    ElectronPerSec.classList.remove("show-ElectronPerSec");
+    Proton_boost1.classList.remove("show-Proton-boost1");
+    Neutron_boost1.classList.remove("show-Neutron-boost1");
+    Electron_boost1.classList.remove("show-Electron-boost1");
 }
 
 function OpenAchievements() {
@@ -206,6 +260,12 @@ function OpenAchievements() {
     Neutron_boost.classList.remove("show-Neutron-boost");
     Electron.classList.remove("show-Electron");
     Electron_boost.classList.remove("show-Electron-boost");
+    ProtonPerSec.classList.remove("show-ProtonPerSec");
+    NeutronPerSec.classList.remove("show-NeutronPerSec");
+    ElectronPerSec.classList.remove("show-ElectronPerSec");
+    Proton_boost1.classList.remove("show-Proton-boost1");
+    Neutron_boost1.classList.remove("show-Neutron-boost1");
+    Electron_boost1.classList.remove("show-Electron-boost1");
 }
 
 function OpenChallanges() {
@@ -238,6 +298,12 @@ function OpenChallanges() {
     Neutron_boost.classList.remove("show-Neutron-boost");
     Electron.classList.remove("show-Electron");
     Electron_boost.classList.remove("show-Electron-boost");
+    ProtonPerSec.classList.remove("show-ProtonPerSec");
+    NeutronPerSec.classList.remove("show-NeutronPerSec");
+    ElectronPerSec.classList.remove("show-ElectronPerSec");
+    Proton_boost1.classList.remove("show-Proton-boost1");
+    Neutron_boost1.classList.remove("show-Neutron-boost1");
+    Electron_boost1.classList.remove("show-Electron-boost1");
 }
 
 function OpenDarkMatter() {
@@ -292,4 +358,10 @@ function OpenOptions() {
     Neutron_boost.classList.remove("show-Neutron-boost");
     Electron.classList.remove("show-Electron");
     Electron_boost.classList.remove("show-Electron-boost");
+    ProtonPerSec.classList.remove("show-ProtonPerSec");
+    NeutronPerSec.classList.remove("show-NeutronPerSec");
+    ElectronPerSec.classList.remove("show-ElectronPerSec");
+    Proton_boost1.classList.remove("show-Proton-boost1");
+    Neutron_boost1.classList.remove("show-Neutron-boost1");
+    Electron_boost1.classList.remove("show-Electron-boost1");
 }

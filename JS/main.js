@@ -1,6 +1,5 @@
 var Matter = 10;
 var MatterPerSec = 1;
-var MatterGenerator_1 = 0;
 var Souls = 0;
 var SoulsToGet = 0;
 var SoulsGain = 0;
@@ -8,12 +7,21 @@ var Dark_Matter_currency = 0;
 var Dark_MatterToGet = 0;
 var Black_Hole = 0;
 var Black_HolePerSec = 0;
-var Black_Holeboost = 1;
+var Black_Holeboost = 0;
 var Black_HoleExtractor = 0;
 var Quarks = 0;
 var QuarkToGet = 0;
 var Atoms = 0;
 var AtomsToGet = 0;
+var Proton_1 = 0;
+var Neutron_1 = 0;
+var Electron_1 = 0;
+var ProtonPerSec_1 = 0;
+var NeutronPerSec_1 = 0;
+var ElectronPerSec_1 = 0;
+var Proton_boost2 = 0;
+var Neutron_boost2 = 0;
+var Electron_boost2 = 0;
 let Challange_1 = document.getElementById("Challange1");
 let Achievement_1 = document.getElementById("Achievement1");
 let Achievement_2 = document.getElementById("Achievement2");
@@ -107,6 +115,16 @@ let BH_tab = document.getElementById("BH-tab");
     bought: false,
    }
 
+   var BlackHoleUpgrade_3 = {
+    cost: 1e5,
+    bought: false,
+   }
+
+   var BlackHoleUpgrade_4 = {
+    cost: 1e5,
+    bought: false,
+   }
+
 //Achievements 
 
     var Achievement1 = {
@@ -126,6 +144,50 @@ function format(amount) {
 
 // Matter tab
 
+setInterval(function() {
+    Matter += MatterPerSec / 1000; 
+    Matter += Proton_boost2;
+    document.getElementById("Matter").textContent = "Matter: " + format(Matter);
+}, 1);
+
+setInterval(function() {
+    MatterPerSec += Proton_boost2;
+    document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";
+}, 1);
+
+setInterval(function() {
+    ProtonPerSec_1 += Math.sqrt(Math.sqrt(Matter / 1e6) / 1e7);
+    Proton_1 += ProtonPerSec_1;
+    if(BlackHoleUpgrade_3.bought == true) {
+        ProtonPerSec_1 += Quarks / 1e6;
+    }
+    document.getElementById("ProtonPerSec").textContent = "(+" + format(ProtonPerSec_1) + " Protons Per sec)";
+    document.getElementById("Proton").textContent = format(Proton_1) + " Protons";    
+    NeutronPerSec_1 += Math.sqrt(Math.sqrt(Souls / 1e6) / 1e7);
+    Neutron_1 += NeutronPerSec_1
+    if(BlackHoleUpgrade_3.bought == true) {
+        NeutronPerSec_1 += Quarks / 1e6;
+    }
+    document.getElementById("NeutronPerSec").textContent = "(+" + format(NeutronPerSec_1) + " Neutrons Per sec)";
+    document.getElementById("Neutron").textContent = format(Neutron_1) + " Neutrons"
+    ElectronPerSec_1 += Math.sqrt(Math.sqrt(Black_Hole / 1e6) / 1e7);
+    Electron_1 += ElectronPerSec_1
+    if(BlackHoleUpgrade_4.bought == true) {
+        ElectronPerSec_1 += Atoms / 1e7;
+    }
+    document.getElementById("ElectronPerSec").textContent = "(+" + format(ElectronPerSec_1) + " Electrons Per sec)"
+    document.getElementById("Electron").textContent = format(Electron_1) + " Electrons"
+}, 1);
+
+setInterval(function() {
+    Proton_boost2 += Proton_1;
+    Neutron_boost2 += Neutron_1;
+    Electron_boost2 += Electron_1;
+    document.getElementById("Proton-boost").textContent = format(Proton_boost2) + "x boost to Matter gain";
+    document.getElementById("Neutron-boost").textContent = format(Neutron_boost2) + "x boost to Souls gain";
+    document.getElementById("Electron-boost").textContent = format(Electron_boost2) + "x boost to Formed Black Holes";
+}, 1);
+
 function MatterGenerator() {
     if(Matter >= MatterGenerator_1.cost) {
         if(BlackHoleUpgrade_1.bought = false) {
@@ -134,17 +196,12 @@ function MatterGenerator() {
         if(BlackHoleUpgrade_1.bought = true) {
             Matter -= 0;
         }
-        MatterPerSec = MatterGenerator_1.power;
+        MatterPerSec += MatterGenerator_1.power;
         MatterGenerator_1.cost *= 1.5;
         MatterGenerator_1.power++;
         MatterGenerator_1.amount++;
         document.getElementById("Matter-generator").textContent = "Matter Generator [ " + MatterGenerator_1.amount + " ]";
         document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
-        document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";
-        setInterval(function() {
-            Matter += MatterPerSec;
-            document.getElementById("Matter").textContent = "Matter: " + format(Matter);
-        }, 1000);
     }
     if(SoulsUpgrade_1.bought == true) {
         MatterGenerator_1.power += 0.5;
@@ -171,7 +228,6 @@ function MatterBoost() {
         MatterBoost_1.amount++;
         document.getElementById("Matter-boost").textContent = "Matter Boost [ " + MatterBoost_1.amount + " ]";
         document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
-        document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";
     }
     if(SoulsUpgrade_4.bought == true) {
         MatterPerSec *= Souls / 2000;
@@ -192,7 +248,6 @@ function MatterExtent() {
         MatterExtent_1.amount++;
         document.getElementById("Matter-extent").textContent = "Matter Extent [ " + MatterExtent_1.amount + " ]"
         document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
-        document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";
     }
     if(SoulsUpgrade_4.bought == true) {
         MatterPerSec *= Souls / 1e7;
@@ -217,7 +272,6 @@ function Tickspeed() {
         Tickspeed1.amount++;
         document.getElementById("Tickspeed").textContent = "Tickspeed [" + Tickspeed1.amount + "]";
         document.getElementById("Tickspeed-cost").textContent = "Cost: " + format(Tickspeed1.cost) + " Souls";
-        document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";
     }
     if(SoulsUpgrade_7.bought == true) {
         Tickspeed1.power *= Souls / 1e6;
@@ -240,6 +294,7 @@ function BlackHoleExtractor() {
         document.getElementById("Black-Hole-boost").textContent = "Currently: " + format(Black_Holeboost) + " boost to Matter Gain";
         setInterval(function () {
             Black_Hole += Black_HolePerSec;
+            Black_Hole += Electron_boost2;
             document.getElementById("Black-Hole").textContent = "You have formed " + format(Black_Hole) + " Black Holes";
         }, 1000);
         setInterval(function() {
@@ -383,13 +438,27 @@ function BlackHoleUpgrade2() {
     }
 }
 
+function BlackHoleUpgrade3() {
+    if(Quarks >= BlackHoleUpgrade_3.cost) {
+        Quarks -= BlackHoleUpgrade_3.cost;
+        BlackHoleUpgrade_3.bought = true;
+    }
+}
+
+function BlackHoleUpgrade4() {
+    if(Atoms >= BlackHoleUpgrade_4.cost) {
+        Atoms -= BlackHoleUpgrade_4.cost;
+        BlackHoleUpgrade_4.bought = true;
+    }
+}
 
 //Sacrifice Prestige
 
 function SacrificePrestige() {
-    if( Matter >= 1e4 ) {
-        Souls += Math.sqrt(Matter / 10000);
-        SoulsToGet += Math.sqrt(Matter / 10000)
+    if( Matter >= 1 ) {
+        Souls += Math.sqrt(Matter / 1);
+        Souls += Neutron_boost2;
+        SoulsToGet += Math.sqrt(Matter / 1)
         SoulsGain += Math.sqrt(Souls / 5) + 1;
         Matter -= Matter;
         Matter = 10;
@@ -403,8 +472,8 @@ function SacrificePrestige() {
         MatterGenerator_1.power = 1;
         MatterBoost_1.power = 1;
         MatterExtent_1.power = 1;
-        document.getElementById("Souls").textContent = "Souls: " + format(Souls);
-        document.getElementById("Souls-Gain").textContent = "(+" + format(SoulsGain) + ")";            
+        document.getElementById("Souls").textContent = "Souls: " + format(Souls);   
+        document.getElementById("Souls-Gain").textContent = "(+" + format(SoulsGain) + ")";         
     }
     if( SoulsUpgrade_2.bought = true) {
         Souls += Math.sqrt(Matter / 3333);
@@ -414,7 +483,7 @@ function SacrificePrestige() {
 // Dark matter Prestige
 
 function DarkMatterPrestige() {
-    if( Souls >= 1e4 ) {
+    if( Souls >= 0.1 ) {
         Dark_Matter_currency += Math.sqrt(Souls / 0.01);
         Dark_MatterToGet += Math.sqrt(Souls / 0.01);
         Matter -= Matter;
@@ -504,6 +573,7 @@ function Skill5() {
 function QuarksGain() {
     if(Black_Hole >= 5e6) {
        Quarks += Math.sqrt(Black_Hole / 5e6);
+       Black_Hole -= Math.sqrt(Black_Hole / 5e6);
        document.getElementById("Quarks-currency").textContent = "You have developed " + format(Quarks) + " Quarks";
     }
 }
