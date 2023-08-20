@@ -287,8 +287,8 @@ function BlackHoleExtractor() {
         Black_HoleMachine.power++;
         Black_HoleMachine.amount++;
         Black_HoleExtractor++;
-        Black_HolePerSec += Black_HoleMachine.power;
-        Black_Holeboost += Black_Hole * Black_HoleMachine.power;
+        Black_HolePerSec += Math.sqrt(Black_HoleMachine.power);
+        Black_Holeboost += Math.log10(Math.sqrt(Black_Hole * Black_HoleMachine.power));
         document.getElementById("Black-Hole-gain").textContent = "(" + format(Black_HolePerSec) + " Black Holes formed/sec)";
         document.getElementById("BH-extractor").textContent = "Black Hole Extractor [" + Black_HoleExtractor + "]";
         document.getElementById("Black-Hole-boost").textContent = "Currently: " + format(Black_Holeboost) + " boost to Matter Gain";
