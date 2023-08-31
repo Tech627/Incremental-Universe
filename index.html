@@ -153,7 +153,7 @@
             <div class="ProtonPerSec" id="ProtonPerSec"> (+0 Protons Per sec)
             <br> Based on Matter    
             </div>
-            <div class="Proton-boost" id="Proton-boost"> 0x boost to Matter gain </div>
+            <div class="Proton-boost" id="Proton-boost">  </div>
             <div class="Proton-boost1" id="Proton-boost1"> 0x boost to Matter Extent </div>
             <div class="Neutron" id="Neutron"> 0 Neutrons </div>
             <div class="NeutronPerSec" id="NeutronPerSec"> (+0 Neutrons Per sec)
@@ -168,6 +168,17 @@
             <div class="Electron-boost" id="Electron-boost"> 0x boost to Formed Black Holes </div>
             <div class="Electron-boost1" id="Electron-boost1"> 0x boost to Dark Matter </div>
         </div>
+        <div id="Molecules-tab" class="Molecules-tab" role="tab" onclick="OpenMoleculesContent()"> Molecules </div>
+        <div id="Molecules-content" class="Molecules-content">
+            <div class="Elements">
+                <div id="el_1"> 1
+                <br> H    
+                <div id="el_Description"> [Hydrogen] Gain more Atoms based on Quarks </div>
+                <div id="el_Cost"> Cost: 1e10 Quarks </div>
+                <div id="el_CurrentBoost"> Currently: 0x to Atoms</div>
+                </div>
+            </div>
+        </div>
         <div class="Time-dilation" id="Time-dilation"> Time Dilation 
 
         </div>
@@ -179,8 +190,9 @@
        <button id="Save-btn" onclick="Save()"> Save </button>
        <div id="Options-text">Incremental Universe - v0.2.3 Part 3
        <br>What's new:
-       <br>- Added 4 new Black Hole Upgrades
+       <br>- Added 2 new Black Hole Upgrades
        <br>- Added a bunch of content into Quarks
+       <br>- Removed 1st Proton effect due to being insanely overpowerd
        <br>
        <br>Inspired by - Incremental Mass rewritten
        <br>New Update coming soon
@@ -192,5 +204,6 @@
 <script src="JS/break_eternity.js"></script>
 <script src="JS/numberformating.js"></script>
 <script src="JS/main.js"></script>
+<script src="JS/Elements.js"></script>
 <script src="JS/tabs.js"></script>
 </html>
