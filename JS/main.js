@@ -1,27 +1,29 @@
-var Matter = 10;
-var MatterPerSec = 1;
-var Souls = 0;
-var SoulsToGet = 0;
-var SoulsGain = 0;
-var Dark_Matter_currency = 0;
-var Dark_MatterToGet = 0;
-var Black_Hole = 0;
-var Black_HolePerSec = 0;
-var Black_Holeboost = 0;
-var Black_HoleExtractor = 0;
-var Quarks = 0;
-var QuarkToGet = 0;
-var Atoms = 0;
-var AtomsToGet = 0;
-var Proton_1 = 0;
-var Neutron_1 = 0;
-var Electron_1 = 0;
-var ProtonPerSec_1 = 0;
-var NeutronPerSec_1 = 0;
-var ElectronPerSec_1 = 0;
-var Proton_boost2 = 0;
-var Neutron_boost2 = 0;
-var Electron_boost2 = 0;
+let player = {
+Matter: new Decimal(10),
+MatterPerSec: new Decimal(1),
+Souls: new Decimal(0),
+SoulsToGet: new Decimal(0),
+SoulsGain: new Decimal(0),
+Dark_Matter_currency: new Decimal(0),
+Dark_MatterToGet: new Decimal(0),
+Black_Hole: new Decimal(0),
+Black_HolePerSec: new Decimal(0),
+Black_Holeboost: new Decimal(0),
+Black_HoleExtractor: new Decimal(0),
+Quarks: new Decimal(0),
+QuarkToGet: new Decimal(0),
+Atoms: new Decimal(0),
+AtomsToGet: new Decimal(0),
+Proton_1: new Decimal(0),
+Neutron_1: new Decimal(0),
+Electron_1: new Decimal(0),
+ProtonPerSec_1: new Decimal(0),
+NeutronPerSec_1: new Decimal(0),
+ElectronPerSec_1: new Decimal(0),
+Proton_boost2: new Decimal(0),
+Neutron_boost2: new Decimal(0),
+Electron_boost2: new Decimal(0),
+}
 let Challange_1 = document.getElementById("Challange1");
 let Achievement_1 = document.getElementById("Achievement1");
 let Achievement_2 = document.getElementById("Achievement2");
@@ -34,25 +36,25 @@ let BH_tab = document.getElementById("BH-tab");
 
 // Matter tab
 
-   var MatterGenerator_1 = {
+   let MatterGenerator_1 = {
       cost: 10,
       power: 1,
       amount: 0,
    }
 
-   var MatterBoost_1 = {
+   let MatterBoost_1 = {
     cost: 100,
     power: 1,
     amount: 0,
    }
 
-   var MatterExtent_1 = {
+   let MatterExtent_1 = {
     cost: 1000,
     power: 1,
     amount: 0,
    }
 
-   var Tickspeed1 = {
+   let Tickspeed1 = {
     cost: 1,
     power: 1,
     amount: 0,
@@ -60,7 +62,7 @@ let BH_tab = document.getElementById("BH-tab");
 
 // BH-tab
 
-   var Black_HoleMachine = {
+   let Black_HoleMachine = {
     cost: 1,
     power: 0,
     amount: 0,
@@ -135,173 +137,166 @@ let BH_tab = document.getElementById("BH-tab");
         requirment: 1,
     }
 
-function format(amount) {
-    let power = Math.floor(Math.log10(amount))
-    let mantissa = amount / Math.pow(10, power)
-    if (power < 3) return amount.toFixed(2)
-    return mantissa.toFixed(2) + "e" + power    
-}
-
 // Matter tab
 
 setInterval(function() {
-    Matter += MatterPerSec / 1000; 
-    Matter += Proton_boost2;
-    document.getElementById("Matter").textContent = "Matter: " + format(Matter);
+    player.Matter += player.MatterPerSec / 1000; 
+    player.Matter += player.Proton_boost2;
+    document.getElementById("Matter").textContent = "Matter: " + format(player.Matter);
 }, 1);
 
 setInterval(function() {
-    MatterPerSec += Proton_boost2;
-    document.getElementById("MatterPerSec").textContent = format(MatterPerSec) + " Matter/sec";
+    player.MatterPerSec += player.Proton_boost2;
+    document.getElementById("MatterPerSec").textContent = format(player.MatterPerSec) + " Matter/sec";
 }, 1);
 
 setInterval(function() {
-    ProtonPerSec_1 += Math.sqrt(Math.sqrt(Matter / 1e6) / 1e7);
-    Proton_1 += ProtonPerSec_1;
-    if(BlackHoleUpgrade_3.bought == true) {
-        ProtonPerSec_1 += Quarks / 1e6;
+    player.ProtonPerSec_1.add(Math.log10(Math.sqrt(player.Matter / 1e6) / 1e7))
+    player.Proton_1.add(player.ProtonPerSec_1);
+    if(BlackHoleUpgrade_3.bought === true) {
+        player.ProtonPerSec_1.add(player.Quarks.div(1e6));
     }
-    document.getElementById("ProtonPerSec").textContent = "(+" + format(ProtonPerSec_1) + " Protons Per sec)";
-    document.getElementById("Proton").textContent = format(Proton_1) + " Protons";    
-    NeutronPerSec_1 += Math.sqrt(Math.sqrt(Souls / 1e6) / 1e7);
-    Neutron_1 += NeutronPerSec_1
-    if(BlackHoleUpgrade_3.bought == true) {
-        NeutronPerSec_1 += Quarks / 1e6;
+    document.getElementById("ProtonPerSec").textContent = "(+" + format(player.ProtonPerSec_1) + " Protons Per sec)";
+    document.getElementById("Proton").textContent = format(player.Proton_1) + " Protons";    
+    player.NeutronPerSec_1.add(Math.sqrt(Math.sqrt(player.Souls / 1e6)  / 1e7 ));
+    player.Neutron_1.add(player.NeutronPerSec_1);
+    if(BlackHoleUpgrade_3.bought === true) {
+        player.NeutronPerSec_1.add(player.Quarks.div(1e6));
     }
-    document.getElementById("NeutronPerSec").textContent = "(+" + format(NeutronPerSec_1) + " Neutrons Per sec)";
-    document.getElementById("Neutron").textContent = format(Neutron_1) + " Neutrons"
-    ElectronPerSec_1 += Math.sqrt(Math.sqrt(Black_Hole / 1e6) / 1e7);
-    Electron_1 += ElectronPerSec_1
-    if(BlackHoleUpgrade_4.bought == true) {
-        ElectronPerSec_1 += Atoms / 1e7;
+    document.getElementById("NeutronPerSec").textContent = "(+" + format(player.NeutronPerSec_1) + " Neutrons Per sec)";
+    document.getElementById("Neutron").textContent = format(player.Neutron_1) + " Neutrons"
+    player.ElectronPerSec_1.add(Math.sqrt(Math.sqrt(player.Souls / 1e6)  / 1e7 ));
+    player.Electron_1.add(player.ElectronPerSec_1)
+    if(BlackHoleUpgrade_4.bought === true) {
+        player.ElectronPerSec_1.add(player.Atoms.div(1e7));
     }
-    document.getElementById("ElectronPerSec").textContent = "(+" + format(ElectronPerSec_1) + " Electrons Per sec)"
-    document.getElementById("Electron").textContent = format(Electron_1) + " Electrons"
+    document.getElementById("ElectronPerSec").textContent = "(+" + format(player.ElectronPerSec_1) + " Electrons Per sec)"
+    document.getElementById("Electron").textContent = format(player.Electron_1) + " Electrons"
 }, 1);
 
 setInterval(function() {
-    Proton_boost2 += Proton_1;
-    Neutron_boost2 += Neutron_1;
-    Electron_boost2 += Electron_1;
-    document.getElementById("Proton-boost").textContent = format(Proton_boost2) + "x boost to Matter gain";
-    document.getElementById("Neutron-boost").textContent = format(Neutron_boost2) + "x boost to Souls gain";
-    document.getElementById("Electron-boost").textContent = format(Electron_boost2) + "x boost to Formed Black Holes";
+    player.Proton_boost2.add(Math.log10(player.Proton_1));
+    player.Neutron_boost2.add(player.Neutron_1);
+    player.Electron_boost2.add(player.Electron_1);
+    document.getElementById("Proton-boost").textContent = format(player.Proton_boost2) + "x boost to Matter gain";
+    document.getElementById("Neutron-boost").textContent = format(player.Neutron_boost2) + "x boost to Souls gain";
+    document.getElementById("Electron-boost").textContent = format(player.Electron_boost2) + "x boost to Formed Black Holes";
 }, 1);
 
 function MatterGenerator() {
-    if(Matter >= MatterGenerator_1.cost) {
-        if(BlackHoleUpgrade_1.bought = false) {
-            Matter -= MatterGenerator_1.cost;
+    if(player.Matter >= MatterGenerator_1.cost) {
+        if(BlackHoleUpgrade_1.bought === false) {
+            player.Matter.sub(MatterGenerator_1.cost);
         }
-        if(BlackHoleUpgrade_1.bought = true) {
-            Matter -= 0;
+        if(BlackHoleUpgrade_1.bought === true ) {
+            player.Matter.sub(0);
         }
-        MatterPerSec += MatterGenerator_1.power;
+        player.MatterPerSec += MatterGenerator_1.power;
         MatterGenerator_1.cost *= 1.5;
         MatterGenerator_1.power++;
         MatterGenerator_1.amount++;
         document.getElementById("Matter-generator").textContent = "Matter Generator [ " + MatterGenerator_1.amount + " ]";
         document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
     }
-    if(SoulsUpgrade_1.bought == true) {
+    if(SoulsUpgrade_1.bought === true ) {
         MatterGenerator_1.power += 0.5;
     }
-    if(SoulsUpgrade_4.bought == true) {
-      MatterPerSec *= Souls / 100;
+    if(SoulsUpgrade_4.bought === true ) {
+      player.MatterPerSec *= Souls / 100;
     }
-    if(Skill_up1.bought == true) {
-        MatterPerSec ** 1.1;
+    if(Skill_up1.bought === true ) {
+        player.MatterPerSec ** 1.1;
     }
 }
 
 function MatterBoost() {
-    if(Matter >= MatterBoost_1.cost) {
-        if(BlackHoleUpgrade_1.bought = false) {
-            Matter -= MatterBoost_1.cost;
+    if(player.Matter >= MatterBoost_1.cost) {
+        if(BlackHoleUpgrade_1.bought === false ) {
+            player.Matter.sub(MatterBoost_1.cost);
         }
-        if(BlackHoleUpgrade_1.bought = true) {
-            Matter -= 0;
+        if(BlackHoleUpgrade_1.bought === true ) {
+            player.Matter.sub(0);
         }
-        MatterPerSec += MatterBoost_1.power + MatterBoost_1.amount;
+        player.MatterPerSec += (MatterBoost_1.power + MatterBoost_1.amount);
         MatterBoost_1.cost *= 4;
         MatterBoost_1.power++;
         MatterBoost_1.amount++;
         document.getElementById("Matter-boost").textContent = "Matter Boost [ " + MatterBoost_1.amount + " ]";
         document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
     }
-    if(SoulsUpgrade_4.bought == true) {
-        MatterPerSec *= Souls / 2000;
+    if(SoulsUpgrade_4.bought === true ) {
+        player.MatterPerSec *= Souls / 2000;
       }
 }
 
 function MatterExtent() {
-    if(Matter >= MatterExtent_1.cost) {
-        if(BlackHoleUpgrade_1.bought = false) {
-            Matter -= MatterExtent_1.cost;
+    if(player.Matter >= MatterExtent_1.cost) {
+        if(BlackHoleUpgrade_1.bought === false ) {
+            player.Matter.sub(MatterExtent_1.cost);
         }
-        if(BlackHoleUpgrade_1.bought = true) {
-            Matter -= 0;
+        if(BlackHoleUpgrade_1.bought === true ) {
+            player.Matter.sub(0);
         }
-        MatterPerSec += MatterExtent_1.power + MatterExtent_1.amount; 
+        player.MatterPerSec +=(MatterExtent_1.power + MatterExtent_1.amount); 
         MatterExtent_1.cost *= 9;
         MatterExtent_1.power++;
         MatterExtent_1.amount++;
         document.getElementById("Matter-extent").textContent = "Matter Extent [ " + MatterExtent_1.amount + " ]"
         document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
     }
-    if(SoulsUpgrade_4.bought == true) {
-        MatterPerSec *= Souls / 1e7;
+    if(SoulsUpgrade_4.bought === true ) {
+        player.MatterPerSec *= Souls / 1e7;
     }
-    if(SoulsUpgrade_5.bought == true) {
+    if(SoulsUpgrade_5.bought === true) {
        MatterExtent_1.power *= Matter / 1e10;
     }
-    if(SoulsUpgrade_6.bought == true) {
-        MatterExtent_1.power += 1;
+    if(SoulsUpgrade_6.bought === true) {
+        MatterExtent_1.power++;
     }
-    if(Skill_up4.bought == true) {
+    if(Skill_up4.bought === true) {
         Black_Holeboost *= MatterExtent_1.power / 15;
     }
 }
 
 function Tickspeed() {
-    if(Souls >= Tickspeed1.cost) {
-        Souls -= Tickspeed1.cost;
-        MatterPerSec *= Tickspeed1.power;
-        Tickspeed1.cost *= 2;
-        Tickspeed1.power++;
-        Tickspeed1.amount++;
+    if(player.Souls >= Tickspeed1.cost) {
+        player.Souls.sub(Tickspeed1.cost);
+        player.MatterPerSec.mult(Tickspeed1.power);
+        player.Tickspeed1.cost.mult(2);
+        Tickspeed1.power.add(1);
+        Tickspeed1.amount.add(1);
         document.getElementById("Tickspeed").textContent = "Tickspeed [" + Tickspeed1.amount + "]";
         document.getElementById("Tickspeed-cost").textContent = "Cost: " + format(Tickspeed1.cost) + " Souls";
     }
-    if(SoulsUpgrade_7.bought == true) {
-        Tickspeed1.power *= Souls / 1e6;
+    if(SoulsUpgrade_7.bought = true) {
+        Tickspeed1.power.mult(Souls.div(1e6));
     }
 }
 
 // BH-tab 
 
 function BlackHoleExtractor() {
-    if (Dark_Matter_currency >= Black_HoleMachine.cost) {
-        Dark_Matter_currency -= Black_HoleMachine.cost;
-        Black_HoleMachine.cost *= 2;
-        Black_HoleMachine.power++;
-        Black_HoleMachine.amount++;
-        Black_HoleExtractor++;
-        Black_HolePerSec += Math.sqrt(Black_HoleMachine.power);
-        Black_Holeboost += Math.log10(Math.sqrt(Black_Hole * Black_HoleMachine.power));
+    if (player.Dark_Matter_currency >= Black_HoleMachine.cost) {
+        player.Dark_Matter_currency.sub(Black_HoleMachine.cost);
+        Black_HoleMachine.cost.mult(2);
+        Black_HoleMachine.power.add(1);
+        Black_HoleMachine.amount.add(1);
+        player.Black_HoleExtractor.add(1);
+        player.Black_HolePerSec.add(Math.sqrt(Black_HoleMachine.power));
+        player.Black_Holeboost.add(Math.log10(Math.sqrt(Black_Hole * Black_HoleMachine.power)));
         document.getElementById("Black-Hole-gain").textContent = "(" + format(Black_HolePerSec) + " Black Holes formed/sec)";
         document.getElementById("BH-extractor").textContent = "Black Hole Extractor [" + Black_HoleExtractor + "]";
         document.getElementById("Black-Hole-boost").textContent = "Currently: " + format(Black_Holeboost) + " boost to Matter Gain";
         setInterval(function () {
-            Black_Hole += Black_HolePerSec;
-            Black_Hole += Electron_boost2;
+            player.Black_Hole.add(Black_HolePerSec);
+            player.Black_Hole.add(Electron_boost2);
             document.getElementById("Black-Hole").textContent = "You have formed " + format(Black_Hole) + " Black Holes";
         }, 1000);
         setInterval(function() {
-            Matter += Black_Holeboost;
+            player.Matter.add(Black_Holeboost);
         }, 1000);
         if(BlackHoleUpgrade_2.bought = true) {
-            Black_HolePerSec *= Matter
+            player.Black_HolePerSec.mult(Matter)
         }
     }
 }
@@ -309,271 +304,272 @@ function BlackHoleExtractor() {
 // Souls-Upgrade
 
 function SoulsUpgrade1() {
-    if(Souls >= SoulsUpgrade_1.cost) {
-        Souls -= SoulsUpgrade_1.cost;
-        SoulsUpgrade_1.bought = true;
-        MatterGenerator_1.cost = 10;
-        MatterGenerator_1.power = 1;
-        MatterGenerator_1.amount = 0;
-        MatterBoost_1.cost = 100;
-        MatterBoost_1.power = 1;
-        MatterBoost_1.amount = 0;
-        MatterExtent_1.cost = 1e3;
-        MatterExtent_1.power = 1;
-        MatterExtent_1.amount = 0;
+    if(player.Souls.gte(SoulsUpgrade_1.cost)) {
+        player.Souls.sub(SoulsUpgrade_1.cost);
+        SoulsUpgrade_1.bought.eq(true);
+        MatterGenerator_1.cost.eq(10);
+        MatterGenerator_1.power.eq(1);
+        MatterGenerator_1.amount.eq(0);
+        MatterBoost_1.cost.eq(100);
+        MatterBoost_1.power.eq(1);
+        MatterBoost_1.amount.eq(0);
+        MatterExtent_1.cost.eq(1e3);
+        MatterExtent_1.power.eq(1);
+        MatterExtent_1.amount.eq(0);
     }
 }
 
 function SoulsUpgrade2() {
-    if(Souls >= SoulsUpgrade_2.cost) {
-        Souls -= SoulsUpgrade_2.cost;
-        SoulsUpgrade_2.bought = true;
-        MatterGenerator_1.cost = 10;
-        MatterGenerator_1.power = 1;
-        MatterGenerator_1.amount = 0;
-        MatterBoost_1.cost = 100;
-        MatterBoost_1.power = 1;
-        MatterBoost_1.amount = 0;
-        MatterExtent_1.cost = 1e3;
-        MatterExtent_1.power = 1;
-        MatterExtent_1.amount = 0;        
+    if(player.Souls >= SoulsUpgrade_2.cost) {
+        player.Souls.sub(SoulsUpgrade_2.cost);
+        SoulsUpgrade_2.bought.eq(true);
+        MatterGenerator_1.cost.eq(10);
+        MatterGenerator_1.power.eq(1);
+        MatterGenerator_1.amount.eq(0);
+        MatterBoost_1.cost.eq(100);
+        MatterBoost_1.power.eq(1);
+        MatterBoost_1.amount.eq(0);
+        MatterExtent_1.cost.eq(1e3);
+        MatterExtent_1.power.eq(1);
+        MatterExtent_1.amount.eq(0);    
     }
 }
 
 function SoulsUpgrade3() {
-    if(Souls >= SoulsUpgrade_3.cost) {
-        Souls -= SoulsUpgrade_3.cost;
-        SoulsUpgrade_3.bought = true;
-        MatterGenerator_1.cost = 10;
-        MatterGenerator_1.power = 1;
-        MatterGenerator_1.amount = 0;
-        MatterBoost_1.cost = 100;
-        MatterBoost_1.power = 1;
-        MatterBoost_1.amount = 0;
-        MatterExtent_1.cost = 1e3;
-        MatterExtent_1.power = 1;
-        MatterExtent_1.amount = 0;  
+    if(player.Souls >= SoulsUpgrade_3.cost) {
+        player.Souls.sub(SoulsUpgrade_3.cost);
+        SoulsUpgrade_3.bought.eq(true);
+        MatterGenerator_1.cost.eq(10);
+        MatterGenerator_1.power.eq(1);
+        MatterGenerator_1.amount.eq(0);
+        MatterBoost_1.cost.eq(100);
+        MatterBoost_1.power.eq(1);
+        MatterBoost_1.amount.eq(0);
+        MatterExtent_1.cost.eq(1e3);
+        MatterExtent_1.power.eq(1);
+        MatterExtent_1.amount.eq(0); 
         Tickspeed2.classList.add("show-Tickspeed");
         Tickspeed_cost.classList.add("show-Tickspeed-cost");
     }
 }
 
 function SoulsUpgrade4() {
-    if(Souls >= SoulsUpgrade_4.cost) {
-        Souls -= SoulsUpgrade_4.cost;
-        SoulsUpgrade_4.bought = true;
-        MatterGenerator_1.cost = 10;
-        MatterGenerator_1.power = 1;
-        MatterGenerator_1.amount = 0;
-        MatterBoost_1.cost = 100;
-        MatterBoost_1.power = 1;
-        MatterBoost_1.amount = 0;
-        MatterExtent_1.cost = 1e3;
-        MatterExtent_1.power = 1;
-        MatterExtent_1.amount = 0;  
+    if(player.Souls >= SoulsUpgrade_4.cost) {
+        player.Souls.sub(SoulsUpgrade_4.cost);
+        SoulsUpgrade_4.bought.eq(true);
+        MatterGenerator_1.cost.eq(10);
+        MatterGenerator_1.power.eq(1);
+        MatterGenerator_1.amount.eq(0);
+        MatterBoost_1.cost.eq(100);
+        MatterBoost_1.power.eq(1);
+        MatterBoost_1.amount.eq(0);
+        MatterExtent_1.cost.eq(1e3);
+        MatterExtent_1.power.eq(1);
+        MatterExtent_1.amount.eq(0);
     }
 }
 
 function SoulsUpgrade5() {
-    if(Souls >= SoulsUpgrade_5.cost) {
-        Souls -= SoulsUpgrade_5.cost;
-        SoulsUpgrade_5.bought = true;
-        MatterGenerator_1.cost = 10;
-        MatterGenerator_1.power = 1;
-        MatterGenerator_1.amount = 0;
-        MatterBoost_1.cost = 100;
-        MatterBoost_1.power = 1;
-        MatterBoost_1.amount = 0;
-        MatterExtent_1.cost = 1e3;
-        MatterExtent_1.power = 1;
-        MatterExtent_1.amount = 0;  
+    if(player.Souls >= SoulsUpgrade_5.cost) {
+        player.Souls.sub(SoulsUpgrade_5.cost);
+        SoulsUpgrade_5.bought.eq(true);
+        MatterGenerator_1.cost.eq(10);
+        MatterGenerator_1.power.eq(1);
+        MatterGenerator_1.amount.eq(0);
+        MatterBoost_1.cost.eq(100);
+        MatterBoost_1.power.eq(1);
+        MatterBoost_1.amount.eq(0);
+        MatterExtent_1.cost.eq(1e3);
+        MatterExtent_1.power.eq(1);
+        MatterExtent_1.amount.eq(0);
     }
 }
 
 function SoulsUpgrade6() {
-    if(Souls >= SoulsUpgrade_6.cost) {
-        Souls -= SoulsUpgrade_6.cost;
-        SoulsUpgrade_6.bought = true;
-        MatterGenerator_1.cost = 10;
-        MatterGenerator_1.power = 1;
-        MatterGenerator_1.amount = 0;
-        MatterBoost_1.cost = 100;
-        MatterBoost_1.power = 1;
-        MatterBoost_1.amount = 0;
-        MatterExtent_1.cost = 1e3;
-        MatterExtent_1.power = 1;
-        MatterExtent_1.amount = 0;  
+    if(player.Souls >= SoulsUpgrade_6.cost) {
+        player.Souls.sub(SoulsUpgrade_6.cost);
+        SoulsUpgrade_6.bought.eq(true);
+        MatterGenerator_1.cost.eq(10);
+        MatterGenerator_1.power.eq(1);
+        MatterGenerator_1.amount.eq(0);
+        MatterBoost_1.cost.eq(100);
+        MatterBoost_1.power.eq(1);
+        MatterBoost_1.amount.eq(0);
+        MatterExtent_1.cost.eq(1e3);
+        MatterExtent_1.power.eq(1);
+        MatterExtent_1.amount.eq(0);
     }
 }
 
 function SoulsUpgrade7() {
-    if(Souls >= SoulsUpgrade_7.cost) {
-        Souls -= SoulsUpgrade_7.cost;
-        SoulsUpgrade_7.bought = true;
-        MatterGenerator_1.cost = 10;
-        MatterGenerator_1.power = 1;
-        MatterGenerator_1.amount = 0;
-        MatterBoost_1.cost = 100;
-        MatterBoost_1.power = 1;
-        MatterBoost_1.amount = 0;
-        MatterExtent_1.cost = 1e3;
-        MatterExtent_1.power = 1;
-        MatterExtent_1.amount = 0;  
+    if(player.Souls >= SoulsUpgrade_7.cost) {
+        player.Souls.sub(SoulsUpgrade_7.cost);
+        SoulsUpgrade_7.bought.eq(true);
+        MatterGenerator_1.cost.eq(10);
+        MatterGenerator_1.power.eq(1);
+        MatterGenerator_1.amount.eq(0);
+        MatterBoost_1.cost.eq(100);
+        MatterBoost_1.power.eq(1);
+        MatterBoost_1.amount.eq(0);
+        MatterExtent_1.cost.eq(1e3);
+        MatterExtent_1.power.eq(1);
+        MatterExtent_1.amount.eq(0);
     }
 }
 
 // Black Hole Upgrades 
 
 function BlackHoleUpgrade1() {
-    if(Black_Hole >= BlackHoleUpgrade_1.cost) {
-        Black_Hole -= BlackHoleUpgrade_1.cost;
-        BlackHoleUpgrade_1.bought = true;
+    if(player.Black_Hole >= BlackHoleUpgrade_1.cost) {
+        player.Black_Hole.sub(BlackHoleUpgrade_1.cost);
+        BlackHoleUpgrade_1.bought.eq(true);
     }
 }
 
 function BlackHoleUpgrade2() {
-    if(Black_Hole >= BlackHoleUpgrade_2.cost) {
-        Black_Hole -= BlackHoleUpgrade_2.cost;
-        BlackHoleUpgrade_2.bought = true;
+    if(player.Black_Hole >= BlackHoleUpgrade_2.cost) {
+        player.Black_Hole.sub(BlackHoleUpgrade_2.cost);
+        BlackHoleUpgrade_2.bought.eq(true);
     }
 }
 
 function BlackHoleUpgrade3() {
-    if(Quarks >= BlackHoleUpgrade_3.cost) {
-        Quarks -= BlackHoleUpgrade_3.cost;
-        BlackHoleUpgrade_3.bought = true;
+    if(player.Quarks >= BlackHoleUpgrade_3.cost) {
+        player.Quarks.sub(BlackHoleUpgrade_3.cost);
+        BlackHoleUpgrade_3.bought.eq(true);
     }
 }
 
 function BlackHoleUpgrade4() {
-    if(Atoms >= BlackHoleUpgrade_4.cost) {
-        Atoms -= BlackHoleUpgrade_4.cost;
-        BlackHoleUpgrade_4.bought = true;
+    if(player.Atoms >= BlackHoleUpgrade_4.cost) {
+        player.Atoms.sub(BlackHoleUpgrade_4.cost);
+        BlackHoleUpgrade_4.bought.eq(true);
     }
 }
 
 //Sacrifice Prestige
 
 function SacrificePrestige() {
-    if( Matter >= 1 ) {
-        Souls += Math.sqrt(Matter / 1);
-        Souls += Neutron_boost2;
-        SoulsToGet += Math.sqrt(Matter / 1)
-        SoulsGain += Math.sqrt(Souls / 5) + 1;
-        Matter -= Matter;
-        Matter = 10;
-        MatterPerSec = 0;
-        MatterGenerator_1.amount = 0;
-        MatterBoost_1.amount = 0;
-        MatterExtent_1.amount = 0;
-        MatterGenerator_1.cost = 10;
-        MatterBoost_1.cost = 100;
-        MatterExtent_1.cost = 1000;
-        MatterGenerator_1.power = 1;
-        MatterBoost_1.power = 1;
-        MatterExtent_1.power = 1;
+    if(player.Matter.gte(1)) {
+        player.Souls.add(Math.sqrt(Matter.div(1)));
+        player.Souls.add(Neutron_boost2);
+        player.SoulsToGet.add(Math.sqrt(Matter.div(1)))
+        player.SoulsGain.add(Math.sqrt(Souls.div(5)).add(1));
+        player.Matter.sub(Matter);
+        player.Matter.eq(10);
+        player.MatterPerSec.eq(0);
+        MatterGenerator_1.cost.eq(10);
+        MatterGenerator_1.power.eq(1);
+        MatterGenerator_1.amount.eq(0);
+        MatterBoost_1.cost.eq(100);
+        MatterBoost_1.power.eq(1);
+        MatterBoost_1.amount.eq(0);
+        MatterExtent_1.cost.eq(1e3);
+        MatterExtent_1.power.eq(1);
+        MatterExtent_1.amount.eq(0);
         document.getElementById("Souls").textContent = "Souls: " + format(Souls);   
         document.getElementById("Souls-Gain").textContent = "(+" + format(SoulsGain) + ")";         
     }
     if( SoulsUpgrade_2.bought = true) {
-        Souls += Math.sqrt(Matter / 3333);
+        player.Souls.add(Math.sqrt(Matter.div(3333)));
     }
 }
 
 // Dark matter Prestige
 
 function DarkMatterPrestige() {
-    if( Souls >= 0.1 ) {
-        Dark_Matter_currency += Math.sqrt(Souls / 0.01);
-        Dark_MatterToGet += Math.sqrt(Souls / 0.01);
-        Matter -= Matter;
-        Matter = 100;
-        MatterGenerator_1.amount = 0;
-        MatterBoost_1.amount = 0;
-        MatterExtent_1.amount = 0;
-        MatterGenerator_1.power = 1;
-        MatterBoost_1.power = 1;
-        MatterExtent_1.power = 1;
-        MatterGenerator_1.cost = 10;
-        MatterBoost_1.cost = 100;
-        MatterExtent_1.cost = 1e3;
-        Souls -= Souls;
-        MatterPerSec -= MatterPerSec;
+    if(player.Souls.gte(0.1)) {
+        player.Dark_Matter_currency.add(Math.sqrt(Souls.div(0.01)));
+        player.Dark_MatterToGet.add(Math.sqrt(Souls.div(0.01)));
+        player.Matter.sub(Matter);
+        player.Matter.eq(100);
+        player.MatterPerSec.eq(1);
+        MatterGenerator_1.cost.eq(10);
+        MatterGenerator_1.power.eq(1);
+        MatterGenerator_1.amount.eq(0);
+        MatterBoost_1.cost.eq(100);
+        MatterBoost_1.power.eq(1);
+        MatterBoost_1.amount.eq(0);
+        MatterExtent_1.cost.eq(1e3);
+        MatterExtent_1.power.eq(1);
+        MatterExtent_1.amount.eq(0);
+        player.Souls.sub(Souls);
+        player.MatterPerSec.sub(MatterPerSec);
         setInterval(function() {
-            document.getElementById("Dark-matter-currency").textContent = "Dark Matter: " + format(Dark_MatterToGet);
-        })
+            document.getElementById("Dark-matter-currency").textContent = "Dark Matter: " + format(player.Dark_MatterToGet);
+        }, 1000);
     }
 }
 
 // Skill-upgrades
 
-let Skill_up1 = {
+var Skill_up1 = {
     cost: 1,
     bought: false,
 }
 
-let Skill_up2 = {
+var Skill_up2 = {
     cost: 5,
     bought: false,
 }
 
-let Skill_up3 = {
+var Skill_up3 = {
     cost: 1e5,
     bought: false,
 }
 
-let Skill_up4 = {
+var Skill_up4 = {
     cost: 1e12,
     bought: false,
 }
 
-let Skill_up5 = {
+var Skill_up5 = {
     cost: 1e3,
     bought: false,
 }
 
 function Skill1() {
-    if ( Dark_Matter_currency >= 1) {
-        Dark_Matter_currency -= Skill_up1.cost;
-        Skill_up1.bought = true;
+    if (player.Dark_Matter_currency.gte(1)) {
+        player.Dark_Matter_currency.sub(Skill_up1.cost);
+        Skill_up1.bought.eq(true);
     }
 }
 
 function Skill2() {
-    if ( Dark_Matter_currency >= 5) {
-        Dark_Matter_currency -= Skill_up2.cost;
-        Skill_up2.bought = true;
+    if (player.Dark_Matter_currency.gte(5)) {
+        player.Dark_Matter_currency.sub(Skill_up2.cost);
+        Skill_up2.bought.eq(true);
         BH_tab.classList.add("show-BH-tab");
     }
 }
 
 function Skill3() {
-    if ( Black_Hole >= Skill_up3.cost ) {
-        Black_Hole -= Skill_up3.cost;
-        Skill_up3.bought = true;
+    if (player.Black_Hole.gte(Skill_up3.cost)) {
+        player.Black_Hole.sub(Skill_up3.cost);
+        Skill_up3.bought.eq(true);
     }
 }
 
 function Skill4() {
-    if (Black_Hole >= Skill_up4.cost ) {
-        Black_Hole -= Skill_up4.cost;
-        Skill_up4.bought = true;
+    if (player.Black_Hole.gte(Skill_up4.cost)) {
+        player.Black_Hole.sub(Skill_up4.cost);
+        Skill_up4.bought.eq(true);
     }
 }
 
 function Skill5() {
-    if (Dark_Matter_currency >= Skill_up5.cost ) {
-        Dark_Matter_currency -= Skill_up5.cost;
-        Skill_up5.bought = true;
+    if (player.Dark_Matter_currency.gte(Skill_up5.cost)) {
+        player.Dark_Matter_currency.sub(Skill_up5.cost);
+        Skill_up5.bought.eq(true);
     }
 }
 
 // Quarks-tab
 
 function QuarksGain() {
-    if(Black_Hole >= 5e6) {
-       Quarks += Math.sqrt(Black_Hole / 5e6);
-       Black_Hole -= Math.sqrt(Black_Hole / 5e6);
+    if(player.Black_Hole.gte(5e6)) {
+       player.Quarks.add(Math.sqrt(Black_Hole.div(5e6)));
+       player.Black_Hole.sub(Math.sqrt(Black_Hole.div(5e6)));
        document.getElementById("Quarks-currency").textContent = "You have developed " + format(Quarks) + " Quarks";
     }
 }
@@ -586,9 +582,9 @@ var AtomsBoost = {
 }
 
 function AtomsGain() {
-    if(Quarks >= 100) {
-        Atoms += Math.sqrt(Quarks / 100);
-        AtomsBoost.amount += 1;
+    if(player.Quarks.gte(100)) {
+        player.Atoms.add(Math.sqrt(Quarks.div(100)));
+        player.AtomsBoost.amount.add(1);
         document.getElementById("Atoms-currency").textContent = "You have developed " + format(Atoms) + " Atoms";
      }
 }
@@ -680,9 +676,6 @@ function Get() {
     if (localStorage) {
         const SavedMatter = localStorage.getItem("Matter");
         const SavedMatterPerSec = localStorage.getItem("MatterPerSec");
-        const SavedAchievement_1 = localStorage.getItem("Achievement1");
-        const SavedAchievement_2 = localStorage.getItem("Achievement2");
-        const SavedChallange_1 = localStorage.getItem("Challange1");
         const SavedSouls = localStorage.getItem("Souls");
         const SavedSoulsGain = localStorage.getItem("Souls-Gain");
         const SavedTickspeed = localStorage.getItem("Tickspeed");
@@ -707,88 +700,79 @@ function Get() {
         const SavedQuarks = localStorage.getItem("Quarks");
         const SavedAtoms = localStorage.getItem("Atoms");
         if(SavedMatter) {
-            Matter = JSON.parse(SavedMatter);
+            player.Matter = JSON.parse(SavedMatter);
         } 
         if(SavedMatterPerSec) {
-            MatterPerSec = JSON.parse(SavedMatterPerSec);
-        }
-        if(SavedAchievement_1) {
-            Achievement_1 = JSON.parse(SavedAchievement_1);
-        }
-        if(SavedAchievement_2) {
-            Achievement_2 = JSON.parse(SavedAchievement_2);
-        }
-        if(SavedChallange_1) {
-            Challange_1 = JSON.parse(SavedChallange_1);
+            player.MatterPerSec = JSON.parse(SavedMatterPerSec);
         }
         if(SavedSouls) {
-            Souls = JSON.parse(SavedSouls);
+            player.Souls = JSON.parse(SavedSouls);
         }
         if(SavedSoulsGain) {
-            SoulsGain = JSON.parse(SavedSoulsGain);
+            player.SoulsGain = JSON.parse(SavedSoulsGain);
         }
         if(SavedDark_Matter_currency) {
-            Dark_Matter_currency = JSON.parse(SavedDark_Matter_currency);
+            player.Dark_Matter_currency = JSON.parse(SavedDark_Matter_currency);
         }
         if(SavedMatterGenerator) {
-            MatterGenerator_1 = JSON.parse(SavedMatterGenerator);
+            player.MatterGenerator_1 = JSON.parse(SavedMatterGenerator);
         }
         if(SavedMatterBoost) {
-            MatterBoost_1 = JSON.parse(SavedMatterBoost);
+            player.MatterBoost_1 = JSON.parse(SavedMatterBoost);
         }
         if(SavedMatterExtent) {
-            MatterExtent_1 = JSON.parse(SavedMatterExtent);
+            player.MatterExtent_1 = JSON.parse(SavedMatterExtent);
         }
         if(SavedTickspeed) {
-            Tickspeed1 = JSON.parse(SavedTickspeed);
+            player.Tickspeed1 = JSON.parse(SavedTickspeed);
         }
         if(SavedSoulUpgrade1) {
-            SoulsUpgrade_1 = JSON.parse(SavedSoulUpgrade1);
+            player.SoulsUpgrade_1 = JSON.parse(SavedSoulUpgrade1);
         }
         if(SavedSoulUpgrade2) {
-            SoulsUpgrade_2 = JSON.parse(SavedSoulUpgrade2);
+            player.SoulsUpgrade_2 = JSON.parse(SavedSoulUpgrade2);
         }
         if(SavedSoulUpgrade3) {
-            SoulsUpgrade_3 = JSON.parse(SavedSoulUpgrade3);
+            player.SoulsUpgrade_3 = JSON.parse(SavedSoulUpgrade3);
         }
         if(SavedSkill_up1) {
-            Skill_up1 = JSON.parse(SavedSkill_up1);
+            player.Skill_up1 = JSON.parse(SavedSkill_up1);
         }
         if(SavedSkill_up2) {
-            Skill_up2 = JSON.parse(SavedSkill_up2);
+            player.Skill_up2 = JSON.parse(SavedSkill_up2);
         }
         if(SavedSkill_up3) {
-            Skill_up3 = JSON.parse(SavedSkill_up3);
+            player.Skill_up3 = JSON.parse(SavedSkill_up3);
         }
         if(SavedSkill_up4) {
-            Skill_up4 = JSON.parse(SavedSkill_up4);
+            player.Skill_up4 = JSON.parse(SavedSkill_up4);
         }
         if(SavedBlack_Hole) {
-            Black_Hole = JSON.parse(SavedBlack_Hole);
+            player.Black_Hole = JSON.parse(SavedBlack_Hole);
         }
         if(SavedBlack_Holegain) {
-            Black_HolePerSec = JSON.parse(SavedBlack_Holegain);
+            player.Black_HolePerSec = JSON.parse(SavedBlack_Holegain);
         }
         if(SavedBlack_HoleMachine) {
-            Black_HoleMachine = JSON.parse(SavedBlack_HoleMachine);
+            player.Black_HoleMachine = JSON.parse(SavedBlack_HoleMachine);
         }
         if(SavedBlack_HoleExtractor) {
-            Black_HoleExtractor = JSON.parse(SavedBlack_HoleExtractor);
+            player.Black_HoleExtractor = JSON.parse(SavedBlack_HoleExtractor);
         }
         if(SavedBlack_Holeboost) {
-            Black_Holeboost = JSON.parse(SavedBlack_Holeboost);
+            player.Black_Holeboost = JSON.parse(SavedBlack_Holeboost);
         }
         if(SavedBlackHole_Upgrade1) {
-            BlackHoleUpgrade_1 = JSON.parse(SavedBlackHole_Upgrade1);
+            player.BlackHoleUpgrade_1 = JSON.parse(SavedBlackHole_Upgrade1);
         }
         if(SavedBlackHole_Upgrade2) {
-            BlackHoleUpgrade_2 = JSON.parse(SavedBlackHole_Upgrade2);
+            player.BlackHoleUpgrade_2 = JSON.parse(SavedBlackHole_Upgrade2);
         }
         if(SavedQuarks) {
-            Quarks = JSON.parse(SavedQuarks);
+            player.Quarks = JSON.parse(SavedQuarks);
         }
         if(SavedAtoms) {
-            Atoms = JSON.parse(SavedAtoms);
+            player.Atoms = JSON.parse(SavedAtoms);
         }
     } 
 }
