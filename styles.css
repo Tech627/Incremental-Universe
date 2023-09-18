@@ -57,6 +57,51 @@ body {
     padding-right: 50px;
 }
 
+#Souls-info {
+    border: 1px solid white;
+    background-color: black;
+    width: 250px;
+    height: 80px;
+    padding-top: 10px;
+    border-radius: 3px;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 50px;
+    margin-top: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    visibility: hidden;
+}
+
+#SacrificePrestige:hover #Souls-info{
+    visibility: visible;
+}
+
+#Rebirth-info {
+    border: 1px solid white;
+    background-color: black;
+    width: 300px;
+    height: 80px;
+    padding-top: 10px;
+    border-radius: 3px;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 50px;
+    margin-top: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    visibility: hidden;
+}
+
+
+#Rebirth:hover #Rebirth-info{
+    visibility: visible;
+}
+
 #Dark-matter-currency {
     font-size: 14px;
     color: white;
@@ -1635,14 +1680,32 @@ body {
     visibility: hidden;
 }
 
+#el_CurrentBoost1 {
+    width: 500px;
+    cursor: default;
+    margin-left: 197px;
+    font-size: 16px;
+    color: rgba(55, 255, 0, 0.866);
+    visibility: hidden;
+}
+
+#el_CurrentBoost2 {
+    width: 500px;
+    cursor: default;
+    margin-left: 197px;
+    font-size: 16px;
+    color: rgba(55, 255, 0, 0.866);
+    visibility: hidden;
+}
+
 #el_1:hover #el_Description, 
 #el_1:hover #el_Cost, 
-#el_1:hover #el_CurrentBoost{
+#el_1:hover #el_CurrentBoost1{
     visibility: visible;
 }
 
 #el_2:hover #el_Description,
-#el_2:hover #el_CurrentBoost,
+#el_2:hover #el_CurrentBoost2,
 #el_2:hover #el_Cost  {
     visibility: visible;
     margin-left: -640px;

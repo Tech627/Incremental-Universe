@@ -175,24 +175,24 @@
         </div>
         <div id="Molecules-tab" class="Molecules-tab" role="tab" onclick="OpenMoleculesContent()"> Molecules </div>
         <div id="Molecules-content" class="Molecules-content">
-            <div id="el_1"> 1
+            <div id="el_1" onclick="BuyEl1()"> 1
             <br> H    
             <div id="el_Description"> [Hydrogen] Gain more Atoms based on Quarks </div>
             <div id="el_Cost"> Cost: 1e10 Quarks </div>
-            <div id="el_CurrentBoost"> Currently: 0x to Atoms</div>
+            <div id="el_CurrentBoost1"> Currently: 0x to Atoms</div>
             </div>
-            <div id="el_2"> 2
+            <div id="el_2" onclick="BuyEl2()"> 2
             <br> He
             <div id="el_Description"> [Helium] BH extractor gives free Matter Boosts </div>
             <div id="el_Cost"> Cost: 1e200 Black Hole Formed </div>
-            <div id="el_CurrentBoost"> Currently: +0 To Matter Boosts </div>
+            <div id="el_CurrentBoost2"> Currently: +0 to Matter Boosts </div>
             </div>
             <div id="el_3" onclick="BuyEl3()"> 3
             <br> Li
             <div id="el_Description"> [Lithium] Unlock the first type of Quarks in the Quarks tab </div>
             <div id="el_Cost"> Cost: 1e17 Quarks </div>
             </div>
-            <div id="el_4"> 4
+            <div id="el_4" onclick="BuyEl4()"> 4
             <br> Be
             <div id="el_Description"> [Beryllium] Tickspeed is twice as stronger </div>
             <div id="el_Cost"> Cost: 1e20 Matter </div>
@@ -231,7 +231,7 @@
     </div>
     <div class="Options" id="Options">
        <button id="Save-btn" onclick="Save()"> Save </button>
-       <div id="Options-text">Incremental Universe - v0.2.3.1 Beta 1
+       <div id="Options-text">Incremental Universe - v0.2.3.1 Beta 2
        <br>What's new:
        <br>- Added 10 Elements
        <br>- Added a new 1st Proton boost effect
@@ -241,8 +241,19 @@
        <br>New Update coming soon
        </div>
     </div>
-    <button class="SacrificePrestige" id="SacrificePrestige" onclick="SacrificePrestige()"><img src="images/Souls-img3.png" id="Souls-img"></button>
-    <button class="Rebirth" id="Rebirth" onclick="DarkMatterPrestige()"><img src="images/Black-hole img.jpg" id="BH-img"></button>
+    <button class="SacrificePrestige" id="SacrificePrestige" onclick="SacrificePrestige()"><img src="images/Souls-img3.png" id="Souls-img">
+        <div id="Souls-info"> Souls 
+        <br> Pass 10,000 Matter to gain your 
+        <br> mighty for Souls and push limits more 
+    </div>
+</button>
+    <button class="Rebirth" id="Rebirth" onclick="DarkMatterPrestige()"><img src="images/Black-hole img.jpg" id="BH-img">
+    <div id="Rebirth-info"> Dark Matter 
+        <br> Pass 10,000 Souls to destroy galaxy
+        <br> and push limits to destroy more... 
+        <br> To be continued
+    </div>
+    </button>
 </body>
 <script src="JS/break_eternity.js"></script>
 <script src="JS/numberformating.js"></script>
