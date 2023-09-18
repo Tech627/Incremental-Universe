@@ -50,7 +50,7 @@
                 <div id="Matter-boost"> Matter Boost [0] </div>
                 <div id="Matter-boost-cost" onclick="MatterBoost()"> Cost: 100 </div> 
                 <div id="Matter-extent"> Matter Extent [0] </div>   
-                <div id="Matter-extent-cost" onclick="MatterExtent()"> Cost 1e3 </div>
+                <div id="Matter-extent-cost" onclick="MatterExtent()"> Cost 1,000 </div>
                 <div class="Tickspeed" id="Tickspeed"> Tickspeed [0] </div>
                 <div class="Tickspeed-cost" id="Tickspeed-cost" onclick="Tickspeed()"> cost: 1 Souls </div>
             </div>
@@ -142,6 +142,11 @@
             <div id="Quarks-gain" onclick="QuarksGain()"> Turn formed Black Hole into Quarks 
                 <br> Req: 1e5 Formed Black Holes
             </div>
+            <div class="up-Quark" id="up-Quark" onclick="UQuark()"> [Up] 
+                <div id="Up-Quarks-Gain"> Assign all of you quarks to Up Quark </div>
+                <div id="Up-cost"> Cost: 1e21 Quarks </div>
+                <div id="Up-boost"> Adds 0 free BH extractors </div>
+            </div>
         </div>
         <div class="Atoms-tab" id="Atoms-tab" role="tab" onclick="OpenAtomsContent()"> Atoms </div>
         <div class="Atoms-content" id="Atoms-content">
@@ -170,13 +175,51 @@
         </div>
         <div id="Molecules-tab" class="Molecules-tab" role="tab" onclick="OpenMoleculesContent()"> Molecules </div>
         <div id="Molecules-content" class="Molecules-content">
-            <div class="Elements">
-                <div id="el_1"> 1
-                <br> H    
-                <div id="el_Description"> [Hydrogen] Gain more Atoms based on Quarks </div>
-                <div id="el_Cost"> Cost: 1e10 Quarks </div>
-                <div id="el_CurrentBoost"> Currently: 0x to Atoms</div>
-                </div>
+            <div id="el_1"> 1
+            <br> H    
+            <div id="el_Description"> [Hydrogen] Gain more Atoms based on Quarks </div>
+            <div id="el_Cost"> Cost: 1e10 Quarks </div>
+            <div id="el_CurrentBoost"> Currently: 0x to Atoms</div>
+            </div>
+            <div id="el_2"> 2
+            <br> He
+            <div id="el_Description"> [Helium] BH extractor gives free Matter Boosts </div>
+            <div id="el_Cost"> Cost: 1e200 Black Hole Formed </div>
+            <div id="el_CurrentBoost"> Currently: +0 To Matter Boosts </div>
+            </div>
+            <div id="el_3" onclick="BuyEl3()"> 3
+            <br> Li
+            <div id="el_Description"> [Lithium] Unlock the first type of Quarks in the Quarks tab </div>
+            <div id="el_Cost"> Cost: 1e17 Quarks </div>
+            </div>
+            <div id="el_4"> 4
+            <br> Be
+            <div id="el_Description"> [Beryllium] Tickspeed is twice as stronger </div>
+            <div id="el_Cost"> Cost: 1e20 Matter </div>
+            </div>
+            <div id="el_5"> 5
+            <br> B
+            <div id="el_Description"> [Boron] Matter Extent is boosted based on Quarks at a reduced rate</div>
+            </div>
+            <div id="el_6"> 6
+            <br> C 
+            <div id="el_Description"> [Carbon] Placeholder</div>
+            </div>
+            <div id="el_7"> 7
+            <br> N
+            <div id="el_Description"> [Nitrogen] Placeholder</div>
+            </div>
+            <div id="el_8"> 8
+            <br> O
+            <div id="el_Description"> [Oxygen] Placeholder</div>
+            </div>
+            <div id="el_9"> 9
+            <br> F
+            <div id="el_Description"> [Flourine] Placeholder</div>
+            </div>
+            <div id="el_10"> 10
+            <br> Ne
+            <div id="el_Description"> [Neon] Placeholder</div>
             </div>
         </div>
         <div class="Time-dilation" id="Time-dilation"> Time Dilation 
@@ -188,11 +231,11 @@
     </div>
     <div class="Options" id="Options">
        <button id="Save-btn" onclick="Save()"> Save </button>
-       <div id="Options-text">Incremental Universe - v0.2.3 Part 3
+       <div id="Options-text">Incremental Universe - v0.2.3.1 Beta 1
        <br>What's new:
-       <br>- Added 2 new Black Hole Upgrades
-       <br>- Added a bunch of content into Quarks
-       <br>- Removed 1st Proton effect due to being insanely overpowerd
+       <br>- Added 10 Elements
+       <br>- Added a new 1st Proton boost effect
+       <br>- Added more content to Quarks
        <br>
        <br>Inspired by - Incremental Mass rewritten
        <br>New Update coming soon

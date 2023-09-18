@@ -1173,13 +1173,57 @@ body {
     visibility: hidden;
 }
 
+.up-Quark {
+    border: solid orangered;
+    background-color: rgb(0, 0, 0);
+    width: 250px;
+    height: 160px;
+    margin-left: 50px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    visibility: hidden;
+}
+
+.show-up-Quark {
+    visibility: visible;
+}
+
+#Up-Quarks-gain {
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    margin-top: 30px;
+}
+
+#Up-cost {
+    width: 200px;
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 15px;
+    background-color: rgba(128, 128, 128, 0.282);
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+#Up-cost:hover {
+    background-color: rgba(255, 166, 0, 0.57);
+}
+
+#Up-boost {
+    font-size: 13px;
+    margin-top: 20px;
+}
+
 .Atoms-tab {
     width: 150px;
     height: 30px;
     padding-top: 10px;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: -156px;
+    margin-top: -351px;
     color: white;
     border: 2px solid white;
     text-align: center;
@@ -1437,6 +1481,132 @@ body {
     cursor: pointer;
 }
 
+#el_2{
+    border: solid white;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font: bolder;
+    padding-top: 9px;
+    color: white;
+    margin-left: 930px;
+    margin-top: -55px;
+    cursor: pointer;
+}
+
+#el_3 {
+    border: solid white;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font: bolder;
+    padding-top: 9px;
+    color: white;
+    margin-left: 100px;
+    margin-top: -1px;
+    cursor: pointer;
+}
+
+#el_4 {
+    border: solid white;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font: bolder;
+    padding-top: 9px;
+    color: white;
+    margin-left: 154px;
+    margin-top: -54px;
+    cursor: pointer;
+}
+
+#el_5 {
+    border: solid white;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font: bolder;
+    padding-top: 9px;
+    color: white;
+    margin-left: 660px;
+    margin-top: -53.5px;
+    cursor: pointer;
+}
+
+#el_6 {
+    border: solid white;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font: bolder;
+    padding-top: 9px;
+    color: white;
+    margin-left: 714px;
+    margin-top: -54px;
+    cursor: pointer;
+}
+
+#el_7 {
+    border: solid white;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font: bolder;
+    padding-top: 9px;
+    color: white;
+    margin-left: 768px;
+    margin-top: -54px;
+    cursor: pointer;
+}
+
+#el_8 {
+    border: solid white;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font: bolder;
+    padding-top: 9px;
+    color: white;
+    margin-left: 822px;
+    margin-top: -54px;
+    cursor: pointer;
+}
+
+#el_9 {
+    border: solid white;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font: bolder;
+    padding-top: 9px;
+    color: white;
+    margin-left: 876px;
+    margin-top: -54px;
+    cursor: pointer;
+}
+
+#el_10 {
+    border: solid white;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font: bolder;
+    padding-top: 9px;
+    color: white;
+    margin-left: 930px;
+    margin-top: -54px;
+    cursor: pointer;
+}
+
 #el_Description {
     width: 500px;
     cursor: default;
@@ -1465,16 +1635,39 @@ body {
     visibility: hidden;
 }
 
-#el_1:hover #el_Description {
+#el_1:hover #el_Description, 
+#el_1:hover #el_Cost, 
+#el_1:hover #el_CurrentBoost{
     visibility: visible;
 }
 
-#el_1:hover #el_Cost {
+#el_2:hover #el_Description,
+#el_2:hover #el_CurrentBoost,
+#el_2:hover #el_Cost  {
     visibility: visible;
+    margin-left: -640px;
 }
 
-#el_1:hover #el_CurrentBoost {
+#el_3:hover #el_Description,
+#el_3:hover #el_Cost {
     visibility: visible;
+    margin-top: -200px;
+}
+
+#el_3:hover #el_Cost {
+    visibility: visible;
+    margin-top: 0;
+}
+
+#el_4:hover #el_Description,
+#el_4:hover #el_Cost {
+    visibility: visible;
+    margin-top: -200px;
+    margin-left: 150px;
+}
+
+#el_4:hover #el_Cost {
+    margin-top: 0;
 }
 
 #Time-dilation {

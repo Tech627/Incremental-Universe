@@ -16,6 +16,7 @@ let Skill_tree = document.getElementById("Skills");
 let Reset = document.getElementById("Rebirth");
 let Quarks_tab = document.getElementById("Quarks-tab");
 let Quarks_content = document.getElementById("Quarks-content");
+let Up_Quark = document.getElementById("up-Quark")
 let Atoms_tab = document.getElementById("Atoms-tab");
 let Atoms_content = document.getElementById("Atoms-content");
 let Molecules_tab = document.getElementById("Molecules-tab");
@@ -44,6 +45,7 @@ function OpenBH() {
     Atoms_tab.classList.remove("show-Atoms-tab");
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
+    Up_Quark.classList.remove("show-up-Quark")
 }
 
 function OpenMC() {
@@ -57,6 +59,7 @@ function OpenMC() {
     Atoms_tab.classList.remove("show-Atoms-tab");
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
+    Up_Quark.classList.remove("show-up-Quark")
 }
 
 function OpenQuarks() {
@@ -68,6 +71,9 @@ function OpenQuarks() {
 }
 
 function OpenQuarksContent() {
+    if (Elements.el_3.bought === true) {
+      Up_Quark.classList.add("show-up-Quark")
+    }
     Quarks_content.classList.add("show-Quarks-content");
     Atoms_content.classList.remove("show-Atoms-content");
     Skill_tree.classList.remove("open-Skills");
@@ -117,6 +123,7 @@ function OpenAtomsContent() {
         Electron_boost1.classList.add("show-Electron-boost1");
     }
     Molecules_content.classList.remove("show-Molecules-content");
+    Up_Quark.classList.remove("show-up-Quark")
 }
 
 function OpenMoleculesContent() {
@@ -137,6 +144,7 @@ function OpenMoleculesContent() {
     Proton_boost1.classList.remove("show-Proton-boost1");
     Neutron_boost1.classList.remove("show-Neutron-boost1");
     Electron_boost1.classList.remove("show-Electron-boost1");
+    Up_Quark.classList.remove("show-up-Quark")
 }
 
 function OpenReset() {
@@ -159,6 +167,7 @@ function OpenReset() {
     Neutron_boost1.classList.remove("show-Neutron-boost1");
     Electron_boost1.classList.remove("show-Electron-boost1");
     Molecules_tab.classList.remove("show-Molecules-tab");
+    Up_Quark.classList.remove("show-up-Quark")
 }
 
 function OpenSkills() {
@@ -182,6 +191,7 @@ function OpenSkills() {
     Electron_boost1.classList.remove("show-Electron-boost1");
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
+    Up_Quark.classList.remove("show-up-Quark")
 }
 
 function OpenUpgrades() {
@@ -222,6 +232,7 @@ function OpenUpgrades() {
     Electron_boost1.classList.remove("show-Electron-boost1");
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
+    Up_Quark.classList.remove("show-up-Quark")
 }
 
 function OpenMain() {
@@ -264,6 +275,7 @@ function OpenMain() {
     Electron_boost1.classList.remove("show-Electron-boost1");
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
+    Up_Quark.classList.remove("show-up-Quark")
 }
 
 function OpenAchievements() {
@@ -304,6 +316,7 @@ function OpenAchievements() {
     Electron_boost1.classList.remove("show-Electron-boost1");
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
+    Up_Quark.classList.remove("show-up-Quark")
 }
 
 function OpenChallanges() {
@@ -344,6 +357,7 @@ function OpenChallanges() {
     Electron_boost1.classList.remove("show-Electron-boost1");
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
+    Up_Quark.classList.remove("show-up-Quark")
 }
 
 function OpenDarkMatter() {
@@ -406,4 +420,5 @@ function OpenOptions() {
     Electron_boost1.classList.remove("show-Electron-boost1");
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
+    Up_Quark.classList.remove("show-up-Quark")
 }
