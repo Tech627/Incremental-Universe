@@ -147,6 +147,11 @@
                 <div id="Up-cost"> Cost: 1e21 Quarks </div>
                 <div id="Up-boost"> Adds 0 free BH extractors </div>
             </div>
+            <div class="Down-Quark" id="Down-Quark" onclick=""> [Down] 
+                <div id="Down-Quarks-Gain"> Assign all of you quarks to Up Quark </div>
+                <div id="Down-cost"> Cost: 1e90 Quarks </div>
+                <div id="Down-boost"> boost Tickspeed by 1x </div>
+            </div>
         </div>
         <div class="Atoms-tab" id="Atoms-tab" role="tab" onclick="OpenAtomsContent()"> Atoms </div>
         <div class="Atoms-content" id="Atoms-content">
@@ -158,7 +163,7 @@
             <div class="ProtonPerSec" id="ProtonPerSec"> (+0 Protons Per sec)
             <br> Based on Matter    
             </div>
-            <div class="Proton-boost" id="Proton-boost">  </div>
+            <div class="Proton-boost" id="Proton-boost"> 0x boost Matter Generator </div>
             <div class="Proton-boost1" id="Proton-boost1"> 0x boost to Matter Extent </div>
             <div class="Neutron" id="Neutron"> 0 Neutrons </div>
             <div class="NeutronPerSec" id="NeutronPerSec"> (+0 Neutrons Per sec)
@@ -197,29 +202,39 @@
             <div id="el_Description"> [Beryllium] Tickspeed is twice as stronger </div>
             <div id="el_Cost"> Cost: 1e20 Matter </div>
             </div>
-            <div id="el_5"> 5
+            <div id="el_5" onclick="BuyEl5()"> 5
             <br> B
             <div id="el_Description"> [Boron] Matter Extent is boosted based on Quarks at a reduced rate</div>
+            <div id="el_Cost"> Cost: 1e30 Quarks </div>
+            <div id="el_CurrentBoost3"> Currently: 1x to Matter Extent </div>
             </div>
-            <div id="el_6"> 6
+            <div id="el_6" onclick="BuyEl6()"> 6
             <br> C 
-            <div id="el_Description"> [Carbon] Placeholder</div>
+            <div id="el_Description"> [Carbon] Souls is boosted by Souls at EXTREMELY MASSIVE rate</div>
+            <div id="el_Cost"> Cost: 1e70 Souls </div>
+            <div id="el_CurrentBoost4"> Currently: x1 to Souls </div>
             </div>
-            <div id="el_7"> 7
+            <div id="el_7" onclick="BuyEl7()"> 7
             <br> N
-            <div id="el_Description"> [Nitrogen] Placeholder</div>
+            <div id="el_Description"> [Nitrogen] Dark Matter is boosted based on Dark Matter at EXTREMELY MASSIVE rate</div>
+            <div id="el_Cost"> Cost: 1e90 Dark Matter </div>
+            <div id="el_CurrentBoost5"> Currently: x1 to Dark Matter </div>
             </div>
-            <div id="el_8"> 8
+            <div id="el_8" onclick="BuyEl8()"> 8
             <br> O
-            <div id="el_Description"> [Oxygen] Placeholder</div>
+            <div id="el_Description"> [Oxygen] Helium is boosted by tickspeed at extremely reduced rate</div>
+            <div id="el_Cost"> Cost: 1e60 Quarks </div>
+            <div id="el_CurrentBoost6"> Curretly: 1x to Helium </div>
             </div>
-            <div id="el_9"> 9
+            <div id="el_9" onclick="BuyEl9()"> 9
             <br> F
-            <div id="el_Description"> [Flourine] Placeholder</div>
+            <div id="el_Description"> [Flourine] Gain 100% Souls per Second</div>
+            <div id="el_Cost"> Cost: 1e110 Souls </div>
             </div>
-            <div id="el_10"> 10
+            <div id="el_10" onclick="BuyEl10()"> 10
             <br> Ne
-            <div id="el_Description"> [Neon] Placeholder</div>
+            <div id="el_Description"> [Neon] Unlock the 2nd type of Quarks in Quarks tab</div>
+            <div id="el_Cost"> 1e80 Quarks </div>
             </div>
         </div>
         <div class="Time-dilation" id="Time-dilation"> Time Dilation 
@@ -231,7 +246,7 @@
     </div>
     <div class="Options" id="Options">
        <button id="Save-btn" onclick="Save()"> Save </button>
-       <div id="Options-text">Incremental Universe - v0.2.3.1 Beta 2
+       <div id="Options-text">Incremental Universe - v0.2.3.1 Beta 3
        <br>What's new:
        <br>- Added 10 Elements
        <br>- Added a new 1st Proton boost effect

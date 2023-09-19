@@ -140,6 +140,13 @@ let BH_tab = document.getElementById("BH-tab");
 // Matter tab
 
 setInterval(function() {
+    if(Elements.el_9.bought === true) {
+        player.Souls 
+        document.getElementById("Souls").textContent = "Souls: " + format(player.Souls)
+    }
+}, 1)
+
+setInterval(function() {
     player.Matter = player.Matter.add(player.MatterPerSec / 50);
     document.getElementById("Matter").textContent = "Matter: " + format(player.Matter);
 }, 20);
@@ -150,6 +157,7 @@ setInterval(function() {
 }, 20);
 
 setInterval(function() {
+    MatterGenerator_1.power += Math.log10(player.Proton_1)
     player.ProtonPerSec_1 = player.ProtonPerSec_1.add(Math.log10(Math.sqrt(player.Matter / 1e6) / 1e7))
     player.Proton_1.add(player.ProtonPerSec_1);
     if(BlackHoleUpgrade_3.bought === true) {
@@ -179,7 +187,7 @@ setInterval(function() {
     player.Proton_boost2.add(Math.log10(player.Proton_1));
     player.Neutron_boost2.add(player.Neutron_1);
     player.Electron_boost2.add(player.Electron_1);
-    document.getElementById("Proton-boost").textContent = format(player.Proton_boost2) + "x boost to Matter gain";
+    document.getElementById("Proton-boost").textContent = format(player.Proton_boost2) + "x boost to Matter Generator";
     document.getElementById("Neutron-boost").textContent = format(player.Neutron_boost2) + "x boost to Souls gain";
     document.getElementById("Electron-boost").textContent = format(player.Electron_boost2) + "x boost to Formed Black Holes";
 }, 20);
@@ -259,6 +267,9 @@ function MatterExtent() {
     }
     if(Skill_up4.bought === true) {
         Black_Holeboost = Black_Holeboost.mult(MatterExtent_1.power / 15);
+    }
+    if(Elements.el_5.bought === true) {
+        MatterExtent_1.power += Elements.el_5.boost
     }
 }
 
@@ -479,6 +490,9 @@ function SacrificePrestige() {
     if( SoulsUpgrade_2.bought === true) {
         player.Souls += Math.sqrt(Matter / 3333);
     }
+    if(Elements.el_6.bought === true) {
+        player.Souls += Elements.el_6.boost
+    }
 }
 
 // Dark matter Prestige
@@ -502,6 +516,9 @@ function DarkMatterPrestige() {
         setInterval(function() {
             document.getElementById("Dark-matter-currency").textContent = "Dark Matter: " + format(player.Dark_MatterToGet);
         }, 1000);
+    }
+    if (Elements.el_7.bought === true) {
+        player.Dark_Matter_currency += Elements.el_7.boost
     }
 }
 

@@ -17,6 +17,7 @@ let Reset = document.getElementById("Rebirth");
 let Quarks_tab = document.getElementById("Quarks-tab");
 let Quarks_content = document.getElementById("Quarks-content");
 let Up_Quark = document.getElementById("up-Quark")
+let Down_Quark = document.getElementById("Down-Quark")
 let Atoms_tab = document.getElementById("Atoms-tab");
 let Atoms_content = document.getElementById("Atoms-content");
 let Molecules_tab = document.getElementById("Molecules-tab");
@@ -46,6 +47,7 @@ function OpenBH() {
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
 }
 
 function OpenMC() {
@@ -60,6 +62,7 @@ function OpenMC() {
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
 }
 
 function OpenQuarks() {
@@ -73,6 +76,9 @@ function OpenQuarks() {
 function OpenQuarksContent() {
     if (Elements.el_3.bought === true) {
       Up_Quark.classList.add("show-up-Quark")
+    }
+    if (Elements.el_10.bought === true) {
+      Down_Quark.classList.add("show-Down-Quark")
     }
     Quarks_content.classList.add("show-Quarks-content");
     Atoms_content.classList.remove("show-Atoms-content");
@@ -124,6 +130,7 @@ function OpenAtomsContent() {
     }
     Molecules_content.classList.remove("show-Molecules-content");
     Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
 }
 
 function OpenMoleculesContent() {
@@ -145,6 +152,7 @@ function OpenMoleculesContent() {
     Neutron_boost1.classList.remove("show-Neutron-boost1");
     Electron_boost1.classList.remove("show-Electron-boost1");
     Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
 }
 
 function OpenReset() {
@@ -168,6 +176,7 @@ function OpenReset() {
     Electron_boost1.classList.remove("show-Electron-boost1");
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
 }
 
 function OpenSkills() {
@@ -192,6 +201,7 @@ function OpenSkills() {
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
 }
 
 function OpenUpgrades() {
@@ -233,6 +243,7 @@ function OpenUpgrades() {
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
 }
 
 function OpenMain() {
@@ -276,6 +287,7 @@ function OpenMain() {
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
 }
 
 function OpenAchievements() {
@@ -317,6 +329,7 @@ function OpenAchievements() {
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
 }
 
 function OpenChallanges() {
@@ -358,6 +371,7 @@ function OpenChallanges() {
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
 }
 
 function OpenDarkMatter() {
@@ -421,4 +435,5 @@ function OpenOptions() {
     Molecules_content.classList.remove("show-Molecules-content");
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
 }

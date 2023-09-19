@@ -1235,6 +1235,23 @@ body {
     visibility: visible;
 }
 
+.Down-Quark {
+    border: solid orangered;
+    background-color: rgb(0, 0, 0);
+    width: 250px;
+    height: 160px;
+    margin-left: 350px;
+    margin-top: -165px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    visibility: hidden;
+}
+
+.show-Down-Quark {
+    visibility: visible;
+}
+
 #Up-Quarks-gain {
     text-align: center;
     font-size: 14px;
@@ -1261,6 +1278,34 @@ body {
     font-size: 13px;
     margin-top: 20px;
 }
+
+#Down-Quarks-gain {
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    margin-top: 30px;
+}
+
+#Down-cost {
+    width: 200px;
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 15px;
+    background-color: rgba(128, 128, 128, 0.282);
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+#Down-cost:hover {
+    background-color: rgba(255, 166, 0, 0.57);
+}
+
+#Down-boost {
+    font-size: 13px;
+    margin-top: 20px;
+}
+
 
 .Atoms-tab {
     width: 150px;
@@ -1698,6 +1743,46 @@ body {
     visibility: hidden;
 }
 
+
+#el_CurrentBoost3 {
+    width: 500px;
+    cursor: default;
+    margin-left: 197px;
+    font-size: 16px;
+    color: rgba(55, 255, 0, 0.866);
+    visibility: hidden;
+}
+
+
+#el_CurrentBoost4 {
+    width: 500px;
+    cursor: default;
+    margin-left: 197px;
+    font-size: 16px;
+    color: rgba(55, 255, 0, 0.866);
+    visibility: hidden;
+}
+
+
+#el_CurrentBoost5 {
+    width: 500px;
+    cursor: default;
+    margin-left: 197px;
+    font-size: 16px;
+    color: rgba(55, 255, 0, 0.866);
+    visibility: hidden;
+}
+
+
+#el_CurrentBoost6 {
+    width: 500px;
+    cursor: default;
+    margin-left: 197px;
+    font-size: 16px;
+    color: rgba(55, 255, 0, 0.866);
+    visibility: hidden;
+}
+
 #el_1:hover #el_Description, 
 #el_1:hover #el_Cost, 
 #el_1:hover #el_CurrentBoost1{
@@ -1727,6 +1812,92 @@ body {
     visibility: visible;
     margin-top: -200px;
     margin-left: 150px;
+}
+
+#el_5:hover #el_Description, 
+#el_5:hover #el_Cost, 
+#el_5:hover #el_CurrentBoost3{
+    visibility: visible;
+    margin-left: -350px;
+    margin-top: -200px;
+}
+
+#el_5:hover #el_Cost {
+    margin-top: 1px
+}
+
+#el_5:hover #el_CurrentBoost3 {
+    margin-top: 1px;
+}
+
+#el_6:hover #el_Description, 
+#el_6:hover #el_Cost, 
+#el_6:hover #el_CurrentBoost4{
+    visibility: visible;
+    margin-top: -200px;
+    margin-left: -410px;
+}
+
+#el_6:hover #el_Cost {
+    margin-top: 1px;
+}
+
+#el_6:hover #el_CurrentBoost4 {
+    margin-top: 1px;
+}
+
+#el_7:hover #el_Description, 
+#el_7:hover #el_Cost, 
+#el_7:hover #el_CurrentBoost5{
+    visibility: visible;
+    margin-top: -200px;
+    margin-left: -480px;
+}
+
+#el_7:hover #el_Cost {
+    margin-top: 1px;
+}
+
+#el_7:hover #el_CurrentBoost5 {
+    margin-top: 1px;
+}
+
+#el_8:hover #el_Description, 
+#el_8:hover #el_Cost, 
+#el_8:hover #el_CurrentBoost6{
+    visibility: visible;
+    margin-top: -200px;
+    margin-left: -550px;
+}
+
+#el_8:hover #el_Cost {
+    margin-top: 1px;
+}
+
+#el_8:hover #el_CurrentBoost6 {
+    margin-top: 1px;
+}
+
+#el_9:hover #el_Description, 
+#el_9:hover #el_Cost{
+    visibility: visible;
+    margin-top: -200px;
+    margin-left: -620px;
+}
+
+#el_9:hover #el_Cost {
+    margin-top: 1px;
+}
+
+#el_10:hover #el_Description, 
+#el_10:hover #el_Cost{
+    visibility: visible;
+    margin-top: -200px;
+    margin-left: -690px;
+}
+
+#el_10:hover #el_Cost {
+    margin-top: 1px;
 }
 
 #el_4:hover #el_Cost {
