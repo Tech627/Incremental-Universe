@@ -223,6 +223,8 @@ function GameLoop() {
    document.getElementById("MatterPerSec").textContent = format(MatterGain) + " Matter/sec";
 }
 
+setInterval(GameLoop,1000/20)
+
 
 setInterval(function() {
     if(Elements.el_9.bought === true) {
