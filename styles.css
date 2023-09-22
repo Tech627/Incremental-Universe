@@ -612,11 +612,51 @@ body {
     cursor: pointer;
 }
 
+#Souls-Upgrade8 {
+    border: 2px solid rgb(52, 16, 16);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 345px;
+    margin-left: 415px;
+    cursor: pointer;
+}
+
+#Souls-Upgrade9 {
+    border: 2px solid rgb(52, 16, 16);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 345px;
+    margin-left: 460px;
+    cursor: pointer;
+}
+
+#Souls-Upgrade10 {
+    border: 2px solid rgb(52, 16, 16);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 345px;
+    margin-left: 505px;
+    cursor: pointer;
+}
+
 #Souls-Upgrade1-text {
     position: absolute;
     top: -260;
     left: 0;
-    margin-left: 200px;
+    margin-left: auto;
+    margin-right: auto;
     cursor: default;
     width: 400px;
     height: 30px;
@@ -633,7 +673,8 @@ body {
     position: absolute;
     top: -230;
     left: 0;
-    margin-left: 200px;
+    margin-left: auto;
+    margin-right: auto;
     cursor: default;
     width: 400px;
     color: white;
@@ -646,10 +687,12 @@ body {
 
 #Souls-Upgrade1:hover #Souls-Upgrade1-text {
     visibility: visible;
+    margin-left: 250px;
 }
 
 #Souls-Upgrade1:hover #Souls-Upgrade1-text2 {
     visibility: visible;
+    margin-left: 250px
 }
 
 #Souls-Upgrade2:hover #Souls-Upgrade1-text {
@@ -694,11 +737,13 @@ body {
 
 #Souls-Upgrade6:hover #Souls-Upgrade1-text {
     visibility: visible;
+    margin-left: 250px;
     margin-top: -36px;
 }
 
 #Souls-Upgrade6:hover #Souls-Upgrade1-text2 {
     visibility: visible;
+    margin-left: 250px;
     margin-top: -36px;
 }
 
@@ -711,6 +756,42 @@ body {
 #Souls-Upgrade7:hover #Souls-Upgrade1-text2 {
     visibility: visible;
     margin-left: 160px;
+    margin-top: -36px;
+}
+
+#Souls-Upgrade8:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: 160px;
+    margin-top: -36px;
+}
+
+#Souls-Upgrade8:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: 160px;
+    margin-top: -36px;
+}
+
+#Souls-Upgrade9:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: 120px;
+    margin-top: -36px;
+}
+
+#Souls-Upgrade9:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: 120px;
+    margin-top: -36px;
+}
+
+#Souls-Upgrade10:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: 80px;
+    margin-top: -36px;
+}
+
+#Souls-Upgrade10:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: 80px;
     margin-top: -36px;
 }
 
@@ -752,6 +833,40 @@ body {
 #BlackHole-Upgrade4:hover #Souls-Upgrade1-text2 {
     visibility: visible;
     margin-left: -250px;
+}
+
+#BlackHole-Upgrade5:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: -240px;
+}
+
+#BlackHole-Upgrade5:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: -240px;
+}
+
+#BlackHole-Upgrade6:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: -70px;
+    margin-top: -36px;
+}
+
+#BlackHole-Upgrade6:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: -70px;
+    margin-top: -36px;
+}
+
+#BlackHole-Upgrade7:hover #Souls-Upgrade1-text {
+    visibility: visible;
+    margin-left: -110px;
+    margin-top: -36px;
+}
+
+#BlackHole-Upgrade7:hover #Souls-Upgrade1-text2 {
+    visibility: visible;
+    margin-left: -110px;
+    margin-top: -36px;
 }
 
 #BlackHole-Upgrade1 {
@@ -806,8 +921,47 @@ body {
     cursor: pointer;  
 }
 
+#BlackHole-Upgrade5 {
+    border: 2px solid rgb(255, 242, 0);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 300px;
+    margin-left: 780px;
+    cursor: pointer;  
+}
+
+#BlackHole-Upgrade6 {
+    border: 2px solid rgb(255, 242, 0);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 345px;
+    margin-left: 580px;
+    cursor: pointer;  
+}
+
+#BlackHole-Upgrade7 {
+    border: 2px solid rgb(255, 242, 0);
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 345px;
+    margin-left: 630px;
+    cursor: pointer;  
+}
+
 #Challanges-button[role="tab"] {
-    border: 3.5px solid  white;
+    border: 3.5px solid white;
     width: 200px;
     height: 35px;
     font-size: 17px;
@@ -854,7 +1008,12 @@ body {
     background-color: rgba(60, 57, 57, 0.652);
 }
 
+
 .Challanges {
+    visibility: hidden;
+}
+
+.Challange1 {
     background-color: white;
     border-radius: 10px;
     width: 500px;
@@ -880,17 +1039,18 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 5px;
     cursor: pointer;
+    margin-right: 130px;
 }
 
 .Finnish-button {
     border: 2px solid orangered;
     background-image: linear-gradient(90deg, rgb(13, 96, 123), black);
     width: 150px;
-    height: 50px;
+    height: 40px;
     color: white;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
-    padding-top: 5px;
+    padding-top: 10px;
     text-align: center;
     cursor: pointer;
     visibility: hidden;

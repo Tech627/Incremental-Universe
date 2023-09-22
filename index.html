@@ -19,6 +19,14 @@
     </div>
         <div class="Challanges" id="Challanges">
             <div class="Challange1" id="Challange1" onclick=""> Challange 1
+                <br>
+                <br> You can't buy Matter Gen, Boost and Extent 
+                <br>
+                <br> Goal: 1,000 Matter
+                <br> 
+                <br> Reward: Matter Gen, Boost and Extent are boosted
+                <br>
+                <br>
                 <button id="Back-button" onclick="BackBtn()"> Back </button>
             </div>
             <div class="Finnish-button" id="Finnish-button" onclick="FinnishBtn()"> Finnish </div>
@@ -94,7 +102,19 @@
             <p id="Souls-Upgrade1-text"> Souls Boost Tickspeed power at a reduced rate </p>
             <p id="Souls-Upgrade1-text2"> Cost: 1e5 Souls </p>
         </div>
-        <div id="Black-Hole-text"> Black Hole Upgrades </div>
+        <div id="Souls-Upgrade8" onclick="SoulsUpgrade8()">
+            <p id="Souls-Upgrade1-text"> Tickspeed gives free BH extractors </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 1e90 Souls </p>
+        </div>
+        <div id="Souls-Upgrade9" onclick="SoulsUpgrade9()">
+            <p id="Souls-Upgrade1-text"> Matter Generator gives free Tickspeed </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 1e120 Souls </p>
+        </div>
+        <div id="Souls-Upgrade10">
+            <p id="Souls-Upgrade1-text"> Unlock Challenge 2 (The Souls challenge) </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 1e250 Souls </p>
+        </div>
+        <div id="Black-Hole-text"> Dark Matter Upgrades </div>
         <div id="BlackHole-Upgrade1" onclick="BlackHoleUpgrade1()">
             <p id="Souls-Upgrade1-text"> Matter Upgrades no longer spend Matter </p>
             <p id="Souls-Upgrade1-text2"> Cost: 10 Black Holes Formed </p>
@@ -110,6 +130,18 @@
         <div id="BlackHole-Upgrade4" onclick="BlackHoleUpgrade4()">
             <p id="Souls-Upgrade1-text"> Atoms boost Electrons at a reduced rate </p>
             <p id="Souls-Upgrade1-text2"> Cost: 1e5 Atoms </p>
+        </div>
+        <div id="BlackHole-Upgrade5" onclick="BlackHoleUpgrade5()">
+            <p id="Souls-Upgrade1-text"> Dark Matter is boosted based on Matter at a reduced rate</p>
+            <p id="Souls-Upgrade1-text2"> Cost: 1e120 Dark Matter </p>
+        </div>
+        <div id="BlackHole-Upgrade6" onclick="BlackHoleUpgrade6()">
+            <p id="Souls-Upgrade1-text"> Automate Matter Ups </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 1e180 Dark Matter </p>
+        </div>
+         <div id="BlackHole-Upgrade7" onclick="BlackHoleUpgrade7()">
+            <p id="Souls-Upgrade1-text"> Unlock the 3rd Challenge(The Dark Matter Challenge) </p>
+            <p id="Souls-Upgrade1-text2"> Cost: 1e300 Dark Matter </p>
         </div>
     </div>
     <div class="Dark-matter-button" id="Dark-matter-button" role="tab" onclick="OpenDarkMatter()"> Dark Matter 
@@ -246,14 +278,13 @@
     </div>
     <div class="Options" id="Options">
        <button id="Save-btn" onclick="Save()"> Save </button>
-       <div id="Options-text">Incremental Universe - v0.2.3.1 Beta 3
+       <div id="Options-text">Incremental Universe - v0.2.3.2 Part 1
        <br>What's new:
-       <br>- Added 10 Elements
-       <br>- Added a new 1st Proton boost effect
-       <br>- Added more content to Quarks
+       <br>- Added 1st Challenge (need to be unlocked first)
+       <br>- Added more upgrades
+       <br>- Fixed a save (not really a fix just it didn't saved some things)
        <br>
        <br>Inspired by - Incremental Mass rewritten
-       <br>New Update coming soon
        </div>
     </div>
     <button class="SacrificePrestige" id="SacrificePrestige" onclick="SacrificePrestige()"><img src="images/Souls-img3.png" id="Souls-img">

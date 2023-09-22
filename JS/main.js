@@ -37,35 +37,35 @@ let BH_tab = document.getElementById("BH-tab");
 // Matter tab
 
    let MatterGenerator_1 = {
-      cost: 10,
-      power: 1,
-      amount: 0,
+      cost: new Decimal(10),
+      power: new Decimal(1),
+      amount: new Decimal(0),
    }
 
    let MatterBoost_1 = {
-    cost: 100,
-    power: 1,
-    amount: 0,
+    cost: new Decimal(100),
+    power: new Decimal(1),
+    amount: new Decimal(0),
    }
 
    let MatterExtent_1 = {
-    cost: 1000,
-    power: 1,
-    amount: 0,
+    cost: new Decimal(1000),
+    power: new Decimal(1),
+    amount: new Decimal(0),
    }
 
    let Tickspeed1 = {
-    cost: 1,
-    power: 1,
-    amount: 0,
+    cost: new Decimal(1),
+    power: new Decimal(1),
+    amount: new Decimal(0),
    }
 
 // BH-tab
 
    let Black_HoleMachine = {
-    cost: 1,
-    power: 0,
-    amount: 0,
+    cost: new Decimal(1),
+    power: new Decimal(1),
+    amount: new Decimal(0),
    }
 
 // Souls Upgrades
@@ -105,6 +105,21 @@ let BH_tab = document.getElementById("BH-tab");
     bought: false,
    }
 
+   var SoulsUpgrade_8 = {
+    cost: 1e90,
+    bought: false,
+   }
+
+   var SoulsUpgrade_9 = {
+    cost: 1e120,
+    bought: false,
+   }
+
+   var SoulsUpgrade_10 = {
+    cost: 1e250,
+    bought: false,
+   }
+
 // Black Hole Upgrades
 
    var BlackHoleUpgrade_1 = {
@@ -127,6 +142,21 @@ let BH_tab = document.getElementById("BH-tab");
     bought: false,
    }
 
+   var BlackHoleUpgrade_5 = {
+    cost: 1e120,
+    bought: false,
+   }
+
+   var BlackHoleUpgrade_6 = {
+    cost: 1e180,
+    bought: false,
+   }
+
+   var BlackHoleUpgrade_7 = {
+    cost: 1e300,
+    bought: false,
+   }
+
 //Achievements 
 
     var Achievement1 = {
@@ -144,6 +174,26 @@ setInterval(function() {
         player.Souls 
         document.getElementById("Souls").textContent = "Souls: " + format(player.Souls)
     }
+    if(SoulsUpgrade_9.bought === true) {
+        Tickspeed1.power += MatterGenerator_1.power
+    }
+    if(SoulsUpgrade_8.bought === true) {
+        Black_HoleMachine.power += Tickspeed1.power 
+    }
+}, 1)
+
+setInterval(function() {
+    if(BlackHoleUpgrade_6.bought === true) {
+        if(player.Matter >= MatterGenerator_1.cost) {
+                MatterGenerator()      
+        }
+        if(player.Matter >= MatterBoost_1.cost) {
+                MatterBoost()      
+        }
+        if(player.Matter >= MatterExtent_1.cost) {
+                MatterExtent()      
+        }
+    }
 }, 1)
 
 setInterval(function() {
@@ -157,7 +207,6 @@ setInterval(function() {
 }, 20);
 
 setInterval(function() {
-    MatterGenerator_1.power += Math.log10(player.Proton_1)
     player.ProtonPerSec_1 = player.ProtonPerSec_1.add(Math.log10(Math.sqrt(player.Matter / 1e6) / 1e7))
     player.Proton_1.add(player.ProtonPerSec_1);
     if(BlackHoleUpgrade_3.bought === true) {
@@ -181,6 +230,10 @@ setInterval(function() {
     document.getElementById("Electron").textContent = format(player.Electron_1) + " Electrons"
     document.getElementById("el_CurrentBoost1").textContent = "Currently: " + format(Elements.el_1.boost) + "x to Atoms"
     document.getElementById("el_CurrentBoost2").textContent = "Currently: +" + format(Elements.el_2.boost) + " to Matter Boosts"
+    document.getElementById("el_CurrentBoost3").textContent = "Currently: " + format(Elements.el_3.boost) + "x to Matter Extent"
+    document.getElementById("el_CurrentBoost4").textContent = "Currently: x" + format(Elements.el_4.boost) + " to Souls"
+    document.getElementById("el_CurrentBoost5").textContent = "Currently: x" + format(Elements.el_5.boost) + " to Dark Matter"
+    document.getElementById("el_CurrentBoost6").textContent = "Currently: x" + format(Elements.el_6.boost) + " to Helium"
 }, 20);
 
 setInterval(function() {
@@ -211,10 +264,10 @@ function MatterGenerator() {
         MatterGenerator_1.power += 0.5;
     }
     if(SoulsUpgrade_4.bought === true ) {
-      player.MatterPerSec = player.MatterPerSec.mult(Souls / 100);
+       player.MatterPerSec = player.MatterPerSec.mult(player.Souls / 100);
     }
     if(Skill_up1.bought === true ) {
-        player.MatterPerSec = player.MatterPerSec.pow(1.1);
+        player.MatterPerSec = player.MatterPerSec.pow(1.01);
     }
 }
 
@@ -226,7 +279,7 @@ function MatterBoost() {
         if(BlackHoleUpgrade_1.bought === true ) {
             player.Matter = player.Matter.sub(0);
         }
-        player.MatterPerSec = player.MatterPerSec.mul(MatterBoost_1.power + MatterBoost_1.amount);
+        player.MatterPerSec = player.MatterPerSec.mul(MatterBoost_1.power);
         MatterBoost_1.cost *= 4;
         MatterBoost_1.power++;
         MatterBoost_1.amount++;
@@ -234,7 +287,7 @@ function MatterBoost() {
         document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
     }
     if(SoulsUpgrade_4.bought === true ) {
-        player.MatterPerSec = player.MatterPerSec.mult(Souls / 2000);
+        player.MatterPerSec = player.MatterPerSec.mult(player.Souls / 2000);
     }
     if(Elements.el_2.bought === true) {
         MatterBoost_1.power *= Elements.el_2.boost
@@ -249,7 +302,7 @@ function MatterExtent() {
         if(BlackHoleUpgrade_1.bought === true ) {
             player.Matter = player.Matter.sub(0);
         }
-        player.MatterPerSec = player.MatterPerSec.pow(1.01); 
+        player.MatterPerSec = player.MatterPerSec.pow(1.05); 
         MatterExtent_1.cost *= 9;
         MatterExtent_1.power++;
         MatterExtent_1.amount++;
@@ -260,13 +313,13 @@ function MatterExtent() {
         player.MatterPerSec = player.MatterPerSec.mult(Souls / 1e7);
     }
     if(SoulsUpgrade_5.bought === true) {
-       MatterExtent_1.power *= Matter / 1e10;
+       MatterExtent_1.power *= player.Matter / 1e10;
     }
     if(SoulsUpgrade_6.bought === true) {
         MatterExtent_1.power++;
     }
     if(Skill_up4.bought === true) {
-        Black_Holeboost = Black_Holeboost.mult(MatterExtent_1.power / 15);
+        player.Black_Holeboost = player.Black_Holeboost.mult(MatterExtent_1.power / 15);
     }
     if(Elements.el_5.bought === true) {
         MatterExtent_1.power += Elements.el_5.boost
@@ -284,7 +337,7 @@ function Tickspeed() {
         document.getElementById("Tickspeed-cost").textContent = "Cost: " + format(Tickspeed1.cost) + " Souls";
     }
     if(SoulsUpgrade_7.bought === true) {
-        Tickspeed1.power *= Souls.div / 1e6;
+        Tickspeed1.power *= player.Souls / 1e6;
     }
     if(Elements.el_4.bought === true) {
         Tickspeed1.power *= 2;
@@ -306,12 +359,12 @@ function BlackHoleExtractor() {
         document.getElementById("BH-extractor").textContent = "Black Hole Extractor [" + Black_HoleExtractor + "]";
         document.getElementById("Black-Hole-boost").textContent = "Currently: " + format(Black_Holeboost) + " boost to Matter Gain";
         setInterval(function () {
-            player.Black_Hole += Black_HolePerSec;
-            player.Black_Hole += Electron_boost2;
+            player.Black_Hole += player.Black_HolePerSec;
+            player.Black_Hole += player.Electron_boost2;
             document.getElementById("Black-Hole").textContent = "You have formed " + format(Black_Hole) + " Black Holes";
         }, 1000);
         setInterval(function() {
-            player.Matter += Black_Holeboost;
+            player.Matter += player.Black_Holeboost;
         }, 1000);
         if(BlackHoleUpgrade_2.bought === true) {
             player.Black_HolePerSec *= player.Matter / 100
@@ -435,33 +488,98 @@ function SoulsUpgrade7() {
     }
 }
 
+
+function SoulsUpgrade8() {
+    if(player.Souls >= SoulsUpgrade_8.cost) {
+        player.Souls -= SoulsUpgrade_8.cost;
+        SoulsUpgrade_8.bought = true;
+        MatterGenerator_1.cost = 10;
+        MatterGenerator_1.power = 1;
+        MatterGenerator_1.amount = 0;
+        MatterBoost_1.cost = 100;
+        MatterBoost_1.power = 1;
+        MatterBoost_1.amount = 0;
+        MatterExtent_1.cost = 1e3;
+        MatterExtent_1.power = 1;
+        MatterExtent_1.amount = 0;
+    }
+}
+
+
+function SoulsUpgrade9() {
+    if(player.Souls >= SoulsUpgrade_9.cost) {
+        player.Souls -= SoulsUpgrade_9.cost;
+        SoulsUpgrade_9.bought = true;
+        MatterGenerator_1.cost = 10;
+        MatterGenerator_1.power = 1;
+        MatterGenerator_1.amount = 0;
+        MatterBoost_1.cost = 100;
+        MatterBoost_1.power = 1;
+        MatterBoost_1.amount = 0;
+        MatterExtent_1.cost = 1e3;
+        MatterExtent_1.power = 1;
+        MatterExtent_1.amount = 0;
+    }
+}
+
+
+function SoulsUpgrade10() {
+    if(player.Souls >= SoulsUpgrade_10.cost) {
+        player.Souls -= SoulsUpgrade_10.cost;
+        SoulsUpgrade_10.bought = true;
+        MatterGenerator_1.cost = 10;
+        MatterGenerator_1.power = 1;
+        MatterGenerator_1.amount = 0;
+        MatterBoost_1.cost = 100;
+        MatterBoost_1.power = 1;
+        MatterBoost_1.amount = 0;
+        MatterExtent_1.cost = 1e3;
+        MatterExtent_1.power = 1;
+        MatterExtent_1.amount = 0;
+    }
+}
+
 // Black Hole Upgrades 
 
 function BlackHoleUpgrade1() {
     if(player.Black_Hole >= BlackHoleUpgrade_1.cost) {
         player.Black_Hole.sub(BlackHoleUpgrade_1.cost);
-        BlackHoleUpgrade_1.bought.eq(true);
+        BlackHoleUpgrade_1.bought = true;
     }
 }
 
 function BlackHoleUpgrade2() {
     if(player.Black_Hole >= BlackHoleUpgrade_2.cost) {
         player.Black_Hole.sub(BlackHoleUpgrade_2.cost);
-        BlackHoleUpgrade_2.bought.eq(true);
+        BlackHoleUpgrade_2.bought = true;
     }
 }
 
 function BlackHoleUpgrade3() {
     if(player.Quarks >= BlackHoleUpgrade_3.cost) {
         player.Quarks.sub(BlackHoleUpgrade_3.cost);
-        BlackHoleUpgrade_3.bought.eq(true);
+        BlackHoleUpgrade_3.bought = true;
     }
 }
 
 function BlackHoleUpgrade4() {
     if(player.Atoms >= BlackHoleUpgrade_4.cost) {
         player.Atoms.sub(BlackHoleUpgrade_4.cost);
-        BlackHoleUpgrade_4.bought.eq(true);
+        BlackHoleUpgrade_4.bought = true;
+    }
+}
+
+function BlackHoleUpgrade5() {
+    if(player.Dark_Matter_currency >= BlackHoleUpgrade_5.cost) {
+        player.Dark_Matter_currency.sub(BlackHoleUpgrade_5.cost);
+        BlackHoleUpgrade_5.bought = true;
+    }
+}
+
+function BlackHoleUpgrade6() {
+    if(player.Dark_Matter_currency >= BlackHoleUpgrade_6.cost) {
+        player.Dark_Matter_currency.sub(BlackHoleUpgrade_6.cost);
+        BlackHoleUpgrade_6.bought = true;
     }
 }
 
@@ -520,6 +638,8 @@ function DarkMatterPrestige() {
     if (Elements.el_7.bought === true) {
         player.Dark_Matter_currency += Elements.el_7.boost
     }
+    if (BlackHoleUpgrade_5.bought === true)
+       player.Dark_Matter_currency += Math.log10(player.Matter);
 }
 
 // Skill-upgrades
@@ -597,13 +717,13 @@ function QuarksGain() {
 
 var UQuark_1 = {
     cost: 1e21,
-    effect: 0,
+    effect: 1,
 }
 
 function UQuark() {
     if(player.Quarks >= UQuark_1.cost) {
         player.Quarks -= player.Quarks;
-        UQuark_1.effect *= player.Quarks / 1e21;
+        UQuark_1.effect = player.Quarks / 1e21;
         Black_HoleMachine.power += UQuark_1.effect
         document.getElementById("Up-boost").textContent = "Adds " + UQuark_1.effect + " free BH extractors"
     }
@@ -629,50 +749,32 @@ function AtomsGain() {
 
 //Challanges
 
+let Challenges = {
+    Challenge1: {
+        goal: 1e3,
+        RewardBoost: 1,
+        Completed: false
+    }
+}
+
 function Challenge1() {
-    Matter = 0;
-    MatterPerSec = 0;
-    ClickUpgrade_1.cost = 50;
-    ClickUpgrade_1.power = 1;
-    ClickUpgrade_1.level = 0;
-    ProductionUnit_1.cost = 250;
-    ProductionUnit_1.power = 0;
-    ProductionUnit_1.level = 0;
-    document.getElementById("ClickUpgrade1").ariaDisabled = true;
-    document.getElementById("ClickUpgrade2").ariaDisabled = true;
-    document.getElementById("ProductionUnit1").ariaDisabled = true;
-    document.getElementById("ProductionUnit2").ariaDisabled = true;
+    player.Matter = 10
+    player.MatterPerSec = 1
+    MatterGenerator_1.amount = 0
+    MatterGenerator_1.power = 1
+    MatterGenerator_1.cost = 10
+    MatterBoost_1.amount = 0
+    MatterBoost_1.power = 1
+    MatterBoost_1.cost = 100
+    MatterExtent_1.amount = 0
+    MatterExtent_1.power = 1
+    MatterExtent_1.cost = 1e3
 }
 
 function BackBtn() {
-    Matter = 0;
-    MatterPerSec = 0;
-    ClickUpgrade_1.cost = 50;
-    ClickUpgrade_1.power = 1;
-    ClickUpgrade_1.level = 0;
-    ProductionUnit_1.cost = 250;
-    ProductionUnit_1.power = 0;
-    ProductionUnit_1.level = 0;
-    document.getElementById("ClickUpgrade1").ariaDisabled = false;
-    document.getElementById("ClickUpgrade2").ariaDisabled = false;
-    document.getElementById("ProductionUnit1").ariaDisabled = false;
-    document.getElementById("ProductionUnit2").ariaDisabled = false;
 }
 
 function FinnishBtn() {
-    Matter = 0;
-    MatterPerSec = 0;
-    ClickUpgrade_1.cost = 50;
-    ClickUpgrade_1.power = 1;
-    ClickUpgrade_1.level = 0;
-    ProductionUnit_1.cost = 250;
-    ProductionUnit_1.power = 0;
-    ProductionUnit_1.level = 0;
-    document.getElementById("ClickUpgrade1").ariaDisabled = false;
-    document.getElementById("ClickUpgrade2").ariaDisabled = false;
-    document.getElementById("ProductionUnit1").ariaDisabled = false;
-    document.getElementById("ProductionUnit2").ariaDisabled = false;
-    Finnish_button.classList.remove("show-Finnish-button")
 }
 
 //Save & Load
