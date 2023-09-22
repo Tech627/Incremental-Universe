@@ -24,6 +24,7 @@ Proton_boost2: new Decimal(0),
 Neutron_boost2: new Decimal(0),
 Electron_boost2: new Decimal(0),
 }
+let BlackholematterBoost = new Decimal(0)
 let Challange_1 = document.getElementById("Challange1");
 let Achievement_1 = document.getElementById("Achievement1");
 let Achievement_2 = document.getElementById("Achievement2");
@@ -169,6 +170,60 @@ let BH_tab = document.getElementById("BH-tab");
 
 // Matter tab
 
+function GameLoop() {
+   let Matter = player.Matter
+   let MatterGain = new Decimal(1)
+
+   let MatterGenPower = new Decimal(0)
+   MatterGenPower = MatterGenPower.add(MatterBoodt_1.power)
+   if (SoulsUpgrade_1.bought == true) {
+      MatterGenPower = MatterGenPower.mul(1.5) // Souls upgrade 1.5x's power here   
+   }
+   if (SoulsUpgrade_4.bought == true) {
+      MatterGenPower = MatterGenPower.mul(player.Souls.div(new Decimal(100))) // Multiply for souls upgrade 4
+   }
+   // Adding the flat amount increase to the generation first to allow for proper multiplication and exponation
+   MatterGain = MatterGain.add(MatterGenPower)
+   
+   let MatterBoostPower = new Decimal(0)
+   MatterBoostPower = MatterBoostPower.add(MatterBoost_1.amount)
+   if (SoulsUpgrade_4.bought == true) {
+      MatterBoostPower = MatterBoostPower.mul(player.Souls.div(new Decimal(2000)))
+   }   
+   if (Elements.el_2.bought == true) {
+      MatterBoostPower = MatterBoostPower.mul(Elements.el_2.boost)
+   }   
+   // Multiplying generation alongside adding 1 to the multiplier incase that the play does not have any multiplier
+   MatterGain = MatterGain.mul(MatterBoostPower.add(new Decimal(1))
+                               
+   let MatterExetentPower = new Decimal(0)
+   MatterExtentPower = MatterExtentPower.add(MatterExtent_1.amount)
+   if (Elements.el_5.bought == true {
+      MatterExtentPower = MatterExtentPower.add(elements.e1_5.boost)
+   }   
+   if (SoulsUpgrade_6.bought == true) {
+      MatterExtentPower = MatterExtentPower.mul(new Decimal(2)) // Multiply power by 2 if +1 Power is interpreted as i believe it sounds like it should be
+   }   
+   
+   if (SoulsUpgrade_4.bought == true) {
+      MatterExtentPower = MatterExtentPower.mul(player.Souls.div(new Decimal(1e7)))
+   }   
+   if (SoulsUpgrade_5.bought == true) {
+      MatterExtentPower = MatterExtentPower.mul(player.Matter.div(new Decimal(1e10)))
+   }
+   if (Skull_up4.bought == true) {
+      Blackholematterboost = MatterExtentPower.div(15)
+   }
+
+   MatterGain = MatterGain.pow(MatterExtentPower.div(new Decimal(20)).add(new Decimal(1))
+
+   player.Matter = Matter.add(MatterGain.div(20))
+
+   document.getElementById("Matter").textContent = "Matter: " + format(player.Matter);
+   document.getElementById("MatterPerSec").textContent = format(MatterGain) + " Matter/sec";
+}
+
+
 setInterval(function() {
     if(Elements.el_9.bought === true) {
         player.Souls 
@@ -195,16 +250,6 @@ setInterval(function() {
         }
     }
 }, 1)
-
-setInterval(function() {
-    player.Matter = player.Matter.add(player.MatterPerSec / 50);
-    document.getElementById("Matter").textContent = "Matter: " + format(player.Matter);
-}, 20);
-
-setInterval(function() {
-    player.MatterPerSec
-    document.getElementById("MatterPerSec").textContent = format(player.MatterPerSec) + " Matter/sec";
-}, 20);
 
 setInterval(function() {
     player.ProtonPerSec_1 = player.ProtonPerSec_1.add(Math.log10(Math.sqrt(player.Matter / 1e6) / 1e7))
@@ -253,7 +298,6 @@ function MatterGenerator() {
         if(BlackHoleUpgrade_1.bought === true ) {
             player.Matter = player.Matter.sub(0);
         }
-        player.MatterPerSec = player.MatterPerSec.add(MatterGenerator_1.power);
         MatterGenerator_1.cost *= 1.5;
         MatterGenerator_1.power++;
         MatterGenerator_1.amount++;
