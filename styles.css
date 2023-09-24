@@ -1028,6 +1028,11 @@ body {
     right: 0;
     left: 0;
     visibility: hidden;
+    cursor: pointer;
+}
+
+.show-Challange1 {
+    visibility: visible;
 }
 
 #Back-button {
@@ -1046,11 +1051,13 @@ body {
     border: 2px solid orangered;
     background-image: linear-gradient(90deg, rgb(13, 96, 123), black);
     width: 150px;
-    height: 40px;
+    height: 30px;
     color: white;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 10px;
+    margin-left: 270px;
+    margin-top: -45px;
     text-align: center;
     cursor: pointer;
     visibility: hidden;

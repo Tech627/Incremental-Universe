@@ -7,6 +7,8 @@ let Main_styles = document.getElementById("Main-styles");
 let Achievements = document.getElementById("Achievements");
 let Achievements_styles = document.getElementById("Achievements-styles");
 let Challanges = document.getElementById("Challanges");
+let Challenge_01 = document.getElementById("Challange1");
+let Finnish_button = document.getElementById("Finnish-button");
 let Challanges_styles = document.getElementById("Challanges-styles");
 let Dark_Matter = document.getElementById("Dark-matter");
 let Dark_styles = document.getElementById("Dark-styles");
@@ -244,6 +246,8 @@ function OpenUpgrades() {
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
     Down_Quark.classList.remove("show-Down-Quark")
+    Challenge_01.classList.remove("show-Challange1")
+    Finnish_button.classList.remove("show-Finnish-button")
 }
 
 function OpenMain() {
@@ -288,6 +292,8 @@ function OpenMain() {
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
     Down_Quark.classList.remove("show-Down-Quark")
+    Challenge_01.classList.remove("show-Challange1")
+    Finnish_button.classList.remove("show-Finnish-button")
 }
 
 function OpenAchievements() {
@@ -330,9 +336,14 @@ function OpenAchievements() {
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
     Down_Quark.classList.remove("show-Down-Quark")
+    Challenge_01.classList.remove("show-Challange1")
+    Finnish_button.classList.remove("show-Finnish-button")
 }
 
 function OpenChallanges() {
+    if(Skill_up5.bought === true) {
+        Challenge_01.classList.add("show-Challange1")
+    }
     Challanges.classList.add("open-Challanges");
     Challanges_styles.classList.add("show-Challanges-styles");
     Main.classList.remove("open-Main");
@@ -394,6 +405,8 @@ function OpenDarkMatter() {
     Matter_content.classList.remove("show-Matter-content");
     BH_tab.classList.remove("show-BH-tab");
     BH_content.classList.remove("show-BH-content");
+    Challenge_01.classList.remove("show-Challange1")
+    Finnish_button.classList.remove("show-Finnish-button")
 }
 
 function OpenOptions() {
@@ -436,4 +449,6 @@ function OpenOptions() {
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
     Down_Quark.classList.remove("show-Down-Quark")
+    Challenge_01.classList.remove("show-Challange1")
+    Finnish_button.classList.remove("show-Finnish-button")
 }

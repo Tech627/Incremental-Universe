@@ -28,7 +28,6 @@ let player = {
     let Challange_1 = document.getElementById("Challange1");
     let Achievement_1 = document.getElementById("Achievement1");
     let Achievement_2 = document.getElementById("Achievement2");
-    let Finnish_button = document.getElementById("Finnish-button");
     let Sacrifice_Prestige = document.getElementById("SacrificePrestige");
     let Dark_Matter_button = document.getElementById("Dark-matter-button");
     let Tickspeed2 = document.getElementById("Tickspeed")
@@ -172,13 +171,13 @@ let player = {
     
        var MatterGenPower = new Decimal(0)
        MatterGenPower = MatterGenPower.add(MatterGenerator_1.amount)
-       console.log(MatterGenPower)
        if (SoulsUpgrade_1.bought == true) {
           MatterGenPower = MatterGenPower.mul(1.5) // Souls upgrade 1.5x's power here   
        }
        if (SoulsUpgrade_4.bought == true) {
           MatterGenPower = MatterGenPower.mul(player.Souls.div(new Decimal(100))) // Multiply for souls upgrade 4
        }
+       MatterGenPower = MatterGenPower.add(Challenges.Challenge1.RewardBoost)
        // Adding the flat amount increase to the generation first to allow for proper multiplication and exponation
        MatterGain = MatterGain.add(MatterGenPower)
        
@@ -190,18 +189,18 @@ let player = {
        if (Elements.el_2.bought == true) {
           MatterBoostPower = MatterBoostPower.mul(Elements.el_2.boost)
        }   
+       MatterBoostPower = MatterBoostPower.add(Challenges.Challenge1.RewardBoost) 
        // Multiplying generation alongside adding 1 to the multiplier incase that the play does not have any multiplier
        MatterGain = MatterGain.mul(MatterBoostPower.add(new Decimal(1)))
                                    
        var MatterExtentPower = new Decimal(0)
        MatterExtentPower = MatterExtentPower.add(MatterExtent_1.amount)
        if (Elements.el_5.bought == true) {
-          MatterExtentPower = MatterExtentPower.add(elements.e1_5.boost)
+          MatterExtentPower = MatterExtentPower.add(Elements.el_5.boost)
        }   
        if (SoulsUpgrade_6.bought == true) {
           MatterExtentPower = MatterExtentPower.mul(new Decimal(2)) // Multiply power by 2 if +1 Power is interpreted as i believe it sounds like it should be
        }   
-       
        if (SoulsUpgrade_4.bought == true) {
           MatterExtentPower = MatterExtentPower.mul(player.Souls.div(new Decimal(1e7)))
        }   
@@ -212,6 +211,8 @@ let player = {
           Blackholematterboost = MatterExtentPower.div(15)
        }
     
+       MatterExtentPower = MatterExtentPower.add(Challenges.Challenge1.RewardBoost)
+
        MatterGain = MatterGain.pow(MatterExtentPower.div(new Decimal(20)).add(new Decimal(1)))
     
        player.Matter = Matter.add(MatterGain.div(20))
@@ -234,6 +235,12 @@ let player = {
         if(player.Matter >= MatterExtent_1.cost) {
                 MatterExtent()      
         }
+    }
+    if(player.Matter >= Challenges.Challenge1.goal && Challenges.Challenge1.InChallenge === true) {
+        Finnish_button.classList.add("show-Finnish-button")
+    }
+    if(Challenges.Challenge1.Completed === true) {
+        Challenges.Challenge1.RewardBoost = Math.log10(Math.log10(Math.sqrt(player.Matter)))
     }
     }   
     setInterval(GameLoop,1000/20)
@@ -672,7 +679,7 @@ let player = {
     }
     
     var Skill_up5 = {
-        cost: 1e3,
+        cost: 0,
         bought: false,
     }
     
@@ -758,30 +765,59 @@ let player = {
     
     let Challenges = {
         Challenge1: {
-            goal: 1e3,
-            RewardBoost: 1,
-            Completed: false
+            goal: new Decimal(10),
+            RewardBoost: new Decimal(1),
+            Completed: false,
+            InChallenge: false
         }
     }
     
     function Challenge1() {
-        player.Matter = 10
-        player.MatterPerSec = 1
-        MatterGenerator_1.amount = 0
-        MatterGenerator_1.power = 1
-        MatterGenerator_1.cost = 10
-        MatterBoost_1.amount = 0
-        MatterBoost_1.power = 1
-        MatterBoost_1.cost = 100
-        MatterExtent_1.amount = 0
-        MatterExtent_1.power = 1
-        MatterExtent_1.cost = 1e3
+        player.Matter = new Decimal(10)
+        player.MatterPerSec = new Decimal(1)
+        MatterGenerator_1.amount = new Decimal(0)
+        MatterGenerator_1.cost = new Decimal(10)
+        MatterBoost_1.amount = new Decimal(0)
+        MatterBoost_1.cost = new Decimal(100)
+        MatterExtent_1.amount = new Decimal(0)
+        MatterExtent_1.cost = new Decimal(1e3)
+        Challenges.Challenge1.InChallenge = true
+        document.getElementById("Matter-generator-cost").ariaDisabled = true
+        document.getElementById("Matter-boost-cost").ariaDisabled = true
+        document.getElementById("Matter-extent-cost").ariaDisabled = true
     }
     
     function BackBtn() {
+        player.Matter = new Decimal(10)
+        player.MatterPerSec = new Decimal(1)
+        MatterGenerator_1.amount = new Decimal(0)
+        MatterGenerator_1.cost = new Decimal(10)
+        MatterBoost_1.amount = new Decimal(0)
+        MatterBoost_1.cost = new Decimal(100)
+        MatterExtent_1.amount = new Decimal(0)
+        MatterExtent_1.cost = new Decimal(1e3)
+        Challenges.Challenge1.InChallenge = false
+        document.getElementById("Matter-generator-cost").ariaDisabled = false
+        document.getElementById("Matter-boost-cost").ariaDisabled = false
+        document.getElementById("Matter-extent-cost").ariaDisabled = false
     }
     
     function FinnishBtn() {
+        player.Matter = new Decimal(10)
+        player.MatterPerSec = new Decimal(1)
+        MatterGenerator_1.amount = new Decimal(0)
+        MatterGenerator_1.cost = new Decimal(10)
+        MatterBoost_1.amount = new Decimal(0)
+        MatterBoost_1.cost = new Decimal(100)
+        MatterExtent_1.amount = new Decimal(0)
+        MatterExtent_1.cost = new Decimal(1e3)
+        Challenges.Challenge1.InChallenge = false
+        document.getElementById("Matter-generator-cost").ariaDisabled = false
+        document.getElementById("Matter-boost-cost").ariaDisabled = false
+        document.getElementById("Matter-extent-cost").ariaDisabled = false
+        if(player.Matter >= Challenges.Challenge1.goal) {
+            Challenges.Challenge1.Completed = true
+        }
     }
     
     //Save & Load
@@ -802,10 +838,18 @@ let player = {
             localStorage.setItem("Soul-Upgrade1", JSON.stringify(SoulsUpgrade_1));
             localStorage.setItem("Soul-Upgrade2", JSON.stringify(SoulsUpgrade_2));
             localStorage.setItem("Soul-Upgrade3", JSON.stringify(SoulsUpgrade_3));
+            localStorage.setItem("Soul-Upgrade4", JSON.stringify(SoulsUpgrade_4));
+            localStorage.setItem("Soul-Upgrade5", JSON.stringify(SoulsUpgrade_5));
+            localStorage.setItem("Soul-Upgrade6", JSON.stringify(SoulsUpgrade_6));
+            localStorage.setItem("Soul-Upgrade7", JSON.stringify(SoulsUpgrade_7));
+            localStorage.setItem("Soul-Upgrade8", JSON.stringify(SoulsUpgrade_8));
+            localStorage.setItem("Soul-Upgrade9", JSON.stringify(SoulsUpgrade_9));
+            localStorage.setItem("Soul-Upgrade10", JSON.stringify(SoulsUpgrade_10));
             localStorage.setItem("Skill-1", JSON.stringify(Skill_up1));
             localStorage.setItem("Skill-2", JSON.stringify(Skill_up2));
             localStorage.setItem("Skill-3", JSON.stringify(Skill_up3));
             localStorage.setItem("Skill-4", JSON.stringify(Skill_up4));
+            localStorage.setItem("Skill-5", JSON.stringify(Skill_up5));
             localStorage.setItem("Black-Hole", JSON.stringify(player.Black_Hole));
             localStorage.setItem("Black-Hole-gain", JSON.stringify(player.Black_HolePerSec));
             localStorage.setItem("Black-Hole-machine", JSON.stringify(Black_HoleMachine));
@@ -813,8 +857,14 @@ let player = {
             localStorage.setItem("Black-Hole-boost", JSON.stringify(player.Black_Holeboost));
             localStorage.setItem("BlackHole-Upgrade1", JSON.stringify(BlackHoleUpgrade_1));
             localStorage.setItem("BlackHole-Upgrade2", JSON.stringify(BlackHoleUpgrade_2));
+            localStorage.setItem("BlackHole-Upgrade3", JSON.stringify(BlackHoleUpgrade_3));
+            localStorage.setItem("BlackHole-Upgrade4", JSON.stringify(BlackHoleUpgrade_4));
+            localStorage.setItem("BlackHole-Upgrade5", JSON.stringify(BlackHoleUpgrade_5));
+            localStorage.setItem("BlackHole-Upgrade6", JSON.stringify(BlackHoleUpgrade_6));
+            localStorage.setItem("BlackHole-Upgrade7", JSON.stringify(BlackHoleUpgrade_7));
             localStorage.setItem("Quarks", JSON.stringify(player.Quarks));
             localStorage.setItem("Atoms", JSON.stringify(player.Atoms));
+            localStorage.setItem("U-quark", JSON.stringify(UQuark_1))
         }
         alert("When Page is reloaded or refreshed It will say you have 0 everything, but you will have to click on something to show It's value!!")
     }
@@ -833,10 +883,18 @@ let player = {
             const SavedSoulUpgrade1 = localStorage.getItem("Soul-Upgrade1");
             const SavedSoulUpgrade2 = localStorage.getItem("Soul-Upgrade2");
             const SavedSoulUpgrade3 = localStorage.getItem("Soul-Upgrade3");
+            const SavedSoulUpgrade4 = localStorage.getItem("Soul-Upgrade4");
+            const SavedSoulUpgrade5 = localStorage.getItem("Soul-Upgrade5");
+            const SavedSoulUpgrade6 = localStorage.getItem("Soul-Upgrade6");
+            const SavedSoulUpgrade7 = localStorage.getItem("Soul-Upgrade7");
+            const SavedSoulUpgrade8 = localStorage.getItem("Soul-Upgrade8");
+            const SavedSoulUpgrade9 = localStorage.getItem("Soul-Upgrade9");
+            const SavedSoulUpgrade10 = localStorage.getItem("Soul-Upgrade10");
             const SavedSkill_up1 = localStorage.getItem("Skill-1");
             const SavedSkill_up2 = localStorage.getItem("Skill-2");
             const SavedSkill_up3 = localStorage.getItem("Skill-3");
             const SavedSkill_up4 = localStorage.getItem("Skill-4");
+            const SavedSkill_up5 = localStorage.getItem("Skill-5");
             const SavedBlack_Hole = localStorage.getItem("Black-Hole");
             const SavedBlack_Holegain = localStorage.getItem("Black-Hole-gain");
             const SavedBlack_HoleMachine = localStorage.getItem("Black-Hole-machine");
@@ -844,8 +902,14 @@ let player = {
             const SavedBlack_Holeboost = localStorage.getItem("Black-Hole-boost")
             const SavedBlackHole_Upgrade1 = localStorage.getItem("BlackHole-Upgrade1");
             const SavedBlackHole_Upgrade2 = localStorage.getItem("BlackHole-Upgrade2");
+            const SavedBlackHole_Upgrade3 = localStorage.getItem("BlackHole-Upgrade3");
+            const SavedBlackHole_Upgrade4 = localStorage.getItem("BlackHole-Upgrade4");
+            const SavedBlackHole_Upgrade5 = localStorage.getItem("BlackHole-Upgrade5");
+            const SavedBlackHole_Upgrade6 = localStorage.getItem("BlackHole-Upgrade6");
+            const SavedBlackHole_Upgrade7 = localStorage.getItem("BlackHole-Upgrade7");
             const SavedQuarks = localStorage.getItem("Quarks");
             const SavedAtoms = localStorage.getItem("Atoms");
+            const SavedUQuark = localStorage.getItem("UQuark_1");
             if(SavedMatter) {
                 player.Matter = new Decimal(JSON.parse(SavedMatter));
             } 
@@ -882,6 +946,27 @@ let player = {
             if(SavedSoulUpgrade3) {
                 player.SoulsUpgrade_3 = JSON.parse(SavedSoulUpgrade3);
             }
+            if(SavedSoulUpgrade4) {
+                player.SoulsUpgrade_4 = JSON.parse(SavedSoulUpgrade4);
+            }
+            if(SavedSoulUpgrade5) {
+                player.SoulsUpgrade_5 = JSON.parse(SavedSoulUpgrade5);
+            }
+            if(SavedSoulUpgrade6) {
+                player.SoulsUpgrade_6 = JSON.parse(SavedSoulUpgrade6);
+            }
+            if(SavedSoulUpgrade7) {
+                player.SoulsUpgrade_7 = JSON.parse(SavedSoulUpgrade7);
+            }
+            if(SavedSoulUpgrade8) {
+                player.SoulsUpgrade_8 = JSON.parse(SavedSoulUpgrade8);
+            }    
+            if(SavedSoulUpgrade9) {
+                player.SoulsUpgrade_9 = JSON.parse(SavedSoulUpgrade9);
+            }
+            if(SavedSoulUpgrade10) {
+                player.SoulsUpgrade_10 = JSON.parse(SavedSoulUpgrade10);
+            }
             if(SavedSkill_up1) {
                 player.Skill_up1 = JSON.parse(SavedSkill_up1);
             }
@@ -893,6 +978,9 @@ let player = {
             }
             if(SavedSkill_up4) {
                 player.Skill_up4 = JSON.parse(SavedSkill_up4);
+            }
+            if(SavedSkill_up5) {
+                player.Skill_up5 = JSON.parse(SavedSkill_up5);
             }
             if(SavedBlack_Hole) {
                 player.Black_Hole = new Decimal(JSON.parse(SavedBlack_Hole));
@@ -915,11 +1003,29 @@ let player = {
             if(SavedBlackHole_Upgrade2) {
                 player.BlackHoleUpgrade_2 = JSON.parse(SavedBlackHole_Upgrade2);
             }
+            if(SavedBlackHole_Upgrade3) {
+                player.BlackHoleUpgrade_3 = JSON.parse(SavedBlackHole_Upgrade3);
+            }
+            if(SavedBlackHole_Upgrade4) {
+                player.BlackHoleUpgrade_4 = JSON.parse(SavedBlackHole_Upgrade4);
+            }
+            if(SavedBlackHole_Upgrade5) {
+                player.BlackHoleUpgrade_5 = JSON.parse(SavedBlackHole_Upgrade5);
+            }
+            if(SavedBlackHole_Upgrade6) {
+                player.BlackHoleUpgrade_6 = JSON.parse(SavedBlackHole_Upgrade6);
+            }
+            if(SavedBlackHole_Upgrade7) {
+                player.BlackHoleUpgrade_7 = JSON.parse(SavedBlackHole_Upgrade7);
+            }
             if(SavedQuarks) {
                 player.Quarks = new Decimal(JSON.parse(SavedQuarks));
             }
             if(SavedAtoms) {
                 player.Atoms = new Decimal(JSON.parse(SavedAtoms));
             }
-        } 
+            if(SavedUQuark) {
+                UQuark_1 = Json.parse(SavedUQuark);
+            }
+         } 
     }
