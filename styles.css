@@ -4,6 +4,11 @@ body {
     user-select: none;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 #nav-right {
     border-left: 2px solid rgb(88, 72, 72);
     position: absolute;
@@ -1031,11 +1036,45 @@ body {
     cursor: pointer;
 }
 
+.Challenge2 {
+    background-color: white;
+    border-radius: 10px;
+    width: 500px;
+    height: 300px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 800px;
+    margin-top: 250px;
+    margin-right: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    cursor: pointer;
+    visibility: hidden;
+}
+
 .show-Challange1 {
     visibility: visible;
 }
 
+.show-Challenge2 {
+    visibility: visible;
+}
+
 #Back-button {
+    background-image: linear-gradient(90deg, rgb(60, 54, 54), rgb(20, 11, 11));
+    width: 150px;
+    height: 50px;
+    color: red;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 5px;
+    cursor: pointer;
+    margin-right: 130px;
+}
+
+#Back-button1 {
     background-image: linear-gradient(90deg, rgb(60, 54, 54), rgb(20, 11, 11));
     width: 150px;
     height: 50px;
@@ -1063,7 +1102,27 @@ body {
     visibility: hidden;
 }
 
+.Finnish-button1 {
+    border: 2px solid orangered;
+    background-image: linear-gradient(90deg, rgb(47, 0, 255), rgb(1, 173, 216));
+    width: 150px;
+    height: 30px;
+    color: white;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 10px;
+    margin-left: 270px;
+    margin-top: -45px;
+    text-align: center;
+    cursor: pointer;
+    visibility: hidden;
+}
+
 .show-Finnish-button {
+    visibility: visible;
+}
+
+.show-Finnish-button1 {
     visibility: visible;
 }
 
@@ -1117,6 +1176,22 @@ body {
     top: 0;
     left: 0;
     margin-left: 70px;
+    margin-top: 40px;
+}
+
+#Discord-btn {
+    background-image: linear-gradient(90deg, white, rgb(82, 80, 80));
+    width: 125px;
+    height: 40px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 200px;
     margin-top: 40px;
 }
 
@@ -2071,7 +2146,7 @@ body {
     margin-top: 0;
 }
 
-#Time-dilation {
+.Time-dilation-tab {
     width: 175px;
     height: 35px;
     font-size: 17px;
@@ -2085,6 +2160,78 @@ body {
     left: 0;
     margin-top: 130px;
     margin-left: 650px;
+    cursor: pointer;
+}
+
+.Time-dialation-content {
+    visibility: hidden;
+}
+
+.show-Time-dialation-content {
+    visibility: visible;
+}
+
+#Dialations-points {
+    font-size: 23px;
+    text-align: center;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: -270px;
+}
+
+#Dialations-PerSec {
+    font-size: 23px;
+    text-align: center;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#Matter-dialation {
+    width: 360px;
+    height: 150px;
+    background-color: hsl(0, 0%, 10%);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    text-align: center;
+    border: 3px solid lime;
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Dialation-up1 {
+    width: 250px;
+    height: 90px;
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: white;
+    border: 3px solid limegreen;
+}
+
+#Dialation-up1-Cost {
+    width: 248px;
+    height: 25px;
+    background-color: rgb(30, 29, 29);
+    margin-top: 5px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+#Dialation-up1-Cost:hover {
+    background-color: rgba(74, 72, 72, 0.562);
+}
+
+#Start-Stop-dialation {
+    width: 150px;
+    height: 30px;
+    background-color: grey;
+    padding-top: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
     cursor: pointer;
 }
 

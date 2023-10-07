@@ -47,7 +47,7 @@ let player = {
        }
     
        let MatterExtent_1 = {
-        cost: new Decimal(1000),
+        cost: new Decimal(1e3),
         amount: new Decimal(0),
        }
     
@@ -112,7 +112,7 @@ let player = {
        }
     
        var SoulsUpgrade_10 = {
-        cost: 1e250,
+        cost: 0,
         bought: false,
        }
     
@@ -164,87 +164,6 @@ let player = {
         }
     
     // Matter tab
-    
-    function GameLoop() {
-       let Matter = player.Matter
-       var MatterGain = new Decimal(1)
-    
-       var MatterGenPower = new Decimal(0)
-       MatterGenPower = MatterGenPower.add(MatterGenerator_1.amount)
-       if (SoulsUpgrade_1.bought == true) {
-          MatterGenPower = MatterGenPower.mul(1.5) // Souls upgrade 1.5x's power here   
-       }
-       if (SoulsUpgrade_4.bought == true) {
-          MatterGenPower = MatterGenPower.mul(player.Souls.div(new Decimal(100))) // Multiply for souls upgrade 4
-       }
-       MatterGenPower = MatterGenPower.add(Challenges.Challenge1.RewardBoost)
-       // Adding the flat amount increase to the generation first to allow for proper multiplication and exponation
-       MatterGain = MatterGain.add(MatterGenPower)
-       
-       var MatterBoostPower = new Decimal(0)
-       MatterBoostPower = MatterBoostPower.add(MatterBoost_1.amount)
-       if (SoulsUpgrade_4.bought == true) {
-          MatterBoostPower = MatterBoostPower.mul(player.Souls.div(new Decimal(2000)))
-       }   
-       if (Elements.el_2.bought == true) {
-          MatterBoostPower = MatterBoostPower.mul(Elements.el_2.boost)
-       }   
-       MatterBoostPower = MatterBoostPower.add(Challenges.Challenge1.RewardBoost) 
-       // Multiplying generation alongside adding 1 to the multiplier incase that the play does not have any multiplier
-       MatterGain = MatterGain.mul(MatterBoostPower.add(new Decimal(1)))
-                                   
-       var MatterExtentPower = new Decimal(0)
-       MatterExtentPower = MatterExtentPower.add(MatterExtent_1.amount)
-       if (Elements.el_5.bought == true) {
-          MatterExtentPower = MatterExtentPower.add(Elements.el_5.boost)
-       }   
-       if (SoulsUpgrade_6.bought == true) {
-          MatterExtentPower = MatterExtentPower.mul(new Decimal(2)) // Multiply power by 2 if +1 Power is interpreted as i believe it sounds like it should be
-       }   
-       if (SoulsUpgrade_4.bought == true) {
-          MatterExtentPower = MatterExtentPower.mul(player.Souls.div(new Decimal(1e7)))
-       }   
-       if (SoulsUpgrade_5.bought == true) {
-          MatterExtentPower = MatterExtentPower.mul(player.Matter.div(new Decimal(1e10)))
-       }
-       if (Skill_up4.bought == true) {
-          Blackholematterboost = MatterExtentPower.div(15)
-       }
-    
-       MatterExtentPower = MatterExtentPower.add(Challenges.Challenge1.RewardBoost)
-
-       MatterGain = MatterGain.pow(MatterExtentPower.div(new Decimal(20)).add(new Decimal(1)))
-    
-       player.Matter = Matter.add(MatterGain.div(20))
-    
-       document.getElementById("Matter").textContent = "Matter: " + format(player.Matter);
-       document.getElementById("MatterPerSec").textContent = format(MatterGain) + " Matter/sec";
-
-       if(Elements.el_9.bought === true) {
-        player.Souls 
-        document.getElementById("Souls").textContent = "Souls: " + format(player.Souls)
-      }
-
-      if(BlackHoleUpgrade_6.bought === true) {
-        if(player.Matter >= MatterGenerator_1.cost) {
-                MatterGenerator()      
-        }
-        if(player.Matter >= MatterBoost_1.cost) {
-                MatterBoost()      
-        }
-        if(player.Matter >= MatterExtent_1.cost) {
-                MatterExtent()      
-        }
-    }
-    if(player.Matter >= Challenges.Challenge1.goal && Challenges.Challenge1.InChallenge === true) {
-        Finnish_button.classList.add("show-Finnish-button")
-    }
-    if(Challenges.Challenge1.Completed === true) {
-        Challenges.Challenge1.RewardBoost = Math.log10(Math.log10(Math.sqrt(player.Matter)))
-    }
-    }   
-    setInterval(GameLoop,1000/20)
-    
     
     setInterval(function() {
         
@@ -333,7 +252,7 @@ let player = {
             if(BlackHoleUpgrade_1.bought === true ) {
                 player.Matter = player.Matter.sub(0);
             }
-            MatterExtent_1.cost *= 9;
+            MatterExtent_1.cost = MatterExtent_1.cost.mul(new Decimal(9));
             MatterExtent_1.amount = MatterExtent_1.amount.add(new Decimal(1));
             document.getElementById("Matter-extent").textContent = "Matter Extent [ " + MatterExtent_1.amount + " ]"
             document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
@@ -344,7 +263,7 @@ let player = {
         if(player.Souls >= Tickspeed1.cost) {
             player.Souls = player.Souls.sub(Tickspeed1.cost);
             player.MatterPerSec = player.MatterPerSec.mult(Tickspeed1.power);
-            player.Tickspeed1.cost *= 2;
+            Tickspeed1.cost *= 2;
             Tickspeed1.power += 1;
             Tickspeed1.amount += 1;
             document.getElementById("Tickspeed").textContent = "Tickspeed [" + Tickspeed1.amount + "]";
@@ -392,15 +311,12 @@ let player = {
         if(player.Souls >= SoulsUpgrade_1.cost) {
             player.Souls -= SoulsUpgrade_1.cost;
             SoulsUpgrade_1.bought = true;
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -408,15 +324,12 @@ let player = {
         if(player.Souls >= SoulsUpgrade_2.cost) {
             player.Souls -= SoulsUpgrade_2.cost;
             SoulsUpgrade_2.bought = true;
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;  
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -424,15 +337,12 @@ let player = {
         if(player.Souls >= SoulsUpgrade_3.cost) {
             player.Souls -= SoulsUpgrade_3.cost;
             SoulsUpgrade_3.bought = true;
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
             Tickspeed2.classList.add("show-Tickspeed");
             Tickspeed_cost.classList.add("show-Tickspeed-cost");
         }
@@ -442,15 +352,12 @@ let player = {
         if(player.Souls >= SoulsUpgrade_4.cost) {
             player.Souls -= SoulsUpgrade_4.cost;
             SoulsUpgrade_4.bought = true;
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -458,15 +365,12 @@ let player = {
         if(player.Souls >= SoulsUpgrade_5.cost) {
             player.Souls -= SoulsUpgrade_5.cost;
             SoulsUpgrade_5.bought = true;
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -474,15 +378,12 @@ let player = {
         if(player.Souls >= SoulsUpgrade_6.cost) {
             player.Souls -= SoulsUpgrade_6.cost;
             SoulsUpgrade_6.bought = true;
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -490,15 +391,12 @@ let player = {
         if(player.Souls >= SoulsUpgrade_7.cost) {
             player.Souls -= SoulsUpgrade_7.cost;
             SoulsUpgrade_7.bought = true;
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -507,15 +405,12 @@ let player = {
         if(player.Souls >= SoulsUpgrade_8.cost) {
             player.Souls -= SoulsUpgrade_8.cost;
             SoulsUpgrade_8.bought = true;
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -524,15 +419,12 @@ let player = {
         if(player.Souls >= SoulsUpgrade_9.cost) {
             player.Souls -= SoulsUpgrade_9.cost;
             SoulsUpgrade_9.bought = true;
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -541,15 +433,12 @@ let player = {
         if(player.Souls >= SoulsUpgrade_10.cost) {
             player.Souls -= SoulsUpgrade_10.cost;
             SoulsUpgrade_10.bought = true;
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -601,21 +490,18 @@ let player = {
     
     function SacrificePrestige() {
         if(player.Matter >= 10000) {
-            player.Souls += Math.sqrt(player.Matter / 10000);
-            player.Souls += player.Neutron_boost2;
+            player.Souls = player.Souls.add(Math.sqrt(player.Matter / 10000));
+            player.Souls = player.Souls.add(player.Neutron_boost2);
             player.SoulsToGet += Math.sqrt(player.Matter / 1);
             player.SoulsGain += Math.sqrt(player.Souls / 5) + 1;
             player.Matter = player.Matter.sub(player.Matter);
-            player.MatterPerSec = 1;
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;
+            player.MatterPerSec = new Decimal(1);
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
             document.getElementById("Souls").textContent = "Souls: " + format(player.Souls);   
             document.getElementById("Souls-Gain").textContent = "(+" + format(player.SoulsGain) + ")";         
         }
@@ -625,26 +511,27 @@ let player = {
         if(Elements.el_6.bought === true) {
             player.Souls += Elements.el_6.boost
         }
+        if(Challenges.Challenge2.Completed === true) {
+            player.Souls = player.Souls.add(Challenges.Challenge2.RewardBoost)
+        }
     }
     
     // Dark matter Prestige
     
     function DarkMatterPrestige() {
         if(player.Souls >= 10000) {
-            player.Dark_Matter_currency = player.Dark_Matter_currency.add(Math.sqrt(player.Souls / 10000));
-            player.Dark_MatterToGet = player.Dark_MatterToGet.add(Math.sqrt(player.Souls / 10000));
+            player.Dark_Matter_currency = player.Dark_Matter_currency.add(Math.sqrt(player.Souls.div(10000)));
+            player.Dark_MatterToGet = player.Dark_MatterToGet.add(Math.sqrt(player.Souls.div(10000)));
             player.MatterPerSec = 1;
             player.Matter = player.Matter.sub(player.Matter);
-            MatterGenerator_1.cost = 10;
-            MatterGenerator_1.power = 1;
-            MatterGenerator_1.amount = 0;
-            MatterBoost_1.cost = 100;
-            MatterBoost_1.power = 1;
-            MatterBoost_1.amount = 0;
-            MatterExtent_1.cost = 1e3;
-            MatterExtent_1.power = 1;
-            MatterExtent_1.amount = 0;
-            player.Souls -= player.Souls;
+            player.MatterPerSec = new Decimal(1);
+            MatterGenerator_1.cost = new Decimal(10);
+            MatterGenerator_1.amount = new Decimal(0);
+            MatterBoost_1.cost = new Decimal(100);
+            MatterBoost_1.amount = new Decimal(0);
+            MatterExtent_1.cost = new Decimal(1e3);
+            MatterExtent_1.amount = new Decimal(0);
+            player.Souls = player.Souls.sub(player.Souls);
             setInterval(function() {
                 document.getElementById("Dark-matter-currency").textContent = "Dark Matter: " + format(player.Dark_MatterToGet);
             }, 1000);
@@ -765,7 +652,13 @@ let player = {
     
     let Challenges = {
         Challenge1: {
-            goal: new Decimal(10),
+            goal: new Decimal(1000),
+            RewardBoost: new Decimal(1),
+            Completed: false,
+            InChallenge: false
+        },
+        Challenge2: {
+            goal: new Decimal(2500),
             RewardBoost: new Decimal(1),
             Completed: false,
             InChallenge: false
@@ -787,6 +680,19 @@ let player = {
         document.getElementById("Matter-extent-cost").ariaDisabled = true
     }
     
+    function Challenge2() {
+        player.Matter = new Decimal(10)
+        player.MatterPerSec = new Decimal(1)
+        MatterGenerator_1.amount = new Decimal(0)
+        MatterGenerator_1.cost = new Decimal(10)
+        MatterBoost_1.amount = new Decimal(0)
+        MatterBoost_1.cost = new Decimal(100)
+        MatterExtent_1.amount = new Decimal(0)
+        MatterExtent_1.cost = new Decimal(1e3)
+        Challenges.Challenge2.InChallenge = true
+        player.Souls = player.Souls.slog(player.Matter.sqrt(10000)) 
+    }
+
     function BackBtn() {
         player.Matter = new Decimal(10)
         player.MatterPerSec = new Decimal(1)
@@ -800,6 +706,19 @@ let player = {
         document.getElementById("Matter-generator-cost").ariaDisabled = false
         document.getElementById("Matter-boost-cost").ariaDisabled = false
         document.getElementById("Matter-extent-cost").ariaDisabled = false
+    }
+
+    function BackBtn1() {
+        player.Matter = new Decimal(10)
+        player.MatterPerSec = new Decimal(1)
+        MatterGenerator_1.amount = new Decimal(0)
+        MatterGenerator_1.cost = new Decimal(10)
+        MatterBoost_1.amount = new Decimal(0)
+        MatterBoost_1.cost = new Decimal(100)
+        MatterExtent_1.amount = new Decimal(0)
+        MatterExtent_1.cost = new Decimal(1e3)
+        Challenges.Challenge1.InChallenge = false
+        player.Souls = player.Souls.sqrt(player.Matter.div(10000))
     }
     
     function FinnishBtn() {
@@ -817,6 +736,22 @@ let player = {
         document.getElementById("Matter-extent-cost").ariaDisabled = false
         if(player.Matter >= Challenges.Challenge1.goal) {
             Challenges.Challenge1.Completed = true
+        }
+    }
+
+    function FinnishBtn1() {
+        player.Matter = new Decimal(10)
+        player.MatterPerSec = new Decimal(1)
+        MatterGenerator_1.amount = new Decimal(0)
+        MatterGenerator_1.cost = new Decimal(10)
+        MatterBoost_1.amount = new Decimal(0)
+        MatterBoost_1.cost = new Decimal(100)
+        MatterExtent_1.amount = new Decimal(0)
+        MatterExtent_1.cost = new Decimal(1e3)
+        Challenges.Challenge2.InChallenge = false
+        player.Souls = player.Souls.sqrt(player.Matter.div(10000))
+        if(player.Souls >= Challenges.Challenge2.goal) {
+            Challenges.Challenge2.Completed = true
         }
     }
     

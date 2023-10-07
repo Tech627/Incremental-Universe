@@ -8,6 +8,7 @@ let Achievements = document.getElementById("Achievements");
 let Achievements_styles = document.getElementById("Achievements-styles");
 let Challanges = document.getElementById("Challanges");
 let Challenge_01 = document.getElementById("Challange1");
+let Challenge_02 = document.getElementById("Challenge2");
 let Finnish_button = document.getElementById("Finnish-button");
 let Challanges_styles = document.getElementById("Challanges-styles");
 let Dark_Matter = document.getElementById("Dark-matter");
@@ -36,6 +37,7 @@ let Electron = document.getElementById("Electron");
 let Electron_boost = document.getElementById("Electron-boost");
 let Electron_boost1 = document.getElementById("Electron-boost1");
 let ElectronPerSec = document.getElementById("ElectronPerSec");
+let Dialation_tab_content = document.getElementById("Time-dialation-content")
 
 function OpenBH() {
     BH_content.classList.add("show-BH-content");
@@ -73,6 +75,7 @@ function OpenQuarks() {
     Molecules_tab.classList.add("show-Molecules-tab")
     Skill_tree.classList.remove("open-Skills");
     Reset.classList.remove("open-Rebirth");
+    Dialation_tab_content.classList.remove("show-Time-dialation-content")
 }
 
 function OpenQuarksContent() {
@@ -157,6 +160,32 @@ function OpenMoleculesContent() {
     Down_Quark.classList.remove("show-Down-Quark")
 }
 
+function OpenTimeDialationContent() {
+    Dialation_tab_content.classList.add("show-Time-dialation-content")
+    Reset.classList.remove("open-rebirth");
+    Skill_tree.classList.remove("open-Skills");
+    Quarks_content.classList.remove("show-Quarks-content"); 
+    Atoms_content.classList.remove("show-Atoms-content");
+    Proton.classList.remove("show-Proton");
+    Proton_boost.classList.remove("show-Proton-boost");
+    Neutron.classList.remove("show-Neutron");
+    Neutron_boost.classList.remove("show-Neutron-boost");
+    Electron.classList.remove("show-Electron");
+    Electron_boost.classList.remove("show-Electron-boost");
+    ProtonPerSec.classList.remove("show-ProtonPerSec");
+    NeutronPerSec.classList.remove("show-NeutronPerSec");
+    ElectronPerSec.classList.remove("show-ElectronPerSec");
+    Proton_boost1.classList.remove("show-Proton-boost1");
+    Neutron_boost1.classList.remove("show-Neutron-boost1");
+    Electron_boost1.classList.remove("show-Electron-boost1");
+    Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
+    Molecules_content.classList.remove("show-Molecules-content");
+    Quarks_tab.classList.remove("show-Quarks-tab");
+    Atoms_tab.classList.remove("show-Atoms-tab");
+    Molecules_tab.classList.remove("show-Molecules-tab");
+}
+
 function OpenReset() {
     Reset.classList.add("open-Rebirth");
     Skill_tree.classList.remove("open-Skills");
@@ -179,6 +208,7 @@ function OpenReset() {
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
     Down_Quark.classList.remove("show-Down-Quark")
+    Dialation_tab_content.classList.remove("show-Time-dialation-content")
 }
 
 function OpenSkills() {
@@ -204,6 +234,7 @@ function OpenSkills() {
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
     Down_Quark.classList.remove("show-Down-Quark")
+    Dialation_tab_content.classList.remove("show-Time-dialation-content")
 }
 
 function OpenUpgrades() {
@@ -248,6 +279,7 @@ function OpenUpgrades() {
     Down_Quark.classList.remove("show-Down-Quark")
     Challenge_01.classList.remove("show-Challange1")
     Finnish_button.classList.remove("show-Finnish-button")
+    Dialation_tab_content.classList.remove("show-Time-dialation-content")
 }
 
 function OpenMain() {
@@ -294,6 +326,7 @@ function OpenMain() {
     Down_Quark.classList.remove("show-Down-Quark")
     Challenge_01.classList.remove("show-Challange1")
     Finnish_button.classList.remove("show-Finnish-button")
+    Dialation_tab_content.classList.remove("show-Time-dialation-content")
 }
 
 function OpenAchievements() {
@@ -338,11 +371,15 @@ function OpenAchievements() {
     Down_Quark.classList.remove("show-Down-Quark")
     Challenge_01.classList.remove("show-Challange1")
     Finnish_button.classList.remove("show-Finnish-button")
+    Dialation_tab_content.classList.remove("show-Time-dialation-content")
 }
 
 function OpenChallanges() {
     if(Skill_up5.bought === true) {
         Challenge_01.classList.add("show-Challange1")
+    }
+    if(SoulsUpgrade_10.bought === true) {
+        Challenge_02.classList.add("show-Challenge2")
     }
     Challanges.classList.add("open-Challanges");
     Challanges_styles.classList.add("show-Challanges-styles");
@@ -383,6 +420,7 @@ function OpenChallanges() {
     Molecules_tab.classList.remove("show-Molecules-tab");
     Up_Quark.classList.remove("show-up-Quark")
     Down_Quark.classList.remove("show-Down-Quark")
+    Dialation_tab_content.classList.remove("show-Time-dialation-content")
 }
 
 function OpenDarkMatter() {
@@ -451,4 +489,5 @@ function OpenOptions() {
     Down_Quark.classList.remove("show-Down-Quark")
     Challenge_01.classList.remove("show-Challange1")
     Finnish_button.classList.remove("show-Finnish-button")
+    Dialation_tab_content.classList.remove("show-Time-dialation-content")
 }

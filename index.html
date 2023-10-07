@@ -14,11 +14,11 @@
         <div id="Souls-Gain"> (+0) </div>
         <div id="Dark-matter-currency">Dark Matter: 0</div>
     </nav>
-    <div id="Challanges-button" role="tab" onclick="OpenChallanges()"> Challanges 
+    <div id="Challanges-button" role="tab" onclick="OpenChallanges()"> Challenges 
         <div class="Challanges-styles" id="Challanges-styles"></div>
     </div>
         <div class="Challanges" id="Challanges">
-            <div class="Challange1" id="Challange1" onclick="Challenge1()"> Challange 1
+            <div class="Challange1" id="Challange1" onclick="Challenge1()"> Challenge 1
                 <br>
                 <br> You can't buy Matter Gen, Boost and Extent 
                 <br>
@@ -29,6 +29,18 @@
                 <br>
                 <button id="Back-button" onclick="BackBtn()"> Back </button>
                 <div class="Finnish-button" id="Finnish-button" onclick="FinnishBtn()"> Finnish </div>
+            </div>
+            <div class="Challenge2" id="Challenge2" onclick="Challenge2()"> Challenge 2 
+                <br>
+                <br> Your Souls gain is raised to the 0.01
+                <br> 
+                <br> Goal: 2,500 Souls
+                <br>
+                <br> Reward: Boost Souls gain by how far you went in this challenge
+                <br>
+                <br>
+                <button id="Back-button1" onclick="BackBtn1()"> Back </button>
+                <div class="Finnish-button1" id="Finnish-button" onclick="FinnishBtn1()"> Finnish </div> 
             </div>
         </div>
     <div id="Achievements-button" role="tab" onclick="OpenAchievements()"> Achievements 
@@ -110,7 +122,7 @@
             <p id="Souls-Upgrade1-text"> Matter Generator gives free Tickspeed </p>
             <p id="Souls-Upgrade1-text2"> Cost: 1e120 Souls </p>
         </div>
-        <div id="Souls-Upgrade10">
+        <div id="Souls-Upgrade10" onclick="SoulsUpgrade10()">
             <p id="Souls-Upgrade1-text"> Unlock Challenge 2 (The Souls challenge) </p>
             <p id="Souls-Upgrade1-text2"> Cost: 1e250 Souls </p>
         </div>
@@ -166,13 +178,14 @@
             <div id="Skill-5" onclick="Skill5()"> Unlock the 1st challenge
             <br> Cost: 1e3 Dark Matter 
             </div>
+            
         </div>
         <div class="Quarks" id="Quarks" role="tab" onclick="OpenQuarks()"> Quarks </div>
         <div class="Quarks-tab" id="Quarks-tab" role="tab" onclick="OpenQuarksContent()"> Quarks </div>
         <div class="Quarks-content" id="Quarks-content">
             <div id="Quarks-currency"> You have developed 0 quarks </div>
             <div id="Quarks-gain" onclick="QuarksGain()"> Turn formed Black Hole into Quarks 
-                <br> Req: 1e5 Formed Black Holes
+                <br> Req: 5e6 Formed Black Holes
             </div>
             <div class="up-Quark" id="up-Quark" onclick="UQuark()"> [Up] 
                 <div id="Up-Quarks-Gain"> Assign all of you quarks to Up Quark </div>
@@ -269,8 +282,22 @@
             <div id="el_Cost"> 1e80 Quarks </div>
             </div>
         </div>
-        <div class="Time-dilation" id="Time-dilation"> Time Dilation 
-
+        <div class="Time-dilation-tab" id="Time-dilation-tab" role="tab" onclick="OpenTimeDialationContent()"> Space of dialations </div>
+        <div class="Time-dialation-content" id="Time-dialation-content">
+            <div id="Dialations-points"> You have 0 Space of dialations worth to be spended on upgrades </div>
+            <div id="Dialations-PerSec"> +0/sec Space of dialations </div>
+            <div id="Matter-dialation"> Matter dialation 
+                <br>
+                <br> Break matter and start over(not reseting dark matter)
+                <br> to gain potential for the powerfull upgrades 
+                <br> Matter gain is raised to the power of 0.25
+                <br><div id="Start-Stop-dialation" onclick="MatterDialation()" ondblclick="MatterDialationClosed()"> Start </div>
+            </div>
+            <div id="Dialation-up1"> Exponential Matter 
+                <div id="Dialation-up1-Description"> Raise Matter/sec by 0.3 </div>
+                <div id="Dialation-up1-Level"> [Level 0] </div>
+                <div id="Dialation-up1-Cost" onclick="BuyDialationUp1()"> Cost: 1,000,000 Space of Dialations </div>
+            </div>
         </div>
     </div>
     <div id="Options-button" role="tab" onclick="OpenOptions()"> Options 
@@ -278,14 +305,19 @@
     </div>
     <div class="Options" id="Options">
        <button id="Save-btn" onclick="Save()"> Save </button>
-       <div id="Options-text">Incremental Universe - v0.2.3.2 Part 2
-       <br>What's new:
-       <br>- Added 1st Challenge (need to be unlocked first)
-       <br>- Added more upgrades
-       <br>- Fixed a save (not really a fix just it didn't saved some things)
+       <button id="Discord-btn"><a href="https://discord.gg/Trdhaqkm"> Discord server </a></button>
+       <div id="Options-text">Incremental Universe - v0.2.4 Part 1
+       <br>   Title: Matter manipulation & Radiation radioactivity
+       <br>- Added Matter dialation 
+       <br>- Added Matter dialation upgrades 
+       <br>- Added 2nd Challenge (need to be unlocked 1st) 
+       <br>- Added some long awaited Skill upgrades 
+       <br>- Added some content to Radiation tab 
+       <br>- You don't unlock upgrades without Souls or Dark Matter
+       <br>- Added link to my Discord server
        <br>
        <br>Person who helped with part of the code:
-       <br>-Military Grade Chicken Nugget 
+       <br>- Military Grade Chicken Nugget 
        <br>
        <br>Inspired by - Incremental Mass rewritten
        </div>
@@ -308,5 +340,7 @@
 <script src="JS/numberformating.js"></script>
 <script src="JS/main.js"></script>
 <script src="JS/Elements.js"></script>
+<script src="JS/Dialations.js"></script>
 <script src="JS/tabs.js"></script>
+<script src="JS/GameLoop.js"></script>
 </html>
