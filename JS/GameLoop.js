@@ -86,6 +86,17 @@ function GameLoop() {
  }
  document.getElementById("Dialations-points").textContent = "You have " + format(DialationPoints) + " Space of dialations worth to be spended on upgrades"
  document.getElementById("Dialations-PerSec").textContent = format(DialationPerSec) + "/sec Space of Dialations"
- 
+ Radiation.DNA_points = Radiation.DNA_points.add(Radiation.DNAPerSec / 20)
+ if(Radiation.InRadiation === true) {
+   Radiation.DNAPerSec = new Decimal(-1)
+ }
+ if(Radiation.InRadiation === false) {
+   Radiation.DNAPerSec = new Decimal(1)
+   Radiation.DNAPerSec = Radiation.DNAPerSec.add(Lab_Research.Researches)
+ }
+ document.getElementById("DNA").textContent = "You have " + format(Radiation.DNA_points) + " DNA"
+ document.getElementById("DNA-PerSec").textContent = "+" + format(Radiation.DNAPerSec) + " DNA/sec"
+ document.getElementById("Research-cost").textContent = "Cost: " + format(Lab_Research.cost) + " DNA"
+ document.getElementById("RNA").textContent = "You have " + format(Radiation.RNA) + " RNA"
  }   
  setInterval(GameLoop,1000/20)

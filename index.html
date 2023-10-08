@@ -73,6 +73,10 @@
                 <div id="Matter-extent-cost" onclick="MatterExtent()"> Cost 1,000 </div>
                 <div class="Tickspeed" id="Tickspeed"> Tickspeed [0] </div>
                 <div class="Tickspeed-cost" id="Tickspeed-cost" onclick="Tickspeed()"> cost: 1 Souls </div>
+                <div id="Universal-Collapse"> Univesal Collapse 
+                    <br>Collapse the Univese but raise Matter/sec by 1.02
+                    <div id="Universal-Collapse-cost"> Cost: 150 Matter </div>
+                </div>
             </div>
         </div>
         <div class="BH-tab" id="BH-tab" onclick="OpenBH()"> Black Hole </div>
@@ -160,7 +164,21 @@
         <div class="Dark-styles" id="Dark-styles"></div>
     </div>
     <div class="Dark-matter" id="Dark-matter">
-        <div class="Reset" id="Reset" role="tab" onclick="OpenReset()"> Radiation </div>
+        <div class="Reset" id="Reset" role="tab" onclick="OpenRadiation()"> Radiation </div>
+        <div class="Radiation-content-tab" id="Radiation-content-tab" onclick="OpenDnaContent()"> DNA </div>
+        <div class="Radiation-content" id="Radiation-content"> 
+            <div id="DNA"> You have 10 DNA </div>
+            <div id="DNA-PerSec"> +0 DNA/sec </div>
+            <div id="Radiation-btn" onclick="Radiate()" ondblclick="CloseRadiate()"> Radiate your DNA for Research purpose </div>
+            <div class="RNA" id="RNA"> You have 0 RNA </div>
+            <div class="RNA-transfer" id="RNA-transfer" onclick="RNATransfer()"> Transfer all DNA to RNA </div>
+        </div>
+        <div class="Lab-Research-tab" id="Lab-Research-tab" onclick="OpenLabResearchContent()"> Lab Research </div>
+        <div class="Lab-Research-content" id="Lab-Research-content"> 
+            <div id="Research-btn" onclick="LabResearch()"> Research for new DNA 
+                <div id="Research-cost"> Cost: 2,500 DNA </div>
+            </div>
+        </div>
         <div class="Skill-tree" id="Skill-tree" role="tab" onclick="OpenSkills()"> Skill tree </div>
         <div class="Skills" id="Skills" role="tab">           
             <div id="Skill-1" onclick="Skill1()"> Matter Gain is raised to ^1.10 for every matter generator, boost, extent
@@ -178,7 +196,12 @@
             <div id="Skill-5" onclick="Skill5()"> Unlock the 1st challenge
             <br> Cost: 1e3 Dark Matter 
             </div>
-            
+            <div id="Skill-6" onclick="Skill6()"> Boost DNA/sec based on Research 
+            <br> Cost: 1e3 DNA    
+            </div>
+            <div id="Skill-7"> Unlock Research Upgrades 
+            <br> Cost: Need Research 3 
+            </div>
         </div>
         <div class="Quarks" id="Quarks" role="tab" onclick="OpenQuarks()"> Quarks </div>
         <div class="Quarks-tab" id="Quarks-tab" role="tab" onclick="OpenQuarksContent()"> Quarks </div>
@@ -313,7 +336,7 @@
        <br>- Added 2nd Challenge (need to be unlocked 1st) 
        <br>- Added some long awaited Skill upgrades 
        <br>- Added some content to Radiation tab 
-       <br>- You don't unlock upgrades without Souls or Dark Matter
+       <br>- Added Universal Collapse to Matter tab
        <br>- Added link to my Discord server
        <br>
        <br>Person who helped with part of the code:
@@ -341,6 +364,7 @@
 <script src="JS/main.js"></script>
 <script src="JS/Elements.js"></script>
 <script src="JS/Dialations.js"></script>
+<script src="JS/Radiation.js"></script>
 <script src="JS/tabs.js"></script>
 <script src="JS/GameLoop.js"></script>
 </html>

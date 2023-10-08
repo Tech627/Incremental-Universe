@@ -55,6 +55,10 @@ let player = {
         cost: new Decimal(1),
         amount: new Decimal(0),
        }
+
+       let UniversalCollapse1 = {
+        cost: new Decimal(150),
+       }
     
     // BH-tab
     
@@ -67,89 +71,89 @@ let player = {
     // Souls Upgrades
     
        var SoulsUpgrade_1 = {
-        cost: 1,
+        cost: new Decimal(1),
         bought: false,
        }
     
        var SoulsUpgrade_2 = {
-        cost: 10,
+        cost: new Decimal(10),
         bought: false,
        }
     
        var SoulsUpgrade_3 = {
-        cost: 20,
+        cost: new Decimal(20),
         bought: false,
        }
     
        var SoulsUpgrade_4 = {
-        cost: 250,
+        cost: new Decimal(250),
         bought: false,
        }
     
        var SoulsUpgrade_5 = {
-        cost: 1e3,
+        cost: new Decimal(1000),
         bought: false,
        }
     
        var SoulsUpgrade_6 = {
-        cost: 5e3,
+        cost: new Decimal(5000),
         bought: false,
        }
     
        var SoulsUpgrade_7 = {
-        cost: 1e5,
+        cost: new Decimal(1e5),
         bought: false,
        }
     
        var SoulsUpgrade_8 = {
-        cost: 1e90,
+        cost: new Decimal(1e90),
         bought: false,
        }
     
        var SoulsUpgrade_9 = {
-        cost: 1e120,
+        cost: new Decimal(1e120),
         bought: false,
        }
     
        var SoulsUpgrade_10 = {
-        cost: 0,
+        cost: new Decimal(1e250),
         bought: false,
        }
     
     // Black Hole Upgrades
     
        var BlackHoleUpgrade_1 = {
-        cost: 10,
+        cost: new Decimal(10),
         bought: false,
        }
     
        var BlackHoleUpgrade_2 = {
-        cost: 100,
+        cost: new Decimal(100),
         bought: false,
        }
     
        var BlackHoleUpgrade_3 = {
-        cost: 1e5,
+        cost: new Decimal(1e5),
         bought: false,
        }
     
        var BlackHoleUpgrade_4 = {
-        cost: 1e5,
+        cost: new Decimal(1e5),
         bought: false,
        }
     
        var BlackHoleUpgrade_5 = {
-        cost: 1e120,
+        cost: new Decimal(1e120),
         bought: false,
        }
     
        var BlackHoleUpgrade_6 = {
-        cost: 1e180,
+        cost: new Decimal(1e180),
         bought: false,
        }
     
        var BlackHoleUpgrade_7 = {
-        cost: 1e300,
+        cost: new Decimal(1e300),
         bought: false,
        }
     
@@ -223,7 +227,7 @@ let player = {
                 player.Matter = player.Matter.sub(0);
             }
             MatterGenerator_1.cost *= 1.5;
-            MatterGenerator_1.amount = MatterGenerator_1.amount.add(new Decimal(1));
+            MatterGenerator_1.amount += 1;
             document.getElementById("Matter-generator").textContent = "Matter Generator [ " + MatterGenerator_1.amount + " ]";
             document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
         }
@@ -238,7 +242,7 @@ let player = {
                 player.Matter = player.Matter.sub(0);
             }
             MatterBoost_1.cost *= 4;
-            MatterBoost_1.amount = MatterBoost_1.amount.add(new Decimal(1));
+            MatterBoost_1.amount += 1;
             document.getElementById("Matter-boost").textContent = "Matter Boost [ " + MatterBoost_1.amount + " ]";
             document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
         }
@@ -277,6 +281,14 @@ let player = {
         }
     }
     
+    function UniversalCollapse() {
+        if(player.Matter >= UniversalCollapse1.cost) {
+            player.Matter = player.Matter.sub(UniversalCollapse1.cost);
+            player.MatterPerSec = player.MatterPerSec.pow(1.02);
+            UniversalCollapse1.cost = UniversalCollapse1.cost.pow(1.5);
+        }
+    }
+
     // BH-tab 
     
     function BlackHoleExtractor() {
@@ -309,7 +321,7 @@ let player = {
     
     function SoulsUpgrade1() {
         if(player.Souls >= SoulsUpgrade_1.cost) {
-            player.Souls -= SoulsUpgrade_1.cost;
+            player.Souls = player.Souls.sub(SoulsUpgrade_1.cost);
             SoulsUpgrade_1.bought = true;
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
@@ -322,7 +334,7 @@ let player = {
     
     function SoulsUpgrade2() {
         if(player.Souls >= SoulsUpgrade_2.cost) {
-            player.Souls -= SoulsUpgrade_2.cost;
+            player.Souls = player.Souls.sub(SoulsUpgrade_2.cost);
             SoulsUpgrade_2.bought = true;
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
@@ -335,7 +347,7 @@ let player = {
     
     function SoulsUpgrade3() {
         if(player.Souls >= SoulsUpgrade_3.cost) {
-            player.Souls -= SoulsUpgrade_3.cost;
+            player.Souls = player.Souls.sub(SoulsUpgrade_3.cost);
             SoulsUpgrade_3.bought = true;
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
@@ -350,7 +362,7 @@ let player = {
     
     function SoulsUpgrade4() {
         if(player.Souls >= SoulsUpgrade_4.cost) {
-            player.Souls -= SoulsUpgrade_4.cost;
+            player.Souls = player.Souls.sub(SoulsUpgrade_4.cost);
             SoulsUpgrade_4.bought = true;
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
@@ -363,7 +375,7 @@ let player = {
     
     function SoulsUpgrade5() {
         if(player.Souls >= SoulsUpgrade_5.cost) {
-            player.Souls -= SoulsUpgrade_5.cost;
+            player.Souls = player.Souls.sub(SoulsUpgrade_5.cost);
             SoulsUpgrade_5.bought = true;
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
@@ -376,7 +388,7 @@ let player = {
     
     function SoulsUpgrade6() {
         if(player.Souls >= SoulsUpgrade_6.cost) {
-            player.Souls -= SoulsUpgrade_6.cost;
+            player.Souls = player.Souls.sub(SoulsUpgrade_6.cost);
             SoulsUpgrade_6.bought = true;
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
@@ -389,7 +401,7 @@ let player = {
     
     function SoulsUpgrade7() {
         if(player.Souls >= SoulsUpgrade_7.cost) {
-            player.Souls -= SoulsUpgrade_7.cost;
+            player.Souls = player.Souls.sub(SoulsUpgrade_7.cost);
             SoulsUpgrade_7.bought = true;
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
@@ -403,7 +415,7 @@ let player = {
     
     function SoulsUpgrade8() {
         if(player.Souls >= SoulsUpgrade_8.cost) {
-            player.Souls -= SoulsUpgrade_8.cost;
+            player.Souls = player.Souls.sub(SoulsUpgrade_8.cost);
             SoulsUpgrade_8.bought = true;
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
@@ -417,7 +429,7 @@ let player = {
     
     function SoulsUpgrade9() {
         if(player.Souls >= SoulsUpgrade_9.cost) {
-            player.Souls -= SoulsUpgrade_9.cost;
+            player.Souls = player.Souls.sub(SoulsUpgrade_9.cost);
             SoulsUpgrade_9.bought = true;
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
@@ -431,7 +443,7 @@ let player = {
     
     function SoulsUpgrade10() {
         if(player.Souls >= SoulsUpgrade_10.cost) {
-            player.Souls -= SoulsUpgrade_10.cost;
+            player.Souls = player.Souls.sub(SoulsUpgrade_10.cost);
             SoulsUpgrade_10.bought = true;
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
@@ -446,42 +458,42 @@ let player = {
     
     function BlackHoleUpgrade1() {
         if(player.Black_Hole >= BlackHoleUpgrade_1.cost) {
-            player.Black_Hole.sub(BlackHoleUpgrade_1.cost);
+            player.Black_Hole = player.Black_Hole.sub(BlackHoleUpgrade_1.cost);
             BlackHoleUpgrade_1.bought = true;
         }
     }
     
     function BlackHoleUpgrade2() {
         if(player.Black_Hole >= BlackHoleUpgrade_2.cost) {
-            player.Black_Hole.sub(BlackHoleUpgrade_2.cost);
+            player.Black_Hole = player.Black_Hole.sub(BlackHoleUpgrade_2.cost);
             BlackHoleUpgrade_2.bought = true;
         }
     }
     
     function BlackHoleUpgrade3() {
         if(player.Quarks >= BlackHoleUpgrade_3.cost) {
-            player.Quarks.sub(BlackHoleUpgrade_3.cost);
+            player.Quarks = player.Quarks.sub(BlackHoleUpgrade_3.cost);
             BlackHoleUpgrade_3.bought = true;
         }
     }
     
     function BlackHoleUpgrade4() {
         if(player.Atoms >= BlackHoleUpgrade_4.cost) {
-            player.Atoms.sub(BlackHoleUpgrade_4.cost);
+            player.Atoms = player.Atoms.sub(BlackHoleUpgrade_4.cost);
             BlackHoleUpgrade_4.bought = true;
         }
     }
     
     function BlackHoleUpgrade5() {
         if(player.Dark_Matter_currency >= BlackHoleUpgrade_5.cost) {
-            player.Dark_Matter_currency.sub(BlackHoleUpgrade_5.cost);
+            player.Dark_Matter_currency = player.Dark_Matter_currency.sub(BlackHoleUpgrade_5.cost);
             BlackHoleUpgrade_5.bought = true;
         }
     }
     
     function BlackHoleUpgrade6() {
         if(player.Dark_Matter_currency >= BlackHoleUpgrade_6.cost) {
-            player.Dark_Matter_currency.sub(BlackHoleUpgrade_6.cost);
+            player.Dark_Matter_currency = player.Dark_Matter_currency.sub(BlackHoleUpgrade_6.cost);
             BlackHoleUpgrade_6.bought = true;
         }
     }
@@ -546,40 +558,50 @@ let player = {
     // Skill-upgrades
     
     var Skill_up1 = {
-        cost: 1,
+        cost: new Decimal(1),
         bought: false,
     }
     
     var Skill_up2 = {
-        cost: 5,
+        cost: new Decimal(5),
         bought: false,
     }
     
     var Skill_up3 = {
-        cost: 1e5,
+        cost: new Decimal(1e5),
         bought: false,
     }
     
     var Skill_up4 = {
-        cost: 1e12,
+        cost: new Decimal(1e12),
         bought: false,
     }
     
     var Skill_up5 = {
-        cost: 0,
+        cost: new Decimal(1e3),
         bought: false,
+    }
+
+    var Skill_up6 = {
+        cost: new Decimal(1e3),
+        bought: false,
+    }
+
+    var Skill_up7 = {
+        cost: new Decimal(3),
+        bought: false
     }
     
     function Skill1() {
         if (player.Dark_Matter_currency >= 1) {
-            player.Dark_Matter_currency -= Skill_up1.cost;
+            player.Dark_Matter_currency = player.Dark_Matter_currency.sub(Skill_up1.cost);
             Skill_up1.bought = true;
         }
     }
     
     function Skill2() {
         if (player.Dark_Matter_currency >= 5) {
-            player.Dark_Matter_currency -= Skill_up2.cost;
+            player.Dark_Matter_currency = player.Dark_Matter_currency.sub(Skill_up2.cost);
             Skill_up2.bought = true;
             BH_tab.classList.add("show-BH-tab");
         }
@@ -587,22 +609,29 @@ let player = {
     
     function Skill3() {
         if (player.Black_Hole >= Skill_up3.cost) {
-            player.Dark_Matter_currency -= Skill_up3.cost;
+            player.Black_Hole = player.Black_Hole.sub(Skill_up3.cost);
             Skill_up3.bought = true;
         }
     }
     
     function Skill4() {
         if (player.Black_Hole >= Skill_up4.cost) {
-            player.Dark_Matter_currency -= Skill_up4.cost;
+            player.Black_Hole = player.Black_Hole.sub(Skill_up4.cost);
             Skill_up4.bought = true;
         }
     }
     
     function Skill5() {
         if (player.Dark_Matter_currency >= Skill_up5.cost) {
-            player.Dark_Matter_currency -= Skill_up5.cost;
+            player.Dark_Matter_currency = player.Dark_Matter_currency.sub(Skill_up5.cost);
             Skill_up5.bought = true;
+        }
+    }
+
+    function Skill6() {
+        if (Radiation.DNA_points >= Skill_up6.cost) {
+            Radiation.DNA_points = Radiation.DNA_points.sub(Skill_up6.cost);
+            Skill_up6.bought = true
         }
     }
     
@@ -861,61 +890,61 @@ let player = {
                 player.Dark_Matter_currency = new Decimal(JSON.parse(SavedDark_Matter_currency));
             }
             if(SavedMatterGenerator) {
-                player.MatterGenerator_1 = JSON.parse(SavedMatterGenerator);
+                MatterGenerator_1 = JSON.parse(SavedMatterGenerator);
             }
             if(SavedMatterBoost) {
-                player.MatterBoost_1 = JSON.parse(SavedMatterBoost);
+                MatterBoost_1 = JSON.parse(SavedMatterBoost);
             }
             if(SavedMatterExtent) {
-                player.MatterExtent_1 = JSON.parse(SavedMatterExtent);
+                MatterExtent_1 = JSON.parse(SavedMatterExtent);
             }
             if(SavedTickspeed) {
-                player.Tickspeed1 = JSON.parse(SavedTickspeed);
+                Tickspeed1 = JSON.parse(SavedTickspeed);
             }
             if(SavedSoulUpgrade1) {
-                player.SoulsUpgrade_1 = JSON.parse(SavedSoulUpgrade1);
+                SoulsUpgrade_1 = JSON.parse(SavedSoulUpgrade1);
             }
             if(SavedSoulUpgrade2) {
-                player.SoulsUpgrade_2 = JSON.parse(SavedSoulUpgrade2);
+                SoulsUpgrade_2 = JSON.parse(SavedSoulUpgrade2);
             }
             if(SavedSoulUpgrade3) {
-                player.SoulsUpgrade_3 = JSON.parse(SavedSoulUpgrade3);
+                SoulsUpgrade_3 = JSON.parse(SavedSoulUpgrade3);
             }
             if(SavedSoulUpgrade4) {
-                player.SoulsUpgrade_4 = JSON.parse(SavedSoulUpgrade4);
+                SoulsUpgrade_4 = JSON.parse(SavedSoulUpgrade4);
             }
             if(SavedSoulUpgrade5) {
-                player.SoulsUpgrade_5 = JSON.parse(SavedSoulUpgrade5);
+                SoulsUpgrade_5 = JSON.parse(SavedSoulUpgrade5);
             }
             if(SavedSoulUpgrade6) {
-                player.SoulsUpgrade_6 = JSON.parse(SavedSoulUpgrade6);
+                SoulsUpgrade_6 = JSON.parse(SavedSoulUpgrade6);
             }
             if(SavedSoulUpgrade7) {
-                player.SoulsUpgrade_7 = JSON.parse(SavedSoulUpgrade7);
+                SoulsUpgrade_7 = JSON.parse(SavedSoulUpgrade7);
             }
             if(SavedSoulUpgrade8) {
-                player.SoulsUpgrade_8 = JSON.parse(SavedSoulUpgrade8);
+                SoulsUpgrade_8 = JSON.parse(SavedSoulUpgrade8);
             }    
             if(SavedSoulUpgrade9) {
-                player.SoulsUpgrade_9 = JSON.parse(SavedSoulUpgrade9);
+                SoulsUpgrade_9 = JSON.parse(SavedSoulUpgrade9);
             }
             if(SavedSoulUpgrade10) {
-                player.SoulsUpgrade_10 = JSON.parse(SavedSoulUpgrade10);
+                SoulsUpgrade_10 = JSON.parse(SavedSoulUpgrade10);
             }
             if(SavedSkill_up1) {
-                player.Skill_up1 = JSON.parse(SavedSkill_up1);
+                Skill_up1 = JSON.parse(SavedSkill_up1);
             }
             if(SavedSkill_up2) {
-                player.Skill_up2 = JSON.parse(SavedSkill_up2);
+                Skill_up2 = JSON.parse(SavedSkill_up2);
             }
             if(SavedSkill_up3) {
-                player.Skill_up3 = JSON.parse(SavedSkill_up3);
+                Skill_up3 = JSON.parse(SavedSkill_up3);
             }
             if(SavedSkill_up4) {
-                player.Skill_up4 = JSON.parse(SavedSkill_up4);
+                Skill_up4 = JSON.parse(SavedSkill_up4);
             }
             if(SavedSkill_up5) {
-                player.Skill_up5 = JSON.parse(SavedSkill_up5);
+                Skill_up5 = JSON.parse(SavedSkill_up5);
             }
             if(SavedBlack_Hole) {
                 player.Black_Hole = new Decimal(JSON.parse(SavedBlack_Hole));
@@ -924,7 +953,7 @@ let player = {
                 player.Black_HolePerSec = new Decimal(JSON.parse(SavedBlack_Holegain));
             }
             if(SavedBlack_HoleMachine) {
-                player.Black_HoleMachine = new Decimal(JSON.parse(SavedBlack_HoleMachine));
+                Black_HoleMachine = new Decimal(JSON.parse(SavedBlack_HoleMachine));
             }
             if(SavedBlack_HoleExtractor) {
                 player.Black_HoleExtractor = new Decimal(JSON.parse(SavedBlack_HoleExtractor));
@@ -933,25 +962,25 @@ let player = {
                 player.Black_Holeboost = new Decimal(JSON.parse(SavedBlack_Holeboost));
             }
             if(SavedBlackHole_Upgrade1) {
-                player.BlackHoleUpgrade_1 = JSON.parse(SavedBlackHole_Upgrade1);
+                BlackHoleUpgrade_1 = JSON.parse(SavedBlackHole_Upgrade1);
             }
             if(SavedBlackHole_Upgrade2) {
-                player.BlackHoleUpgrade_2 = JSON.parse(SavedBlackHole_Upgrade2);
+                BlackHoleUpgrade_2 = JSON.parse(SavedBlackHole_Upgrade2);
             }
             if(SavedBlackHole_Upgrade3) {
-                player.BlackHoleUpgrade_3 = JSON.parse(SavedBlackHole_Upgrade3);
+                BlackHoleUpgrade_3 = JSON.parse(SavedBlackHole_Upgrade3);
             }
             if(SavedBlackHole_Upgrade4) {
-                player.BlackHoleUpgrade_4 = JSON.parse(SavedBlackHole_Upgrade4);
+                BlackHoleUpgrade_4 = JSON.parse(SavedBlackHole_Upgrade4);
             }
             if(SavedBlackHole_Upgrade5) {
-                player.BlackHoleUpgrade_5 = JSON.parse(SavedBlackHole_Upgrade5);
+                BlackHoleUpgrade_5 = JSON.parse(SavedBlackHole_Upgrade5);
             }
             if(SavedBlackHole_Upgrade6) {
-                player.BlackHoleUpgrade_6 = JSON.parse(SavedBlackHole_Upgrade6);
+                BlackHoleUpgrade_6 = JSON.parse(SavedBlackHole_Upgrade6);
             }
             if(SavedBlackHole_Upgrade7) {
-                player.BlackHoleUpgrade_7 = JSON.parse(SavedBlackHole_Upgrade7);
+                BlackHoleUpgrade_7 = JSON.parse(SavedBlackHole_Upgrade7);
             }
             if(SavedQuarks) {
                 player.Quarks = new Decimal(JSON.parse(SavedQuarks));
@@ -960,7 +989,7 @@ let player = {
                 player.Atoms = new Decimal(JSON.parse(SavedAtoms));
             }
             if(SavedUQuark) {
-                UQuark_1 = Json.parse(SavedUQuark);
+                UQuark_1 = JSON.parse(SavedUQuark);
             }
          } 
     }

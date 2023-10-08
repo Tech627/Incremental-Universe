@@ -16,7 +16,12 @@ let Dark_styles = document.getElementById("Dark-styles");
 let Options = document.getElementById("Options")
 let Options_styles = document.getElementById("Options-styles");
 let Skill_tree = document.getElementById("Skills");
-let Reset = document.getElementById("Rebirth");
+let Radiation_content_tab = document.getElementById("Radiation-content-tab");
+let Lab_Research_tab = document.getElementById("Lab-Research-tab");
+let Radiation_content = document.getElementById("Radiation-content");
+let Lab_Research_content = document.getElementById("Lab-Research-content");
+let RNA = document.getElementById("RNA");
+let RNA_transfer = document.getElementById("RNA-transfer");
 let Quarks_tab = document.getElementById("Quarks-tab");
 let Quarks_content = document.getElementById("Quarks-content");
 let Up_Quark = document.getElementById("up-Quark")
@@ -76,6 +81,12 @@ function OpenQuarks() {
     Skill_tree.classList.remove("open-Skills");
     Reset.classList.remove("open-Rebirth");
     Dialation_tab_content.classList.remove("show-Time-dialation-content")
+    Radiation_content_tab.classList.remove("show-Radiation-content-tab");
+    Lab_Research_tab.classList.remove("show-Lab-Research-tab")
+    Lab_Research_content.classList.remove("show-Lab-Research-content")
+    Radiation_content.classList.remove("show-Radiation-content")
+    RNA.classList.remove("show-RNA")
+    RNA_transfer.classList.remove("show-RNA-transfer")
 }
 
 function OpenQuarksContent() {
@@ -184,10 +195,17 @@ function OpenTimeDialationContent() {
     Quarks_tab.classList.remove("show-Quarks-tab");
     Atoms_tab.classList.remove("show-Atoms-tab");
     Molecules_tab.classList.remove("show-Molecules-tab");
+    Radiation_content_tab.classList.remove("show-Radiation-content-tab"); 
+    Radiation_content.classList.remove("show-Radiation-content")
+    Lab_Research_tab.classList.remove("show-Lab-Research-tab")
+    Lab_Research_content.classList.remove("show-Lab-Research-content")
+    RNA.classList.remove("show-RNA")
+    RNA_transfer.classList.remove("show-RNA-transfer")
 }
 
-function OpenReset() {
-    Reset.classList.add("open-Rebirth");
+function OpenRadiation() {
+    Radiation_content_tab.classList.add("show-Radiation-content-tab");
+    Lab_Research_tab.classList.add("show-Lab-Research-tab")
     Skill_tree.classList.remove("open-Skills");
     Quarks_tab.classList.remove("show-Quarks-tab");
     Quarks_content.classList.remove("show-Quarks-content"); 
@@ -209,6 +227,22 @@ function OpenReset() {
     Up_Quark.classList.remove("show-up-Quark")
     Down_Quark.classList.remove("show-Down-Quark")
     Dialation_tab_content.classList.remove("show-Time-dialation-content")
+}
+
+function OpenDnaContent() {
+    Radiation_content.classList.add("show-Radiation-content")
+    Lab_Research_content.classList.remove("show-Lab-Research-content")
+    if(Lab_Research.Researches >= 1) {
+        RNA.classList.add("show-RNA");
+        RNA_transfer.classList.add("show-RNA-transfer")
+    }
+}
+
+function OpenLabResearchContent() {
+    Lab_Research_content.classList.add("show-Lab-Research-content")
+    Radiation_content.classList.remove("show-Radiation-content")
+    RNA.classList.remove("show-RNA")
+    RNA_transfer.classList.remove("show-RNA-transfer")
 }
 
 function OpenSkills() {
@@ -235,6 +269,12 @@ function OpenSkills() {
     Up_Quark.classList.remove("show-up-Quark")
     Down_Quark.classList.remove("show-Down-Quark")
     Dialation_tab_content.classList.remove("show-Time-dialation-content")
+    Radiation_content.classList.remove("show-Radiation-content")
+    Radiation_content_tab.classList.remove("show-Radiation-content-tab");
+    Lab_Research_tab.classList.remove("show-Lab-Research-tab")
+    Lab_Research_content.classList.remove("show-Lab-Research-content")
+    RNA.classList.remove("show-RNA")
+    RNA_transfer.classList.remove("show-RNA-transfer")
 }
 
 function OpenUpgrades() {
@@ -280,6 +320,12 @@ function OpenUpgrades() {
     Challenge_01.classList.remove("show-Challange1")
     Finnish_button.classList.remove("show-Finnish-button")
     Dialation_tab_content.classList.remove("show-Time-dialation-content")
+    Radiation_content.classList.remove("show-Radiation-content")
+    Radiation_content_tab.classList.remove("show-Radiation-content-tab");
+    Lab_Research_tab.classList.remove("show-Lab-Research-tab") 
+    Lab_Research_content.classList.remove("show-Lab-Research-content")
+    RNA.classList.remove("show-RNA")
+    RNA_transfer.classList.remove("show-RNA-transfer")
 }
 
 function OpenMain() {
@@ -327,6 +373,12 @@ function OpenMain() {
     Challenge_01.classList.remove("show-Challange1")
     Finnish_button.classList.remove("show-Finnish-button")
     Dialation_tab_content.classList.remove("show-Time-dialation-content")
+    Radiation_content.classList.remove("show-Radiation-content")
+    Radiation_content_tab.classList.remove("show-Radiation-content-tab");
+    Lab_Research_tab.classList.remove("show-Lab-Research-tab")
+    Lab_Research_content.classList.remove("show-Lab-Research-content")
+    RNA.classList.remove("show-RNA")
+    RNA_transfer.classList.remove("show-RNA-transfer")
 }
 
 function OpenAchievements() {
@@ -372,6 +424,12 @@ function OpenAchievements() {
     Challenge_01.classList.remove("show-Challange1")
     Finnish_button.classList.remove("show-Finnish-button")
     Dialation_tab_content.classList.remove("show-Time-dialation-content")
+    Radiation_content.classList.remove("show-Radiation-content")
+    Radiation_content_tab.classList.remove("show-Radiation-content-tab");
+    Lab_Research_tab.classList.remove("show-Lab-Research-tab")
+    Lab_Research_content.classList.remove("show-Lab-Research-content")
+    RNA.classList.remove("show-RNA")
+    RNA_transfer.classList.remove("show-RNA-transfer")
 }
 
 function OpenChallanges() {
@@ -421,6 +479,12 @@ function OpenChallanges() {
     Up_Quark.classList.remove("show-up-Quark")
     Down_Quark.classList.remove("show-Down-Quark")
     Dialation_tab_content.classList.remove("show-Time-dialation-content")
+    Radiation_content.classList.remove("show-Radiation-content")
+    Radiation_content_tab.classList.remove("show-Radiation-content-tab");
+    Lab_Research_tab.classList.remove("show-Lab-Research-tab")
+    Lab_Research_content.classList.remove("show-Lab-Research-content")
+    RNA.classList.remove("show-RNA")
+    RNA_transfer.classList.remove("show-RNA-transfer")
 }
 
 function OpenDarkMatter() {
@@ -490,4 +554,10 @@ function OpenOptions() {
     Challenge_01.classList.remove("show-Challange1")
     Finnish_button.classList.remove("show-Finnish-button")
     Dialation_tab_content.classList.remove("show-Time-dialation-content")
+    Radiation_content.classList.remove("show-Radiation-content")
+    Radiation_content_tab.classList.remove("show-Radiation-content-tab");
+    Lab_Research_tab.classList.remove("show-Lab-Research-tab")
+    Lab_Research_content.classList.remove("show-Lab-Research-content")
+    RNA.classList.remove("show-RNA")
+    RNA_transfer.classList.remove("show-RNA-transfer")
 }
