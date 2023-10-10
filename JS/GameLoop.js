@@ -8,6 +8,8 @@ function GameLoop() {
        MatterGenPower = MatterGenPower.mul(player.Souls.div(new Decimal(100))) // Multiply for souls upgrade 4
     }
     MatterGenPower = MatterGenPower.add(Challenges.Challenge1.RewardBoost)
+    document.getElementById("Matter-generator").textContent = "Matter Generator [ " + format(MatterGenerator_1.amount) + " ]";
+    document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
     // Adding the flat amount increase to the generation first to allow for proper multiplication and exponation
     player.MatterPerSec = player.MatterPerSec.add(MatterGenPower)
     
@@ -20,6 +22,8 @@ function GameLoop() {
        MatterBoostPower = MatterBoostPower.mul(Elements.el_2.boost)
     }   
     MatterBoostPower = MatterBoostPower.add(Challenges.Challenge1.RewardBoost) 
+    document.getElementById("Matter-boost").textContent = "Matter Boost [ " + format(MatterBoost_1.amount) + " ]";
+    document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
     // Multiplying generation alongside adding 1 to the multiplier incase that the play does not have any multiplier
     player.MatterPerSec = player.MatterPerSec.mul(MatterBoostPower.add(new Decimal(1)))
                                 
@@ -43,12 +47,23 @@ function GameLoop() {
  
     MatterExtentPower = MatterExtentPower.add(Challenges.Challenge1.RewardBoost)
 
+    document.getElementById("Matter-extent").textContent = "Matter Extent [ " + format(MatterExtent_1.amount) + " ]"
+    document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
+    document.getElementById("Tickspeed").textContent = "Tickspeed [" + format(Tickspeed1.amount) + "]";
+    document.getElementById("Tickspeed-cost").textContent = "Cost: " + format(Tickspeed1.cost) + " Souls";
+
     player.MatterPerSec = player.MatterPerSec.pow(MatterExtentPower.div(new Decimal(20)).add(new Decimal(1)))
  
     player.Matter = player.Matter.add(player.MatterPerSec.div(20))
  
     document.getElementById("Matter").textContent = "Matter: " + format(player.Matter);
     document.getElementById("MatterPerSec").textContent = format(player.MatterPerSec) + " Matter/sec";
+    document.getElementById("Souls").textContent = "Souls: " + format(player.Souls);   
+    document.getElementById("Souls-Gain").textContent = "(+" + format(player.SoulsToGet) + ")";
+    player.SoulsToGet = player.SoulsToGet.add(player.Matter.sqrt(player.Matter / 1));   
+    if( SoulsUpgrade_2.bought === true) {
+      player.SoulsToGet = player.SoulsToGet.add(player.Matter.sqrt(player.Matter.div(3333)));
+  }
 
     if(Elements.el_9.bought === true) {
      player.Souls = player.Souls.add(player.SoulsToGet)
@@ -100,3 +115,4 @@ function GameLoop() {
  document.getElementById("RNA").textContent = "You have " + format(Radiation.RNA) + " RNA"
  }   
  setInterval(GameLoop,1000/20)
+ console.log(MatterGenerator_1)

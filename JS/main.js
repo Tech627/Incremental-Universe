@@ -37,8 +37,8 @@ let player = {
     // Matter tab
     
        let MatterGenerator_1 = {
-          cost: new Decimal(10),
-          amount: new Decimal(0),
+        cost: new Decimal(10),
+        amount: new Decimal(0),
        }
     
        let MatterBoost_1 = {
@@ -226,10 +226,8 @@ let player = {
             if(BlackHoleUpgrade_1.bought === true ) {
                 player.Matter = player.Matter.sub(0);
             }
-            MatterGenerator_1.cost *= 1.5;
-            MatterGenerator_1.amount += 1;
-            document.getElementById("Matter-generator").textContent = "Matter Generator [ " + MatterGenerator_1.amount + " ]";
-            document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
+            MatterGenerator_1.cost = MatterGenerator_1.cost.mul(new Decimal(1.5));
+            MatterGenerator_1.amount = MatterGenerator_1.amount.add(new Decimal(1));
         }
     }
     
@@ -241,10 +239,8 @@ let player = {
             if(BlackHoleUpgrade_1.bought === true ) {
                 player.Matter = player.Matter.sub(0);
             }
-            MatterBoost_1.cost *= 4;
-            MatterBoost_1.amount += 1;
-            document.getElementById("Matter-boost").textContent = "Matter Boost [ " + MatterBoost_1.amount + " ]";
-            document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
+            MatterBoost_1.cost = MatterBoost_1.cost.mul(new Decimal(4));
+            MatterBoost_1.amount = MatterBoost_1.amount.add(new Decimal(1));
         }
     }
     
@@ -258,20 +254,16 @@ let player = {
             }
             MatterExtent_1.cost = MatterExtent_1.cost.mul(new Decimal(9));
             MatterExtent_1.amount = MatterExtent_1.amount.add(new Decimal(1));
-            document.getElementById("Matter-extent").textContent = "Matter Extent [ " + MatterExtent_1.amount + " ]"
-            document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
         }
     }
     
     function Tickspeed() {
         if(player.Souls >= Tickspeed1.cost) {
             player.Souls = player.Souls.sub(Tickspeed1.cost);
-            player.MatterPerSec = player.MatterPerSec.mult(Tickspeed1.power);
+            player.MatterPerSec = player.MatterPerSec.mul(Tickspeed1.power);
             Tickspeed1.cost *= 2;
             Tickspeed1.power += 1;
             Tickspeed1.amount += 1;
-            document.getElementById("Tickspeed").textContent = "Tickspeed [" + Tickspeed1.amount + "]";
-            document.getElementById("Tickspeed-cost").textContent = "Cost: " + format(Tickspeed1.cost) + " Souls";
         }
         if(SoulsUpgrade_7.bought === true) {
             Tickspeed1.power *= player.Souls / 1e6;
@@ -323,12 +315,6 @@ let player = {
         if(player.Souls >= SoulsUpgrade_1.cost) {
             player.Souls = player.Souls.sub(SoulsUpgrade_1.cost);
             SoulsUpgrade_1.bought = true;
-            MatterGenerator_1.cost = new Decimal(10);
-            MatterGenerator_1.amount = new Decimal(0);
-            MatterBoost_1.cost = new Decimal(100);
-            MatterBoost_1.amount = new Decimal(0);
-            MatterExtent_1.cost = new Decimal(1e3);
-            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -336,12 +322,6 @@ let player = {
         if(player.Souls >= SoulsUpgrade_2.cost) {
             player.Souls = player.Souls.sub(SoulsUpgrade_2.cost);
             SoulsUpgrade_2.bought = true;
-            MatterGenerator_1.cost = new Decimal(10);
-            MatterGenerator_1.amount = new Decimal(0);
-            MatterBoost_1.cost = new Decimal(100);
-            MatterBoost_1.amount = new Decimal(0);
-            MatterExtent_1.cost = new Decimal(1e3);
-            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -349,12 +329,6 @@ let player = {
         if(player.Souls >= SoulsUpgrade_3.cost) {
             player.Souls = player.Souls.sub(SoulsUpgrade_3.cost);
             SoulsUpgrade_3.bought = true;
-            MatterGenerator_1.cost = new Decimal(10);
-            MatterGenerator_1.amount = new Decimal(0);
-            MatterBoost_1.cost = new Decimal(100);
-            MatterBoost_1.amount = new Decimal(0);
-            MatterExtent_1.cost = new Decimal(1e3);
-            MatterExtent_1.amount = new Decimal(0);
             Tickspeed2.classList.add("show-Tickspeed");
             Tickspeed_cost.classList.add("show-Tickspeed-cost");
         }
@@ -364,12 +338,6 @@ let player = {
         if(player.Souls >= SoulsUpgrade_4.cost) {
             player.Souls = player.Souls.sub(SoulsUpgrade_4.cost);
             SoulsUpgrade_4.bought = true;
-            MatterGenerator_1.cost = new Decimal(10);
-            MatterGenerator_1.amount = new Decimal(0);
-            MatterBoost_1.cost = new Decimal(100);
-            MatterBoost_1.amount = new Decimal(0);
-            MatterExtent_1.cost = new Decimal(1e3);
-            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -377,12 +345,6 @@ let player = {
         if(player.Souls >= SoulsUpgrade_5.cost) {
             player.Souls = player.Souls.sub(SoulsUpgrade_5.cost);
             SoulsUpgrade_5.bought = true;
-            MatterGenerator_1.cost = new Decimal(10);
-            MatterGenerator_1.amount = new Decimal(0);
-            MatterBoost_1.cost = new Decimal(100);
-            MatterBoost_1.amount = new Decimal(0);
-            MatterExtent_1.cost = new Decimal(1e3);
-            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -390,12 +352,6 @@ let player = {
         if(player.Souls >= SoulsUpgrade_6.cost) {
             player.Souls = player.Souls.sub(SoulsUpgrade_6.cost);
             SoulsUpgrade_6.bought = true;
-            MatterGenerator_1.cost = new Decimal(10);
-            MatterGenerator_1.amount = new Decimal(0);
-            MatterBoost_1.cost = new Decimal(100);
-            MatterBoost_1.amount = new Decimal(0);
-            MatterExtent_1.cost = new Decimal(1e3);
-            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -403,12 +359,6 @@ let player = {
         if(player.Souls >= SoulsUpgrade_7.cost) {
             player.Souls = player.Souls.sub(SoulsUpgrade_7.cost);
             SoulsUpgrade_7.bought = true;
-            MatterGenerator_1.cost = new Decimal(10);
-            MatterGenerator_1.amount = new Decimal(0);
-            MatterBoost_1.cost = new Decimal(100);
-            MatterBoost_1.amount = new Decimal(0);
-            MatterExtent_1.cost = new Decimal(1e3);
-            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -417,12 +367,6 @@ let player = {
         if(player.Souls >= SoulsUpgrade_8.cost) {
             player.Souls = player.Souls.sub(SoulsUpgrade_8.cost);
             SoulsUpgrade_8.bought = true;
-            MatterGenerator_1.cost = new Decimal(10);
-            MatterGenerator_1.amount = new Decimal(0);
-            MatterBoost_1.cost = new Decimal(100);
-            MatterBoost_1.amount = new Decimal(0);
-            MatterExtent_1.cost = new Decimal(1e3);
-            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -431,12 +375,6 @@ let player = {
         if(player.Souls >= SoulsUpgrade_9.cost) {
             player.Souls = player.Souls.sub(SoulsUpgrade_9.cost);
             SoulsUpgrade_9.bought = true;
-            MatterGenerator_1.cost = new Decimal(10);
-            MatterGenerator_1.amount = new Decimal(0);
-            MatterBoost_1.cost = new Decimal(100);
-            MatterBoost_1.amount = new Decimal(0);
-            MatterExtent_1.cost = new Decimal(1e3);
-            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -445,12 +383,6 @@ let player = {
         if(player.Souls >= SoulsUpgrade_10.cost) {
             player.Souls = player.Souls.sub(SoulsUpgrade_10.cost);
             SoulsUpgrade_10.bought = true;
-            MatterGenerator_1.cost = new Decimal(10);
-            MatterGenerator_1.amount = new Decimal(0);
-            MatterBoost_1.cost = new Decimal(100);
-            MatterBoost_1.amount = new Decimal(0);
-            MatterExtent_1.cost = new Decimal(1e3);
-            MatterExtent_1.amount = new Decimal(0);
         }
     }
     
@@ -502,11 +434,10 @@ let player = {
     
     function SacrificePrestige() {
         if(player.Matter >= 10000) {
-            player.Souls = player.Souls.add(Math.sqrt(player.Matter / 10000));
+            player.Souls = player.Souls.add(player.SoulsToGet);
             player.Souls = player.Souls.add(player.Neutron_boost2);
-            player.SoulsToGet += Math.sqrt(player.Matter / 1);
-            player.SoulsGain += Math.sqrt(player.Souls / 5) + 1;
             player.Matter = player.Matter.sub(player.Matter);
+            player.SoulsToGet = new Decimal(0);
             player.MatterPerSec = new Decimal(1);
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
@@ -514,11 +445,6 @@ let player = {
             MatterBoost_1.amount = new Decimal(0);
             MatterExtent_1.cost = new Decimal(1e3);
             MatterExtent_1.amount = new Decimal(0);
-            document.getElementById("Souls").textContent = "Souls: " + format(player.Souls);   
-            document.getElementById("Souls-Gain").textContent = "(+" + format(player.SoulsGain) + ")";         
-        }
-        if( SoulsUpgrade_2.bought === true) {
-            player.Souls += Math.sqrt(Matter / 3333);
         }
         if(Elements.el_6.bought === true) {
             player.Souls += Elements.el_6.boost
@@ -993,3 +919,32 @@ let player = {
             }
          } 
     }
+function HardReset() {
+    player.Matter = new Decimal(10)
+    player.MatterPerSec = new Decimal(1)
+    player.Souls = new Decimal(0)
+    player.SoulsToGet = new Decimal(0)
+    player.Dark_Matter_currency = new Decimal(0)
+    player.Dark_MatterToGet = new Decimal(0)
+    player.Atoms = new Decimal(0)
+    player.Quarks = new Decimal(0)
+    player.MatterGenerator_1.cost = new Decimal(10)
+    player.MatterGenerator_1.amount = new Decimal(0)
+    player.MatterBoost_1.cost = new Decimal(100)
+    player.MatterBoost_1.amount = new Decimal(0)
+    player.MatterExtent_1.cost = new Decimal(1000)
+    player.MatterExtent_1.amount = new Decimal(0)
+    player.Proton_1 = new Decimal(0)
+    player.ProtonPerSec_1 = new Decimal(0)
+    player.Proton_boost2 = new Decimal(0)
+    player.Neutron_1 = new Decimal(0)
+    player.NeutronPerSec_1 = new Decimal(0)
+    player.Neutron_boost2 = new Decimal(0)
+    player.Electron_1 = new Decimal(0)
+    player.ElectronPerSec_1 = new Decimal(0)
+    player.Electron_boost2 = new Decimal(0)
+    player.Black_Hole = new Decimal(0)
+    player.Black_HolePerSec = new Decimal(0)
+    player.Black_Holeboost = new Decimal(0)
+    player.Black_HoleExtractor = new Decimal(0)
+}
