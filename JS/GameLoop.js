@@ -116,11 +116,4 @@ function GameLoop() {
  document.getElementById("Research-cost").textContent = "Cost: " + format(Lab_Research.cost) + " DNA"
  document.getElementById("RNA").textContent = "You have " + format(Radiation.RNA) + " RNA"
  }   
- setInterval(mainLoop,1000/20)
- function mainLoop() {
-   var diff = (Date.now() - lastUpdate) / 1000
-
-   GameLoop(diff)
-
-   lastUpdate = Date.now()
- }
+ setInterval(GameLoop,1000/20)
