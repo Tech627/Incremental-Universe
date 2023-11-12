@@ -1,3 +1,5 @@
+var lastUpdate = Date.now()
+
 function GameLoop() {
     var MatterGenPower = new Decimal(0)
     MatterGenPower = MatterGenPower.add(MatterGenerator_1.amount)
@@ -60,7 +62,7 @@ function GameLoop() {
     document.getElementById("MatterPerSec").textContent = format(player.MatterPerSec) + " Matter/sec";
     document.getElementById("Souls").textContent = "Souls: " + format(player.Souls);   
     document.getElementById("Souls-Gain").textContent = "(+" + format(player.SoulsToGet) + ")";
-    player.SoulsToGet = player.SoulsToGet.add(player.Matter.sqrt(player.Matter / 1));   
+    player.SoulsToGet = player.SoulsToGet.add(player.Matter.sqrt(player.Matter.div(10000)));   
     if( SoulsUpgrade_2.bought === true) {
       player.SoulsToGet = player.SoulsToGet.add(player.Matter.sqrt(player.Matter.div(3333)));
   }
@@ -71,17 +73,17 @@ function GameLoop() {
    }
 
    if(BlackHoleUpgrade_6.bought === true) {
-     if(player.Matter >= MatterGenerator_1.cost) {
+     if(player.Matter.gte(MatterGenerator_1.cost)) {
              MatterGenerator()      
      }
-     if(player.Matter >= MatterBoost_1.cost) {
+     if(player.Matter.gte(MatterBoost_1.cost)) {
              MatterBoost()      
      }
-     if(player.Matter >= MatterExtent_1.cost) {
+     if(player.Matter.gte(MatterExtent_1.cost)) {
              MatterExtent()      
      }
  }
- if(player.Matter >= Challenges.Challenge1.goal && Challenges.Challenge1.InChallenge === true) {
+ if(player.Matter.gte(Challenges.Challenge1.goal) && Challenges.Challenge1.InChallenge === true) {
      Finnish_button.classList.add("show-Finnish-button")
  }
  if(Challenges.Challenge1.Completed === true) {
@@ -114,5 +116,11 @@ function GameLoop() {
  document.getElementById("Research-cost").textContent = "Cost: " + format(Lab_Research.cost) + " DNA"
  document.getElementById("RNA").textContent = "You have " + format(Radiation.RNA) + " RNA"
  }   
- setInterval(GameLoop,1000/20)
- console.log(MatterGenerator_1)
+ setInterval(mainLoop,1000/20)
+ function mainLoop() {
+   var diff = (Date.now() - lastUpdate) / 1000
+
+   GameLoop(diff)
+
+   lastUpdate = Date.now()
+ }
