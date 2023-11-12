@@ -58,6 +58,7 @@ let player = {
 
        let UniversalCollapse1 = {
         cost: new Decimal(150),
+        amount: new Decimal(0),
        }
     
     // BH-tab
@@ -275,7 +276,8 @@ let player = {
     function UniversalCollapse() {
         if(player.Matter.gte(UniversalCollapse1.cost)) {
             player.Matter = player.Matter.sub(UniversalCollapse1.cost);
-            player.MatterPerSec = player.MatterPerSec.pow(1.02);
+            player.MatterPerSec = player.MatterPerSec.mul(1.1);
+            UniversalCollapse1.amount = UniversalCollapse1.amount.add(1)
             UniversalCollapse1.cost = UniversalCollapse1.cost.pow(1.5);
         }
     }
@@ -434,7 +436,6 @@ let player = {
     function SacrificePrestige() {
         if(player.Matter.gte(10000)) {
             player.Souls = player.Souls.add(player.SoulsToGet);
-            player.Souls = player.Souls.add(player.Neutron_boost2);
             player.Matter = player.Matter.sub(player.Matter);
             player.SoulsToGet = new Decimal(0);
             player.MatterPerSec = new Decimal(1);

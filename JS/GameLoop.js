@@ -1,5 +1,3 @@
-var lastUpdate = Date.now()
-
 function GameLoop() {
     var MatterGenPower = new Decimal(0)
     MatterGenPower = MatterGenPower.add(MatterGenerator_1.amount)
@@ -53,6 +51,7 @@ function GameLoop() {
     document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
     document.getElementById("Tickspeed").textContent = "Tickspeed [" + format(Tickspeed1.amount) + "]";
     document.getElementById("Tickspeed-cost").textContent = "Cost: " + format(Tickspeed1.cost) + " Souls";
+    document.getElementById("Universal-Collapse-cost").textContent = "Cost: " + format(UniversalCollapse1.cost)
 
     player.MatterPerSec = player.MatterPerSec.pow(MatterExtentPower.div(new Decimal(20)).add(new Decimal(1)))
  
@@ -62,8 +61,10 @@ function GameLoop() {
     document.getElementById("MatterPerSec").textContent = format(player.MatterPerSec) + " Matter/sec";
     document.getElementById("Souls").textContent = "Souls: " + format(player.Souls);   
     document.getElementById("Souls-Gain").textContent = "(+" + format(player.SoulsToGet) + ")";
-    player.SoulsToGet = player.SoulsToGet.add(player.Matter.sqrt(player.Matter.div(10000)));   
-    if( SoulsUpgrade_2.bought === true) {
+    if(player.Matter.gte(10000)) {
+      player.SoulsToGet = player.SoulsToGet.add(player.Matter.sqrt(player.Matter.div(10000)));   
+    }
+    if(SoulsUpgrade_2.bought === true) {
       player.SoulsToGet = player.SoulsToGet.add(player.Matter.sqrt(player.Matter.div(3333)));
   }
 
@@ -94,16 +95,17 @@ function GameLoop() {
  }
  if(Dialations.MatterDialation.inDialation === true) {
      player.MatterPerSec = player.MatterPerSec.slog(new Decimal(0.25))
-     DialationPoints = DialationPoints.add(DialationPerSec)
+     DialationPoints = DialationPoints.add(DialationPerSec.div(50))
      DialationPerSec = DialationPerSec.add(player.Matter.sqrt(100).slog(1000))
  } 
  if(Dialations.MatterDialation.inDialation === false) {
      player.MatterPerSec = new Decimal(1)
-     DialationPoints = DialationPoints.add(DialationPerSec)
+     DialationPoints = DialationPoints.add(DialationPerSec.div(50))
  }
  document.getElementById("Dialations-points").textContent = "You have " + format(DialationPoints) + " Space of dialations worth to be spended on upgrades"
  document.getElementById("Dialations-PerSec").textContent = format(DialationPerSec) + "/sec Space of Dialations"
- Radiation.DNA_points = Radiation.DNA_points.add(Radiation.DNAPerSec / 20)
+ document.getElementById("Dialation-up1-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up1.cost)
+ Radiation.DNA_points = Radiation.DNA_points.add(Radiation.DNAPerSec.div(20))
  if(Radiation.InRadiation === true) {
    Radiation.DNAPerSec = new Decimal(-1)
  }

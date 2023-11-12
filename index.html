@@ -73,8 +73,8 @@
                 <div id="Matter-extent-cost" onclick="MatterExtent()"> Cost 1,000 </div>
                 <div class="Tickspeed" id="Tickspeed"> Tickspeed [0] </div>
                 <div class="Tickspeed-cost" id="Tickspeed-cost" onclick="Tickspeed()"> cost: 1 Souls </div>
-                <div id="Universal-Collapse" onclick="UniversalCollapse()"> Univesal Collapse 
-                    <br>Collapse the Univese but raise Matter/sec by 1.02
+                <div id="Universal-Collapse" onclick="UniversalCollapse()"> Universal Collapse 
+                    <br>Collapse the Universe but multiply Matter/sec by 1.10
                     <div id="Universal-Collapse-cost"> Cost: 150 Matter </div>
                 </div>
             </div>
@@ -314,12 +314,18 @@
                 <br> Break matter and start over(not reseting dark matter)
                 <br> to gain potential for the powerfull upgrades 
                 <br> Matter gain is raised to the power of 0.25
-                <br><div id="Start-Stop-dialation" onclick="MatterDialation()" ondblclick="MatterDialationClosed()"> Start </div>
+                <br><div id="Start-Stop-dialation" onclick="MatterDialation()"> Start </div>
+                <div id="Stop-Start-dialation" onclick="MatterDialationClosed()"> Stop </div>
             </div>
             <div id="Dialation-up1"> Exponential Matter 
                 <div id="Dialation-up1-Description"> Raise Matter/sec by 0.3 </div>
                 <div id="Dialation-up1-Level"> [Level 0] </div>
                 <div id="Dialation-up1-Cost" onclick="BuyDialationUp1()"> Cost: 1,000,000 Space of Dialations </div>
+            </div>
+            <div id="Dialation-up2"> Rising Souls 
+                <div id="Dialation-up2-Description"> Multiply souls gain by 1.5 </div>
+                <div id="Dialation-up2-Level"> [Level 0] </div>
+                <div id="Dialation-up2-Cost" onclick="BuyDialationUp2()"> Cost: 1e12 Space of Dialations </div>
             </div>
         </div>
     </div>
@@ -330,10 +336,11 @@
        <button id="Save-btn" onclick="Save()"> Save </button>
        <button id="Discord-btn"><a href="https://discord.gg/Trdhaqkm"> Discord server </a></button>
        <button id="Hard-Reset" onclick="HardReset()"> Hard Reset </button>
-       <div id="Options-text">Incremental Universe - v0.2.4 Part 3
+       <div id="Options-text">Incremental Universe - v0.2.4.1
        <br>   Title: Matter manipulation & Radiation radioactivity
-       <br>- Fixed some visual bugs
-       <br>- Added Hard Reset 
+       <br>- Fixed 3 more bugs
+       <br>- Universal Collapse now works
+       <br>- added a 2nd Dialation Upgrade 
        <br>
        <br>Person who helped with part of the code:
        <br>- Military Grade Chicken Nugget 

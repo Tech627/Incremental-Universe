@@ -326,6 +326,8 @@ function OpenUpgrades() {
     Lab_Research_content.classList.remove("show-Lab-Research-content")
     RNA.classList.remove("show-RNA")
     RNA_transfer.classList.remove("show-RNA-transfer")
+    Challenge_01.classList.remove("show-Challange1")
+    Challenge_02.classList.remove("show-Challegne2")
 }
 
 function OpenMain() {
@@ -379,6 +381,8 @@ function OpenMain() {
     Lab_Research_content.classList.remove("show-Lab-Research-content")
     RNA.classList.remove("show-RNA")
     RNA_transfer.classList.remove("show-RNA-transfer")
+    Challenge_01.classList.remove("show-Challange1")
+    Challenge_02.classList.remove("show-Challegne2")
 }
 
 function OpenAchievements() {
@@ -430,6 +434,8 @@ function OpenAchievements() {
     Lab_Research_content.classList.remove("show-Lab-Research-content")
     RNA.classList.remove("show-RNA")
     RNA_transfer.classList.remove("show-RNA-transfer")
+    Challenge_01.classList.remove("show-Challange1")
+    Challenge_02.classList.remove("show-Challegne2")
 }
 
 function OpenChallanges() {
@@ -509,6 +515,8 @@ function OpenDarkMatter() {
     BH_content.classList.remove("show-BH-content");
     Challenge_01.classList.remove("show-Challange1")
     Finnish_button.classList.remove("show-Finnish-button")
+    Challenge_01.classList.remove("show-Challange1")
+    Challenge_02.classList.remove("show-Challegne2") 
 }
 
 function OpenOptions() {
@@ -560,4 +568,6 @@ function OpenOptions() {
     Lab_Research_content.classList.remove("show-Lab-Research-content")
     RNA.classList.remove("show-RNA")
     RNA_transfer.classList.remove("show-RNA-transfer")
+    Challenge_01.classList.remove("show-Challange1")
+    Challenge_02.classList.remove("show-Challegne2")
 }

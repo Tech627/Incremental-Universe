@@ -19,7 +19,7 @@ function CloseRadiate() {
 }
 
 function LabResearch() {
-    if(Radiation.DNA_points >= Lab_Research.cost) {
+    if(Radiation.DNA_points.gte(Lab_Research.cost)) {
         Radiation.DNA_points = Radiation.DNA_points.sub(Lab_Research.cost)
         Lab_Research.Researches = Lab_Research.Researches.add(1);
         Lab_Research.cost = Lab_Research.Researches.pow(5);

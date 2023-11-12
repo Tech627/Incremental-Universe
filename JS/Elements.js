@@ -48,77 +48,77 @@ let Elements = {
 }
 
 function BuyEl1() {
-    if (player.Quarks >= Elements.el_1.cost) {
+    if (player.Quarks.gte(Elements.el_1.cost)) {
         Elements.el_1.bought = true
-        boost = Math.sqrt(Math.log10(player.Quarks))
-        player.Quark -= Elements.el_1.cost
+        Elements.el_1.boost = Math.sqrt(Math.log10(player.Quarks))
+        player.Quark = player.Quark.sub(Elements.el_1.cost)
     }
 }
 
 function BuyEl2() {
-    if (player.Black_Hole >= Elements.el_2.cost) {
+    if (player.Black_Hole.gte(Elements.el_2.cost)) {
         Elements.el_2.bought = true
-        boost = Math.log10(Math.sqrt(Black_HoleMachine.power))
-        player.Black_Hole -= Elements.el_2.cost 
+        Elements.el_2.boost = Math.log10(Math.sqrt(Black_HoleMachine.power))
+        player.Black_Hole = player.Black_Hole.sub(Elements.el_2.cost) 
     }
 }
 
 function BuyEl3() {
-    if (player.Quarks >= Elements.el_3.cost) {
+    if (player.Quarks.gte(Elements.el_3.cost)) {
         Elements.el_3.bought = true
-        player.Quarks -= Elements.el_3.cost
+        player.Quarks = player.Quarks.sub(Elements.el_3.cost)
     }
 }
 
 function BuyEl4() {
-    if (player.Matter >= Elements.el_4.cost) {
+    if (player.Matter.gte(Elements.el_4.cost)) {
         Elements.el_4.bought = true
-        player.Matter -= Elements.el_4.cost
+        player.Matter = player.Matter.sub(Elements.el_4.cost)
     }
 }
 
 function BuyEl5() {
-    if (player.Quarks >= Elements.el_5.cost) {
+    if (player.Quarks.gte(Elements.el_5.cost)) {
         Elements.el_5.bought = true
         Elements.el_5.boost = Math.sqrt(Math.sqrt(player.Quarks))
-        player.Quarks -= Elements.el_5.cost
+        player.Quarks = player.Quarks.sub(Elements.el_5.cost)
     }
 }
 
 function BuyEl6() {
-    if (player.Souls >= Elements.el_6.cost) {
+    if (player.Souls.gte(Elements.el_6.cost)) {
         Elements.el_6.bought = true 
         Elements.el_6.boost = Math.log10(Math.log10(Math.sqrt(player.Souls)))
-        player.Souls -= Elements.el_6.cost
+        player.Souls = player.Souls.sub(Elements.el_6.cost)
     }
 }
 
 function BuyEl7() {
-    if (player.Dark_Matter_currency >= Elements.el_7.cost) {
+    if (player.Dark_Matter_currency.gte(Elements.el_7.cost)) {
         Elements.el_7.bought = true 
         Elements.el_7.boost = Math.log10(Math.log10(Math.sqrt(player.Dark_Matter_currency)))
-        player.Dark_Matter_currency -= Elements.el_7.cost
+        player.Dark_Matter_currency = player.Dark_Matter_currency.sub(Elements.el_7.cost)
     }
 }
 
 function BuyEl8() {
-    if (player.Quarks >= Elements.el_8.cost) {
+    if (player.Quarks.gte(Elements.el_8.cost)) {
         Elements.el_8.bought = true
-        Elements.el_1.boost += Math.sqrt(Math.log10(Tickspeed1.power))
-        player.Quarks -= Elements.el_8.cost
+        Elements.el_8.boost = Elements.el_8.boost.add(Math.sqrt(Math.log10(Tickspeed1.power)))
+        player.Quarks = player.Quarks.sub(Elements.el_8.cost)
     }
 }
 
 function BuyEl9() {
-    if(player.Souls >= Elements.el_9.cost) {
+    if(player.Souls.gte(Elements.el_9.cost)) {
         Elements.el_9.bought = true 
-        player.Souls -= Elements.el_9.cost
+        player.Souls = player.Souls.sub(Elements.el_9.cost)
     }
 }
 
 function BuyEl10() {
-    if(player.Quarks >= Elements.el_10.cost) {
+    if(player.Quarks.gte(Elements.el_10.cost)) {
         Elements.el_10.bought = true 
-        player.Quarks -= Elements.el_10.cost
+        player.Quarks = player.Quarks.sub(Elements.el_10.cost)
     }
 }
