@@ -6,17 +6,26 @@ let Dialations = {
 
 let Dialations_ups = {
     Dialation_up1: {
-        cost: new Decimal(1000000),
+        cost: new Decimal(100),
         level: new Decimal(0),
     },
     Dialation_up2: {
         cost: new Decimal(1e12),
+        level: new Decimal(0),
+    },
+    Dialation_up3: {
+        cost: new Decimal(1e20),
+        level: new Decimal(0),
+    },
+    Dialation_up4: {
+        cost: new Decimal(1e35),
         level: new Decimal(0),
     }
 }
 
 let DialationPoints = new Decimal(0);
 let DialationPerSec = new Decimal(0);
+let Dialation_container = document.getElementById("Dialation-container")
 
 function MatterDialation() {
     Dialations.MatterDialation.inDialation = true
@@ -32,7 +41,6 @@ function BuyDialationUp1() {
     if(DialationPoints.gte(Dialations_ups.Dialation_up1.cost)) {
         DialationPoints = DialationPoints.sub(Dialations_ups.Dialation_up1.cost)
         Dialations_ups.Dialation_up1.level = Dialations_ups.Dialation_up1.level.add(1);
-        player.MatterPerSec = player.MatterPerSec.mul(1.1)  //visual glitch
     }
 }
 

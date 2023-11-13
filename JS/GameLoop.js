@@ -54,6 +54,10 @@ function GameLoop() {
     document.getElementById("Universal-Collapse-cost").textContent = "Cost: " + format(UniversalCollapse1.cost)
 
     player.MatterPerSec = player.MatterPerSec.pow(MatterExtentPower.div(new Decimal(20)).add(new Decimal(1)))
+
+    var UniversalCollapsePower = new Decimal(0)
+    UniversalCollapsePower = UniversalCollapsePower.add(UniversalCollapse1.amount)
+    player.MatterPerSec = player.MatterPerSec.pow(UniversalCollapsePower.div(new Decimal(20)).add(new Decimal(1)))
  
     player.Matter = player.Matter.add(player.MatterPerSec.div(20))
  
@@ -97,14 +101,22 @@ function GameLoop() {
      player.MatterPerSec = player.MatterPerSec.slog(new Decimal(0.25))
      DialationPoints = DialationPoints.add(DialationPerSec.div(50))
      DialationPerSec = DialationPerSec.add(player.Matter.sqrt(100).slog(1000))
+     Dialation_container.classList.add("show-Dialation-container")
  } 
  if(Dialations.MatterDialation.inDialation === false) {
      player.MatterPerSec = new Decimal(1)
      DialationPoints = DialationPoints.add(DialationPerSec.div(50))
+     Dialation_container.classList.remove("show-Dialation-container")
  }
  document.getElementById("Dialations-points").textContent = "You have " + format(DialationPoints) + " Space of dialations worth to be spended on upgrades"
  document.getElementById("Dialations-PerSec").textContent = format(DialationPerSec) + "/sec Space of Dialations"
- document.getElementById("Dialation-up1-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up1.cost)
+ document.getElementById("Dialation-up1-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up1.cost) + " Space of Dialations"
+ document.getElementById("Dialation-up2-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up2.cost) + " Space of Dialations"
+ document.getElementById("Dialation-up3-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up3.cost) + " Space of Dialations"
+ document.getElementById("Dialation-up4-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up4.cost) + " Space of Dialations"
+ var Dialations_up1_power = new Decimal(0)
+ Dialations_up1_power = Dialations_up1_power.add(Dialations_ups.Dialation_up1.level)
+ player.MatterPerSec = player.MatterPerSec.pow(Dialations_up1_power.div(new Decimal(33)).add(new Decimal(1)))
  Radiation.DNA_points = Radiation.DNA_points.add(Radiation.DNAPerSec.div(20))
  if(Radiation.InRadiation === true) {
    Radiation.DNAPerSec = new Decimal(-1)

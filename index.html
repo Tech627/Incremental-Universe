@@ -7,6 +7,50 @@
     <title>Incremental Universe</title>
 </head>
 <body onload="Get()">
+    <div class="Dialation-container" id="Dialation-container">
+        <div class="bubbles">
+            <span style="--i:11"></span>
+            <span style="--i:19"></span>
+            <span style="--i:16"></span>
+            <span style="--i:12"></span>
+            <span style="--i:27"></span>
+            <span style="--i:32"></span>
+            <span style="--i:13"></span>
+            <span style="--i:15"></span>
+            <span style="--i:18"></span>
+            <span style="--i:24"></span>
+            <span style="--i:25"></span>
+            <span style="--i:27"></span>
+            <span style="--i:28"></span>
+            <span style="--i:30"></span>
+            <span style="--i:22"></span>
+            <span style="--i:35"></span>
+            <span style="--i:38"></span>
+            <span style="--i:40"></span>
+            <span style="--i:37"></span>
+            <span style="--i:38"></span>
+            <span style="--i:11"></span>
+            <span style="--i:19"></span>
+            <span style="--i:16"></span>
+            <span style="--i:12"></span>
+            <span style="--i:27"></span>
+            <span style="--i:32"></span>
+            <span style="--i:13"></span>
+            <span style="--i:15"></span>
+            <span style="--i:18"></span>
+            <span style="--i:24"></span>
+            <span style="--i:25"></span>
+            <span style="--i:27"></span>
+            <span style="--i:28"></span>
+            <span style="--i:30"></span>
+            <span style="--i:22"></span>
+            <span style="--i:35"></span>
+            <span style="--i:38"></span>
+            <span style="--i:40"></span>
+            <span style="--i:37"></span>
+            <span style="--i:38"></span>
+        </div>
+    </div>
     <nav id="nav-right">
         <div id="Matter">Matter: 0</div>
         <div id="MatterPerSec">0 Matter/sec</div>
@@ -74,7 +118,7 @@
                 <div class="Tickspeed" id="Tickspeed"> Tickspeed [0] </div>
                 <div class="Tickspeed-cost" id="Tickspeed-cost" onclick="Tickspeed()"> cost: 1 Souls </div>
                 <div id="Universal-Collapse" onclick="UniversalCollapse()"> Universal Collapse 
-                    <br>Collapse the Universe but multiply Matter/sec by 1.10
+                    <br>Collapse the Universe but raise Matter/sec by 1.05
                     <div id="Universal-Collapse-cost"> Cost: 150 Matter </div>
                 </div>
             </div>
@@ -327,6 +371,16 @@
                 <div id="Dialation-up2-Level"> [Level 0] </div>
                 <div id="Dialation-up2-Cost" onclick="BuyDialationUp2()"> Cost: 1e12 Space of Dialations </div>
             </div>
+            <div id="Dialation-up3"> Darken the Matters
+                <div id="Dialation-up3-Description"> Multiply Dark Matters gain by 1.2 </div>
+                <div id="Dialation-up3-Level"> [Level 0] </div>
+                <div id="Dialation-up3-Cost" onclick="BuyDialationUp2()"> Cost: 1e20 Space of Dialations </div>
+            </div>
+            <div id="Dialation-up4"> Returning to the old
+                <div id="Dialation-up4-Description"> add extra level to previous upgrades </div>
+                <div id="Dialation-up4-Level"> [Level 0] </div>
+                <div id="Dialation-up4-Cost" onclick="BuyDialationUp2()"> Cost: 1e35 Space of Dialations </div>
+            </div>
         </div>
     </div>
     <div id="Options-button" role="tab" onclick="OpenOptions()"> Options 
@@ -336,11 +390,11 @@
        <button id="Save-btn" onclick="Save()"> Save </button>
        <button id="Discord-btn"><a href="https://discord.gg/Trdhaqkm"> Discord server </a></button>
        <button id="Hard-Reset" onclick="HardReset()"> Hard Reset </button>
-       <div id="Options-text">Incremental Universe - v0.2.4.1
+       <div id="Options-text">Incremental Universe - v0.2.4.2
        <br>   Title: Matter manipulation & Radiation radioactivity
-       <br>- Fixed 3 more bugs
-       <br>- Universal Collapse now works
-       <br>- added a 2nd Dialation Upgrade 
+       <br>- added 1st row of dialation upgrades 
+       <br>- added the 3rd challenge
+       <br>- Made the Universal Collapse actually work
        <br>
        <br>Person who helped with part of the code:
        <br>- Military Grade Chicken Nugget 
@@ -364,6 +418,7 @@
 </body>
 <script src="JS/break_eternity.js"></script>
 <script src="JS/numberformating.js"></script>
+<script src="JS/save.js"></script>
 <script src="JS/main.js"></script>
 <script src="JS/Elements.js"></script>
 <script src="JS/Dialations.js"></script>
