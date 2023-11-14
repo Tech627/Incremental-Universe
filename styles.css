@@ -377,6 +377,18 @@ a {
     margin-left: 100px;
 }
 
+#Matter-generator-Icon {
+    width: 60px;
+    height: 57px;
+    border: 2px solid white;
+    margin-top: 97px;
+}
+
+#Matter-generatorImg {
+    width: 59px;
+    height: 56px;
+}
+
 #Matter-generator-cost {
     border: 2px solid white;
     background-color: black;
@@ -603,6 +615,11 @@ a {
     cursor: pointer;
 }
 
+#Souls2_upgradeImg {
+    width: 34px;
+    height: 34px;
+}
+
 #Souls-Upgrade2 {
     border: 2px solid rgb(52, 16, 16);
     background-color: black;
@@ -640,6 +657,11 @@ a {
     margin-top: 300px;
     margin-left: 460px;
     cursor: pointer; 
+}
+
+#Souls4_upgradeImg {
+    width: 34px;
+    height: 34px;
 }
 
 #Souls-Upgrade5 {

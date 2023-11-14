@@ -109,6 +109,7 @@
     <div class="Main" id="Main">
         <div id="Matter-button" onclick="OpenMC()"> Matter 
             <div class="Matter-content" id="Matter-content">
+                <div id="Matter-generator-Icon"><img src="images/matter generator 1.png" id="Matter-generatorImg"></div>
                 <div id="Matter-generator"> Matter Generator [0] </div>
                 <div id="Matter-generator-cost" onclick="MatterGenerator()"> Cost: 10 </div>
                 <div id="Matter-boost"> Matter Boost [0] </div>
@@ -139,6 +140,7 @@
             <p id="Souls-Upgrade1-text2"> Cost: 1 Soul </p>
         </div>
         <div id="Souls-Upgrade2" onclick="SoulsUpgrade2()"> 
+           <img src="images/2nd souls upgrade.png" id="Souls2_upgradeImg">
            <p id="Souls-Upgrade1-text"> Gain 3x more Souls </p>
            <p id="Souls-Upgrade1-text2"> Cost: 10 Souls </p>
         </div>
@@ -147,6 +149,7 @@
             <p id="Souls-Upgrade1-text2"> Cost: 20 Souls </p>
         </div>
         <div id="Souls-Upgrade4" onclick="SoulsUpgrade4()">
+            <img src="images/4th souls upgrade.png" id="Souls4_upgradeImg">
             <p id="Souls-Upgrade1-text"> Boost Matter based on Souls </p>
             <p id="Souls-Upgrade1-text2"> Cost: 250 Souls</p>
         </div>
@@ -362,24 +365,24 @@
                 <div id="Stop-Start-dialation" onclick="MatterDialationClosed()"> Stop </div>
             </div>
             <div id="Dialation-up1"> Exponential Matter 
-                <div id="Dialation-up1-Description"> Raise Matter/sec by 0.3 </div>
+                <div id="Dialation-up1-Description"> Multiply Matter/sec by Level </div>
                 <div id="Dialation-up1-Level"> [Level 0] </div>
                 <div id="Dialation-up1-Cost" onclick="BuyDialationUp1()"> Cost: 1,000,000 Space of Dialations </div>
             </div>
             <div id="Dialation-up2"> Rising Souls 
-                <div id="Dialation-up2-Description"> Multiply souls gain by 1.5 </div>
+                <div id="Dialation-up2-Description"> Multiply souls gain by 1.2 </div>
                 <div id="Dialation-up2-Level"> [Level 0] </div>
                 <div id="Dialation-up2-Cost" onclick="BuyDialationUp2()"> Cost: 1e12 Space of Dialations </div>
             </div>
             <div id="Dialation-up3"> Darken the Matters
-                <div id="Dialation-up3-Description"> Multiply Dark Matters gain by 1.2 </div>
+                <div id="Dialation-up3-Description"> Multiply Dark Matters gain by 1.05 </div>
                 <div id="Dialation-up3-Level"> [Level 0] </div>
-                <div id="Dialation-up3-Cost" onclick="BuyDialationUp2()"> Cost: 1e20 Space of Dialations </div>
+                <div id="Dialation-up3-Cost" onclick="BuyDialationUp3()"> Cost: 1e20 Space of Dialations </div>
             </div>
             <div id="Dialation-up4"> Returning to the old
                 <div id="Dialation-up4-Description"> add extra level to previous upgrades </div>
                 <div id="Dialation-up4-Level"> [Level 0] </div>
-                <div id="Dialation-up4-Cost" onclick="BuyDialationUp2()"> Cost: 1e35 Space of Dialations </div>
+                <div id="Dialation-up4-Cost" onclick="BuyDialationUp4()"> Cost: 1e35 Space of Dialations </div>
             </div>
         </div>
     </div>
@@ -390,14 +393,18 @@
        <button id="Save-btn" onclick="Save()"> Save </button>
        <button id="Discord-btn"><a href="https://discord.gg/Trdhaqkm"> Discord server </a></button>
        <button id="Hard-Reset" onclick="HardReset()"> Hard Reset </button>
-       <div id="Options-text">Incremental Universe - v0.2.4.2
+       <div id="Options-text">Incremental Universe - v0.2.4.3
        <br>   Title: Matter manipulation & Radiation radioactivity
-       <br>- added 1st row of dialation upgrades 
-       <br>- added the 3rd challenge
-       <br>- Made the Universal Collapse actually work
+       <br>- 1st row of dialation upgrades now gives boost
+       <br>- Tickspeed works
+       <br>- Changed the Souls Formula
+       <br>- Fixed the bug where you can buy Souls and DM (Dark Matter) upgrades multiple times
        <br>
        <br>Person who helped with part of the code:
-       <br>- Military Grade Chicken Nugget 
+       <br>- Military Grade Chicken Nugget(discord name)
+       <br>
+       <br>Person who helped with Icons:
+       <br>- Okey(discord name)
        <br>
        <br>Inspired by - Incremental Mass rewritten
        </div>

@@ -30,8 +30,6 @@ let player = {
     let Achievement_2 = document.getElementById("Achievement2");
     let Sacrifice_Prestige = document.getElementById("SacrificePrestige");
     let Dark_Matter_button = document.getElementById("Dark-matter-button");
-    let Tickspeed2 = document.getElementById("Tickspeed")
-    let Tickspeed_cost = document.getElementById("Tickspeed-cost");
     let BH_tab = document.getElementById("BH-tab");
     
     // Matter tab
@@ -313,76 +311,124 @@ let player = {
     
     function SoulsUpgrade1() {
         if(player.Souls.gte(SoulsUpgrade_1.cost)) {
-            player.Souls = player.Souls.sub(SoulsUpgrade_1.cost);
-            SoulsUpgrade_1.bought = true;
+            if(SoulsUpgrade_1.bought === false) {
+                player.Souls = player.Souls.sub(SoulsUpgrade_1.cost);
+                SoulsUpgrade_1.bought = true;     
+            }
+            if(SoulsUpgrade_1.bought === true) {
+                player.Souls = player.Souls.sub(0)
+            }
         }
     }
     
     function SoulsUpgrade2() {
         if(player.Souls.gte(SoulsUpgrade_2.cost)) {
-            player.Souls = player.Souls.sub(SoulsUpgrade_2.cost);
-            SoulsUpgrade_2.bought = true;
+            if(SoulsUpgrade_2.bought === false) {
+                player.Souls = player.Souls.sub(SoulsUpgrade_2.cost);
+                SoulsUpgrade_2.bought = true;     
+            }
+            if(SoulsUpgrade_2.bought === true) {
+                player.Souls = player.Souls.sub(0)
+            }
         }
     }
     
     function SoulsUpgrade3() {
         if(player.Souls.gte(SoulsUpgrade_3.cost)) {
-            player.Souls = player.Souls.sub(SoulsUpgrade_3.cost);
-            SoulsUpgrade_3.bought = true;
-            Tickspeed2.classList.add("show-Tickspeed");
-            Tickspeed_cost.classList.add("show-Tickspeed-cost");
+            if(SoulsUpgrade_3.bought === false) {
+                player.Souls = player.Souls.sub(SoulsUpgrade_3.cost);
+                SoulsUpgrade_3.bought = true;     
+            }
+            if(SoulsUpgrade_3.bought === true) {
+                player.Souls = player.Souls.sub(0)
+            }
         }
     }
     
     function SoulsUpgrade4() {
         if(player.Souls.gte(SoulsUpgrade_4.cost)) {
-            player.Souls = player.Souls.sub(SoulsUpgrade_4.cost);
-            SoulsUpgrade_4.bought = true;
+            if(SoulsUpgrade_4.bought === false) {
+                player.Souls = player.Souls.sub(SoulsUpgrade_4.cost);
+                SoulsUpgrade_4.bought = true;     
+            }
+            if(SoulsUpgrade_4.bought === true) {
+                player.Souls = player.Souls.sub(0)
+            }
         }
     }
     
     function SoulsUpgrade5() {
         if(player.Souls.gte(SoulsUpgrade_5.cost)) {
-            player.Souls = player.Souls.sub(SoulsUpgrade_5.cost);
-            SoulsUpgrade_5.bought = true;
+            if(SoulsUpgrade_5.bought === false) {
+                player.Souls = player.Souls.sub(SoulsUpgrade_5.cost);
+                SoulsUpgrade_5.bought = true;     
+            }
+            if(SoulsUpgrade_5.bought === true) {
+                player.Souls = player.Souls.sub(0)
+            }
         }
     }
     
     function SoulsUpgrade6() {
         if(player.Souls.gte(SoulsUpgrade_6.cost)) {
-            player.Souls = player.Souls.sub(SoulsUpgrade_6.cost);
-            SoulsUpgrade_6.bought = true;
+            if(SoulsUpgrade_6.bought === false) {
+                player.Souls = player.Souls.sub(SoulsUpgrade_6.cost);
+                SoulsUpgrade_6.bought = true;     
+            }
+            if(SoulsUpgrade_6.bought === true) {
+                player.Souls = player.Souls.sub(0)
+            }
         }
     }
     
     function SoulsUpgrade7() {
         if(player.Souls.gte(SoulsUpgrade_7.cost)) {
-            player.Souls = player.Souls.sub(SoulsUpgrade_7.cost);
-            SoulsUpgrade_7.bought = true;
+            if(SoulsUpgrade_7.bought === false) {
+                player.Souls = player.Souls.sub(SoulsUpgrade_7.cost);
+                SoulsUpgrade_7.bought = true;     
+            }
+            if(SoulsUpgrade_7.bought === true) {
+                player.Souls = player.Souls.sub(0)
+            }
         }
     }
     
     
     function SoulsUpgrade8() {
         if(player.Souls.gte(SoulsUpgrade_8.cost)) {
-            player.Souls = player.Souls.sub(SoulsUpgrade_8.cost);
-            SoulsUpgrade_8.bought = true;
+            if(SoulsUpgrade_8.bought === false) {
+                player.Souls = player.Souls.sub(SoulsUpgrade_8.cost);
+                SoulsUpgrade_8.bought = true;     
+            }
+            if(SoulsUpgrade_8.bought === true) {
+                player.Souls = player.Souls.sub(0)
+            }
         }
     }
     
     
     function SoulsUpgrade9() {
         if(player.Souls.gte(SoulsUpgrade_9.cost)) {
-            player.Souls = player.Souls.sub(SoulsUpgrade_9.cost);
-            SoulsUpgrade_9.bought = true;
+            if(SoulsUpgrade_9.bought === false) {
+                player.Souls = player.Souls.sub(SoulsUpgrade_9.cost);
+                SoulsUpgrade_9.bought = true;     
+            }
+            if(SoulsUpgrade_9.bought === true) {
+                player.Souls = player.Souls.sub(0)
+            }
         }
     }
     
     
     function SoulsUpgrade10() {
         if(player.Souls.gte(SoulsUpgrade_10.cost)) {
-            player.Souls = player.Souls.sub(SoulsUpgrade_10.cost);
-            SoulsUpgrade_10.bought = true;
+            if(SoulsUpgrade_10.bought === false) {
+                player.Souls = player.Souls.sub(SoulsUpgrade_10.cost);
+                SoulsUpgrade_10.bought = true;     
+            }
+            if(SoulsUpgrade_10.bought === true) {
+                player.Souls = player.Souls.sub(0)
+            }
         }
     }
     
@@ -390,43 +436,73 @@ let player = {
     
     function BlackHoleUpgrade1() {
         if(player.Black_Hole.gte(BlackHoleUpgrade_1.cost)) {
-            player.Black_Hole = player.Black_Hole.sub(BlackHoleUpgrade_1.cost);
-            BlackHoleUpgrade_1.bought = true;
+            if(BlackHoleUpgrade_1.bought === false) {
+                player.Black_Hole = player.Black_Hole.sub(BlackHoleUpgrade_1.cost);
+                BlackHoleUpgrade_1.bought = true;
+            }
+            if(BlackHoleUpgrade_1.bought === true) {
+                player.Black_Hole = player.Black_Hole.sub(0)
+            }
         }
     }
     
     function BlackHoleUpgrade2() {
         if(player.Black_Hole.gte(BlackHoleUpgrade_2.cost)) {
-            player.Black_Hole = player.Black_Hole.sub(BlackHoleUpgrade_2.cost);
-            BlackHoleUpgrade_2.bought = true;
+            if(BlackHoleUpgrade_2.bought === false) {
+                player.Black_Hole = player.Black_Hole.sub(BlackHoleUpgrade_2.cost);
+                BlackHoleUpgrade_2.bought = true;
+            }
+            if(BlackHoleUpgrade_2.bought === true) {
+                player.Black_Hole = player.Black_Hole.sub(0)
+            }
         }
     }
     
     function BlackHoleUpgrade3() {
         if(player.Quarks.gte(BlackHoleUpgrade_3.cost)) {
-            player.Quarks = player.Quarks.sub(BlackHoleUpgrade_3.cost);
-            BlackHoleUpgrade_3.bought = true;
+            if(BlackHoleUpgrade_3.bought === false) {
+                player.Quarks = player.Quarks.sub(BlackHoleUpgrade_3.cost);
+                BlackHoleUpgrade_3.bought = true;
+            }
+            if(BlackHoleUpgrade_3.bought === true) {
+                player.Quarks = player.Quarks.sub(0)
+            }
         }
     }
     
     function BlackHoleUpgrade4() {
         if(player.Atoms.gte(BlackHoleUpgrade_4.cost)) {
-            player.Atoms = player.Atoms.sub(BlackHoleUpgrade_4.cost);
-            BlackHoleUpgrade_4.bought = true;
+            if(BlackHoleUpgrade_4.bought === false) {
+                player.Atoms = player.Atoms.sub(BlackHoleUpgrade_4.cost);
+                BlackHoleUpgrade_4.bought = true;
+            }
+            if(BlackHoleUpgrade_4.bought === true) {
+                player.Atoms = player.Atoms.sub(0)
+            }
         }
     }
     
     function BlackHoleUpgrade5() {
         if(player.Dark_Matter_currency.gte(BlackHoleUpgrade_5.cost)) {
-            player.Dark_Matter_currency = player.Dark_Matter_currency.sub(BlackHoleUpgrade_5.cost);
-            BlackHoleUpgrade_5.bought = true;
+            if(BlackHoleUpgrade_5.bought === false) {
+                player.Dark_Matter_currency = player.Dark_Matter_currency.sub(BlackHoleUpgrade_5.cost);
+                BlackHoleUpgrade_5.bought = true;
+            }
+            if(BlackHoleUpgrade_5.bought === true) {
+                player.Dark_Matter_currency = player.Dark_Matter_currency.sub(0)
+            }
         }
     }
     
     function BlackHoleUpgrade6() {
         if(player.Dark_Matter_currency.gte(BlackHoleUpgrade_6.cost)) {
-            player.Dark_Matter_currency = player.Dark_Matter_currency.sub(BlackHoleUpgrade_6.cost);
-            BlackHoleUpgrade_6.bought = true;
+             if(BlackHoleUpgrade_6.bought === false) {
+                player.Dark_Matter_currency = player.Dark_Matter_currency.sub(BlackHoleUpgrade_6.cost);
+                BlackHoleUpgrade_6.bought = true;
+             }
+             if(BlackHoleUpgrade_6.bought === true) {
+                player.Dark_Matter_currency = player.Dark_Matter_currency.sub(0)
+             }
         }
     }
     
@@ -457,8 +533,7 @@ let player = {
     
     function DarkMatterPrestige() {
         if(player.Souls.gte(10000)) {
-            player.Dark_Matter_currency = player.Dark_Matter_currency.add(Math.sqrt(player.Souls.div(10000)));
-            player.Dark_MatterToGet = player.Dark_MatterToGet.add(Math.sqrt(player.Souls.div(10000)));
+            player.Dark_Matter_currency = player.Dark_Matter_currency.add(player.Dark_MatterToGet);
             player.MatterPerSec = 1;
             player.Matter = player.Matter.sub(player.Matter);
             player.MatterPerSec = new Decimal(1);

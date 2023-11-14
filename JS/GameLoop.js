@@ -65,9 +65,7 @@ function GameLoop() {
     document.getElementById("MatterPerSec").textContent = format(player.MatterPerSec) + " Matter/sec";
     document.getElementById("Souls").textContent = "Souls: " + format(player.Souls);   
     document.getElementById("Souls-Gain").textContent = "(+" + format(player.SoulsToGet) + ")";
-    if(player.Matter.gte(10000)) {
-      player.SoulsToGet = player.SoulsToGet.add(player.Matter.sqrt(player.Matter.div(10000)));   
-    }
+    player.SoulsToGet = player.SoulsToGet.add(player.Matter.log10(player.Matter.cbrt(player.Matter.cbrt(player.Matter))));   
     if(SoulsUpgrade_2.bought === true) {
       player.SoulsToGet = player.SoulsToGet.add(player.Matter.sqrt(player.Matter.div(3333)));
   }
@@ -76,6 +74,8 @@ function GameLoop() {
      player.Souls = player.Souls.add(player.SoulsToGet)
      document.getElementById("Souls").textContent = "Souls: " + format(player.Souls)
    }
+   
+   player.Dark_MatterToGet = player.Dark_MatterToGet.add(Math.sqrt(player.Souls.div(10000)));
 
    if(BlackHoleUpgrade_6.bought === true) {
      if(player.Matter.gte(MatterGenerator_1.cost)) {
@@ -111,12 +111,24 @@ function GameLoop() {
  document.getElementById("Dialations-points").textContent = "You have " + format(DialationPoints) + " Space of dialations worth to be spended on upgrades"
  document.getElementById("Dialations-PerSec").textContent = format(DialationPerSec) + "/sec Space of Dialations"
  document.getElementById("Dialation-up1-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up1.cost) + " Space of Dialations"
+ document.getElementById("Dialation-up1-Level").textContent = "Level[" + format(Dialations_ups.Dialation_up1.level) + "+" + format(Dialations_ups.Dialation_up4.level) + "]"
  document.getElementById("Dialation-up2-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up2.cost) + " Space of Dialations"
+ document.getElementById("Dialation-up2-Level").textContent = "Level[" + format(Dialations_ups.Dialation_up2.level) + "+" + format(Dialations_ups.Dialation_up4.level) + "]"
  document.getElementById("Dialation-up3-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up3.cost) + " Space of Dialations"
+ document.getElementById("Dialation-up3-Level").textContent = "Level[" + format(Dialations_ups.Dialation_up3.level) + "+" +  format(Dialations_ups.Dialation_up4.level) + "]"
  document.getElementById("Dialation-up4-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up4.cost) + " Space of Dialations"
+ document.getElementById("Dialation-up4-Level").textContent = "Level[" + format(Dialations_ups.Dialation_up4.level) + "]"
  var Dialations_up1_power = new Decimal(0)
  Dialations_up1_power = Dialations_up1_power.add(Dialations_ups.Dialation_up1.level)
- player.MatterPerSec = player.MatterPerSec.pow(Dialations_up1_power.div(new Decimal(33)).add(new Decimal(1)))
+ player.MatterPerSec = player.MatterPerSec.mul(Dialations_up1_power.add(new Decimal(1)).add(Dialations_up4_power))
+ var Dialations_up2_power = new Decimal(0)
+ Dialations_up2_power = Dialations_up2_power.add(Dialations_ups.Dialation_up2.level)
+ player.SoulsToGet = player.SoulsToGet.mul(Dialations_up2_power.mul(new Decimal(0.2)).add(new Decimal(1)).add(Dialations_up4_power))
+ var Dialations_up3_power = new Decimal(0)
+ Dialations_up3_power = Dialations_up3_power.add(Dialations_ups.Dialation_up3.level)
+ player.Dark_MatterToGet = player.Dark_MatterToGet.mul(Dialations_up3_power.mul(new Decimal(0.05)).add(new Decimal(1)))
+ var Dialations_up4_power = new Decimal(0)
+ Dialations_up4_power = Dialations_up4_power.add(Dialations_ups.Dialation_up4.level)
  Radiation.DNA_points = Radiation.DNA_points.add(Radiation.DNAPerSec.div(20))
  if(Radiation.InRadiation === true) {
    Radiation.DNAPerSec = new Decimal(-1)

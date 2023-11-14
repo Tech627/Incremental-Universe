@@ -1,6 +1,8 @@
 let Upgrades_container = document.getElementById("Upgrades-container");
 let Upgrades_styles = document.getElementById("Upgrades-styles")
 let Main = document.getElementById("Main");
+let Tickspeed2 = document.getElementById("Tickspeed")
+let Tickspeed_cost = document.getElementById("Tickspeed-cost");
 let BH_content = document.getElementById("BH-content");
 let Matter_content = document.getElementById("Matter-content");
 let Main_styles = document.getElementById("Main-styles");
@@ -62,8 +64,14 @@ function OpenBH() {
 function OpenMC() {
     Matter_content.classList.add("show-Matter-content");
     BH_content.classList.remove("show-BH-content");
-    Tickspeed2.classList.add("show-Tickspeed");
-    Tickspeed_cost.classList.add("show-Tickspeed-cost");
+    if(SoulsUpgrade_3.bought === false) {
+        Tickspeed2.classList.remove("show-Tickspeed");
+        Tickspeed_cost.classList.remove("show-Tickspeed-cost");
+    }
+    if(SoulsUpgrade_3.bought === true) {
+        Tickspeed2.classList.add("show-Tickspeed");
+        Tickspeed_cost.classList.add("show-Tickspeed-cost");
+    }
     Quarks_tab.classList.remove("show-Quarks-tab");
     Quarks_content.classList.remove("show-Quarks-content"); 
     Atoms_content.classList.remove("show-Atoms-content");
@@ -345,10 +353,6 @@ function OpenMain() {
     Achievements_styles.classList.remove("show-Achievements-styles");
     Challanges_styles.classList.remove("show-Challanges-styles");
     Dark_styles.classList.remove("show-Dark-styles");
-    if(SoulsUpgrade_3.bought == true) {
-        Tickspeed2.classList.add("show-Tickspeed");
-        Tickspeed_cost.classList.add("show-Tickspeed-cost");
-    }
     if(Skill_up2.bought == true) {
         BH_tab.classList.add("show-BH-tab");
     }
