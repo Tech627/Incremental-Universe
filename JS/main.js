@@ -24,6 +24,10 @@ let player = {
     Neutron_boost2: new Decimal(0),
     Electron_boost2: new Decimal(0),
     }
+let Scalings = {
+    weaken: new Decimal(1.25),
+    drastic: new Decimal(3.5),
+}    
     let BlackholematterBoost = new Decimal(0)
     let Challange_1 = document.getElementById("Challange1");
     let Achievement_1 = document.getElementById("Achievement1");
@@ -224,8 +228,18 @@ let player = {
             if(BlackHoleUpgrade_1.bought === true ) {
                 player.Matter = player.Matter.sub(0);
             }
-            MatterGenerator_1.cost = MatterGenerator_1.cost.mul(1.5);
-            MatterGenerator_1.amount = MatterGenerator_1.amount.add(1);
+            if(MatterGenerator_1.amount < 50) {
+                MatterGenerator_1.cost = MatterGenerator_1.cost.mul(1.5);
+                MatterGenerator_1.amount = MatterGenerator_1.amount.add(1);
+            }
+            if(MatterGenerator_1.amount >= 50) {
+                MatterGenerator_1.cost = MatterGenerator_1.cost.mul(new Decimal(1.5).mul(new Decimal(Scalings.weaken)));
+                MatterGenerator_1.amount = MatterGenerator_1.amount.add(new Decimal(1));
+            }
+            if(MatterGenerator_1.amount >= 200) {
+                MatterGenerator_1.cost = MatterGenerator_1.cost.mul(new Decimal(1.5).mul(new Decimal(Scalings.drastic)));
+                MatterGenerator_1.amount = MatterGenerator_1.amount.add(new Decimal(1));
+            }
         }
     }
     
@@ -237,8 +251,18 @@ let player = {
             if(BlackHoleUpgrade_1.bought === true ) {
                 player.Matter = player.Matter.sub(0);
             }
-            MatterBoost_1.cost = MatterBoost_1.cost.mul(4);
-            MatterBoost_1.amount = MatterBoost_1.amount.add(1);
+            if(MatterBoost_1.amount < 50) {
+                MatterBoost_1.cost = MatterBoost_1.cost.mul(new Decimal(4));
+                MatterBoost_1.amount = MatterBoost_1.amount.add(new Decimal(1));
+            }
+            if(MatterBoost_1.amount >= 50) {
+                MatterBoost_1.cost = MatterBoost_1.cost.mul(new Decimal(4).mul(Scalings.weaken));
+                MatterBoost_1.amount = MatterBoost_1.amount.add(new Decimal(1));
+            }
+            if(MatterBoost_1.amount >= 200) {
+                MatterBoost_1.cost = MatterBoost_1.cost.mul(new Decimal(4).mul(Scalings.drastic));
+                MatterBoost_1.amount = MatterBoost_1.amount.add(new Decimal(1));
+            }
         }
     }
     
@@ -250,24 +274,33 @@ let player = {
             if(BlackHoleUpgrade_1.bought === true ) {
                 player.Matter = player.Matter.sub(0);
             }
-            MatterExtent_1.cost = MatterExtent_1.cost.mul(9);
-            MatterExtent_1.amount = MatterExtent_1.amount.add(1);
+            if(MatterExtent_1.amount < 10) {
+                MatterExtent_1.cost = MatterExtent_1.cost.mul(new Decimal(9));
+                MatterExtent_1.amount = MatterExtent_1.amount.add(new Decimal(1));
+            }
+            if(MatterExtent_1.amount >= 10) {
+                MatterExtent_1.cost = MatterExtent_1.cost.mul(new Decimal(9).mul(Scalings.weaken));
+                MatterExtent_1.amount = MatterExtent_1.amount.add(new Decimal(1));
+            }
+            if(MatterExtent_1.amount >= 30) {
+                MatterExtent_1.cost = MatterExtent_1.cost.mul(new Decimal(9).mul(Scalings.weaken));
+                MatterExtent_1.amount = MatterExtent_1.amount.add(new Decimal(1));
+            }
         }
     }
     
     function Tickspeed() {
-        if(player.Souls >= Tickspeed1.cost) {
+        if(player.Souls.gte(Tickspeed1.cost)) {
             player.Souls = player.Souls.sub(Tickspeed1.cost);
             player.MatterPerSec = player.MatterPerSec.mul(Tickspeed1.power);
             Tickspeed1.cost = Tickspeed1.cost.mul(2);
-            Tickspeed1.power = Tickspeed1.power.add(1);
             Tickspeed1.amount = Tickspeed1.amount.add(1);
         }
         if(SoulsUpgrade_7.bought === true) {
-            Tickspeed1.power = Tickspeed1.power.mul(player.Souls.div(1e6));
+            Tickspeed1.amount = Tickspeed1.amount.mul(player.Souls.div(1e6));
         }
         if(Elements.el_4.bought === true) {
-            Tickspeed1.power = Tickspeed1.power.mul(2);
+            Tickspeed1.amount = Tickspeed1.amount.mul(2);
         }
     }
     

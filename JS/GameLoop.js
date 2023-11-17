@@ -8,8 +8,14 @@ function GameLoop() {
        MatterGenPower = MatterGenPower.mul(player.Souls.div(new Decimal(100))) // Multiply for souls upgrade 4
     }
     MatterGenPower = MatterGenPower.add(Challenges.Challenge1.RewardBoost)
-    document.getElementById("Matter-generator").textContent = "Matter Generator [ " + format(MatterGenerator_1.amount) + " ]";
-    document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
+    if(MatterGenerator_1.amount < 50) {
+      document.getElementById("Matter-generator").textContent = "Matter Generator [ " + format(MatterGenerator_1.amount) + " ]";
+      document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
+    }
+    if(MatterGenerator_1.amount >= 50) {
+      document.getElementById("Matter-generator").textContent = "Weaken Matter Generator [ " + format(MatterGenerator_1.amount) + " ]";
+      document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
+    }
     // Adding the flat amount increase to the generation first to allow for proper multiplication and exponation
     player.MatterPerSec = player.MatterPerSec.add(MatterGenPower)
     
@@ -22,8 +28,14 @@ function GameLoop() {
        MatterBoostPower = MatterBoostPower.mul(Elements.el_2.boost)
     }   
     MatterBoostPower = MatterBoostPower.add(Challenges.Challenge1.RewardBoost) 
-    document.getElementById("Matter-boost").textContent = "Matter Boost [ " + format(MatterBoost_1.amount) + " ]";
-    document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
+    if(MatterBoost_1.amount < 50) {
+      document.getElementById("Matter-boost").textContent = "Matter Boost [ " + format(MatterBoost_1.amount) + " ]";
+      document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
+    }
+    if(MatterBoost_1.amount >= 50) {
+      document.getElementById("Matter-boost").textContent = "Weaken Matter Boost [ " + format(MatterBoost_1.amount) + " ]";
+      document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
+    }
     // Multiplying generation alongside adding 1 to the multiplier incase that the play does not have any multiplier
     player.MatterPerSec = player.MatterPerSec.mul(MatterBoostPower.add(new Decimal(1)))
                                 
@@ -46,9 +58,14 @@ function GameLoop() {
     }
  
     MatterExtentPower = MatterExtentPower.add(Challenges.Challenge1.RewardBoost)
-
-    document.getElementById("Matter-extent").textContent = "Matter Extent [ " + format(MatterExtent_1.amount) + " ]"
-    document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
+    if(MatterExtent_1.amount < 10) {
+      document.getElementById("Matter-extent").textContent = "Matter Extent [ " + format(MatterExtent_1.amount) + " ]"
+      document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
+    }
+    if(MatterExtent_1.amount >= 10) {
+      document.getElementById("Matter-extent").textContent = "Weaken Matter Extent [ " + format(MatterExtent_1.amount) + " ]"
+      document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
+    }
     document.getElementById("Tickspeed").textContent = "Tickspeed [" + format(Tickspeed1.amount) + "]";
     document.getElementById("Tickspeed-cost").textContent = "Cost: " + format(Tickspeed1.cost) + " Souls";
     document.getElementById("Universal-Collapse-cost").textContent = "Cost: " + format(UniversalCollapse1.cost)
@@ -141,5 +158,28 @@ function GameLoop() {
  document.getElementById("DNA-PerSec").textContent = "+" + format(Radiation.DNAPerSec) + " DNA/sec"
  document.getElementById("Research-cost").textContent = "Cost: " + format(Lab_Research.cost) + " DNA"
  document.getElementById("RNA").textContent = "You have " + format(Radiation.RNA) + " RNA"
+ document.getElementById("Best-ever-Matter").textContent = "Your best Matter is " + format(player.Matter)
  }   
  setInterval(GameLoop,1000/20)
+function formatNumber(number) {
+   return number < 10 ? '0' + number : number;
+}
+function updateClock() {
+   // Increment the total elapsed seconds-
+   totalSeconds = totalSeconds.add(1);
+
+   // Calculate hours, minutes, and seconds
+   const hours = formatNumber(Math.round(totalSeconds / 3600));
+   const minutes = formatNumber(Math.round((totalSeconds % 3600) / 60));
+   const seconds = formatNumber(totalSeconds % 60);
+
+   // Display the formatted time in the clock element
+   document.getElementById("time-spent").textContent = `Time spent: ${hours}:${minutes}:${seconds}`;
+}
+
+let totalSeconds = new Decimal(0);
+
+// Update the clock every second
+setInterval(updateClock, 1000);
+
+

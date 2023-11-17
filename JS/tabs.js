@@ -15,6 +15,9 @@ let Finnish_button = document.getElementById("Finnish-button");
 let Challanges_styles = document.getElementById("Challanges-styles");
 let Dark_Matter = document.getElementById("Dark-matter");
 let Dark_styles = document.getElementById("Dark-styles");
+let Stats = document.getElementById("Stats");
+let Stats_styles = document.getElementById("Stats-styles");
+let Main_stats = document.getElementById("Main-stats")
 let Options = document.getElementById("Options")
 let Options_styles = document.getElementById("Options-styles");
 let Skill_tree = document.getElementById("Skills");
@@ -336,6 +339,9 @@ function OpenUpgrades() {
     RNA_transfer.classList.remove("show-RNA-transfer")
     Challenge_01.classList.remove("show-Challange1")
     Challenge_02.classList.remove("show-Challegne2")
+    Stats_styles.classList.remove("show-Stats-styles")
+    Stats.classList.remove("open-Stats")
+    Main_stats.classList.remove("show-Main-stats")
 }
 
 function OpenMain() {
@@ -387,6 +393,9 @@ function OpenMain() {
     RNA_transfer.classList.remove("show-RNA-transfer")
     Challenge_01.classList.remove("show-Challange1")
     Challenge_02.classList.remove("show-Challegne2")
+    Stats_styles.classList.remove("show-Stats-styles")
+    Stats.classList.remove("open-Stats")
+    Main_stats.classList.remove("show-Main-stats")
 }
 
 function OpenAchievements() {
@@ -440,6 +449,9 @@ function OpenAchievements() {
     RNA_transfer.classList.remove("show-RNA-transfer")
     Challenge_01.classList.remove("show-Challange1")
     Challenge_02.classList.remove("show-Challegne2")
+    Stats_styles.classList.remove("show-Stats-styles")
+    Stats.classList.remove("open-Stats")
+    Main_stats.classList.remove("show-Main-stats")
 }
 
 function OpenChallanges() {
@@ -495,6 +507,9 @@ function OpenChallanges() {
     Lab_Research_content.classList.remove("show-Lab-Research-content")
     RNA.classList.remove("show-RNA")
     RNA_transfer.classList.remove("show-RNA-transfer")
+    Stats_styles.classList.remove("show-Stats-styles")
+    Stats.classList.remove("open-Stats")
+    Main_stats.classList.remove("show-Main-stats")
 }
 
 function OpenDarkMatter() {
@@ -521,6 +536,30 @@ function OpenDarkMatter() {
     Finnish_button.classList.remove("show-Finnish-button")
     Challenge_01.classList.remove("show-Challange1")
     Challenge_02.classList.remove("show-Challegne2") 
+    Stats_styles.classList.remove("show-Stats-styles")
+    Stats.classList.remove("open-Stats")
+    Main_stats.classList.remove("show-Main-stats")
+}
+
+function OpenStats() {
+    Stats_styles.classList.add("show-Stats-styles")
+    Stats.classList.add("open-Stats")
+    Dark_Matter.classList.remove("open-Dark-matter");
+    Main_styles.classList.remove("show-Main-styles");
+    Upgrades_styles.classList.remove("show-Upgrades-styles");
+    Achievements_styles.classList.remove("show-Achievements-styles");
+    Challanges_styles.classList.remove("show-Challanges-styles");
+    Dark_styles.classList.remove("show-Dark-styles");
+    Options_styles.classList.remove("show-Options-styles");
+    Main.classList.remove("open-Main");
+    Achievements.classList.remove("open-Achievements");
+    Upgrades_container.classList.remove("open-Upgrades-container");
+    Challanges.classList.remove("open-Challanges");
+    Options.classList.remove("open-Options");
+}
+
+function OpenMainStats() {
+    Main_stats.classList.add("show-Main-stats")
 }
 
 function OpenOptions() {
@@ -574,4 +613,7 @@ function OpenOptions() {
     RNA_transfer.classList.remove("show-RNA-transfer")
     Challenge_01.classList.remove("show-Challange1")
     Challenge_02.classList.remove("show-Challegne2")
+    Stats_styles.classList.remove("show-Stats-styles")
+    Stats.classList.remove("open-Stats")
+    Main_stats.classList.remove("show-Main-stats")
 }
