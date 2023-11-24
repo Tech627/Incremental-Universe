@@ -13,7 +13,8 @@ function Save() {
         localStorage.setItem("Matter-boost-amount", JSON.stringify(MatterBoost_1.amount));
         localStorage.setItem("Matter-extent-cost", JSON.stringify(MatterExtent_1.cost));
         localStorage.setItem("Matter-extent-amount", JSON.stringify(MatterExtent_1.amount));
-        localStorage.setItem("Tickspeed", JSON.stringify(Tickspeed1));
+        localStorage.setItem("Tickspeed-cost", JSON.stringify(Tickspeed1.cost));
+        localStorage.setItem("Tickspeed-amount", JSON.stringify(Tickspeed1.amount));
         localStorage.setItem("Soul-Upgrade1", JSON.stringify(SoulsUpgrade_1));
         localStorage.setItem("Soul-Upgrade2", JSON.stringify(SoulsUpgrade_2));
         localStorage.setItem("Soul-Upgrade3", JSON.stringify(SoulsUpgrade_3));
@@ -54,7 +55,8 @@ function Get() {
         const SavedMatterPerSec = localStorage.getItem("MatterPerSec");
         const SavedSouls = localStorage.getItem("Souls");
         const SavedSoulsGain = localStorage.getItem("Souls-Gain");
-        const SavedTickspeed = localStorage.getItem("Tickspeed");
+        const SavedTickspeed_cost = localStorage.getItem("Tickspeed-cost");
+        const SavedTickspeed_amount = localStorage.getItem("Tickspeed-amount");
         const SavedDark_Matter_currency = localStorage.getItem("Dark-matter-currency");
         const SavedMatterGenerator_cost = localStorage.getItem("Matter-generator-cost");
         const SavedMatterGenerator_amount = localStorage.getItem("Matter-generator-amount");
@@ -120,13 +122,16 @@ function Get() {
             MatterBoost_1.amount = new Decimal(JSON.parse(SavedMatterBoost_amount));
         }
         if(SavedMatterExtent_cost) {
-            MatterExtent_1.cost = JSON.parse(SavedMatterExtent_cost);
+            MatterExtent_1.cost = new Decimal(JSON.parse(SavedMatterExtent_cost));
         }
         if(SavedMatterExtent_amount) {
-            MatterExtent_1.amount = JSON.parse(SavedMatterExtent_amount);
+            MatterExtent_1.amount = new Decimal(JSON.parse(SavedMatterExtent_amount));
         }
-        if(SavedTickspeed) {
-            Tickspeed1 = JSON.parse(SavedTickspeed);
+        if(SavedTickspeed_cost) {
+            Tickspeed1_cost = new Decimal(JSON.parse(SavedTickspeed_cost));
+        }
+        if(SavedTickspeed_amount) {
+            Tickspeed1_amount = new Decimal(JSON.parse(SavedTickspeed_amount));
         }
         if(SavedSoulUpgrade1) {
             SoulsUpgrade_1 = JSON.parse(SavedSoulUpgrade1);
@@ -225,6 +230,8 @@ player.Matter = new Decimal(10)
 player.MatterPerSec = new Decimal(1)
 player.Souls = new Decimal(0)
 player.SoulsToGet = new Decimal(0)
+player.SoulsPower = new Decimal(0)
+player.SoulsPowerBoost = new Decimal(0)
 player.Dark_Matter_currency = new Decimal(0)
 player.Dark_MatterToGet = new Decimal(0)
 player.Atoms = new Decimal(0)
@@ -235,6 +242,8 @@ MatterBoost_1.cost = new Decimal(100)
 MatterBoost_1.amount = new Decimal(0)
 MatterExtent_1.cost = new Decimal(1000)
 MatterExtent_1.amount = new Decimal(0)
+Tickspeed1.cost = new Decimal(1)
+Tickspeed1.amount = new Decimal(0)
 player.Proton_1 = new Decimal(0)
 player.ProtonPerSec_1 = new Decimal(0)
 player.Proton_boost2 = new Decimal(0)
@@ -248,4 +257,21 @@ player.Black_Hole = new Decimal(0)
 player.Black_HolePerSec = new Decimal(0)
 player.Black_Holeboost = new Decimal(0)
 player.Black_HoleExtractor = new Decimal(0)
+DialationPoints = new Decimal(0)
+DialationPerSec = new Decimal(0)
+Radiation.DNAPerSec = new Decimal(0)
+Radiation.DNA_points = new Decimal(0)
+Radiation.InRadiation = false
+Radiation.RNA = new Decimal(0)
+Lab_Research.Researches = new Decimal(0)
+Lab_Research.cost = new Decimal(0)
+Dialations_ups.Dialation_up1.cost = new Decimal(1e6)
+Dialations_ups.Dialation_up1.level = new Decimal(0)
+Dialations_ups.Dialation_up2.cost = new Decimal(1e12)
+Dialations_ups.Dialation_up2.level = new Decimal(0)
+Dialations_ups.Dialation_up3.cost = new Decimal(1e20)
+Dialations_ups.Dialation_up3.level = new Decimal(0)
+Dialations_ups.Dialation_up4.cost = new Decimal(1e35)
+Dialations_ups.Dialation_up4.level = new Decimal(0)
+Dialations.MatterDialation.inDialation = false
 }

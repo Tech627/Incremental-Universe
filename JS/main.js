@@ -2,11 +2,15 @@ let player = {
     Matter: new Decimal(10),
     MatterPerSec: new Decimal(1),
     Souls: new Decimal(0),
+    SoulsPower: new Decimal(0),
+    SoulsPowerBoost: new Decimal(0),
     SoulsToGet: new Decimal(0),
     SoulsGain: new Decimal(0),
     Dark_Matter_currency: new Decimal(0),
     Dark_MatterToGet: new Decimal(0),
     Black_Hole: new Decimal(0),
+    Black_HolePower: new Decimal(0),
+    Black_HolePowerBoost: new Decimal(0),
     Black_HolePerSec: new Decimal(0),
     Black_Holeboost: new Decimal(0),
     Black_HoleExtractor: new Decimal(0),
@@ -67,8 +71,7 @@ let Scalings = {
     
        let Black_HoleMachine = {
         cost: new Decimal(1),
-        power: new Decimal(1),
-        amount: new Decimal(0),
+        amount: new Decimal(1),
        }
     
     // Souls Upgrades
@@ -228,15 +231,15 @@ let Scalings = {
             if(BlackHoleUpgrade_1.bought === true ) {
                 player.Matter = player.Matter.sub(0);
             }
-            if(MatterGenerator_1.amount < 50) {
+            if(MatterGenerator_1.amount.lt(50)) {
                 MatterGenerator_1.cost = MatterGenerator_1.cost.mul(1.5);
                 MatterGenerator_1.amount = MatterGenerator_1.amount.add(1);
             }
-            if(MatterGenerator_1.amount >= 50) {
+            if(MatterGenerator_1.amount.gte(50)) {
                 MatterGenerator_1.cost = MatterGenerator_1.cost.mul(new Decimal(1.5).mul(new Decimal(Scalings.weaken)));
                 MatterGenerator_1.amount = MatterGenerator_1.amount.add(new Decimal(1));
             }
-            if(MatterGenerator_1.amount >= 200) {
+            if(MatterGenerator_1.amount.gte(200)) {
                 MatterGenerator_1.cost = MatterGenerator_1.cost.mul(new Decimal(1.5).mul(new Decimal(Scalings.drastic)));
                 MatterGenerator_1.amount = MatterGenerator_1.amount.add(new Decimal(1));
             }
@@ -251,15 +254,15 @@ let Scalings = {
             if(BlackHoleUpgrade_1.bought === true ) {
                 player.Matter = player.Matter.sub(0);
             }
-            if(MatterBoost_1.amount < 50) {
+            if(MatterBoost_1.amount.lt(50)) {
                 MatterBoost_1.cost = MatterBoost_1.cost.mul(new Decimal(4));
                 MatterBoost_1.amount = MatterBoost_1.amount.add(new Decimal(1));
             }
-            if(MatterBoost_1.amount >= 50) {
+            if(MatterBoost_1.amount.gte(50)) {
                 MatterBoost_1.cost = MatterBoost_1.cost.mul(new Decimal(4).mul(Scalings.weaken));
                 MatterBoost_1.amount = MatterBoost_1.amount.add(new Decimal(1));
             }
-            if(MatterBoost_1.amount >= 200) {
+            if(MatterBoost_1.amount.gte(200)) {
                 MatterBoost_1.cost = MatterBoost_1.cost.mul(new Decimal(4).mul(Scalings.drastic));
                 MatterBoost_1.amount = MatterBoost_1.amount.add(new Decimal(1));
             }
@@ -274,15 +277,15 @@ let Scalings = {
             if(BlackHoleUpgrade_1.bought === true ) {
                 player.Matter = player.Matter.sub(0);
             }
-            if(MatterExtent_1.amount < 10) {
+            if(MatterExtent_1.amount.lt(10)) {
                 MatterExtent_1.cost = MatterExtent_1.cost.mul(new Decimal(9));
                 MatterExtent_1.amount = MatterExtent_1.amount.add(new Decimal(1));
             }
-            if(MatterExtent_1.amount >= 10) {
+            if(MatterExtent_1.amount.gte(10)) {
                 MatterExtent_1.cost = MatterExtent_1.cost.mul(new Decimal(9).mul(Scalings.weaken));
                 MatterExtent_1.amount = MatterExtent_1.amount.add(new Decimal(1));
             }
-            if(MatterExtent_1.amount >= 30) {
+            if(MatterExtent_1.amount.gte(30)) {
                 MatterExtent_1.cost = MatterExtent_1.cost.mul(new Decimal(9).mul(Scalings.weaken));
                 MatterExtent_1.amount = MatterExtent_1.amount.add(new Decimal(1));
             }
@@ -292,15 +295,8 @@ let Scalings = {
     function Tickspeed() {
         if(player.Souls.gte(Tickspeed1.cost)) {
             player.Souls = player.Souls.sub(Tickspeed1.cost);
-            player.MatterPerSec = player.MatterPerSec.mul(Tickspeed1.power);
             Tickspeed1.cost = Tickspeed1.cost.mul(2);
             Tickspeed1.amount = Tickspeed1.amount.add(1);
-        }
-        if(SoulsUpgrade_7.bought === true) {
-            Tickspeed1.amount = Tickspeed1.amount.mul(player.Souls.div(1e6));
-        }
-        if(Elements.el_4.bought === true) {
-            Tickspeed1.amount = Tickspeed1.amount.mul(2);
         }
     }
     
@@ -315,28 +311,13 @@ let Scalings = {
     // BH-tab 
     
     function BlackHoleExtractor() {
-        if (player.Dark_Matter_currency >= Black_HoleMachine.cost) {
+        if (player.Dark_Matter_currency.gte(Black_HoleMachine.cost)) {
             player.Dark_Matter_currency = player.Dark_Matter_currency.sub(Black_HoleMachine.cost);
             Black_HoleMachine.cost = Black_HoleMachine.cost.mul(2);
-            Black_HoleMachine.power = Black_HoleMachine.power.add(1);
             Black_HoleMachine.amount = Black_HoleMachine.amount.add(1);
             player.Black_HoleExtractor = player.Black_HoleExtractor.add(1);
-            player.Black_HolePerSec = player.Black_HolePerSec.add(Math.sqrt(Black_HoleMachine.power));
-            player.Black_Holeboost = player.Black_Holeboost.add(Math.log10(Math.sqrt(Black_Hole * Black_HoleMachine.power)));
-            document.getElementById("Black-Hole-gain").textContent = "(" + format(Black_HolePerSec) + " Black Holes formed/sec)";
-            document.getElementById("BH-extractor").textContent = "Black Hole Extractor [" + Black_HoleExtractor + "]";
-            document.getElementById("Black-Hole-boost").textContent = "Currently: " + format(Black_Holeboost) + " boost to Matter Gain";
-            setInterval(function () {
-                player.Black_Hole = player.Black_Hole.add(player.Black_HolePerSec);
-                player.Black_Hole = player.Black_Hole.add(player.Electron_boost2);
-                document.getElementById("Black-Hole").textContent = "You have formed " + format(Black_Hole) + " Black Holes";
-            }, 1000);
-            setInterval(function() {
-                player.Matter = player.Matter.mul(player.Black_Holeboost);
-            }, 1000);
-            if(BlackHoleUpgrade_2.bought === true) {
-                player.Black_HolePerSec = player.Black_HolePerSec.mul(player.Matter.div(100))
-            }
+            player.Black_HolePerSec = player.Black_HolePerSec.add(Black_HoleMachine.sqrt(Black_HoleMachine.power));
+            player.Black_Holeboost = player.Black_Holeboost.add(Black_Hole.log10(Black_Hole.sqrt(Black_Hole * Black_HoleMachine.power)));
         }
     }
     
@@ -347,6 +328,7 @@ let Scalings = {
             if(SoulsUpgrade_1.bought === false) {
                 player.Souls = player.Souls.sub(SoulsUpgrade_1.cost);
                 SoulsUpgrade_1.bought = true;     
+                player.SoulsPower = player.SoulsPower.add(1)
             }
             if(SoulsUpgrade_1.bought === true) {
                 player.Souls = player.Souls.sub(0)
@@ -359,6 +341,7 @@ let Scalings = {
             if(SoulsUpgrade_2.bought === false) {
                 player.Souls = player.Souls.sub(SoulsUpgrade_2.cost);
                 SoulsUpgrade_2.bought = true;     
+                player.SoulsPower = player.SoulsPower.add(3)
             }
             if(SoulsUpgrade_2.bought === true) {
                 player.Souls = player.Souls.sub(0)
@@ -370,7 +353,8 @@ let Scalings = {
         if(player.Souls.gte(SoulsUpgrade_3.cost)) {
             if(SoulsUpgrade_3.bought === false) {
                 player.Souls = player.Souls.sub(SoulsUpgrade_3.cost);
-                SoulsUpgrade_3.bought = true;     
+                SoulsUpgrade_3.bought = true;    
+                player.SoulsPower = player.SoulsPower.add(5) 
             }
             if(SoulsUpgrade_3.bought === true) {
                 player.Souls = player.Souls.sub(0)
@@ -383,6 +367,7 @@ let Scalings = {
             if(SoulsUpgrade_4.bought === false) {
                 player.Souls = player.Souls.sub(SoulsUpgrade_4.cost);
                 SoulsUpgrade_4.bought = true;     
+                player.SoulsPower = player.SoulsPower.add(7)
             }
             if(SoulsUpgrade_4.bought === true) {
                 player.Souls = player.Souls.sub(0)
@@ -395,6 +380,7 @@ let Scalings = {
             if(SoulsUpgrade_5.bought === false) {
                 player.Souls = player.Souls.sub(SoulsUpgrade_5.cost);
                 SoulsUpgrade_5.bought = true;     
+                player.SoulsPower = player.SoulsPower.add(9)
             }
             if(SoulsUpgrade_5.bought === true) {
                 player.Souls = player.Souls.sub(0)
@@ -406,7 +392,8 @@ let Scalings = {
         if(player.Souls.gte(SoulsUpgrade_6.cost)) {
             if(SoulsUpgrade_6.bought === false) {
                 player.Souls = player.Souls.sub(SoulsUpgrade_6.cost);
-                SoulsUpgrade_6.bought = true;     
+                SoulsUpgrade_6.bought = true; 
+                player.SoulsPower = player.SoulsPower.add(11)    
             }
             if(SoulsUpgrade_6.bought === true) {
                 player.Souls = player.Souls.sub(0)
@@ -418,7 +405,8 @@ let Scalings = {
         if(player.Souls.gte(SoulsUpgrade_7.cost)) {
             if(SoulsUpgrade_7.bought === false) {
                 player.Souls = player.Souls.sub(SoulsUpgrade_7.cost);
-                SoulsUpgrade_7.bought = true;     
+                SoulsUpgrade_7.bought = true;  
+                player.SoulsPower = player.SoulsPower.add(13)   
             }
             if(SoulsUpgrade_7.bought === true) {
                 player.Souls = player.Souls.sub(0)
@@ -432,6 +420,7 @@ let Scalings = {
             if(SoulsUpgrade_8.bought === false) {
                 player.Souls = player.Souls.sub(SoulsUpgrade_8.cost);
                 SoulsUpgrade_8.bought = true;     
+                player.SoulsPower = player.SoulsPower.add(15)
             }
             if(SoulsUpgrade_8.bought === true) {
                 player.Souls = player.Souls.sub(0)
@@ -444,7 +433,8 @@ let Scalings = {
         if(player.Souls.gte(SoulsUpgrade_9.cost)) {
             if(SoulsUpgrade_9.bought === false) {
                 player.Souls = player.Souls.sub(SoulsUpgrade_9.cost);
-                SoulsUpgrade_9.bought = true;     
+                SoulsUpgrade_9.bought = true; 
+                player.SoulsPower = player.SoulsPower.add(17)    
             }
             if(SoulsUpgrade_9.bought === true) {
                 player.Souls = player.Souls.sub(0)
@@ -458,6 +448,7 @@ let Scalings = {
             if(SoulsUpgrade_10.bought === false) {
                 player.Souls = player.Souls.sub(SoulsUpgrade_10.cost);
                 SoulsUpgrade_10.bought = true;     
+                player.SoulsPower = player.SoulsPower.add(19)
             }
             if(SoulsUpgrade_10.bought === true) {
                 player.Souls = player.Souls.sub(0)
@@ -472,6 +463,7 @@ let Scalings = {
             if(BlackHoleUpgrade_1.bought === false) {
                 player.Black_Hole = player.Black_Hole.sub(BlackHoleUpgrade_1.cost);
                 BlackHoleUpgrade_1.bought = true;
+                player.Black_HolePower = player.Black_HolePower.add(1)
             }
             if(BlackHoleUpgrade_1.bought === true) {
                 player.Black_Hole = player.Black_Hole.sub(0)
@@ -484,6 +476,7 @@ let Scalings = {
             if(BlackHoleUpgrade_2.bought === false) {
                 player.Black_Hole = player.Black_Hole.sub(BlackHoleUpgrade_2.cost);
                 BlackHoleUpgrade_2.bought = true;
+                player.Black_HolePower = player.Black_HolePower.add(3)
             }
             if(BlackHoleUpgrade_2.bought === true) {
                 player.Black_Hole = player.Black_Hole.sub(0)
@@ -496,6 +489,7 @@ let Scalings = {
             if(BlackHoleUpgrade_3.bought === false) {
                 player.Quarks = player.Quarks.sub(BlackHoleUpgrade_3.cost);
                 BlackHoleUpgrade_3.bought = true;
+                player.Black_HolePower = player.Black_HolePower.add(5)
             }
             if(BlackHoleUpgrade_3.bought === true) {
                 player.Quarks = player.Quarks.sub(0)
@@ -508,6 +502,7 @@ let Scalings = {
             if(BlackHoleUpgrade_4.bought === false) {
                 player.Atoms = player.Atoms.sub(BlackHoleUpgrade_4.cost);
                 BlackHoleUpgrade_4.bought = true;
+                player.Black_HolePower = player.Black_HolePower.add(7)
             }
             if(BlackHoleUpgrade_4.bought === true) {
                 player.Atoms = player.Atoms.sub(0)
@@ -520,6 +515,7 @@ let Scalings = {
             if(BlackHoleUpgrade_5.bought === false) {
                 player.Dark_Matter_currency = player.Dark_Matter_currency.sub(BlackHoleUpgrade_5.cost);
                 BlackHoleUpgrade_5.bought = true;
+                player.Black_HolePower = player.Black_HolePower.add(9)
             }
             if(BlackHoleUpgrade_5.bought === true) {
                 player.Dark_Matter_currency = player.Dark_Matter_currency.sub(0)
@@ -532,6 +528,7 @@ let Scalings = {
              if(BlackHoleUpgrade_6.bought === false) {
                 player.Dark_Matter_currency = player.Dark_Matter_currency.sub(BlackHoleUpgrade_6.cost);
                 BlackHoleUpgrade_6.bought = true;
+                player.Black_HolePower = player.Black_HolePower.add(11)
              }
              if(BlackHoleUpgrade_6.bought === true) {
                 player.Dark_Matter_currency = player.Dark_Matter_currency.sub(0)
@@ -554,12 +551,6 @@ let Scalings = {
             MatterExtent_1.cost = new Decimal(1e3);
             MatterExtent_1.amount = new Decimal(0);
         }
-        if(Elements.el_6.bought === true) {
-            player.Souls = player.Souls.add(Elements.el_6.boost)
-        }
-        if(Challenges.Challenge2.Completed === true) {
-            player.Souls = player.Souls.add(Challenges.Challenge2.RewardBoost)
-        }
     }
     
     // Dark matter Prestige
@@ -567,9 +558,8 @@ let Scalings = {
     function DarkMatterPrestige() {
         if(player.Souls.gte(10000)) {
             player.Dark_Matter_currency = player.Dark_Matter_currency.add(player.Dark_MatterToGet);
-            player.MatterPerSec = 1;
-            player.Matter = player.Matter.sub(player.Matter);
             player.MatterPerSec = new Decimal(1);
+            player.Matter = player.Matter.sub(player.Matter);
             MatterGenerator_1.cost = new Decimal(10);
             MatterGenerator_1.amount = new Decimal(0);
             MatterBoost_1.cost = new Decimal(100);
@@ -577,15 +567,7 @@ let Scalings = {
             MatterExtent_1.cost = new Decimal(1e3);
             MatterExtent_1.amount = new Decimal(0);
             player.Souls = player.Souls.sub(player.Souls);
-            setInterval(function() {
-                document.getElementById("Dark-matter-currency").textContent = "Dark Matter: " + format(player.Dark_MatterToGet);
-            }, 1000);
         }
-        if (Elements.el_7.bought === true) {
-            player.Dark_Matter_currency = player.Dark_Matter_currency.add(Elements.el_7.boost)
-        }
-        if (BlackHoleUpgrade_5.bought === true)
-           player.Dark_Matter_currency = player.Dark_Matter_currency.add(player.Matter.log10(player.Matter));
     }
     
     // Skill-upgrades
@@ -679,8 +661,8 @@ let Scalings = {
     }
     
     var UQuark_1 = {
-        cost: 1e21,
-        effect: 1,
+        cost: new Decimal(1e21),
+        effect: new Decimal(1),
     }
     
     function UQuark() {
@@ -695,8 +677,8 @@ let Scalings = {
     // Atoms-tab
     
     var AtomsBoost = {
-        amount: 0,
-        cost: 10,
+        amount: new Decimal(0),
+        cost: new Decimal(10),
     }
     
     function AtomsGain() {

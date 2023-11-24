@@ -177,6 +177,8 @@
             <p id="Souls-Upgrade1-text"> Unlock Challenge 2 (The Souls challenge) </p>
             <p id="Souls-Upgrade1-text2"> Cost: 1e250 Souls </p>
         </div>
+        <div id="Souls-power"> You have 0 Souls Power </div>
+        <div id="Souls-power-boost"> Multiply your Souls gain by 0 </div>
         <div id="Black-Hole-text"> Dark Matter Upgrades </div>
         <div id="BlackHole-Upgrade1" onclick="BlackHoleUpgrade1()">
             <p id="Souls-Upgrade1-text"> Matter Upgrades no longer spend Matter </p>
@@ -206,6 +208,8 @@
             <p id="Souls-Upgrade1-text"> Unlock the 3rd Challenge(The Dark Matter Challenge) </p>
             <p id="Souls-Upgrade1-text2"> Cost: 1e300 Dark Matter </p>
         </div>
+        <div id="Dark-Matter-power"> You have 0 Dark Matter Power </div>
+        <div id="Dark-Matter-power-boost"> Multiply your Dark Matter gain by 0 </div>
     </div>
     <div class="Dark-matter-button" id="Dark-matter-button" role="tab" onclick="OpenDarkMatter()"> Dark Matter 
         <div class="Dark-styles" id="Dark-styles"></div>
@@ -403,11 +407,12 @@
        <button id="Save-btn" onclick="Save()"> Save </button>
        <button id="Discord-btn"><a href="https://discord.gg/Trdhaqkm"> Discord server </a></button>
        <button id="Hard-Reset" onclick="HardReset()"> Hard Reset </button>
-       <div id="Options-text">Incremental Universe - v0.2.4.4 Part 1
+       <div id="Options-text">Incremental Universe - v0.2.4.4 Part 2
        <br>   Title: Scaling Arrival
        <br>- Added the first scaling to the matter upgrades
        <br>- Added the Stats tab
        <br>- Added Souls power and Dark Matter power in Upgrades tab
+       <br>- Fixed 3 bugs
        <br>
        <br>Person who helped with part of the code:
        <br>- Military Grade Chicken Nugget(discord name)
@@ -423,7 +428,7 @@
         <br> Pass 10,000 Matter to gain your 
         <br> mighty for Souls and push limits more 
     </div>
-</button>
+    </button>
     <button class="Rebirth" id="Rebirth" onclick="DarkMatterPrestige()"><img src="images/Black-hole img.jpg" id="BH-img">
     <div id="Rebirth-info"> Dark Matter 
         <br> Pass 10,000 Souls to destroy galaxy
@@ -431,6 +436,7 @@
         <br> To be continued
     </div>
     </button>
+    <div class="Matter-hardcap1" id="Matter-hardcap1"> Your Matter is hardcapped rooted by 1.00 </div>
 </body>
 <script src="JS/break_eternity.js"></script>
 <script src="JS/numberformating.js"></script>

@@ -87,6 +87,21 @@ a {
     padding-right: 8px;
 }
 
+.Matter-hardcap1 {
+    font-size: 20px;
+    color: rgb(114, 2, 2);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    bottom: 0;
+    margin-left: 500px;
+    margin-bottom: 50px;
+    visibility: hidden;
+}
+
+.show-Matter-hardcap1 {
+    visibility: visible;
+}
+
 #Souls {
     font-size: 14px;
     color: white;
@@ -597,9 +612,57 @@ a {
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 250px;
-    margin-left: 620px;
+    margin-left: 650px;
     color: white;
     font-weight: bold;
+}
+
+#Souls-power {
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 335px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 500px;
+}
+
+#Souls-power-boost {
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 315px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 520px;
+}
+
+#Dark-Matter-power {
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 620px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 500px;
+}
+
+#Dark-Matter-power-boost {
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 600px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 520px;
 }
 
 #Souls-Upgrade1 {
@@ -969,7 +1032,7 @@ a {
     top: 0;
     left: 0;
     margin-top: 300px;
-    margin-left: 580px;
+    margin-left: 620px;
     cursor: pointer;   
 }
 
@@ -982,7 +1045,7 @@ a {
     top: 0;
     left: 0;
     margin-top: 300px;
-    margin-left: 630px;
+    margin-left: 670px;
     cursor: pointer;  
 }
 
@@ -995,7 +1058,7 @@ a {
     top: 0;
     left: 0;
     margin-top: 300px;
-    margin-left: 680px;
+    margin-left: 720px;
     cursor: pointer;  
 }
 
@@ -1008,7 +1071,7 @@ a {
     top: 0;
     left: 0;
     margin-top: 300px;
-    margin-left: 730px;
+    margin-left: 770px;
     cursor: pointer;  
 }
 
@@ -1021,7 +1084,7 @@ a {
     top: 0;
     left: 0;
     margin-top: 300px;
-    margin-left: 780px;
+    margin-left: 820px;
     cursor: pointer;  
 }
 
@@ -1034,7 +1097,7 @@ a {
     top: 0;
     left: 0;
     margin-top: 345px;
-    margin-left: 580px;
+    margin-left: 620px;
     cursor: pointer;  
 }
 
@@ -1047,7 +1110,7 @@ a {
     top: 0;
     left: 0;
     margin-top: 345px;
-    margin-left: 630px;
+    margin-left: 670px;
     cursor: pointer;  
 }
 

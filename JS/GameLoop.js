@@ -1,19 +1,23 @@
 function GameLoop() {
     var MatterGenPower = new Decimal(0)
     MatterGenPower = MatterGenPower.add(MatterGenerator_1.amount)
-    if (SoulsUpgrade_1.bought == true) {
+    if (SoulsUpgrade_1.bought === true) {
        MatterGenPower = MatterGenPower.mul(1.5) // Souls upgrade 1.5x's power here   
     }
-    if (SoulsUpgrade_4.bought == true) {
+    if (SoulsUpgrade_4.bought === true) {
        MatterGenPower = MatterGenPower.mul(player.Souls.div(new Decimal(100))) // Multiply for souls upgrade 4
     }
     MatterGenPower = MatterGenPower.add(Challenges.Challenge1.RewardBoost)
-    if(MatterGenerator_1.amount < 50) {
+    if(MatterGenerator_1.amount.lt(50)) {
       document.getElementById("Matter-generator").textContent = "Matter Generator [ " + format(MatterGenerator_1.amount) + " ]";
       document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
     }
-    if(MatterGenerator_1.amount >= 50) {
+    if(MatterGenerator_1.amount.gte(50)) {
       document.getElementById("Matter-generator").textContent = "Weaken Matter Generator [ " + format(MatterGenerator_1.amount) + " ]";
+      document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
+    }
+    if(MatterGenerator_1.amount.gte(200)) {
+      document.getElementById("Matter-generator").textContent = "Drastic Matter Generator [ " + format(MatterGenerator_1.amount) + " ]";
       document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
     }
     // Adding the flat amount increase to the generation first to allow for proper multiplication and exponation
@@ -21,19 +25,23 @@ function GameLoop() {
     
     var MatterBoostPower = new Decimal(0)
     MatterBoostPower = MatterBoostPower.add(MatterBoost_1.amount)
-    if (SoulsUpgrade_4.bought == true) {
+    if (SoulsUpgrade_4.bought === true) {
        MatterBoostPower = MatterBoostPower.mul(player.Souls.div(new Decimal(2000)))
     }
-    if (Elements.el_2.bought == true) {
+    if (Elements.el_2.bought === true) {
        MatterBoostPower = MatterBoostPower.mul(Elements.el_2.boost)
     }   
     MatterBoostPower = MatterBoostPower.add(Challenges.Challenge1.RewardBoost) 
-    if(MatterBoost_1.amount < 50) {
+    if(MatterBoost_1.amount.lt(50)) {
       document.getElementById("Matter-boost").textContent = "Matter Boost [ " + format(MatterBoost_1.amount) + " ]";
       document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
     }
-    if(MatterBoost_1.amount >= 50) {
+    if(MatterBoost_1.amount.gte(50)) {
       document.getElementById("Matter-boost").textContent = "Weaken Matter Boost [ " + format(MatterBoost_1.amount) + " ]";
+      document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
+    }
+    if(MatterBoost_1.amount.gte(200)) {
+      document.getElementById("Matter-boost").textContent = "Drastic Matter Boost [ " + format(MatterBoost_1.amount) + " ]";
       document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
     }
     // Multiplying generation alongside adding 1 to the multiplier incase that the play does not have any multiplier
@@ -41,29 +49,33 @@ function GameLoop() {
                                 
     var MatterExtentPower = new Decimal(0)
     MatterExtentPower = MatterExtentPower.add(MatterExtent_1.amount)
-    if (Elements.el_5.bought == true) {
+    if (Elements.el_5.bought === true) {
        MatterExtentPower = MatterExtentPower.add(Elements.el_5.boost)
     }   
-    if (SoulsUpgrade_6.bought == true) {
+    if (SoulsUpgrade_6.bought === true) {
        MatterExtentPower = MatterExtentPower.mul(new Decimal(2)) // Multiply power by 2 if +1 Power is interpreted as i believe it sounds like it should be
     }   
-    if (SoulsUpgrade_4.bought == true) {
+    if (SoulsUpgrade_4.bought === true) {
        MatterExtentPower = MatterExtentPower.mul(player.Souls.div(new Decimal(1e7)))
     }   
-    if (SoulsUpgrade_5.bought == true) {
+    if (SoulsUpgrade_5.bought === true) {
        MatterExtentPower = MatterExtentPower.mul(player.Matter.div(new Decimal(1e10)))
     }
-    if (Skill_up4.bought == true) {
+    if (Skill_up4.bought === true) {
        Blackholematterboost = MatterExtentPower.div(15)
     }
  
     MatterExtentPower = MatterExtentPower.add(Challenges.Challenge1.RewardBoost)
-    if(MatterExtent_1.amount < 10) {
+    if(MatterExtent_1.amount.lt(10)) {
       document.getElementById("Matter-extent").textContent = "Matter Extent [ " + format(MatterExtent_1.amount) + " ]"
       document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
     }
-    if(MatterExtent_1.amount >= 10) {
+    if(MatterExtent_1.amount.gte(10)) {
       document.getElementById("Matter-extent").textContent = "Weaken Matter Extent [ " + format(MatterExtent_1.amount) + " ]"
+      document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
+    }
+    if(MatterExtent_1.amount.gte(30)) {
+      document.getElementById("Matter-extent").textContent = "Drastic Matter Extent [ " + format(MatterExtent_1.amount) + " ]"
       document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
     }
     document.getElementById("Tickspeed").textContent = "Tickspeed [" + format(Tickspeed1.amount) + "]";
@@ -75,22 +87,78 @@ function GameLoop() {
     var UniversalCollapsePower = new Decimal(0)
     UniversalCollapsePower = UniversalCollapsePower.add(UniversalCollapse1.amount)
     player.MatterPerSec = player.MatterPerSec.pow(UniversalCollapsePower.div(new Decimal(20)).add(new Decimal(1)))
+
+    var TickspeedPower = new Decimal(0)
+    TickspeedPower = TickspeedPower.add(Tickspeed1.amount)
+    
+    player.MatterPerSec = player.MatterPerSec.mul(TickspeedPower.add(1))
+
+    if(SoulsUpgrade_7.bought === true) {
+      Tickspeed1.amount = Tickspeed1.amount.mul(player.Souls.div(1e6));
+    }
+    if(Elements.el_4.bought === true) {
+      Tickspeed1.amount = Tickspeed1.amount.mul(2);
+    }
  
     player.Matter = player.Matter.add(player.MatterPerSec.div(20))
- 
+    let Matter_hardcap = document.getElementById("Matter-hardcap1")
+
+    player.SoulsPowerBoost = player.SoulsPowerBoost.add(player.SoulsPower.div(new Decimal(20)))
+    document.getElementById("Souls-power").textContent = "You have " + format(player.SoulsPower) + " Souls power"
+    document.getElementById("Souls-power-boost").textContent = "Multiply your Souls gain by " + format(player.SoulsPowerBoost)
+
+    var HardCapRooted = new Decimal(0)
+    if(player.Matter.gte(1e6)) {
+       HardCapRooted = HardCapRooted.add(player.Matter.cbrt(player.Matter.cbrt(50)))
+       Matter_hardcap.classList.add("show-Matter-hardcap1")
+       player.MatterPerSec = player.MatterPerSec.cbrt(player.Matter.cbrt(50))
+    }
+    document.getElementById("Matter-hardcap1").textContent = "Your Matter/sec is hardcapped rooted by " + format(HardCapRooted)
+
     document.getElementById("Matter").textContent = "Matter: " + format(player.Matter);
     document.getElementById("MatterPerSec").textContent = format(player.MatterPerSec) + " Matter/sec";
     document.getElementById("Souls").textContent = "Souls: " + format(player.Souls);   
     document.getElementById("Souls-Gain").textContent = "(+" + format(player.SoulsToGet) + ")";
-    player.SoulsToGet = player.SoulsToGet.add(player.Matter.log10(player.Matter.cbrt(player.Matter.cbrt(player.Matter))));   
+    document.getElementById("Dark-matter-currency").textContent = "Dark Matter: " + format(player.Dark_Matter_currency)
+    if(player.Matter.gte(10000)) {
+      player.SoulsToGet = player.SoulsToGet.add(player.Matter.log10(player.Matter.cbrt(player.Matter.cbrt(player.Matter))));  
+      player.SoulsToGet = player.SoulsToGet.add(player.SoulsPowerBoost.add(1))
+    } 
+    if(Elements.el_6.bought === true) {
+      player.Souls = player.Souls.add(Elements.el_6.boost)
+    }
+    if(Challenges.Challenge2.Completed === true) {
+      player.Souls = player.Souls.add(Challenges.Challenge2.RewardBoost)
+    }
     if(SoulsUpgrade_2.bought === true) {
-      player.SoulsToGet = player.SoulsToGet.add(player.Matter.sqrt(player.Matter.div(3333)));
-  }
-
+      player.SoulsToGet = player.SoulsToGet.add(player.Matter.log10(player.Matter.cbrt(player.Matter.cbrt(player.Matter.mul(3)))));
+    }
+    if (Elements.el_7.bought === true) {
+      player.Dark_Matter_currency = player.Dark_Matter_currency.add(Elements.el_7.boost)
+    }
+    if (BlackHoleUpgrade_5.bought === true) {
+      player.Dark_Matter_currency = player.Dark_Matter_currency.add(player.Matter.log10(player.Matter));
+    }
     if(Elements.el_9.bought === true) {
      player.Souls = player.Souls.add(player.SoulsToGet)
-     document.getElementById("Souls").textContent = "Souls: " + format(player.Souls)
-   }
+    }
+ 
+  player.Black_HolePowerBoost = player.Black_HolePowerBoost.add(player.Black_HolePower.div(50))
+
+  document.getElementById("Black-Hole-gain").textContent = "(" + format(player.Black_HolePerSec) + " Black Holes formed/sec)";
+  document.getElementById("BH-extractor").textContent = "Black Hole Extractor [" + player.Black_HoleExtractor + "]";
+  document.getElementById("Black-Hole-boost").textContent = "Currently: " + format(player.Black_Holeboost) + " boost to Matter Gain";
+  document.getElementById("Dark-Matter-power").textContent = "You have " + format(player.Black_HolePower) + " Dark Matter power"
+  document.getElementById("Dark-Matter-power-boost").textContent = "Multiply your Dark Matter gain by " + format(player.Black_HolePowerBoost)
+  player.Black_Hole = player.Black_Hole.add(player.Black_HolePerSec);
+  if(AtomsBoost.amount.gte(3)) {
+    player.Black_Hole = player.Black_Hole.add(player.Electron_boost2);
+  }
+  document.getElementById("Black-Hole").textContent = "You have formed " + format(player.Black_Hole) + " Black Holes";
+    if(BlackHoleUpgrade_2.bought === true) {
+       player.Black_HolePerSec = player.Black_HolePerSec.mul(player.Matter.div(100))
+    }
+   player.MatterPerSec = player.MatterPerSec.mul(player.Black_HolePowerBoost);
    
    player.Dark_MatterToGet = player.Dark_MatterToGet.add(Math.sqrt(player.Souls.div(10000)));
 
@@ -181,5 +249,3 @@ let totalSeconds = new Decimal(0);
 
 // Update the clock every second
 setInterval(updateClock, 1000);
-
-
