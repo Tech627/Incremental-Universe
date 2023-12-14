@@ -182,11 +182,12 @@ a {
 
 #Achievements-button[role="tab"] {
     border: 3.5px solid white;
-    width: 200px;
+    width: 170px;
     height: 35px;
     font-size: 17px;
     color: white;
-    text-align: center;
+    text-align: left;
+    padding-left: 30px;
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 20px;
     position: absolute;
@@ -194,6 +195,15 @@ a {
     top: 0;
     left: 0;
     cursor: pointer;
+}
+
+#achievements-button-img {
+    width: 75px;
+    height: 55px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 5px;
 }
 
 .Achievements-styles {
@@ -306,17 +316,26 @@ a {
 
 #Main-button[role="tab"] {
     border: 3.5px solid  white;
-    width: 200px;
+    width: 170px;
     height: 35px;
     font-size: 17px;
     padding-top: 20px;
     color: white;
-    text-align: center;
+    text-align: left;
+    padding-left: 30px;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
     top: 0;
     left: 0;
     cursor: pointer;
+}
+
+#matter-button-img {
+    width: 75px;
+    height: 55px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .Main-styles {
@@ -549,11 +568,12 @@ a {
 
 #Upgrades-button[role="tab"] {
     border: 3.5px solid  white;
-    width: 200px;
+    width: 170px;
     height: 35px;
     font-size: 17px;
     color: white;
-    text-align: center;
+    text-align: left;
+    padding-left: 30px;
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 20px;
     position: absolute;
@@ -561,6 +581,14 @@ a {
     left: 0;
     margin-top: 58px;
     cursor: pointer;
+}
+
+#upgrades-button-img {
+    width: 75px;
+    height: 55px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .Upgrades-styles {
@@ -1360,13 +1388,14 @@ a {
     margin-top: 40px;
 }
 
-.Dark-matter-button[role="tab"] {
+#Dark-matter-button[role="tab"] {
     border: 2px solid rgb(255, 218, 11);
-    width: 202px;
+    width: 172px;
     height: 35px;
     color: yellow;
     font-size: 17px;
-    text-align: center;
+    text-align: left;
+    padding-left: 30px;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     position: absolute;
@@ -1374,6 +1403,14 @@ a {
     top: 0;
     margin-top: 236.5px;
     padding-top: 20px;
+}
+
+#dark-matter-button-img {
+    width: 75px;
+    height: 65px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .Dark-styles {
@@ -1613,8 +1650,7 @@ a {
     border: 2px solid white;
     text-align: center;
     cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 377px;
     margin-top: -150px;
 }
 
@@ -2508,7 +2544,7 @@ a {
     text-align: center;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: -270px;
+    margin-top: -370px;
 }
 
 #Dialations-PerSec {
@@ -2528,8 +2564,20 @@ a {
     text-align: center;
     border: 3px solid lime;
     margin-top: 70px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 150px;
+}
+
+#Souls-dialation {
+    width: 360px;
+    height: 150px;
+    background-color: hsl(0, 0%, 10%);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    text-align: center;
+    border: 3px solid lime;
+    margin-top: -155px;
+    margin-left: 560px;
 }
 
 #Dialation-up1 {
@@ -2579,6 +2627,53 @@ a {
     border: 3px solid limegreen;
 }
 
+#Dialation-up5 {
+    width: 250px;
+    height: 90px;
+    font-size: 13px;
+    margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: white;
+    border: 3px solid limegreen;
+}
+
+#Dialation-up6 {
+    width: 250px;
+    height: 101px;
+    font-size: 13px;
+    margin-left: 280px;
+    margin-top: -95px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: white;
+    border: 3px solid limegreen;
+}
+
+#Dialation-up7 {
+    width: 250px;
+    height: 91px;
+    font-size: 13px;
+    margin-left: 560px;
+    margin-top: -105px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: white;
+    border: 3px solid limegreen;
+}
+
+#Dialation-up8 {
+    width: 250px;
+    height: 101px;
+    font-size: 13px;
+    margin-left: 840px;
+    margin-top: -95px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: white;
+    border: 3px solid limegreen;
+}
+
 #Dialation-up1-Cost {
     width: 248px;
     height: 25px;
@@ -2615,6 +2710,42 @@ a {
     cursor: pointer;
 }
 
+#Dialation-up5-cost {
+    width: 248px;
+    height: 25px;
+    background-color: rgb(30, 29, 29);
+    margin-top: 5px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+#Dialation-up6-cost {
+    width: 248px;
+    height: 25px;
+    background-color: rgb(30, 29, 29);
+    margin-top: 5px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+#Dialation-up7-cost {
+    width: 248px;
+    height: 25px;
+    background-color: rgb(30, 29, 29);
+    margin-top: 5px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+#Dialation-up8-cost {
+    width: 248px;
+    height: 25px;
+    background-color: rgb(30, 29, 29);
+    margin-top: 5px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
 #Dialation-up1-Cost:hover {
     background-color: rgba(74, 72, 72, 0.562);
 }
@@ -2631,6 +2762,96 @@ a {
     background-image: linear-gradient(90deg, rgba(74, 42, 42, 0.562), rgba(161, 0, 0, 0.284), rgb(0, 0, 0))
 }
 
+#Dialation-up5-Cost:hover {
+    background-image: linear-gradient(90deg, rgba(74, 72, 72, 0.562), rgba(161, 0, 0, 0.284));
+}
+
+.Research-up1 {
+    width: 350px;
+    height: 80px;
+    padding-top: 10px;
+    background-color: rgba(82, 79, 79, 0.659);
+    color: white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 20px;
+    margin-top: 10px;
+    visibility: hidden;
+}
+
+.show-Research-up1 {
+    visibility: visible;
+}
+
+#Research-up1-cost {
+    width: 350px;
+    height: 22px;
+    background-color: rgba(126, 113, 113, 0.679);
+}
+
+#Research-up1-cost:hover {
+    background-color: rgb(125, 111, 111);
+    cursor: pointer;
+}
+
+.Research-up2 {
+    width: 350px;
+    height: 80px;
+    padding-top: 10px;
+    background-color: rgba(82, 79, 79, 0.659);
+    color: white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 380px;
+    margin-top: -90px;
+    visibility: hidden;
+}
+
+.show-Research-up2 {
+    visibility: visible;
+}
+
+#Research-up2-cost {
+    width: 350px;
+    height: 22px;
+    background-color: rgba(126, 113, 113, 0.679);
+    margin-top: 19px;
+}
+
+#Research-up2-cost:hover {
+    background-color: rgb(125, 111, 111);
+    cursor: pointer;
+}
+
+.Research-up3 {
+    width: 350px;
+    height: 80px;
+    padding-top: 10px;
+    background-color: rgba(82, 79, 79, 0.659);
+    color: white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 740px;
+    margin-top: -90px;
+    visibility: hidden;
+}
+
+.show-Research-up3 {
+    visibility: visible;
+}
+
+#Research-up3-cost {
+    width: 350px;
+    height: 22px;
+    background-color: rgba(126, 113, 113, 0.679);
+    margin-top: 19px;
+}
+
+#Research-up3-cost:hover {
+    background-color: rgb(125, 111, 111);
+    cursor: pointer;
+}
+
 #Start-Stop-dialation {
     width: 150px;
     height: 30px;
@@ -2640,6 +2861,16 @@ a {
     padding-top: 10px;
     cursor: pointer;
 }
+
+#Start-Stop-Souls-dialation {
+    width: 150px;
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 15px;
+    background-color: grey;
+    padding-top: 10px;
+    cursor: pointer;
+} 
 
 #Stop-Start-dialation {
     width: 150px;
@@ -2651,20 +2882,39 @@ a {
     cursor: pointer;
 }
 
+#Stop-Start-Souls-dialation {
+    width: 150px;
+    height: 30px;
+    margin-left: 190px;
+    margin-top: -40px;
+    background-color: grey;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
 #Stats-button[role="tab"] {
-    width: 200px;
+    width: 170px;
     height: 35px;
     color: white;
     font-size: 17px;
     font-family: Arial, Helvetica, sans-serif;
     border: 3.5px solid white;
-    text-align: center;
+    text-align: left;
+    padding-left: 30px;
     position: absolute;
     top: 0;
     left: 0;
     margin-top: 294px;
     padding-top: 20px;
     cursor: pointer;
+}
+
+#stats-button-img {
+    width: 75px;
+    height: 65px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 #Stats-button:hover {

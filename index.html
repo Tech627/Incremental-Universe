@@ -87,7 +87,7 @@
                 <div class="Finnish-button1" id="Finnish-button" onclick="FinnishBtn1()"> Finnish </div> 
             </div>
         </div>
-    <div id="Achievements-button" role="tab" onclick="OpenAchievements()"> Achievements 
+    <div id="Achievements-button" role="tab" onclick="OpenAchievements()"> Achievements <img src="images/New Piskel(2).png" id="achievements-button-img">
         <div class="Achievements-styles" id="Achievements-styles"></div>
     </div>
         <div class="Achievements" id="Achievements">
@@ -100,10 +100,10 @@
             <p id="achievement-req2"> Buy Click Upgrade 1 </p>
             </div>
         </div>
-    <div id="Upgrades-button" role="tab" onclick="OpenUpgrades()"> Upgrades 
+    <div id="Upgrades-button" role="tab" onclick="OpenUpgrades()"> Upgrades <img src="images/New Piskel(1).png" id="upgrades-button-img"> 
         <div class="Upgrades-styles" id="Upgrades-styles"></div>
     </div>
-    <div id="Main-button" role="tab" onclick="OpenMain()"> Main 
+    <div id="Main-button" role="tab" onclick="OpenMain()"> Main <img src="images/New Piskel.png" id="matter-button-img">
     <div class="Main-styles" id="Main-styles" onclick="MainStyles()"></div>
     </div>
     <div class="Main" id="Main">
@@ -211,7 +211,7 @@
         <div id="Dark-Matter-power"> You have 0 Dark Matter Power </div>
         <div id="Dark-Matter-power-boost"> Multiply your Dark Matter gain by 0 </div>
     </div>
-    <div class="Dark-matter-button" id="Dark-matter-button" role="tab" onclick="OpenDarkMatter()"> Dark Matter 
+    <div id="Dark-matter-button" role="tab" onclick="OpenDarkMatter()"> Dark Matter <img src="images/New Piskel(3).png" id="dark-matter-button-img">
         <div class="Dark-styles" id="Dark-styles"></div>
     </div>
     <div class="Dark-matter" id="Dark-matter">
@@ -228,6 +228,21 @@
         <div class="Lab-Research-content" id="Lab-Research-content"> 
             <div id="Research-btn" onclick="LabResearch()"> Research for new DNA 
                 <div id="Research-cost"> Cost: 2,500 DNA </div>
+            </div>
+            <div class="Research-up1" id="Research-up1"> 
+                <div id="Research-up1-name"> Research 1 </div>
+                <div id="Research-up1-description"> Gain more DNA in radiating it boosted by Matter at a reduced rate </div>
+                <div id="Research-up1-cost"> Cost: 1e5 DNA </div>    
+            </div>
+            <div class="Research-up2" id="Research-up2"> 
+                <div id="Research-up2-name"> Research 2 </div>
+                <div id="Research-up2-description"> RNA now boosts DNA at a reduced rate </div>
+                <div id="Research-up2-cost"> Cost: 1e7 RNA </div>    
+            </div>
+            <div class="Research-up3" id="Research-up3"> 
+                <div id="Research-up3-name"> Research 3 </div>
+                <div id="Research-up3-description"> Start gaining 100% DNA/sec </div>
+                <div id="Research-up3-cost"> Cost: 1e11 DNA </div>    
             </div>
         </div>
         <div class="Skill-tree" id="Skill-tree" role="tab" onclick="OpenSkills()"> Skill tree </div>
@@ -250,7 +265,7 @@
             <div id="Skill-6" onclick="Skill6()"> Boost DNA/sec based on Research 
             <br> Cost: 1e3 DNA    
             </div>
-            <div id="Skill-7"> Unlock Research Upgrades 
+            <div id="Skill-7" onclick="Skill7()"> Unlock Research Upgrades 
             <br> Cost: Need Research 3 
             </div>
         </div>
@@ -368,6 +383,14 @@
                 <br><div id="Start-Stop-dialation" onclick="MatterDialation()"> Start </div>
                 <div id="Stop-Start-dialation" onclick="MatterDialationClosed()"> Stop </div>
             </div>
+            <div id="Souls-dialation"> Souls dialation 
+                <br>
+                <br> Break Souls and start over(not reseting dark matter)
+                <br> to gain power sourceries to the powerfull upgrades 
+                <br> You are trapped in Matter dialation and Souls gain is raised to the power of 0.1
+                <br><div id="Start-Stop-Souls-dialation" onclick="SoulsDialation()"> Start </div>
+                <div id="Stop-Start-Souls-dialation" onclick="SoulsDialationClosed()"> Stop </div>
+            </div>
             <div id="Dialation-up1"> Exponential Matter 
                 <div id="Dialation-up1-Description"> Multiply Matter/sec by Level </div>
                 <div id="Dialation-up1-Level"> [Level 0] </div>
@@ -388,9 +411,29 @@
                 <div id="Dialation-up4-Level"> [Level 0] </div>
                 <div id="Dialation-up4-Cost" onclick="BuyDialationUp4()"> Cost: 1e35 Space of Dialations </div>
             </div>
+            <div id="Dialation-up5"> Time for the old days
+                <div id="Dialation-up5-Description"> Multiply your Matter and Souls by 100 </div>
+                <div id="Dialation-up5-Level"> [Level 0] </div>
+                <div id="Dialation-up5-Cost" onclick="BuyDialationUp5()"> Cost: 1e70 Space of Dialations </div>
+            </div>
+            <div id="Dialation-up6"> Stronger Generators
+                <div id="Dialation-up6-Description"> Multiply your Matter generator, boost and extent power by 1.03 </div>
+                <div id="Dialation-up6-Level"> [Level 0] </div>
+                <div id="Dialation-up6-Cost" onclick="BuyDialationUp6()"> Cost: 1e110 Space of Dialations </div>
+            </div>
+            <div id="Dialation-up7"> [Placeholder]
+                <div id="Dialation-up7-Description"> Multiply your Souls power gain by 10 </div>
+                <div id="Dialation-up7-Level"> [Level 0] </div>
+                <div id="Dialation-up7-Cost" onclick="BuyDialationUp7()"> Cost: 1e180 Space of Dialations </div>
+            </div>
+            <div id="Dialation-up8"> [Placeholder]
+                <div id="Dialation-up8-Description"> Multiply your Dark Matter power gain by 1.5 </div>
+                <div id="Dialation-up8-Level"> [Level 0] </div>
+                <div id="Dialation-up8-Cost" onclick="BuyDialationUp8()"> Cost: 1e250 Space of Dialations </div>
+            </div>
         </div>
     </div>
-    <div id="Stats-button" role="tab" onclick="OpenStats()"> Stats 
+    <div id="Stats-button" role="tab" onclick="OpenStats()"> Stats <img src="images/New Piskel(4).png" id="stats-button-img">
         <div class="Stats-styles" id="Stats-styles"></div>
     </div>
     <div class="Stats" id="Stats">
@@ -407,12 +450,20 @@
        <button id="Save-btn" onclick="Save()"> Save </button>
        <button id="Discord-btn"><a href="https://discord.gg/Trdhaqkm"> Discord server </a></button>
        <button id="Hard-Reset" onclick="HardReset()"> Hard Reset </button>
-       <div id="Options-text">Incremental Universe - v0.2.4.4 Part 2
-       <br>   Title: Scaling Arrival
-       <br>- Added the first scaling to the matter upgrades
-       <br>- Added the Stats tab
-       <br>- Added Souls power and Dark Matter power in Upgrades tab
-       <br>- Fixed 3 bugs
+       <div id="Options-text">Incremental Universe - v0.2.5 Part 1
+       <br>   Title: better Styles arrival & Research upgrades arrival
+       <br>- new styles to buttons 
+       <br>- Research upgrades! 
+       <br>- Souls Dialation(finnally)
+       <br>- new Dialation upgrades 
+       <br>- added a autosave(every 30 seconds)
+       <br>  For the next Part
+       <br>- new elements 
+       <br>- new types of Quarks!
+       <br>- 2 new types of DNA 
+       <br>- new Skill upgrades
+       <br>- added how much you will get dark matter on reset
+       <br>- more stuff to Stats tab 
        <br>
        <br>Person who helped with part of the code:
        <br>- Military Grade Chicken Nugget(discord name)

@@ -649,6 +649,11 @@ let Scalings = {
             Skill_up6.bought = true
         }
     }
+    function Skill7() {
+        if (Lab_Research.Researches.gte(Skill_up7.cost)) {
+            Skill_up7.bought = true
+        }
+    }
     
     // Quarks-tab
     
@@ -778,7 +783,7 @@ let Scalings = {
         document.getElementById("Matter-generator-cost").ariaDisabled = false
         document.getElementById("Matter-boost-cost").ariaDisabled = false
         document.getElementById("Matter-extent-cost").ariaDisabled = false
-        if(player.Matter >= Challenges.Challenge1.goal) {
+        if(player.Matter.gte(Challenges.Challenge1.goal)) {
             Challenges.Challenge1.Completed = true
         }
     }
@@ -794,11 +799,7 @@ let Scalings = {
         MatterExtent_1.cost = new Decimal(1e3)
         Challenges.Challenge2.InChallenge = false
         player.Souls = player.Souls.sqrt(player.Matter.div(10000))
-        if(player.Souls >= Challenges.Challenge2.goal) {
+        if(player.Souls.gte(Challenges.Challenge2.goal)) {
             Challenges.Challenge2.Completed = true
         }
     }
-    
-    //Save & Load
-    
-   

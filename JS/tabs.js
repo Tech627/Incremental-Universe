@@ -23,6 +23,9 @@ let Options_styles = document.getElementById("Options-styles");
 let Skill_tree = document.getElementById("Skills");
 let Radiation_content_tab = document.getElementById("Radiation-content-tab");
 let Lab_Research_tab = document.getElementById("Lab-Research-tab");
+let Research_up1 = document.getElementById("Research-up1");
+let Research_up2 = document.getElementById("Research-up2");
+let Research_up3 = document.getElementById("Research-up3");
 let Radiation_content = document.getElementById("Radiation-content");
 let Lab_Research_content = document.getElementById("Lab-Research-content");
 let RNA = document.getElementById("RNA");
@@ -254,6 +257,11 @@ function OpenLabResearchContent() {
     Radiation_content.classList.remove("show-Radiation-content")
     RNA.classList.remove("show-RNA")
     RNA_transfer.classList.remove("show-RNA-transfer")
+    if(Skill_up7.bought === true) {
+        Research_up1.classList.add("show-Research-up1");
+        Research_up2.classList.add("show-Research-up2");
+        Research_up3.classList.add("show-Research-up3");
+    }
 }
 
 function OpenSkills() {
@@ -556,6 +564,9 @@ function OpenStats() {
     Upgrades_container.classList.remove("open-Upgrades-container");
     Challanges.classList.remove("open-Challanges");
     Options.classList.remove("open-Options");
+    Matter_content.classList.remove("show-Matter-content");
+    BH_tab.classList.remove("show-BH-tab");
+    BH_content.classList.remove("show-BH-content");
 }
 
 function OpenMainStats() {

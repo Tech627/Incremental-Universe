@@ -6,7 +6,7 @@ function Save() {
         localStorage.setItem("Achievement2", JSON.stringify(Achievement_2));
         localStorage.setItem("Challange1", JSON.stringify(Challange_1));
         localStorage.setItem("Souls", JSON.stringify(player.Souls));
-        localStorage.setItem("Souls-Gain", JSON.stringify(player.SoulsGain));
+        localStorage.setItem("Souls-Gain", JSON.stringify(player.SoulsToGet));
         localStorage.setItem("Matter-generator-cost", JSON.stringify(MatterGenerator_1.cost));
         localStorage.setItem("Matter-generator-amount", JSON.stringify(MatterGenerator_1.amount));
         localStorage.setItem("Matter-boost-cost", JSON.stringify(MatterBoost_1.cost));
@@ -46,7 +46,6 @@ function Save() {
         localStorage.setItem("Atoms", JSON.stringify(player.Atoms));
         localStorage.setItem("U-quark", JSON.stringify(UQuark_1))
     }
-    alert("When Page is reloaded or refreshed It will say you have 0 everything, but you will have to click on something to show It's value!!")
 }
 
 function Get() {
@@ -104,7 +103,7 @@ function Get() {
             player.Souls = new Decimal(JSON.parse(SavedSouls));
         }
         if(SavedSoulsGain) {
-            player.SoulsGain = new Decimal(JSON.parse(SavedSoulsGain));
+            player.SoulsToGet = new Decimal(JSON.parse(SavedSoulsGain));
         }
         if(SavedDark_Matter_currency) {
             player.Dark_Matter_currency = new Decimal(JSON.parse(SavedDark_Matter_currency));

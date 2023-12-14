@@ -31,7 +31,7 @@ function GameLoop() {
     if (Elements.el_2.bought === true) {
        MatterBoostPower = MatterBoostPower.mul(Elements.el_2.boost)
     }   
-    MatterBoostPower = MatterBoostPower.add(Challenges.Challenge1.RewardBoost) 
+    MatterBoostPower = MatterBoostPower.add(Challenges.Challenge1.RewardBoost)
     if(MatterBoost_1.amount.lt(50)) {
       document.getElementById("Matter-boost").textContent = "Matter Boost [ " + format(MatterBoost_1.amount) + " ]";
       document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
@@ -120,8 +120,11 @@ function GameLoop() {
     document.getElementById("Souls").textContent = "Souls: " + format(player.Souls);   
     document.getElementById("Souls-Gain").textContent = "(+" + format(player.SoulsToGet) + ")";
     document.getElementById("Dark-matter-currency").textContent = "Dark Matter: " + format(player.Dark_Matter_currency)
+    if(player.Matter.lt(10000)) {
+      player.SoulsToGet = new Decimal(0)
+    }
     if(player.Matter.gte(10000)) {
-      player.SoulsToGet = player.SoulsToGet.add(player.Matter.log10(player.Matter.cbrt(player.Matter.cbrt(player.Matter))));  
+      player.SoulsToGet = player.SoulsToGet.add(player.Matter.div(10000).div(10000).div(100000000).sub(0.93));  
       player.SoulsToGet = player.SoulsToGet.add(player.SoulsPowerBoost.add(1))
     } 
     if(Elements.el_6.bought === true) {
@@ -193,6 +196,18 @@ function GameLoop() {
      DialationPoints = DialationPoints.add(DialationPerSec.div(50))
      Dialation_container.classList.remove("show-Dialation-container")
  }
+ if(Dialations.SoulsDialation.inDialation === true) {
+  player.MatterPerSec = player.MatterPerSec.slog(new Decimal(0.25))
+  player.SoulsToGet = player.SoulsToGet.add(player.Matter.div(10000).div(10000).div(100000000).sub(0.01));  
+  DialationPoints = DialationPoints.add(DialationPerSec.div(40))
+  DialationPerSec = DialationPerSec.add(player.Matter.sqrt(100).slog(1000))
+  Dialation_container.classList.add("show-Dialation-container")
+} 
+if(Dialations.SoulsDialation.inDialation === false) {
+  player.MatterPerSec = new Decimal(1)
+  DialationPoints = DialationPoints.add(DialationPerSec.div(50))
+  Dialation_container.classList.remove("show-Dialation-container")
+}
  document.getElementById("Dialations-points").textContent = "You have " + format(DialationPoints) + " Space of dialations worth to be spended on upgrades"
  document.getElementById("Dialations-PerSec").textContent = format(DialationPerSec) + "/sec Space of Dialations"
  document.getElementById("Dialation-up1-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up1.cost) + " Space of Dialations"
@@ -203,6 +218,12 @@ function GameLoop() {
  document.getElementById("Dialation-up3-Level").textContent = "Level[" + format(Dialations_ups.Dialation_up3.level) + "+" +  format(Dialations_ups.Dialation_up4.level) + "]"
  document.getElementById("Dialation-up4-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up4.cost) + " Space of Dialations"
  document.getElementById("Dialation-up4-Level").textContent = "Level[" + format(Dialations_ups.Dialation_up4.level) + "]"
+ document.getElementById("Dialation-up5-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up5.cost) + " Space of Dialations"
+ document.getElementById("Dialation-up5-Level").textContent = "Level[" + format(Dialations_ups.Dialation_up5.level) + "]"
+ document.getElementById("Dialation-up7-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up7.cost) + " Space of Dialations"
+ document.getElementById("Dialation-up7-Level").textContent = "Level[" + format(Dialations_ups.Dialation_up7.level) + "]"
+ document.getElementById("Dialation-up8-Cost").textContent = "Cost: " + format(Dialations_ups.Dialation_up8.cost) + " Space of Dialations"
+ document.getElementById("Dialation-up8-Level").textContent = "Level[" + format(Dialations_ups.Dialation_up8.level) + "]"
  var Dialations_up1_power = new Decimal(0)
  Dialations_up1_power = Dialations_up1_power.add(Dialations_ups.Dialation_up1.level)
  player.MatterPerSec = player.MatterPerSec.mul(Dialations_up1_power.add(new Decimal(1)).add(Dialations_up4_power))
@@ -215,12 +236,30 @@ function GameLoop() {
  var Dialations_up4_power = new Decimal(0)
  Dialations_up4_power = Dialations_up4_power.add(Dialations_ups.Dialation_up4.level)
  Radiation.DNA_points = Radiation.DNA_points.add(Radiation.DNAPerSec.div(20))
+ var Dialations_up5_power = new Decimal(0)
+ Dialations_up5_power = Dialations_up5_power.add(Dialations_ups.Dialation_up5.level)
+ player.MatterPerSec = player.MatterPerSec.mul(Dialations_up5_power.mul(100))
+ player.SoulsToGet = player.SoulsToGet.mul(Dialations_up5_power.mul(100).add(1))
+ var Dialations_up7_power = new Decimal(0)
+ Dialations_up7_power = Dialations_up7_power.add(Dialations_ups.Dialation_up7.level)
+ player.SoulsPower = player.SoulsPower.mul(Dialations_up7_power.add(10))
+ var Dialation_up8_power = new Decimal(0)
+ Dialation_up8_power = Dialation_up8_power.add(Dialations_ups.Dialation_up8.level)
  if(Radiation.InRadiation === true) {
-   Radiation.DNAPerSec = new Decimal(-1)
+   Radiation.DNAPerSec = new Decimal(1)
+   if(Lab_Research.Researches_ups.Research_up1.bought === true) {
+    Radiation.DNAPerSec = Radiation.DNAPerSec.mul(player.Matter.div(100))
+   }
+   if(Lab_Research.Researches_ups.Research_up2.bought === true) {
+    Radiation.DNAPerSec = Radiation.DNAPerSec.mul(Radiation.RNA.div(1000))
+   }
  }
  if(Radiation.InRadiation === false) {
-   Radiation.DNAPerSec = new Decimal(1)
+   Radiation.DNAPerSec = new Decimal(0)
    Radiation.DNAPerSec = Radiation.DNAPerSec.add(Lab_Research.Researches)
+   if(Lab_Research.Researches_ups.Research_up3.bought === true) {
+    Radiation.DNAPerSec = Radiation.DNAPerSec.add(Lab_Research.Researches)
+   }
  }
  document.getElementById("DNA").textContent = "You have " + format(Radiation.DNA_points) + " DNA"
  document.getElementById("DNA-PerSec").textContent = "+" + format(Radiation.DNAPerSec) + " DNA/sec"
@@ -229,6 +268,9 @@ function GameLoop() {
  document.getElementById("Best-ever-Matter").textContent = "Your best Matter is " + format(player.Matter)
  }   
  setInterval(GameLoop,1000/20)
+ setInterval(function() {
+  Save()
+ }, 30000)
 function formatNumber(number) {
    return number < 10 ? '0' + number : number;
 }
