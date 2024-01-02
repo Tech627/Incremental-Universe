@@ -77,37 +77,37 @@ let Scalings = {
     // Souls Upgrades
     
        var SoulsUpgrade_1 = {
-        cost: new Decimal(1),
+        cost: new Decimal(5),
         bought: false,
        }
     
        var SoulsUpgrade_2 = {
-        cost: new Decimal(10),
+        cost: new Decimal(100),
         bought: false,
        }
     
        var SoulsUpgrade_3 = {
-        cost: new Decimal(20),
-        bought: false,
-       }
-    
-       var SoulsUpgrade_4 = {
         cost: new Decimal(250),
         bought: false,
        }
     
+       var SoulsUpgrade_4 = {
+        cost: new Decimal(5e3),
+        bought: false,
+       }
+    
        var SoulsUpgrade_5 = {
-        cost: new Decimal(1000),
+        cost: new Decimal(1e5),
         bought: false,
        }
     
        var SoulsUpgrade_6 = {
-        cost: new Decimal(5000),
+        cost: new Decimal(1e6),
         bought: false,
        }
     
        var SoulsUpgrade_7 = {
-        cost: new Decimal(1e5),
+        cost: new Decimal(1e8),
         bought: false,
        }
     
@@ -669,13 +669,38 @@ let Scalings = {
         cost: new Decimal(1e21),
         effect: new Decimal(1),
     }
+
+    var DQuark_1 = {
+        cost: new Decimal(1e90),
+        effect: new Decimal(1),
+    }
+
+    var MQuark_1 = {
+        cost: new Decimal(1e275),
+        effect: new Decimal(1),
+    }
     
     function UQuark() {
         if(player.Quarks.gte(UQuark_1.cost)) {
             player.Quarks = player.Quarks.sub(player.Quarks);
             UQuark_1.effect = UQuark_1.effect.add(player.Quarks.div(1e21));
             Black_HoleMachine.power = Black_HoleMachine.power.add(UQuark_1.effect)
-            document.getElementById("Up-boost").textContent = "Adds " + UQuark_1.effect + " free BH extractors"
+        }
+    }
+    
+    function DQuark() {
+        if(player.Quarks.gte(DQuark_1.cost)) {
+            player.Quarks = player.Quarks.sub(player.Quarks);
+            DQuark_1.effect = DQuark_1.effect.add(player.Quarks.div(1e90));
+            Tickspeed1.amount = Tickspeed1.amount.mul(DQuark_1.effect);
+        }
+    }
+
+    function MQuark() {
+        if(player.Quarks.gte(MQuark_1.cost)) {
+            player.Quarks = player.Quarks.sub(player.Quarks);
+            MQuark_1.effect = MQuark_1.effect.add(player.Quarks.div(1e275));
+            player.Quarks = player.Quarks.mul(MQuark_1.effect);
         }
     }
     

@@ -124,7 +124,7 @@ function GameLoop() {
       player.SoulsToGet = new Decimal(0)
     }
     if(player.Matter.gte(10000)) {
-      player.SoulsToGet = player.SoulsToGet.add(player.Matter.div(10000).div(10000).div(100000000).sub(0.93));  
+      player.SoulsToGet = player.Matter.div(10000);  
       player.SoulsToGet = player.SoulsToGet.add(player.SoulsPowerBoost.add(1))
     } 
     if(Elements.el_6.bought === true) {
@@ -134,7 +134,7 @@ function GameLoop() {
       player.Souls = player.Souls.add(Challenges.Challenge2.RewardBoost)
     }
     if(SoulsUpgrade_2.bought === true) {
-      player.SoulsToGet = player.SoulsToGet.add(player.Matter.log10(player.Matter.cbrt(player.Matter.cbrt(player.Matter.mul(3)))));
+      player.SoulsToGet = player.Matter.div(3333)
     }
     if (Elements.el_7.bought === true) {
       player.Dark_Matter_currency = player.Dark_Matter_currency.add(Elements.el_7.boost)
@@ -185,6 +185,9 @@ function GameLoop() {
  if(Challenges.Challenge2.Completed === true) {
    Challenges.Challenge2.RewardBoost = Challenges.Challenge2.RewardBoost.add(Math.log10(Math.slog(Math.sqrt(player.Souls))))
  }
+ document.getElementById("Up-boost").textContent = "Adds " + UQuark_1.effect + " free BH extractors"
+ document.getElementById("Down-boost").textContent = "Boost Tickspeed by " + DQuark_1.effect + "x"
+ document.getElementById("Mediator-boost").textContent = "Boost your Quarks by " + MQuark_1.effect + "x"
  if(Dialations.MatterDialation.inDialation === true) {
      player.MatterPerSec = player.MatterPerSec.slog(new Decimal(0.25))
      DialationPoints = DialationPoints.add(DialationPerSec.div(50))

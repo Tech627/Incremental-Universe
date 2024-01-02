@@ -50,7 +50,9 @@ let Electron = document.getElementById("Electron");
 let Electron_boost = document.getElementById("Electron-boost");
 let Electron_boost1 = document.getElementById("Electron-boost1");
 let ElectronPerSec = document.getElementById("ElectronPerSec");
-let Dialation_tab_content = document.getElementById("Time-dialation-content")
+let Dialation_tab_content = document.getElementById("Time-dialation-content");
+let Lore_content = document.getElementById("Lore");
+let Chapter_I_Lore = document.getElementById("Chapter-I-lore")
 
 function OpenBH() {
     BH_content.classList.add("show-BH-content");
@@ -350,6 +352,8 @@ function OpenUpgrades() {
     Stats_styles.classList.remove("show-Stats-styles")
     Stats.classList.remove("open-Stats")
     Main_stats.classList.remove("show-Main-stats")
+    Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
+    Lore_content.classList.remove("show-Lore")
 }
 
 function OpenMain() {
@@ -404,6 +408,8 @@ function OpenMain() {
     Stats_styles.classList.remove("show-Stats-styles")
     Stats.classList.remove("open-Stats")
     Main_stats.classList.remove("show-Main-stats")
+    Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
+    Lore_content.classList.remove("show-Lore")
 }
 
 function OpenAchievements() {
@@ -460,6 +466,8 @@ function OpenAchievements() {
     Stats_styles.classList.remove("show-Stats-styles")
     Stats.classList.remove("open-Stats")
     Main_stats.classList.remove("show-Main-stats")
+    Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
+    Lore_content.classList.remove("show-Lore")
 }
 
 function OpenChallanges() {
@@ -518,6 +526,8 @@ function OpenChallanges() {
     Stats_styles.classList.remove("show-Stats-styles")
     Stats.classList.remove("open-Stats")
     Main_stats.classList.remove("show-Main-stats")
+    Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
+    Lore_content.classList.remove("show-Lore")
 }
 
 function OpenDarkMatter() {
@@ -547,6 +557,8 @@ function OpenDarkMatter() {
     Stats_styles.classList.remove("show-Stats-styles")
     Stats.classList.remove("open-Stats")
     Main_stats.classList.remove("show-Main-stats")
+    Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
+    Lore_content.classList.remove("show-Lore")
 }
 
 function OpenStats() {
@@ -567,10 +579,14 @@ function OpenStats() {
     Matter_content.classList.remove("show-Matter-content");
     BH_tab.classList.remove("show-BH-tab");
     BH_content.classList.remove("show-BH-content");
+    Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
+    Lore_content.classList.remove("show-Lore")
 }
 
 function OpenMainStats() {
     Main_stats.classList.add("show-Main-stats")
+    Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
+    Lore_content.classList.remove("show-Lore")
 }
 
 function OpenOptions() {
@@ -579,6 +595,7 @@ function OpenOptions() {
     Main.classList.remove("open-Main");
     Achievements.classList.remove("open-Achievements");
     Upgrades_container.classList.remove("open-Upgrades-container");
+    Upgrades_styles.classList.remove("show-Upgrades-styles");
     Challanges.classList.remove("open-Challanges");
     Skill_tree.classList.remove("open-Skills");
     Reset.classList.remove("open-Rebirth");
@@ -627,4 +644,66 @@ function OpenOptions() {
     Stats_styles.classList.remove("show-Stats-styles")
     Stats.classList.remove("open-Stats")
     Main_stats.classList.remove("show-Main-stats")
+    Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
+    Lore_content.classList.remove("show-Lore")
+}
+
+function OpenLoreContent() {
+    Lore_content.classList.add("show-Lore")
+    Main.classList.remove("open-Main");
+    Upgrades_container.classList.remove("open-Upgrades-container");
+    Achievements.classList.remove("open-Achievements");
+    Challanges.classList.remove("open-Challanges");
+    Dark_Matter.classList.remove("open-Dark-matter");
+    Skill_tree.classList.remove("open-Skills");
+    Reset.classList.remove("open-Rebirth");
+    Options.classList.remove("open-Options");
+    Options_styles.classList.remove("show-Options-styles");
+    Main_styles.classList.remove("show-Main-styles");
+    Achievements_styles.classList.remove("show-Achievements-styles");
+    Challanges_styles.classList.remove("show-Challanges-styles");
+    Dark_styles.classList.remove("show-Dark-styles");
+    Tickspeed2.classList.remove("show-Tickspeed");
+    Tickspeed_cost.classList.remove("show-Tickspeed-cost");
+    Matter_content.classList.remove("show-Matter-content");
+    BH_tab.classList.remove("show-BH-tab");
+    BH_content.classList.remove("show-BH-content");
+    Quarks_tab.classList.remove("show-Quarks-tab");
+    Quarks_content.classList.remove("show-Quarks-content");
+    Atoms_content.classList.remove("show-Atoms-content");
+    Atoms_tab.classList.remove("show-Atoms-tab");
+    Proton.classList.remove("show-Proton");
+    Proton_boost.classList.remove("show-Proton-boost");
+    Neutron.classList.remove("show-Neutron");
+    Neutron_boost.classList.remove("show-Neutron-boost");
+    Electron.classList.remove("show-Electron");
+    Electron_boost.classList.remove("show-Electron-boost");
+    ProtonPerSec.classList.remove("show-ProtonPerSec");
+    NeutronPerSec.classList.remove("show-NeutronPerSec");
+    ElectronPerSec.classList.remove("show-ElectronPerSec");
+    Proton_boost1.classList.remove("show-Proton-boost1");
+    Neutron_boost1.classList.remove("show-Neutron-boost1");
+    Electron_boost1.classList.remove("show-Electron-boost1");
+    Molecules_content.classList.remove("show-Molecules-content");
+    Molecules_tab.classList.remove("show-Molecules-tab");
+    Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
+    Challenge_01.classList.remove("show-Challange1")
+    Finnish_button.classList.remove("show-Finnish-button")
+    Dialation_tab_content.classList.remove("show-Time-dialation-content")
+    Radiation_content.classList.remove("show-Radiation-content")
+    Radiation_content_tab.classList.remove("show-Radiation-content-tab");
+    Lab_Research_tab.classList.remove("show-Lab-Research-tab") 
+    Lab_Research_content.classList.remove("show-Lab-Research-content")
+    RNA.classList.remove("show-RNA")
+    RNA_transfer.classList.remove("show-RNA-transfer")
+    Challenge_01.classList.remove("show-Challange1")
+    Challenge_02.classList.remove("show-Challegne2")
+    Stats_styles.classList.remove("show-Stats-styles")
+    Stats.classList.remove("open-Stats")
+    Main_stats.classList.remove("show-Main-stats")
+}
+
+function OpenChapterILore() {
+    Chapter_I_Lore.classList.add("show-Chapter-I-lore")
 }
