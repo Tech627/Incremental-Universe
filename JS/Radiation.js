@@ -2,6 +2,14 @@ let Radiation = {
     DNA_points: new Decimal(10),
     DNAPerSec: new Decimal(0),
     RNA: new Decimal(0),
+    mRNA: new Decimal(0),
+    mRNA_perSec: new Decimal(1),
+    mRNA_increaser: new Decimal(1.1),
+    mRNA_boost: new Decimal(1),
+    tRNA: new Decimal(0),
+    tRNA_perSec: new Decimal(1),
+    tRNA_increaser: new Decimal(1.1),
+    tRNA_boost: new Decimal(1),
     InRadiation: false,
 }
 

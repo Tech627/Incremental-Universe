@@ -55,8 +55,9 @@
         <div id="Matter">Matter: 0</div>
         <div id="MatterPerSec">0 Matter/sec</div>
         <div id="Souls">Souls: 0</div>
-        <div id="Souls-Gain"> (+0) </div>
+        <div id="Souls-Gain"> (+0 on Reset) </div>
         <div id="Dark-matter-currency">Dark Matter: 0</div>
+        <div id="Dark-matter-gain"> (+0 on Reset) </div>
     </nav>
     <div id="Challanges-button" role="tab" onclick="OpenChallanges()"> Challenges 
         <div class="Challanges-styles" id="Challanges-styles"></div>
@@ -223,6 +224,14 @@
             <div id="Radiation-btn" onclick="Radiate()" ondblclick="CloseRadiate()"> Radiate your DNA for Research purpose </div>
             <div class="RNA" id="RNA"> You have 0 RNA </div>
             <div class="RNA-transfer" id="RNA-transfer" onclick="RNATransfer()"> Transfer all DNA to RNA </div>
+            <div class="mRNA" id="mRNA"> You have 0 mRNA
+            <br> +1/sec (x1.1/sec)    
+            </div>
+            <div class="mRNA-boost" id="mRNA-boost"> Boosting your Matter by 1x </div>
+            <div class="tRNA" id="tRNA"> You have 0 tRNA 
+                <br> +1/sec (x1.1/sec)
+            </div>
+            <div class="tRNA-boost" id="tRNA-boost"> Boosting your Quarks by 1x </div>
         </div>
         <div class="Lab-Research-tab" id="Lab-Research-tab" onclick="OpenLabResearchContent()"> Lab Research </div>
         <div class="Lab-Research-content" id="Lab-Research-content"> 
@@ -389,32 +398,32 @@
             <div id="el_13" onclick="BuyEl13()"> 13
             <br> Al
             <div id="el_Description"> [Aluminium] Unlocks new Dialation</div>
-            <div id="el_Cost"> 1e80 Quarks </div>
+            <div id="el_Cost"> 1e150 Quarks </div>
             </div>
             <div id="el_14" onclick="BuyEl14()"> 14
             <br> Si
             <div id="el_Description"> [Silicon] Unlock the Dna boost</div>
-            <div id="el_Cost"> 1e80 Quarks </div>
+            <div id="el_Cost"> 1e190 Quarks </div>
             </div>
             <div id="el_15" onclick="BuyEl15()"> 15
             <br> P
             <div id="el_Description"> [Phosphorus] Unlock the Rna boost</div>
-            <div id="el_Cost"> 1e80 Quarks </div>
+            <div id="el_Cost"> 1e215 Quarks </div>
             </div>
             <div id="el_16" onclick="BuyEl16()"> 16
             <br> S
             <div id="el_Description"> [Sulfur] Unlock the 3rd type of Quarks in Quarks tab</div>
-            <div id="el_Cost"> 1e80 Quarks </div>
+            <div id="el_Cost"> 1e275 Quarks </div>
             </div>
             <div id="el_17" onclick="BuyEl17()"> 17
             <br> Cl
             <div id="el_Description"> [Chlorine] Unlock 2 new Dna resources</div>
-            <div id="el_Cost"> 1e80 Quarks </div>
+            <div id="el_Cost"> 1e308 Quarks </div>
             </div>
             <div id="el_18" onclick="BuyEl18()"> 18
             <br> Ar
             <div id="el_Description"> [Argon] Unlock new tab in Lab research</div>
-            <div id="el_Cost"> 1e80 Quarks </div>
+            <div id="el_Cost"> 1e400 Quarks </div>
             </div>
         </div>
         <div class="Time-dilation-tab" id="Time-dilation-tab" role="tab" onclick="OpenTimeDialationContent()"> Space of dialations </div>
@@ -488,6 +497,15 @@
             <div id="Best-ever-Matter"> Your best Matter is 0.00 </div>
             <div id="time-spent"> You spent 0 s </div>
         </div>
+        <div id="Softcaps-for-generators" onclick="OpenSfgStats()"> Generators softcaps </div>
+        <div class="Sfg-stats" id="Sfg-stats">
+            <div id="wsfg"> Matter generators weaken scaling starting at 50 </div>
+            <div id="dsfg"> Matter generators drastic scaling starting at 200 </div>
+            <div id="wsfb"> Matter Boost weaken scaling starting at 50 </div>
+            <div id="dsfg"> Matter Boost drastic scaling starting at 200 </div>
+            <div id="wsfe"> Matter Extent weaken scaling starting at 10 </div>
+            <div id="dsfe"> Matter Extent drastic scaling starting at 30</div>
+        </div>
     </div>
     <div id="Options-button" role="tab" onclick="OpenOptions()"> Options 
         <div class="Options-styles" id="Options-styles"></div>
@@ -496,13 +514,13 @@
        <button id="Save-btn" onclick="Save()"> Save </button>
        <button id="Discord-btn"><a href="https://discord.gg/jQqeYA4NzH"> Discord server </a></button>
        <button id="Hard-Reset" onclick="HardReset()"> Hard Reset </button>
-       <div id="Options-text">Incremental Universe - v0.2.5 Patch Note 1
+       <div id="Options-text">Incremental Universe - v0.2.5 Patch Note 1.5
        <br>   Title: Unlocking Era
        <br>- new elements (not working in this patch. You can still see effects)
        <br>- new types of Quarks! (finished)
        <br>- 2 new types of DNA (not finished)
-       <br>- added how much you will get dark matter on reset (not finished)
-       <br>- more stuff to Stats tab (not finished)
+       <br>- added how much you will get dark matter on reset (finished)
+       <br>- more stuff to Stats tab (halfly finished)
        <br>- even more Research upgrades (not finished)
        <br>
        <br>Person who helped with part of the code:
@@ -513,6 +531,17 @@
        <br>
        <br>Inspired by - Incremental Mass rewritten
        </div>
+    </div>
+    <div id="Softcaps-button" role="tab" onclick="OpenSoftcaps()"> Softcaps
+        <div class="Softcaps-styles" id="Softcaps-styles"></div>
+    </div>
+    <div class="Softcaps-content" id="Softcaps-content">
+        <div id="first-softcap">
+            Your Matter Per Second boost by mRNA is square rooted by 5.
+        </div>
+        <div id="second-softcap">
+            Your Quarks gain boost by tRNA is square rooted by 7.
+        </div>
     </div>
     <div id="Lore-button" role="tab" onclick="OpenLoreContent()"> Lore </div>
     <div class="Lore" id="Lore">
@@ -526,16 +555,16 @@
                 <br> That was 1st phase of the plan. The second comes when you do an "Galactic" reset. 
                 <br> He said "Galactic" reset own great powers which is needed to destroy the enemies. You asked him "What enemies?". 
                 <br> He responded "The Celestials they escaped from Hevipelle trying to find glyphs he hided. Glyphs hold great power. 
-                <br> If you get them before the Celestials do you will be able to stop them". He sended also the reinforcments for you.
-                <br> There names are "The Prestige Tree Makers", "Acamada" and the 3rd one "MrRedShark". MrRedShark is a lot diffrenet
+                <br> If you get them before the Celestials do you will be able to stop them". He sended also the reinforcements for you.
+                <br> They're names are "The Prestige Tree Makers", "Acamada" and the 3rd one "MrRedShark". MrRedShark is a lot diffrenet
                 <br> than others he has the power of the 7 Celestials that were loyal to Hevipelle but the other one's have even greater.
                 <br> The 7 Celestials he has in his power are "No Name" the God of creation, "Meditator" the God of peace,
                 <br> "Effarig" the God of power, "Albert" the God of brain, "Bolt" the God of speed, "Galactus", the God of Galaxies and 
-                <br> "Nature", the God of life. I as "the Eternity Defender" I have greater powers than the Infnity keeper. I have the power 
+                <br> "Nature", the God of life. I as "the Eternity Defender" I have greater powers than the MrRedShark. I have the power 
                 <br> of Eternity the power of this Universe. The Celestials are still stronger than me. You need to stop them. 
                 <br> Here is one more advice... oh, no. NOOO!! THE CELESTIALS. THEY FOUND US! RUN!! I WILL KEEP THEM STILL. 
-                <br> WAIT FOR THE REINFORCMENT AND ADVANCE TO BECOME STRONG. As "the Eternity Defender" fell down dead. You were running 
-                <br> for your life the Celestials are too strong. You need to gather everything you can to make you powerfull enough.
+                <br> WAIT FOR THE REINFORCEMENT AND ADVANCE TO BECOME STRONG. As "the Eternity Defender" fell down dead. You were running 
+                <br> for your life the Celestials are too strong. You need to gather everything you can to make you powerful enough.
                 <br> You need the glyphs.
             </div>
         </div>
@@ -554,6 +583,10 @@
     </div>
     </button>
     <div class="Matter-hardcap1" id="Matter-hardcap1"> Your Matter is hardcapped rooted by 1.00 </div>
+    <audio controls autoplay>
+        <source src="music/updated.wav" type="audio/wav" id="audio-game">
+    </audio>
+    <a href="secretChapter.html" id="secret-chapter-link">Some things have to remain secret</a>
 </body>
 <script src="JS/break_eternity.js"></script>
 <script src="JS/numberformating.js"></script>

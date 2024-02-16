@@ -273,4 +273,5 @@ Dialations_ups.Dialation_up3.level = new Decimal(0)
 Dialations_ups.Dialation_up4.cost = new Decimal(1e35)
 Dialations_ups.Dialation_up4.level = new Decimal(0)
 Dialations.MatterDialation.inDialation = false
+Dialations.SoulsDialation.inDialation = false
 }

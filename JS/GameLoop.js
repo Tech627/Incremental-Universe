@@ -111,21 +111,22 @@ function GameLoop() {
     if(player.Matter.gte(1e6)) {
        HardCapRooted = HardCapRooted.add(player.Matter.cbrt(player.Matter.cbrt(50)))
        Matter_hardcap.classList.add("show-Matter-hardcap1")
-       player.MatterPerSec = player.MatterPerSec.cbrt(player.Matter.cbrt(50))
+       player.MatterPerSec = player.MatterPerSec.sqrt(HardCapRooted)
     }
     document.getElementById("Matter-hardcap1").textContent = "Your Matter/sec is hardcapped rooted by " + format(HardCapRooted)
 
     document.getElementById("Matter").textContent = "Matter: " + format(player.Matter);
     document.getElementById("MatterPerSec").textContent = format(player.MatterPerSec) + " Matter/sec";
     document.getElementById("Souls").textContent = "Souls: " + format(player.Souls);   
-    document.getElementById("Souls-Gain").textContent = "(+" + format(player.SoulsToGet) + ")";
+    document.getElementById("Souls-Gain").textContent = "(+" + format(player.SoulsToGet) + " on reset)";
     document.getElementById("Dark-matter-currency").textContent = "Dark Matter: " + format(player.Dark_Matter_currency)
+    document.getElementById("Dark-matter-gain").textContent = "(+" + format(player.Dark_MatterToGet) + " on reset)"
     if(player.Matter.lt(10000)) {
       player.SoulsToGet = new Decimal(0)
     }
     if(player.Matter.gte(10000)) {
       player.SoulsToGet = player.Matter.div(10000);  
-      player.SoulsToGet = player.SoulsToGet.add(player.SoulsPowerBoost.add(1))
+      player.SoulsToGet = player.SoulsToGet.mul(player.SoulsPowerBoost.add(1))
     } 
     if(Elements.el_6.bought === true) {
       player.Souls = player.Souls.add(Elements.el_6.boost)
@@ -185,9 +186,9 @@ function GameLoop() {
  if(Challenges.Challenge2.Completed === true) {
    Challenges.Challenge2.RewardBoost = Challenges.Challenge2.RewardBoost.add(Math.log10(Math.slog(Math.sqrt(player.Souls))))
  }
- document.getElementById("Up-boost").textContent = "Adds " + UQuark_1.effect + " free BH extractors"
- document.getElementById("Down-boost").textContent = "Boost Tickspeed by " + DQuark_1.effect + "x"
- document.getElementById("Mediator-boost").textContent = "Boost your Quarks by " + MQuark_1.effect + "x"
+ document.getElementById("Up-boost").textContent = "Adds " + format(UQuark_1.effect) + " free BH extractors"
+ document.getElementById("Down-boost").textContent = "Boost Tickspeed by " + format(DQuark_1.effect) + "x"
+ document.getElementById("Mediator-boost").textContent = "Boost your Quarks by " + format(MQuark_1.effect) + "x"
  if(Dialations.MatterDialation.inDialation === true) {
      player.MatterPerSec = player.MatterPerSec.slog(new Decimal(0.25))
      DialationPoints = DialationPoints.add(DialationPerSec.div(50))
@@ -264,11 +265,24 @@ if(Dialations.SoulsDialation.inDialation === false) {
     Radiation.DNAPerSec = Radiation.DNAPerSec.add(Lab_Research.Researches)
    }
  }
+ Radiation.mRNA = Radiation.mRNA.add(Radiation.mRNA_perSec.div(20));
+ Radiation.mRNA_perSec = Radiation.mRNA_perSec.mul(Radiation.mRNA_increaser);
+ Radiation.mRNA_boost = Radiation.mRNA_boost.add(Radiation.mRNA.div(1e3).div(1e4));
+ player.MatterPerSec = player.MatterPerSec.add(Radiation.mRNA_boost.sqrt(5));
+ Radiation.tRNA = Radiation.tRNA.add(Radiation.tRNA_perSec.div(20));
+ Radiation.tRNA_perSec = Radiation.tRNA_perSec.mul(Radiation.tRNA_increaser);
+ Radiation.tRNA_boost = Radiation.tRNA_boost.add(Radiation.tRNA.div(1e5).div(1e4));
+ player.QuarkToGet = player.QuarkToGet.add(Radiation.tRNA_boost.sqrt(7))
  document.getElementById("DNA").textContent = "You have " + format(Radiation.DNA_points) + " DNA"
  document.getElementById("DNA-PerSec").textContent = "+" + format(Radiation.DNAPerSec) + " DNA/sec"
  document.getElementById("Research-cost").textContent = "Cost: " + format(Lab_Research.cost) + " DNA"
  document.getElementById("RNA").textContent = "You have " + format(Radiation.RNA) + " RNA"
+ document.getElementById("mRNA").textContent = "You have " + format(Radiation.mRNA) + " mRNA +" + format(Radiation.mRNA_perSec) + "/sec (x" + format(Radiation.mRNA_increaser) + "/sec)"
+ document.getElementById("mRNA-boost").textContent = "Boosting your Matter by " + format(Radiation.mRNA_boost) + "x"
+ document.getElementById("tRNA").innerHTML = "You have " + format(Radiation.tRNA) + " tRNA <br>+" + format(Radiation.tRNA_perSec) + "/sec (x" + format(Radiation.tRNA_increaser) + "/sec)"
+ document.getElementById("tRNA-boost").textContent = "Boosting your Quarks by " + format(Radiation.tRNA_boost) + "x"
  document.getElementById("Best-ever-Matter").textContent = "Your best Matter is " + format(player.Matter)
+ document.getElementById("audio-game").loop = true
  }   
  setInterval(GameLoop,1000/20)
  setInterval(function() {

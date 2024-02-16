@@ -124,6 +124,17 @@ a {
     padding-right: 50px;
 }
 
+#Dark-matter-gain {
+    font-size: 12px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 140px;
+    padding-right: 50px;
+}
+
 #Souls-info {
     border: 1px solid white;
     background-color: black;
@@ -1601,6 +1612,50 @@ a {
     margin-right: auto;
     margin-top: 10px;
     visibility: hidden;
+}
+
+.mRNA {
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 250px;
+    margin-left: 840px;
+    color: blue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.mRNA-boost {
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 300px;
+    margin-left: 835px;
+    color: blue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.tRNA {
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 250px;
+    margin-left: 70px;
+    color: green;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.tRNA-boost {
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 300px;
+    margin-left: 40px;
+    color: green;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #Radiation-btn {
@@ -3349,8 +3404,31 @@ a {
     height: 30px;
     padding-top: 10px;
     border: 1px solid white;
-    margin-left: 300px;
+    margin-left: 250px;
     margin-top: 50px;
+}
+
+#Softcaps-for-generators {
+    width: 150px;
+    height: 30px;
+    padding-top: 10px;
+    border: 1px solid white;
+    margin-left: 470px;
+    margin-top: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.Sfg-stats {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 400px;
+    margin-top: 150px;
+    visibility: hidden;
 }
 
 #Best-ever-Matter {
@@ -3480,7 +3558,7 @@ a {
     font-size: 19px;
 }
 
-#Lore-button {
+#Softcaps-button {
     width: 200px;
     height: 35px;
     color: white;
@@ -3492,6 +3570,55 @@ a {
     top: 0;
     left: 0;
     margin-top: 413px;
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+#Softcaps-button:hover {
+    background-color: rgba(60, 57, 57, 0.652);
+}
+
+.Softcaps-styles {
+    width: 8px;
+    height: 58px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+}
+
+.Softcaps-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 530px;
+    margin-top: 20px;
+    font-size: 17px;
+    height: auto;
+    width: auto;
+    text-align: center;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
+
+#Lore-button {
+    width: 200px;
+    height: 35px;
+    color: white;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 3.5px solid  white;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 470px;
     padding-top: 20px;
     cursor: pointer;
     background-image: linear-gradient(90deg, navy, black)
@@ -3511,6 +3638,18 @@ a {
     left: 0;
     margin-top: 30px;
     margin-left: 250px;
+}
+
+#secret-chapter-link {
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: hsl(0, 0%, 7%);
+    width: 150px;
+    height: 30px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .Chapter-I-lore {

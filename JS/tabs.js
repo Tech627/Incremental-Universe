@@ -16,6 +16,7 @@ let Challanges_styles = document.getElementById("Challanges-styles");
 let Dark_Matter = document.getElementById("Dark-matter");
 let Dark_styles = document.getElementById("Dark-styles");
 let Stats = document.getElementById("Stats");
+let Sfg_stats = document.getElementById("Sfg-stats");
 let Stats_styles = document.getElementById("Stats-styles");
 let Main_stats = document.getElementById("Main-stats")
 let Options = document.getElementById("Options")
@@ -51,6 +52,8 @@ let Electron_boost = document.getElementById("Electron-boost");
 let Electron_boost1 = document.getElementById("Electron-boost1");
 let ElectronPerSec = document.getElementById("ElectronPerSec");
 let Dialation_tab_content = document.getElementById("Time-dialation-content");
+let Softcaps_styles = document.getElementById("Softcaps-styles");
+let Softcaps_content = document.getElementById("Softcaps-content");
 let Lore_content = document.getElementById("Lore");
 let Chapter_I_Lore = document.getElementById("Chapter-I-lore")
 
@@ -354,6 +357,9 @@ function OpenUpgrades() {
     Main_stats.classList.remove("show-Main-stats")
     Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
     Lore_content.classList.remove("show-Lore")
+    Softcaps_styles.classList.remove("show")
+    Softcaps_content.classList.remove("show")
+    Sfg_stats.classList.remove("show")
 }
 
 function OpenMain() {
@@ -410,6 +416,9 @@ function OpenMain() {
     Main_stats.classList.remove("show-Main-stats")
     Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
     Lore_content.classList.remove("show-Lore")
+    Softcaps_styles.classList.remove("show")
+    Softcaps_content.classList.remove("show")
+    Sfg_stats.classList.remove("show")
 }
 
 function OpenAchievements() {
@@ -468,6 +477,9 @@ function OpenAchievements() {
     Main_stats.classList.remove("show-Main-stats")
     Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
     Lore_content.classList.remove("show-Lore")
+    Softcaps_styles.classList.remove("show")
+    Softcaps_content.classList.remove("show")
+    Sfg_stats.classList.remove("show")
 }
 
 function OpenChallanges() {
@@ -528,6 +540,9 @@ function OpenChallanges() {
     Main_stats.classList.remove("show-Main-stats")
     Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
     Lore_content.classList.remove("show-Lore")
+    Softcaps_styles.classList.remove("show")
+    Softcaps_content.classList.remove("show")
+    Sfg_stats.classList.remove("show")
 }
 
 function OpenDarkMatter() {
@@ -559,6 +574,9 @@ function OpenDarkMatter() {
     Main_stats.classList.remove("show-Main-stats")
     Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
     Lore_content.classList.remove("show-Lore")
+    Softcaps_styles.classList.remove("show")
+    Softcaps_content.classList.remove("show")
+    Sfg_stats.classList.remove("show")
 }
 
 function OpenStats() {
@@ -581,12 +599,20 @@ function OpenStats() {
     BH_content.classList.remove("show-BH-content");
     Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
     Lore_content.classList.remove("show-Lore")
+    Softcaps_styles.classList.remove("show")
+    Softcaps_content.classList.remove("show")
 }
 
 function OpenMainStats() {
     Main_stats.classList.add("show-Main-stats")
     Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
     Lore_content.classList.remove("show-Lore")
+    Sfg_stats.classList.remove("show")
+}
+
+function OpenSfgStats() {
+    Sfg_stats.classList.add("show")
+    Main_stats.classList.remove("show-Main-stats")
 }
 
 function OpenOptions() {
@@ -646,6 +672,71 @@ function OpenOptions() {
     Main_stats.classList.remove("show-Main-stats")
     Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
     Lore_content.classList.remove("show-Lore")
+    Softcaps_styles.classList.remove("show")
+    Softcaps_content.classList.remove("show")
+    Sfg_stats.classList.remove("show")
+}
+
+function OpenSoftcaps() {
+    Softcaps_styles.classList.add("show")
+    Softcaps_content.classList.add("show")
+    Main.classList.remove("open-Main");
+    Achievements.classList.remove("open-Achievements");
+    Upgrades_container.classList.remove("open-Upgrades-container");
+    Upgrades_styles.classList.remove("show-Upgrades-styles");
+    Challanges.classList.remove("open-Challanges");
+    Skill_tree.classList.remove("open-Skills");
+    Reset.classList.remove("open-Rebirth");
+    Dark_Matter.classList.remove("open-Dark-matter");
+    Main_styles.classList.remove("show-Main-styles");
+    Upgrades_styles.classList.remove("show-Upgrades-styles");
+    Achievements_styles.classList.remove("show-Achievements-styles");
+    Challanges_styles.classList.remove("show-Challanges-styles");
+    Dark_styles.classList.remove("show-Dark-styles");
+    Tickspeed2.classList.remove("show-Tickspeed");
+    Tickspeed_cost.classList.remove("show-Tickspeed-cost");
+    Matter_content.classList.remove("show-Matter-content");
+    BH_tab.classList.remove("show-BH-tab");
+    BH_content.classList.remove("show-BH-content");
+    Quarks_tab.classList.remove("show-Quarks-tab");
+    Quarks_content.classList.remove("show-Quarks-content");
+    Atoms_content.classList.remove("show-Atoms-content");
+    Atoms_tab.classList.remove("show-Atoms-tab");
+    Proton.classList.remove("show-Proton");
+    Proton_boost.classList.remove("show-Proton-boost");
+    Neutron.classList.remove("show-Neutron");
+    Neutron_boost.classList.remove("show-Neutron-boost");
+    Electron.classList.remove("show-Electron");
+    Electron_boost.classList.remove("show-Electron-boost");
+    ProtonPerSec.classList.remove("show-ProtonPerSec");
+    NeutronPerSec.classList.remove("show-NeutronPerSec");
+    ElectronPerSec.classList.remove("show-ElectronPerSec");
+    Proton_boost1.classList.remove("show-Proton-boost1");
+    Neutron_boost1.classList.remove("show-Neutron-boost1");
+    Electron_boost1.classList.remove("show-Electron-boost1");
+    Molecules_content.classList.remove("show-Molecules-content");
+    Molecules_tab.classList.remove("show-Molecules-tab");
+    Up_Quark.classList.remove("show-up-Quark")
+    Down_Quark.classList.remove("show-Down-Quark")
+    Challenge_01.classList.remove("show-Challange1")
+    Finnish_button.classList.remove("show-Finnish-button")
+    Dialation_tab_content.classList.remove("show-Time-dialation-content")
+    Radiation_content.classList.remove("show-Radiation-content")
+    Radiation_content_tab.classList.remove("show-Radiation-content-tab");
+    Lab_Research_tab.classList.remove("show-Lab-Research-tab")
+    Lab_Research_content.classList.remove("show-Lab-Research-content")
+    RNA.classList.remove("show-RNA")
+    RNA_transfer.classList.remove("show-RNA-transfer")
+    Challenge_01.classList.remove("show-Challange1")
+    Challenge_02.classList.remove("show-Challegne2")
+    Stats_styles.classList.remove("show-Stats-styles")
+    Stats.classList.remove("open-Stats")
+    Main_stats.classList.remove("show-Main-stats")
+    Chapter_I_Lore.classList.remove("show-Chapter-I-lore")
+    Lore_content.classList.remove("show-Lore")
+    Options.classList.remove("open-Options");
+    Options_styles.classList.remove("show-Options-styles");
+    Sfg_stats.classList.remove("show")
 }
 
 function OpenLoreContent() {
@@ -702,6 +793,9 @@ function OpenLoreContent() {
     Stats_styles.classList.remove("show-Stats-styles")
     Stats.classList.remove("open-Stats")
     Main_stats.classList.remove("show-Main-stats")
+    Softcaps_styles.classList.remove("show")
+    Softcaps_content.classList.remove("show")
+    Sfg_stats.classList.remove("show")
 }
 
 function OpenChapterILore() {
