@@ -6,7 +6,7 @@
     <link rel="icon" href="images/Matter icon.jpg">
     <title>Incremental Universe</title>
 </head>
-<body onload="Get()">
+<body onload="Get()" id="body">
     <div class="Dialation-container" id="Dialation-container">
         <div class="bubbles">
             <span style="--i:11"></span>
@@ -108,10 +108,10 @@
     <div class="Main-styles" id="Main-styles" onclick="MainStyles()"></div>
     </div>
     <div class="Main" id="Main">
-        <div id="Matter-button" onclick="OpenMC()"> Matter 
+        <div id="Matter-button" onclick="OpenMC()"> Matter </div>
             <div class="Matter-content" id="Matter-content">
                 <div id="Matter-generator-Icon"><img src="images/matter generator 1.png" id="Matter-generatorImg"></div>
-                <div id="Matter-generator"> Matter Generator [0] </div>
+                <div id="Matter-generator"> Matter Generator [0] </div> 
                 <div id="Matter-generator-cost" onclick="MatterGenerator()"> Cost: 10 </div>
                 <div id="Matter-boost"> Matter Boost [0] </div>
                 <div id="Matter-boost-cost" onclick="MatterBoost()"> Cost: 100 </div> 
@@ -124,7 +124,6 @@
                     <div id="Universal-Collapse-cost"> Cost: 150 Matter </div>
                 </div>
             </div>
-        </div>
         <div class="BH-tab" id="BH-tab" onclick="OpenBH()"> Black Hole </div>
             <div class="BH-content" id="BH-content">
                 <div id="Black-Hole"> You have formed 0 Black Holes </div>
@@ -514,12 +513,19 @@
        <button id="Save-btn" onclick="Save()"> Save </button>
        <button id="Discord-btn"><a href="https://discord.gg/jQqeYA4NzH"> Discord server </a></button>
        <button id="Hard-Reset" onclick="HardReset()"> Hard Reset </button>
+       <button id="Font-changer" onclick="OpenFontContent()"> Font </button>
+       <div class="Font-content" id="Font-content">
+        <div id="Verdana-font" onclick="ChangeToVerdanaFont()"> Verdana </div>
+        <div id="Arial-font" onclick="ChangeToArialFont()"> Arial </div>
+        <div id="close-Font-content" onclick="CloseFontContent()"> X </div>
+       </div>
        <div id="Options-text">Incremental Universe - v0.2.5 Patch Note 1.5
        <br>   Title: Unlocking Era
        <br>- new elements (not working in this patch. You can still see effects)
        <br>- new types of Quarks! (finished)
        <br>- 2 new types of DNA (not finished)
        <br>- added how much you will get dark matter on reset (finished)
+       <br>- Better GUI and UI
        <br>- more stuff to Stats tab (halfly finished)
        <br>- even more Research upgrades (not finished)
        <br>
@@ -543,7 +549,7 @@
             Your Quarks gain boost by tRNA is square rooted by 7.
         </div>
     </div>
-    <div id="Lore-button" role="tab" onclick="OpenLoreContent()"> Lore </div>
+    <div class="Lore-button" id="Lore-button" role="tab" onclick="OpenLoreContent()"> Lore </div>
     <div class="Lore" id="Lore">
         <div id="Chapter-I-button" onclick="OpenChapterILore()"> Chapter I </div>
         <div class="Chapter-I-lore" id="Chapter-I-lore">
@@ -596,5 +602,6 @@
 <script src="JS/Dialations.js"></script>
 <script src="JS/Radiation.js"></script>
 <script src="JS/tabs.js"></script>
+<script src="JS/FontChanger.js"></script>
 <script src="JS/GameLoop.js"></script>
 </html>

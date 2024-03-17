@@ -8,16 +8,37 @@ function GameLoop() {
        MatterGenPower = MatterGenPower.mul(player.Souls.div(new Decimal(100))) // Multiply for souls upgrade 4
     }
     MatterGenPower = MatterGenPower.add(Challenges.Challenge1.RewardBoost)
+    if(player.Matter.lt(MatterGenerator_1.cost)) {
+      document.getElementById("Matter-generator-cost").style.backgroundColor = "red"
+      document.getElementById("Matter-generator-cost").style.cursor = "default"
+    }
+    if(player.Matter.gte(MatterGenerator_1.cost)) {
+      document.getElementById("Matter-generator-cost").style.cursor = "pointer"
+    }
+    if(player.Matter.lt(MatterBoost_1.cost)) {
+      document.getElementById("Matter-boost-cost").style.backgroundColor = "red"
+      document.getElementById("Matter-boost-cost").style.cursor = "default"
+    }
+    if(player.Matter.gte(MatterBoost_1.cost)) {
+      document.getElementById("Matter-boost-cost").style.cursor = "pointer"
+    }
+    if(player.Matter.lt(MatterExtent_1.cost)) {
+      document.getElementById("Matter-extent-cost").style.backgroundColor = "red"
+      document.getElementById("Matter-extent-cost").style.cursor = "default"
+    }
+    if(player.Matter.gte(MatterExtent_1.cost)) {
+      document.getElementById("Matter-extent-cost").style.cursor = "pointer"
+    }
     if(MatterGenerator_1.amount.lt(50)) {
-      document.getElementById("Matter-generator").textContent = "Matter Generator [ " + format(MatterGenerator_1.amount) + " ]";
+      document.getElementById("Matter-generator").innerHTML = "Matter Generator [ " + format(MatterGenerator_1.amount) + " ]"
       document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
     }
     if(MatterGenerator_1.amount.gte(50)) {
-      document.getElementById("Matter-generator").textContent = "Weaken Matter Generator [ " + format(MatterGenerator_1.amount) + " ]";
+      document.getElementById("Matter-generator").innerHTML = "Weaken Matter Generator [ " + format(MatterGenerator_1.amount) + " ]";
       document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
     }
     if(MatterGenerator_1.amount.gte(200)) {
-      document.getElementById("Matter-generator").textContent = "Drastic Matter Generator [ " + format(MatterGenerator_1.amount) + " ]";
+      document.getElementById("Matter-generator").innerHTML = "Drastic Matter Generator <br>[ " + format(MatterGenerator_1.amount) + " ]";
       document.getElementById("Matter-generator-cost").textContent = "Cost: " + format(MatterGenerator_1.cost);
     }
     // Adding the flat amount increase to the generation first to allow for proper multiplication and exponation
@@ -33,15 +54,15 @@ function GameLoop() {
     }   
     MatterBoostPower = MatterBoostPower.add(Challenges.Challenge1.RewardBoost)
     if(MatterBoost_1.amount.lt(50)) {
-      document.getElementById("Matter-boost").textContent = "Matter Boost [ " + format(MatterBoost_1.amount) + " ]";
+      document.getElementById("Matter-boost").innerHTML = "Matter Boost<br> [ " + format(MatterBoost_1.amount) + " ]";
       document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
     }
     if(MatterBoost_1.amount.gte(50)) {
-      document.getElementById("Matter-boost").textContent = "Weaken Matter Boost [ " + format(MatterBoost_1.amount) + " ]";
+      document.getElementById("Matter-boost").innerHTML = "Weaken Matter Boost<br> [ " + format(MatterBoost_1.amount) + " ]";
       document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
     }
     if(MatterBoost_1.amount.gte(200)) {
-      document.getElementById("Matter-boost").textContent = "Drastic Matter Boost [ " + format(MatterBoost_1.amount) + " ]";
+      document.getElementById("Matter-boost").innerHTML = "Drastic Matter Boost<br> [ " + format(MatterBoost_1.amount) + " ]";
       document.getElementById("Matter-boost-cost").textContent = "Cost: " + format(MatterBoost_1.cost);
     }
     // Multiplying generation alongside adding 1 to the multiplier incase that the play does not have any multiplier
@@ -67,18 +88,18 @@ function GameLoop() {
  
     MatterExtentPower = MatterExtentPower.add(Challenges.Challenge1.RewardBoost)
     if(MatterExtent_1.amount.lt(10)) {
-      document.getElementById("Matter-extent").textContent = "Matter Extent [ " + format(MatterExtent_1.amount) + " ]"
+      document.getElementById("Matter-extent").innerHTML = "Matter Extent<br> [ " + format(MatterExtent_1.amount) + " ]"
       document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
     }
     if(MatterExtent_1.amount.gte(10)) {
-      document.getElementById("Matter-extent").textContent = "Weaken Matter Extent [ " + format(MatterExtent_1.amount) + " ]"
+      document.getElementById("Matter-extent").innerHTML = "Weaken Matter Extent<br> [ " + format(MatterExtent_1.amount) + " ]"
       document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
     }
     if(MatterExtent_1.amount.gte(30)) {
-      document.getElementById("Matter-extent").textContent = "Drastic Matter Extent [ " + format(MatterExtent_1.amount) + " ]"
+      document.getElementById("Matter-extent").innerHTML = "Drastic Matter Extent<br> [ " + format(MatterExtent_1.amount) + " ]"
       document.getElementById("Matter-extent-cost").textContent = "Cost: " + format(MatterExtent_1.cost);
     }
-    document.getElementById("Tickspeed").textContent = "Tickspeed [" + format(Tickspeed1.amount) + "]";
+    document.getElementById("Tickspeed").innerHTML = "Tickspeed<br> [ " + format(Tickspeed1.amount) + " ]";
     document.getElementById("Tickspeed-cost").textContent = "Cost: " + format(Tickspeed1.cost) + " Souls";
     document.getElementById("Universal-Collapse-cost").textContent = "Cost: " + format(UniversalCollapse1.cost)
 
@@ -265,13 +286,15 @@ if(Dialations.SoulsDialation.inDialation === false) {
     Radiation.DNAPerSec = Radiation.DNAPerSec.add(Lab_Research.Researches)
    }
  }
- Radiation.mRNA = Radiation.mRNA.add(Radiation.mRNA_perSec.div(20));
- Radiation.mRNA_perSec = Radiation.mRNA_perSec.mul(Radiation.mRNA_increaser);
- Radiation.mRNA_boost = Radiation.mRNA_boost.add(Radiation.mRNA.div(1e3).div(1e4));
+ if(Elements.el_17.bought === true) {
+  Radiation.mRNA = Radiation.mRNA.add(Radiation.mRNA_perSec.div(20));
+  Radiation.mRNA_perSec = Radiation.mRNA_perSec.mul(Radiation.mRNA_increaser);
+  Radiation.mRNA_boost = Radiation.mRNA_boost.add(Radiation.mRNA.div(1e3).div(1e4));
+  Radiation.tRNA = Radiation.tRNA.add(Radiation.tRNA_perSec.div(20));
+  Radiation.tRNA_perSec = Radiation.tRNA_perSec.mul(Radiation.tRNA_increaser);
+  Radiation.tRNA_boost = Radiation.tRNA_boost.add(Radiation.tRNA.div(1e5).div(1e4));
+ }
  player.MatterPerSec = player.MatterPerSec.add(Radiation.mRNA_boost.sqrt(5));
- Radiation.tRNA = Radiation.tRNA.add(Radiation.tRNA_perSec.div(20));
- Radiation.tRNA_perSec = Radiation.tRNA_perSec.mul(Radiation.tRNA_increaser);
- Radiation.tRNA_boost = Radiation.tRNA_boost.add(Radiation.tRNA.div(1e5).div(1e4));
  player.QuarkToGet = player.QuarkToGet.add(Radiation.tRNA_boost.sqrt(7))
  document.getElementById("DNA").textContent = "You have " + format(Radiation.DNA_points) + " DNA"
  document.getElementById("DNA-PerSec").textContent = "+" + format(Radiation.DNAPerSec) + " DNA/sec"

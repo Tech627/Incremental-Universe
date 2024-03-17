@@ -20,6 +20,7 @@ let Sfg_stats = document.getElementById("Sfg-stats");
 let Stats_styles = document.getElementById("Stats-styles");
 let Main_stats = document.getElementById("Main-stats")
 let Options = document.getElementById("Options")
+let Font_content = document.getElementById("Font-content")
 let Options_styles = document.getElementById("Options-styles");
 let Skill_tree = document.getElementById("Skills");
 let Radiation_content_tab = document.getElementById("Radiation-content-tab");
@@ -246,6 +247,7 @@ function OpenRadiation() {
     Up_Quark.classList.remove("show-up-Quark")
     Down_Quark.classList.remove("show-Down-Quark")
     Dialation_tab_content.classList.remove("show-Time-dialation-content")
+    Molecules_content.classList.remove("show-Molecules-content");
 }
 
 function OpenDnaContent() {
@@ -360,6 +362,7 @@ function OpenUpgrades() {
     Softcaps_styles.classList.remove("show")
     Softcaps_content.classList.remove("show")
     Sfg_stats.classList.remove("show")
+    Font_content.classList.remove("show")
 }
 
 function OpenMain() {
@@ -419,6 +422,7 @@ function OpenMain() {
     Softcaps_styles.classList.remove("show")
     Softcaps_content.classList.remove("show")
     Sfg_stats.classList.remove("show")
+    Font_content.classList.remove("show")
 }
 
 function OpenAchievements() {
@@ -480,6 +484,7 @@ function OpenAchievements() {
     Softcaps_styles.classList.remove("show")
     Softcaps_content.classList.remove("show")
     Sfg_stats.classList.remove("show")
+    Font_content.classList.remove("show")
 }
 
 function OpenChallanges() {
@@ -543,6 +548,7 @@ function OpenChallanges() {
     Softcaps_styles.classList.remove("show")
     Softcaps_content.classList.remove("show")
     Sfg_stats.classList.remove("show")
+    Font_content.classList.remove("show")
 }
 
 function OpenDarkMatter() {
@@ -577,6 +583,7 @@ function OpenDarkMatter() {
     Softcaps_styles.classList.remove("show")
     Softcaps_content.classList.remove("show")
     Sfg_stats.classList.remove("show")
+    Font_content.classList.remove("show")
 }
 
 function OpenStats() {
@@ -590,6 +597,8 @@ function OpenStats() {
     Dark_styles.classList.remove("show-Dark-styles");
     Options_styles.classList.remove("show-Options-styles");
     Main.classList.remove("open-Main");
+    Tickspeed2.classList.remove("show-Tickspeed")
+    Tickspeed_cost.classList.remove("show-Tickspeed-cost")
     Achievements.classList.remove("open-Achievements");
     Upgrades_container.classList.remove("open-Upgrades-container");
     Challanges.classList.remove("open-Challanges");
@@ -601,6 +610,7 @@ function OpenStats() {
     Lore_content.classList.remove("show-Lore")
     Softcaps_styles.classList.remove("show")
     Softcaps_content.classList.remove("show")
+    Font_content.classList.remove("show")
 }
 
 function OpenMainStats() {
@@ -737,6 +747,7 @@ function OpenSoftcaps() {
     Options.classList.remove("open-Options");
     Options_styles.classList.remove("show-Options-styles");
     Sfg_stats.classList.remove("show")
+    Font_content.classList.remove("show")
 }
 
 function OpenLoreContent() {
@@ -796,8 +807,17 @@ function OpenLoreContent() {
     Softcaps_styles.classList.remove("show")
     Softcaps_content.classList.remove("show")
     Sfg_stats.classList.remove("show")
+    Font_content.classList.remove("show")
 }
 
 function OpenChapterILore() {
     Chapter_I_Lore.classList.add("show-Chapter-I-lore")
+}
+
+function OpenFontContent() {
+    Font_content.classList.add("show")
+}
+
+function CloseFontContent() {
+    Font_content.classList.remove("show")
 }

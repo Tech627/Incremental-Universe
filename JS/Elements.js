@@ -1,48 +1,80 @@
 let Elements = {
     el_1: {
-        cost: 1e10,
-        boost: 1,
+        cost: new Decimal(1e10),
+        boost: new Decimal(1),
         bought: false,
     },
     el_2: {
-        cost: 1e200,
-        boost: 1,
+        cost: new Decimal(1e200),
+        boost: new Decimal(1),
         bought: false,
     },
     el_3: {
-        cost: 1e17,
+        cost: new Decimal(1e17),
         bought: false,
     },
     el_4: {
-        cost: 1e20,
+        cost: new Decimal(1e20),
         bought: false,
     },
     el_5: {
-        cost: 1e30,
-        boost: 1,
+        cost: new Decimal(1e30),
+        boost: new Decimal(1),
         bought: false,
     },
     el_6: {
-        cost: 1e70,
-        boost: 1,
+        cost: new Decimal(1e70),
+        boost: new Decimal(1),
         bought: false,
     },
     el_7: {
-        cost: 1e90,
-        boost: 1,
+        cost: new Decimal(1e90),
+        boost: new Decimal(1),
         bought: false,
     },
     el_8: {
-        cost: 1e60,
-        boost: 1,
+        cost: new Decimal(1e60),
+        boost: new Decimal(1),
         bought: false,
     },
     el_9: {
-        cost: 1e110,
+        cost: new Decimal(1e110),
         bought: false,
     },
     el_10: {
-        cost: 1e80,
+        cost: new Decimal(1e80),
+        bought: false,
+    },
+    el_11: {
+        cost: new Decimal(1e95),
+        bought: false,
+    },
+    el_12: {
+        cost: new Decimal(1e120),
+        bought: false,
+    },
+    el_13: {
+        cost: new Decimal(1e150),
+        bought: false,
+    },
+    el_14: {
+        cost: new Decimal(1e190),
+        bought: false,
+    },
+    el_15: {
+        cost: new Decimal(1e215),
+        bought: false,
+    },
+    el_16: {
+        cost: new Decimal(1e275),
+        bought: false,
+    },
+    el_17: {
+        cost: new Decimal(1e308),
+        bought: false,
+    },
+    el_18: {
+        cost: new Decimal(1e400),
         bought: false,
     },
 }
